@@ -1,0 +1,171 @@
+package net.nooj4nlp.gui.dialogs;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
+
+import net.nooj4nlp.controller.MorphologyDialog.ButtonListener;
+import net.nooj4nlp.controller.MorphologyDialog.ListListener;
+import net.nooj4nlp.controller.MorphologyDialog.RadioListener;
+import net.nooj4nlp.engine.Language;
+
+/**
+ * 
+ * Morphology lab dialog
+ * 
+ */
+@SuppressWarnings("serial")
+public class MorphologyDialog extends JInternalFrame
+{
+
+	/**
+	 * Creates the frame.
+	 */
+	public MorphologyDialog()
+	{
+		setTitle("Morphology");
+		setClosable(true);
+		setIconifiable(true);
+		setBounds(400, 100, 532, 598);
+		getContentPane().setLayout(null);
+
+		JPanel pnlLanguage = new JPanel();
+		pnlLanguage.setBorder(new TitledBorder(null, "Select Language:", TitledBorder.LEADING, TitledBorder.TOP, null,
+				null));
+		pnlLanguage.setBounds(10, 11, 135, 233);
+		getContentPane().add(pnlLanguage);
+		pnlLanguage.setLayout(null);
+
+		JLabel lblLanguage = new JLabel("language");
+		lblLanguage.setBounds(10, 21, 115, 37);
+		pnlLanguage.add(lblLanguage);
+
+		DefaultListModel model = new DefaultListModel();
+		String[] languages = Language.getAllLanguages();
+		for (int i = 0; i < languages.length; i++)
+			model.add(i, languages[i]);
+		JList listLanguage = new JList(model);
+
+		JScrollPane scrollPane = new JScrollPane(listLanguage, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		scrollPane.setBounds(10, 69, 115, 123);
+		pnlLanguage.add(scrollPane);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(155, 11, 351, 233);
+		getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+
+		JRadioButton rdbtnWordCommand = new JRadioButton("Enter one simple or compound word and one Command:");
+		rdbtnWordCommand.setBounds(6, 7, 319, 23);
+		panel_1.add(rdbtnWordCommand);
+
+		JLabel lblWordRoot = new JLabel("Word/Root:");
+		lblWordRoot.setBounds(48, 35, 64, 14);
+		panel_1.add(lblWordRoot);
+
+		JComboBox comboWordRoot = new JComboBox();
+		comboWordRoot.setEditable(true);
+		comboWordRoot.setBounds(114, 31, 227, 23);
+		panel_1.add(comboWordRoot);
+
+		JLabel lblCommandSuffix = new JLabel("Command/Suffix:");
+		lblCommandSuffix.setBounds(22, 70, 90, 14);
+		panel_1.add(lblCommandSuffix);
+
+		JComboBox comboCommandSuffix = new JComboBox();
+		comboCommandSuffix.setEditable(true);
+		comboCommandSuffix.setBounds(114, 66, 227, 23);
+		panel_1.add(comboCommandSuffix);
+
+		JRadioButton rdbtnLemmaExpression = new JRadioButton(
+				"Enter a lemma and an inflectional/derivational expression");
+		rdbtnLemmaExpression.setBounds(6, 95, 339, 23);
+		panel_1.add(rdbtnLemmaExpression);
+
+		JLabel lblLemma = new JLabel("Lemma:");
+		lblLemma.setBounds(68, 125, 44, 14);
+		panel_1.add(lblLemma);
+
+		JComboBox comboLemma = new JComboBox();
+		comboLemma.setEditable(true);
+		comboLemma.setBounds(114, 122, 227, 23);
+		panel_1.add(comboLemma);
+
+		JLabel lblExpression = new JLabel("Expression:");
+		lblExpression.setBounds(49, 158, 63, 14);
+		panel_1.add(lblExpression);
+
+		JComboBox comboExpression = new JComboBox();
+		comboExpression.setEditable(true);
+		comboExpression.setBounds(114, 156, 227, 23);
+		panel_1.add(comboExpression);
+
+		JRadioButton rdbtnLookup = new JRadioButton("Lookup a word:");
+		rdbtnLookup.setBounds(6, 194, 99, 23);
+		panel_1.add(rdbtnLookup);
+
+		ButtonGroup grpMorphology = new ButtonGroup();
+		grpMorphology.add(rdbtnLemmaExpression);
+		grpMorphology.add(rdbtnLookup);
+		grpMorphology.add(rdbtnWordCommand);
+
+		JComboBox comboLookup = new JComboBox();
+		comboLookup.setEditable(true);
+		comboLookup.setBounds(114, 195, 227, 23);
+		panel_1.add(comboLookup);
+
+		JButton btnInflectderive = new JButton("Inflect/Derive");
+		btnInflectderive.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnInflectderive.setBackground(Color.GREEN);
+		btnInflectderive.setBounds(10, 255, 496, 34);
+		getContentPane().add(btnInflectderive);
+
+		JPanel pnlResult = new JPanel();
+		pnlResult.setBorder(new TitledBorder(null, "Result:", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pnlResult.setBounds(10, 300, 496, 260);
+		getContentPane().add(pnlResult);
+		pnlResult.setLayout(new BorderLayout(0, 0));
+
+		DefaultListModel resultModel = new DefaultListModel();
+		JList listResult = new JList(resultModel);
+		pnlResult.add(listResult, BorderLayout.CENTER);
+		listResult.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+
+		// adding listeners
+		listLanguage.addListSelectionListener(new ListListener(listLanguage, comboWordRoot, comboCommandSuffix,
+				comboLemma, comboExpression, comboLookup, lblLanguage));
+		RadioListener listener1 = new RadioListener(comboWordRoot, comboCommandSuffix, comboLemma, comboExpression,
+				comboLookup, rdbtnWordCommand, rdbtnLemmaExpression, rdbtnLookup);
+		rdbtnWordCommand.addActionListener(listener1);
+		rdbtnLemmaExpression.addActionListener(listener1);
+		rdbtnLookup.addActionListener(listener1);
+		btnInflectderive.addActionListener(new ButtonListener(listLanguage, comboWordRoot, comboCommandSuffix,
+				comboLemma, comboExpression, comboLookup, rdbtnWordCommand, rdbtnLemmaExpression, rdbtnLookup,
+				resultModel, pnlResult));
+
+		// FIXME: default language instead of "en"
+		Language lan = new Language("en");
+		listLanguage.setSelectedValue(lan.isoName, true);
+
+		rdbtnWordCommand.setSelected(true);
+		comboLemma.setEnabled(false);
+		comboExpression.setEnabled(false);
+		comboLookup.setEnabled(false);
+	}
+}

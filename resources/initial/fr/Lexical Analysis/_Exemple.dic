@@ -1,0 +1,92 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: fr
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' description files (.nof), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+## Max Silberztein
+## Ce dictionnaire montre comment décrire :
+## des mots invariables,
+## des variantes orthographiques,
+## des noms et verbes associés à des paradigmes flexionnels,
+## des verbes associés à des paradigmes dérivationnels (préfixation & suffixation)
+## des noms composés qui se fléchissent.
+##
+
+#####################################################
+# Les deux instructions suivantes disent où sont rangés
+# les paradigmes flexionnels et dérivationnels
+#####################################################
+
+#use _Exemple.nof
+# on peut aussi décrire des paradigmes morphologiques avec des grammaires graphiques, ex. : #use _ExempleFlexionNoms.nof
+
+###########################
+# Quelques mots invariables
+###########################
+
+de,PREP
+et,CONJC # on peut mettre des commentaires
+
+###############
+# Quelques noms
+###############
+
+académique,N+FLX=Artiste+Hum # académique se fléchit selon le modèle "Artiste"
+abdomen,N+FLX=Crayon+Conc+Alim # abdomen se fléchit selon le modèle "Crayon"
+cheval,N+FLX=Cheval+Anim
+adhérent,N+FLX=Cousin+Hum
+ordinateur,N+FLX=Crayon+Conc
+table,N+FLX=Table+Conc
+voisin,N+FLX=Cousin+Hum
+voiture,N+FLX=Table+Conc # voiture se fléchit selon le modèle "Table"
+
+###########################################
+# Variantes orthographiques ou synonymiques
+###########################################
+
+tsar,N+Hum+FLX=Crayon # il faut décrire la forme canonique
+
+csar,tsar,N+Hum+FLX=Crayon # chaque variante est liée à la forme canonique
+czar,tsar,N+Hum+FLX=Crayon
+tzar,tsar,N+Hum+FLX=Crayon
+
+#######################################
+# Quelques verbes avec leur conjugaison
+#######################################
+
+# aider et aimer se conjuguent selon le modèle "Aimer"
+
+aider,V+tr+FLX=Aimer
+aimer,V+tr+FLX=Aimer
+avoir,V+aux+FLX=Avoir
+
+######################
+# Quelques dérivations
+######################
+
+monter,V+tr+FLX=Aimer+DRV=Re
+# monter se dérive en remonter, qui se conjugue de façon identique
+
+voler,V+tr+FLX=Aimer+DRV=Re+DRV=Able:Artiste
+# "voler" se dérive en "volable", qui se fléchit comme "Artiste"
+
+manger,V+tr+FLX=Manger+DRV=Re+DRV=Eable:Artiste
+# "manger" se dérive en "mangeable", qui se fléchit comme "Artiste"
+
+##########################################
+# Quelques noms composés avec leur flexion
+##########################################
+
+cousin germain,N+Hum+FLX=CousinGermain
+pomme de terre,N+Conc+FLX=PommeDeTerre
+table ronde,N+Abst+FLX=TableRonde

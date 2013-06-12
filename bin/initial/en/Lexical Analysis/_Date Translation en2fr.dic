@@ -1,0 +1,42 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: en
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' and properties' definition files (.nof or .def), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+
+# Days
+Monday,N+DateDayName+FR"=lundi"
+Tuesday,N+DateDayName+FR"=mardi"
+Wednesday,N+DateDayName+FR"=mercredi"
+Thursday,N+DateDayName+FR"=jeudi"
+Friday,N+DateDayName+FR"=vendredi"
+Saturday,N+DateDayName+FR"=samedi"
+Sunday,N+DateDayName+FR"=dimanche"
+
+# Months
+January,N+DateMonthName+FR"=janvier"
+February,N+DateMonthName+FR"=février"
+March,N+DateMonthName+FR"=mars"
+April,N+DateMonthName+FR"=avril"
+May,N+DateMonthName+FR"=mai"
+June,N+DateMonthName+FR"=juin"
+July,N+DateMonthName+FR"=juillet"
+August,N+DateMonthName+FR"=août"
+September,N+DateMonthName+FR"=septembre"
+Septembre,N+DateMonthName+FR"=septembre"
+October,N+DateMonthName+FR"=octobre"
+Octobre,N+DateMonthName+FR"=octobre"
+November,N+DateMonthName+FR"=novembre"
+Novembre,N+DateMonthName+FR"=novembre"
+December,N+DateMonthName+FR"=décembre"
+Decembre,N+DateMonthName+FR"=décembre"

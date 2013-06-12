@@ -1,0 +1,29 @@
+package net.nooj4nlp.gui.actions.shells.modify;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JPanel;
+
+/**
+ * 
+ * ActionListener that switches between editor and table dictionary views
+ *
+ */
+public class SwapDictionaryViewActionListener implements ActionListener {
+
+	private JPanel editorPane;
+	private JPanel tablePane;
+	
+	public SwapDictionaryViewActionListener(JPanel ep, JPanel tp){
+		editorPane = ep;
+		tablePane = tp;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		editorPane.setVisible(!editorPane.isVisible());
+		tablePane.setVisible(!tablePane.isVisible());
+	}
+
+}

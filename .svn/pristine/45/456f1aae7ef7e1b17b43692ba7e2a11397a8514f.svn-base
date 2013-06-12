@@ -1,0 +1,275 @@
+package net.nooj4nlp.controller.GraphPresentationDialog;
+
+import java.awt.Font;
+
+import net.nooj4nlp.controller.GrammarEditorShell.GrammarEditorShellController;
+import net.nooj4nlp.engine.Grammar;
+import net.nooj4nlp.engine.Preferences;
+import net.nooj4nlp.gui.components.UsualColoredButtonUI;
+import net.nooj4nlp.gui.dialogs.GraphPresentationDialog;
+import net.nooj4nlp.gui.main.Launcher;
+
+/**
+ * Class implements window of Grammar's presentation.
+ */
+
+public class GraphPresentationController
+{
+	// presentation dialog and grammar controller
+	private GraphPresentationDialog dialog;
+	private GrammarEditorShellController grammarController;
+
+	// active fonts and current grammar
+	private Font iFont, oFont, cFont;
+	private Grammar currentGrammar;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param dialog
+	 *            - active presentation dialog
+	 * @param grammarController
+	 *            - controller of the opened grammar
+	 */
+	public GraphPresentationController(GraphPresentationDialog dialog, GrammarEditorShellController grammarController)
+	{
+		this.dialog = dialog;
+		this.grammarController = grammarController;
+	}
+
+	/**
+	 * Function responsible for initial setting of dialog component's values.
+	 */
+
+	public void showDialog()
+	{
+		currentGrammar = this.grammarController.grammar;
+
+		this.dialog.getCbDate().setSelected(currentGrammar.dispDate);
+		this.dialog.getCbFrame().setSelected(currentGrammar.dispFrame); // display frame or not.
+		this.dialog.getCbFileName().setSelected(currentGrammar.dispFile); // display file name
+		this.dialog.getCbDirName().setSelected(currentGrammar.dispDir); // display file name
+		this.dialog.getCbAuthor().setSelected(currentGrammar.dispAuthor); // display Author
+		this.dialog.getCbInstitution().setSelected(currentGrammar.dispInstitution); // display Author
+		this.dialog.getCbCircleEmptyNodes().setSelected(currentGrammar.dispState); // display circles (true) or arrows
+																					// (false) for <E>
+		// nodes
+		Font grammarIFont = grammarController.iFont;
+		iFont = new Font(grammarIFont.getFamily(), grammarIFont.getStyle(), grammarIFont.getSize());
+		String labelInputText = iFont.getFamily() + ", " + iFont.getSize(); // input font
+		if (iFont.isBold())
+			labelInputText += ", Bold";
+		if (iFont.isItalic())
+			labelInputText += ", Italic";
+		this.dialog.getLabelInput().setText(labelInputText);
+
+		Font grammarOFont = grammarController.oFont;
+		oFont = new Font(grammarOFont.getFamily(), grammarOFont.getStyle(), grammarOFont.getSize());
+		String labelOutputText = oFont.getFamily() + ", " + oFont.getSize(); // output font
+		if (oFont.isBold())
+			labelOutputText += ", Bold";
+		if (oFont.isItalic())
+			labelOutputText += ", Italic";
+		this.dialog.getLabelOutput().setText(labelOutputText);
+
+		Font grammarCFont = grammarController.cFont;
+		cFont = new Font(grammarCFont.getFamily(), grammarCFont.getStyle(), grammarCFont.getSize());
+		String labelComText = cFont.getFamily() + ", " + cFont.getSize(); // comment font
+		if (cFont.isBold())
+			labelComText += ", Bold";
+		if (cFont.isItalic())
+			labelComText += ", Italic";
+		this.dialog.getLabelCom().setText(labelComText);
+
+		// auxiliary node color
+		this.dialog.getButtonAuxiliary().setUI(new UsualColoredButtonUI(currentGrammar.aColor, currentGrammar.fColor));
+		// background color
+		this.dialog.getButtonBackground().setUI(new UsualColoredButtonUI(currentGrammar.bColor, currentGrammar.fColor));
+		// comment color
+		this.dialog.getButtonComments().setUI(new UsualColoredButtonUI(currentGrammar.cColor, currentGrammar.fColor));
+		// foreground color
+		this.dialog.getButtonForeground().setUI(new UsualColoredButtonUI(currentGrammar.fColor, currentGrammar.bColor));
+		// selected node color
+		this.dialog.getButtonSelection().setUI(new UsualColoredButtonUI(currentGrammar.sColor, currentGrammar.fColor));
+		// variable color
+		this.dialog.getButtonVariables().setUI(new UsualColoredButtonUI(currentGrammar.vColor, currentGrammar.fColor));
+	}
+
+	/**
+	 * Function applies visual changes set in Presentation dialog to currently opened grammar.
+	 */
+
+	public void apply()
+	{
+		currentGrammar.dispDate = this.dialog.getCbDate().isSelected();
+		currentGrammar.dispFrame = this.dialog.getCbFrame().isSelected(); // display frame or not
+		currentGrammar.dispFile = this.dialog.getCbFileName().isSelected(); // display file name
+		currentGrammar.dispDir = this.dialog.getCbDirName().isSelected(); // display file name
+		currentGrammar.dispAuthor = this.dialog.getCbAuthor().isSelected(); // display Author
+		currentGrammar.dispInstitution = this.dialog.getCbInstitution().isSelected(); // display Author
+		currentGrammar.dispState = this.dialog.getCbCircleEmptyNodes().isSelected(); // display circles (true) or arrows
+																						// (false) for <E> nodes
+
+		currentGrammar.aColor = ((UsualColoredButtonUI) this.dialog.getButtonAuxiliary().getUI()).getBackgroundColor();
+		currentGrammar.bColor = ((UsualColoredButtonUI) this.dialog.getButtonBackground().getUI()).getBackgroundColor();
+		currentGrammar.cColor = ((UsualColoredButtonUI) this.dialog.getButtonComments().getUI()).getBackgroundColor();
+		currentGrammar.fColor = ((UsualColoredButtonUI) this.dialog.getButtonForeground().getUI()).getBackgroundColor();
+		currentGrammar.sColor = ((UsualColoredButtonUI) this.dialog.getButtonSelection().getUI()).getBackgroundColor();
+		currentGrammar.vColor = ((UsualColoredButtonUI) this.dialog.getButtonVariables().getUI()).getBackgroundColor();
+
+		String iFontName = iFont.getFamily();
+		int iFontSize = iFont.getSize();
+		int iFontStyle = iFont.getStyle();
+		grammarController.iFont = new Font(iFontName, iFontStyle, iFontSize);
+		currentGrammar.iFontName = iFontName;
+		currentGrammar.iFontSize = iFontSize;
+		currentGrammar.iFontStyle = iFontStyle;
+
+		String oFontName = oFont.getFamily();
+		int oFontSize = oFont.getSize();
+		int oFontStyle = oFont.getStyle();
+		grammarController.oFont = new Font(oFontName, oFontStyle, oFontSize);
+		currentGrammar.oFontName = oFontName;
+		currentGrammar.oFontSize = oFontSize;
+		currentGrammar.oFontStyle = oFontStyle;
+
+		String cFontName = cFont.getFamily();
+		int cFontSize = cFont.getSize();
+		int cFontStyle = cFont.getStyle();
+		grammarController.cFont = new Font(cFontName, cFontStyle, cFontSize);
+		currentGrammar.cFontName = cFontName;
+		currentGrammar.cFontSize = cFontSize;
+		currentGrammar.cFontStyle = cFontStyle;
+
+		grammarController.editor.invalidate();
+		grammarController.editor.validate();
+		grammarController.editor.repaint();
+	}
+
+	/**
+	 * Function sets the default values of visual effects to currently opened grammar.
+	 */
+	public void reset()
+	{
+		Font iLauncherFont = Launcher.preferences.IFont;
+		iFont = new Font(iLauncherFont.getFamily(), iLauncherFont.getStyle(), iLauncherFont.getSize());
+		String labelInputText = iFont.getFamily() + ", " + iFont.getSize(); // input font
+		if (iFont.isBold())
+			labelInputText += ", Bold";
+		if (iFont.isItalic())
+			labelInputText += ", Italic";
+		this.dialog.getLabelInput().setText(labelInputText);
+
+		Font oLauncherFont = Launcher.preferences.OFont;
+		oFont = new Font(oLauncherFont.getFamily(), oLauncherFont.getStyle(), oLauncherFont.getSize());
+		String labelOutputText = oFont.getFamily() + ", " + oFont.getSize(); // output font
+		if (oFont.isBold())
+			labelOutputText += ", Bold";
+		if (oFont.isItalic())
+			labelOutputText += ", Italic";
+		this.dialog.getLabelOutput().setText(labelOutputText);
+
+		Font cLauncherFont = Launcher.preferences.CFont;
+		cFont = new Font(cLauncherFont.getFamily(), cLauncherFont.getStyle(), cLauncherFont.getSize());
+		String labelComText = cFont.getFamily() + ", " + cFont.getSize(); // input font
+		if (cFont.isBold())
+			labelComText += ", Bold";
+		if (cFont.isItalic())
+			labelComText += ", Italic";
+		this.dialog.getLabelCom().setText(labelComText);
+
+		((UsualColoredButtonUI) this.dialog.getButtonAuxiliary().getUI())
+				.setBackgroundColor(Launcher.preferences.AColor);
+		((UsualColoredButtonUI) this.dialog.getButtonBackground().getUI())
+				.setBackgroundColor(Launcher.preferences.BColor);
+		((UsualColoredButtonUI) this.dialog.getButtonComments().getUI())
+				.setBackgroundColor(Launcher.preferences.CColor);
+		((UsualColoredButtonUI) this.dialog.getButtonForeground().getUI())
+				.setBackgroundColor(Launcher.preferences.FColor);
+		((UsualColoredButtonUI) this.dialog.getButtonSelection().getUI())
+				.setBackgroundColor(Launcher.preferences.SColor);
+		((UsualColoredButtonUI) this.dialog.getButtonVariables().getUI())
+				.setBackgroundColor(Launcher.preferences.VColor);
+
+		this.dialog.getCbDate().setSelected(Launcher.preferences.DispDate);
+		this.dialog.getCbFrame().setSelected(Launcher.preferences.DispFrame); // display frame or not.
+		this.dialog.getCbFileName().setSelected(Launcher.preferences.DispFile); // display file name
+		this.dialog.getCbDirName().setSelected(Launcher.preferences.DispDir); // display file name
+		this.dialog.getCbAuthor().setSelected(Launcher.preferences.DispAuthor); // display Author
+		this.dialog.getCbInstitution().setSelected(Launcher.preferences.DispInstitution); // display Author
+		this.dialog.getCbCircleEmptyNodes().setSelected(Launcher.preferences.DispState); // display circles (true) or
+																							// arrows (false) for <E>
+		apply();
+	}
+
+	/**
+	 * Function saves the visual changes made in Presentation Dialog to Preference, making them default.
+	 */
+	public void setDefault()
+	{
+		Preferences pref = Launcher.preferences;
+
+		Font newIPrefFont = new Font(iFont.getFamily(), iFont.getStyle(), iFont.getSize());
+		pref.IFont = newIPrefFont;
+		Font newOPrefFont = new Font(oFont.getFamily(), oFont.getStyle(), oFont.getSize());
+		pref.OFont = newOPrefFont;
+		Font newCPrefFont = new Font(cFont.getFamily(), cFont.getStyle(), cFont.getSize());
+		pref.CFont = newCPrefFont;
+
+		pref.AColor = ((UsualColoredButtonUI) this.dialog.getButtonAuxiliary().getUI()).getBackgroundColor();
+		pref.BColor = ((UsualColoredButtonUI) this.dialog.getButtonBackground().getUI()).getBackgroundColor();
+		pref.CColor = ((UsualColoredButtonUI) this.dialog.getButtonComments().getUI()).getBackgroundColor();
+		pref.FColor = ((UsualColoredButtonUI) this.dialog.getButtonForeground().getUI()).getBackgroundColor();
+		pref.SColor = ((UsualColoredButtonUI) this.dialog.getButtonSelection().getUI()).getBackgroundColor();
+		pref.VColor = ((UsualColoredButtonUI) this.dialog.getButtonVariables().getUI()).getBackgroundColor();
+
+		pref.DispDate = this.dialog.getCbDate().isSelected();
+		pref.DispFrame = this.dialog.getCbFrame().isSelected();
+		pref.DispFile = this.dialog.getCbFileName().isSelected();
+		pref.DispDir = this.dialog.getCbDirName().isSelected();
+		pref.DispAuthor = this.dialog.getCbAuthor().isSelected();
+		pref.DispInstitution = this.dialog.getCbInstitution().isSelected();
+		pref.DispState = this.dialog.getCbCircleEmptyNodes().isSelected();
+	}
+
+	// getters and setters
+	public void close()
+	{
+		this.dialog.dispose();
+	}
+
+	public Font getiFont()
+	{
+		return iFont;
+	}
+
+	public Font getoFont()
+	{
+		return oFont;
+	}
+
+	public Font getcFont()
+	{
+		return cFont;
+	}
+
+	public void setiFont(Font iFont)
+	{
+		this.iFont = iFont;
+	}
+
+	public void setoFont(Font oFont)
+	{
+		this.oFont = oFont;
+	}
+
+	public void setcFont(Font cFont)
+	{
+		this.cFont = cFont;
+	}
+
+	public GraphPresentationDialog getDialog()
+	{
+		return dialog;
+	}
+}

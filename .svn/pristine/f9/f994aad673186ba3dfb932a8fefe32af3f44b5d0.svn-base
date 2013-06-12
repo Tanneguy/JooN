@@ -1,0 +1,186 @@
+package Nooj;
+
+import net.nooj4nlp.engine.Mft;
+
+public class WoxMft {
+	private int[] tuAddresses;
+	private int maxrelbegaddress, maxlenaddress, maxtokenid;
+	private int nboftransitions;
+
+	private int[] nboftranspertu;
+	private int[] trans_beg_s;
+	private long[] trans_beg_i;
+	private byte[] trans_end_b;
+	private int[] trans_end_s;
+	private long[] trans_end_i;
+	private int[] trans_tok_s;
+	private long[] trans_tok_i;
+	private int[] lengths_s;
+	private long[] lengths_i;
+	
+	public WoxMft(Mft m) {
+		tuAddresses = m.tuAddresses;
+		maxrelbegaddress = m.maxRelBegAddress;
+		maxlenaddress = m.maxLenAddress;
+		maxtokenid = m.maxTokenId;
+		nboftransitions = m.nboftransitions;
+		
+		nboftranspertu = m.nbOfTransPerTu;
+        if (m.trans_beg_s == null)
+            trans_beg_s = null;
+        else
+        {
+            trans_beg_s = new int[m.trans_beg_s.length];
+            for (int i = 0; i < m.trans_beg_s.length; i++)
+                trans_beg_s[i] = m.trans_beg_s[i];
+        }
+        if (m.trans_beg_i == null)
+            trans_beg_i = null;
+        else
+        {
+            trans_beg_i = new long[m.trans_beg_i.length];
+            for (int i = 0; i < m.trans_beg_i.length; i++)
+                trans_beg_i[i] = m.trans_beg_i[i];
+        }
+        if (m.trans_end_b == null)
+            trans_end_b = null;
+        else
+        {
+        	// TODO:
+            //trans_end_b = new sbyte[m.trans_end_b.length];
+            //Buffer.BlockCopy(m.trans_end_b, 0, trans_end_b, 0, m.trans_end_b.length);
+        }
+        if (m.trans_end_s == null)
+            trans_end_s = null;
+        else
+        {
+            trans_end_s = new int[m.trans_end_s.length];
+            for (int i = 0; i < m.trans_end_s.length; i++)
+                trans_end_s[i] = m.trans_end_s[i];
+        }
+        if (m.trans_end_i == null)
+            trans_end_i = null;
+        else
+        {
+            trans_end_i = new long[m.trans_end_i.length];
+            for (int i = 0; i < m.trans_end_i.length; i++)
+                trans_end_i[i] = m.trans_end_i[i];
+        }
+        if (m.trans_tok_s == null)
+            trans_tok_s = null;
+        else
+        {
+            trans_tok_s = new int[m.trans_tok_s.length];
+            for (int i = 0; i < m.trans_tok_s.length; i++)
+                trans_tok_s[i] = m.trans_tok_s[i];
+        }
+        if (m.trans_tok_i == null)
+            trans_tok_i = null;
+        else
+        {
+            trans_tok_i = new long[m.trans_tok_i.length];
+            for (int i = 0; i < m.trans_tok_i.length; i++)
+                trans_tok_i[i] = m.trans_tok_i[i];
+        }
+        if (m.lengths_s == null)
+            lengths_s = null;
+        else
+        {
+            lengths_s = new int[m.lengths_s.length];
+            for (int i = 0; i < m.lengths_s.length; i++)
+                lengths_s[i] = m.lengths_s[i];
+        }
+        if (m.lengths_i == null)
+            lengths_i = null;
+        else
+        {
+            lengths_i = new long[m.lengths_i.length];
+            for (int i = 0; i < m.lengths_i.length; i++)
+                lengths_i[i] = m.lengths_i[i];
+        }
+	}
+	
+	public Mft toMft() {
+		Mft m = new Mft(0);
+		
+		m.tuAddresses = tuAddresses;
+        m.maxRelBegAddress = maxrelbegaddress; m.maxLenAddress = maxlenaddress; m.maxTokenId = maxtokenid;
+        m.nboftransitions = nboftransitions;
+
+        m.nbOfTransPerTu = nboftranspertu;
+        if (trans_beg_s == null)
+            m.trans_beg_s = null;
+        else
+        {
+            m.trans_beg_s = new short[trans_beg_s.length];
+            for (int i = 0; i < trans_beg_s.length; i++)
+                m.trans_beg_s[i] = (short)trans_beg_s[i];
+        }
+        if (trans_beg_i == null)
+            m.trans_beg_i = null;
+        else
+        {
+            m.trans_beg_i = new int[trans_beg_i.length];
+            for (int i = 0; i < trans_beg_i.length; i++)
+                m.trans_beg_i[i] = (int)trans_beg_i[i];
+        }
+        if (trans_end_b == null)
+            m.trans_end_b = null;
+        else
+        {
+        	// TODO:
+            //m.trans_end_b = new byte[trans_end_b.length];
+            //Buffer.BlockCopy(trans_end_b, 0, m.trans_end_b, 0, trans_end_b.length);
+        }
+        if (trans_end_s == null)
+            m.trans_end_s = null;
+        else
+        {
+            m.trans_end_s = new short[trans_end_s.length];
+            for (int i = 0; i < trans_end_s.length; i++)
+                m.trans_end_s[i] = (short)trans_end_s[i];
+        }
+        if (trans_end_i == null)
+            m.trans_end_i = null;
+        else
+        {
+            m.trans_end_i = new int[trans_end_i.length];
+            for (int i = 0; i < trans_end_i.length; i++)
+                m.trans_end_i[i] = (int)trans_end_i[i];
+        }
+        if (trans_tok_s == null)
+            m.trans_tok_s = null;
+        else
+        {
+            m.trans_tok_s = new short[trans_tok_s.length];
+            for (int i = 0; i < trans_tok_s.length; i++)
+                m.trans_tok_s[i] = (short)trans_tok_s[i];
+        }
+        if (trans_tok_i == null)
+            m.trans_tok_i = null;
+        else
+        {
+            m.trans_tok_i = new int[trans_tok_i.length];
+            for (int i = 0; i < trans_tok_i.length; i++)
+                m.trans_tok_i[i] = (int)trans_tok_i[i];
+        }
+        if (lengths_s == null)
+            m.lengths_s = null;
+        else
+        {
+            m.lengths_s = new short[lengths_s.length];
+            for (int i = 0; i < lengths_s.length; i++)
+                m.lengths_s[i] = (short)lengths_s[i];
+        }
+        if (lengths_i == null)
+            m.lengths_i = null;
+        else
+        {
+            m.lengths_i = new int[lengths_i.length];
+            for (int i = 0; i < lengths_i.length; i++)
+                m.lengths_i[i] = (int)lengths_i[i];
+        }
+		
+		return m;
+	}
+}

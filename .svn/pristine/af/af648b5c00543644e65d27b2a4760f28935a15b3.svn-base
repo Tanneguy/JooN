@@ -1,0 +1,235 @@
+package net.nooj4nlp.controller.MorphologyDialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Timer;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.border.TitledBorder;
+
+import net.nooj4nlp.engine.Language;
+import net.nooj4nlp.engine.RefObject;
+import net.nooj4nlp.engine.Regexp;
+import net.nooj4nlp.gui.components.CursorChangeEffect;
+import net.nooj4nlp.gui.main.Launcher;
+
+public class ButtonListener implements ActionListener
+{
+
+	private JList listLanguage;
+	private JComboBox comboWordRoot, comboCommandSuffix, comboLemma, comboExpression, comboLookup;
+	private JRadioButton rdbtnWordCommand, rdbtnLemmaExpression, rdbtnLookup;
+	private DefaultListModel resultModel;
+	private JPanel pnlResult;
+
+	private String word;
+	private String command;
+	private int icommand;
+	private Regexp exp;
+
+	public ButtonListener(JList listLanguage, JComboBox comboWordRoot, JComboBox comboCommandSuffix,
+			JComboBox comboLemma, JComboBox comboExpression, JComboBox comboLookup, JRadioButton rdbtnWordCommand,
+			JRadioButton rdbtnLemmaExpression, JRadioButton rdbtnLookup, DefaultListModel resultModel, JPanel pnlResult)
+	{
+		super();
+		this.listLanguage = listLanguage;
+		this.comboWordRoot = comboWordRoot;
+		this.comboCommandSuffix = comboCommandSuffix;
+		this.comboLemma = comboLemma;
+		this.comboExpression = comboExpression;
+		this.comboLookup = comboLookup;
+		this.rdbtnWordCommand = rdbtnWordCommand;
+		this.rdbtnLemmaExpression = rdbtnLemmaExpression;
+		this.rdbtnLookup = rdbtnLookup;
+		this.resultModel = resultModel;
+		this.pnlResult = pnlResult;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+
+		resultModel.removeAllElements();
+
+		Language lan = new Language((String) listLanguage.getSelectedValue());
+		if (lan == null)
+			return;
+
+		if (rdbtnWordCommand.isSelected())
+		{
+
+			if (comboWordRoot.getSelectedItem() == null || ((String) comboWordRoot.getSelectedItem()).equals(""))
+			{
+				JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Please type in a word form", "NooJ",
+						JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			word = (String) comboWordRoot.getSelectedItem();
+			if (word.charAt(0) == '[')
+			{
+				int index = word.indexOf("] ");
+				if (index != -1)
+					word = word.substring(index + 2);
+			}
+
+			if (comboCommandSuffix.getSelectedItem() == null
+					|| ((String) comboCommandSuffix.getSelectedItem()).equals(""))
+			{
+				JOptionPane
+						.showMessageDialog(null, "Please type in a command", "NooJ", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			command = (String) comboCommandSuffix.getSelectedItem();
+			if (command.charAt(0) == '[')
+			{
+				int index = command.indexOf("] ");
+				if (index != -1)
+					command = command.substring(index + 2);
+			}
+
+			icommand = 0;
+			try
+			{
+				CursorChangeEffect.setCustomCursor(CursorChangeEffect.CURSOR_BUSY);
+
+				resultModel.addElement(word + "│ " + command);
+
+				Timer timer = new Timer();
+				AnimationTask task = new AnimationTask(resultModel, word, command, icommand, lan, timer);
+				timer.scheduleAtFixedRate(task, 1000, 1000);
+			}
+			finally
+			{
+				CursorChangeEffect.setCustomCursor(CursorChangeEffect.CURSOR_DEFAULT);
+			}
+
+		}
+		else if (rdbtnLemmaExpression.isSelected())
+		{
+
+			if (comboLemma.getSelectedItem() == null || ((String) comboLemma.getSelectedItem()).equals(""))
+			{
+				JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Please type in a lemma", "NooJ",
+						JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			word = (String) comboLemma.getSelectedItem();
+			if (word.charAt(0) == '[')
+			{
+				int index = word.indexOf("] ");
+				if (index != -1)
+					word = word.substring(index + 2);
+			}
+
+			if (comboExpression.getSelectedItem() == null || ((String) comboExpression.getSelectedItem()).equals(""))
+			{
+				JOptionPane
+						.showMessageDialog(null, "Please type in a command", "NooJ", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			command = (String) comboExpression.getSelectedItem();
+			if (command.charAt(0) == '[')
+			{
+				int index = command.indexOf("] ");
+				if (index != -1)
+					command = command.substring(index + 2);
+			}
+
+			exp = new Regexp(command);
+			exp.Grm.prepareForParsing();
+
+			String[] forms = null, outputs = null;
+			RefObject<String[]> formsRef = new RefObject<String[]>(forms);
+			RefObject<String[]> outputsRef = new RefObject<String[]>(outputs);
+			exp.Grm.inflect(lan, word, formsRef, outputsRef, null);
+			forms = formsRef.argvalue;
+			outputs = outputsRef.argvalue;
+
+			if (forms == null)
+			{
+				JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Cannot inflect lemma \"" + word + "\"",
+						"NooJ", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+
+			pnlResult.setBorder(new TitledBorder(null, "Lemma '" + word + "' has " + forms.length + " forms:",
+					TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			for (int i = 0; i < forms.length; i++)
+				resultModel.addElement(outputs[i] + " => " + forms[i]);
+		}
+		else if (rdbtnLookup.isSelected())
+		{
+
+			if (comboLookup.getSelectedItem() == null || ((String) comboLookup.getSelectedItem()).equals(""))
+			{
+				JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Please type in a word", "NooJ",
+						JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			word = (String) comboLookup.getSelectedItem();
+			if (word.charAt(0) == '[')
+			{
+				int index = word.indexOf("] ");
+				if (index != -1)
+					word = word.substring(index + 2);
+			}
+
+			// TODO ProjectMode added by Natalija
+			// lookup dictionaries to get lexical entries
+			// RefObject<Language> lanRef = new RefObject<Language>(lan);
+			// Engine engine = new Engine(lanRef, null, "C:\\Documents and Settings\\user\\My Documents\\NooJ", null,
+			// Launcher.projectMode, null, false, null);
+			// lan = lanRef.argvalue;
+			//
+			// String errmessage = null;
+			// ArrayList<String> l = new ArrayList<String>();
+			// l.add("-1_Contractions.nod");
+			// l.add("00_delacfn.nod");
+			// l.add("00_phrasal_verbs.nod");
+			// l.add("00_sdic.nod");
+			// l.add("02_Proper Names.nom");
+			// l.add("00_Roman Numerals.nom");
+			// l.add("01_V-able.nom");
+			// RefObject<String> errmessageRef = new RefObject<String>(errmessage);
+			// try {
+			// if (!engine.loadResources(l, null, true, errmessageRef))
+			// {
+			// errmessage = errmessageRef.argvalue;
+			// JOptionPane.showMessageDialog(Launcher.getDesktopPane(), errmessage,
+			// "NooJ: cannot load linguistic resources",
+			// JOptionPane.INFORMATION_MESSAGE);
+			// return;
+			// }
+			// } catch (HeadlessException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// } catch (ClassNotFoundException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// } catch (IOException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
+			//
+			// ArrayList sols = engine.lookupAllSDics((String)comboLookup.getSelectedItem());
+			// if (sols == null || sols.size() == 0)
+			// {
+			// JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Cannot find any lexical entry for word " +
+			// (String)comboLookup.getSelectedItem(), "NooJ", JOptionPane.INFORMATION_MESSAGE);
+			// return;
+			// }
+			// resultModel.removeAllElements();
+			// ArrayList res = engine.inflectSolutions (sols);
+			// for (int i=0;i<res.size();i+=2)
+			// {
+			// resultModel.addElement((String) res.get(i+1) + " => " + (String) res.get(i));
+			// }
+		}
+	}
+
+}

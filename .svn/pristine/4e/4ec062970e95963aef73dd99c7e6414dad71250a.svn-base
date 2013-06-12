@@ -1,0 +1,143 @@
+package net.nooj4nlp.gui.actions.shells.control;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
+
+import net.nooj4nlp.controller.DictionaryEditorShell.CheckActionListener;
+import net.nooj4nlp.controller.DictionaryEditorShell.CompileActionListener;
+import net.nooj4nlp.controller.DictionaryEditorShell.DictionaryEditorShellController;
+import net.nooj4nlp.controller.DictionaryEditorShell.EnrichActionListener;
+import net.nooj4nlp.controller.DictionaryEditorShell.ExportActionListener;
+import net.nooj4nlp.controller.DictionaryEditorShell.SortActionListener;
+import net.nooj4nlp.controller.DictionaryEditorShell.ViewActionListener;
+import net.nooj4nlp.gui.actions.shells.construct.FindReplaceActionListener;
+import net.nooj4nlp.gui.main.Launcher;
+
+/**
+ * 
+ * InternalFrameListener that adds a DICTIONARY menu to the menu bar each time a dictionary editor is activated, and
+ * removes it whenever the editor loses focus
+ * 
+ */
+public class DictionaryCommandInternalFrameListener implements InternalFrameListener
+{
+
+	private JMenuBar menuBar;
+	private JMenu mnDictionary;
+
+	public static JMenuItem mntmView;
+	public static JMenuItem mntmCheckFormat;
+	public static JMenuItem mntmFind;
+	public static JMenuItem mntmSort;
+	public static JMenuItem mntmSortBackward;
+	public static JMenuItem mntmExport;
+
+	private DictionaryEditorShellController controller;
+
+	public DictionaryCommandInternalFrameListener(DictionaryEditorShellController conroller)
+	{
+		this.controller = conroller;
+	}
+
+	@Override
+	public void internalFrameActivated(InternalFrameEvent e)
+	{
+		// mntmCut = Launcher.getTextCommands().get("Cut");
+		// mntmCopy = Launcher.getTextCommands().get("Copy");
+		// mntmPaste = Launcher.getTextCommands().get("Paste");
+		// mntmSelectAll = Launcher.getTextCommands().get("Select All");
+		//
+		// // Add cut/copy/paste functionality to the current component
+		// mntmCut.addActionListener(new CutActionListener(text));
+		// mntmCopy.addActionListener(new CopyActionListener(text));
+		// mntmPaste.addActionListener(new PasteActionListener(text));
+		// mntmSelectAll.addActionListener(new SelectAllActionListener(text));
+
+		menuBar = Launcher.getMenuBar();
+		mnDictionary = new JMenu("DICTIONARY");
+
+		mntmCheckFormat = new JMenuItem("Check Format");
+		mnDictionary.add(mntmCheckFormat);
+		mntmCheckFormat.addActionListener(new CheckActionListener(controller));
+
+		mntmFind = new JMenuItem("Find//Replace//Extract//Count");
+		mnDictionary.add(mntmFind);
+		mntmFind.addActionListener(new FindReplaceActionListener(Launcher.getDesktopPane()));
+
+		mntmSort = new JMenuItem("Sort");
+		mnDictionary.add(mntmSort);
+		mntmSort.addActionListener(new SortActionListener(controller, false));
+
+		mntmSortBackward = new JMenuItem("Sort Backward");
+		mnDictionary.add(mntmSortBackward);
+		mntmSortBackward.addActionListener(new SortActionListener(controller, true));
+
+		JSeparator separator_1 = new JSeparator();
+		mnDictionary.add(separator_1);
+
+		mntmView = new JMenuItem("View as Table");
+		mnDictionary.add(mntmView);
+		mntmView.addActionListener(new ViewActionListener(controller));
+
+		JMenuItem mntmEnrich = new JMenuItem("Enrich with NooJ's Lexical Information");
+		mnDictionary.add(mntmEnrich);
+		mntmEnrich.addActionListener(new EnrichActionListener(controller));
+
+		mntmExport = new JMenuItem("Export table as CSV file");
+		mnDictionary.add(mntmExport);
+		mntmExport.setEnabled(false);
+		mntmExport.addActionListener(new ExportActionListener(controller));
+
+		JMenuItem mntmCompile = new JMenuItem("Compile Dictionary");
+		mnDictionary.add(mntmCompile);
+		mntmCompile.addActionListener(new CompileActionListener(controller));
+
+		mnDictionary.setVisible(true);
+		menuBar.add(mnDictionary);
+	}
+
+	@Override
+	public void internalFrameClosed(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameClosing(InternalFrameEvent e)
+	{
+		controller.close();
+	}
+
+	@Override
+	public void internalFrameDeactivated(InternalFrameEvent e)
+	{
+		// Clear previous component action listeners
+		// mntmCut.removeActionListener(mntmCut.getActionListeners()[0]);
+		// mntmCopy.removeActionListener(mntmCopy.getActionListeners()[0]);
+		// mntmPaste.removeActionListener(mntmPaste.getActionListeners()[0]);
+		// mntmSelectAll.removeActionListener(mntmSelectAll.getActionListeners()[0]);
+
+		mnDictionary.setVisible(false);
+		menuBar.remove(mnDictionary);
+		menuBar.repaint();
+	}
+
+	@Override
+	public void internalFrameDeiconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameIconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameOpened(InternalFrameEvent e)
+	{
+	}
+
+}

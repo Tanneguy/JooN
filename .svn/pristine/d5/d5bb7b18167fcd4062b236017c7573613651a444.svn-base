@@ -1,0 +1,575 @@
+package net.nooj4nlp.controller.CorpusEditorShell;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+
+import net.nooj4nlp.controller.ConcordanceShell.ConcordanceShellController;
+import net.nooj4nlp.controller.ConcordanceShell.CustomForegroundTableRenderer;
+import net.nooj4nlp.controller.TextEditorShell.TextEditorShellController;
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.engine.Corpus;
+import net.nooj4nlp.engine.Dic;
+import net.nooj4nlp.engine.Ntext;
+import net.nooj4nlp.gui.components.ColoredJButtonUI;
+import net.nooj4nlp.gui.components.CustomJSpinner;
+import net.nooj4nlp.gui.dialogs.OpenCorpusDialog.AmbiguitiesUnambiguitiesDialog;
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.ConcordanceShell;
+
+/**
+ * Class for implementation actions of (Un)Ambiguities Dialog components.
+ * 
+ */
+
+public class AmbiguitiesUnambiguitiesActionListener implements ActionListener
+{
+	// variables
+	private boolean isButtonPressed;
+	private CorpusEditorShellController corpusController;
+	private TextEditorShellController textController;
+	private AmbiguitiesUnambiguitiesDialog auDialog;
+	private boolean areAmbiguities;
+
+	public AmbiguitiesUnambiguitiesActionListener(CorpusEditorShellController corpusController,
+			TextEditorShellController textController, AmbiguitiesUnambiguitiesDialog ambiguitiesUnambigutiesDialog,
+			boolean areAmbiguities, boolean buttonPressed)
+	{
+		super();
+		this.isButtonPressed = buttonPressed;
+		this.corpusController = corpusController;
+		this.textController = textController;
+		this.auDialog = ambiguitiesUnambigutiesDialog;
+		this.areAmbiguities = areAmbiguities;
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if (isButtonPressed)
+		{
+			JTable ambigUnambigTable = auDialog.getTableAmbigUnambig();
+			DefaultTableModel tableModel = (DefaultTableModel) ambigUnambigTable.getModel();
+			int[] selectedItems = ambigUnambigTable.getSelectedRows();
+			int selectedItemsLength = selectedItems.length;
+
+			for (int k = 0; k < selectedItemsLength; k++)
+				selectedItems[k] = ambigUnambigTable.convertRowIndexToModel(selectedItems[k]);
+
+			if (selectedItemsLength == 0)
+				return;
+
+			// get background color of buttons...if it's a gray button, set color to be a black
+			JButton button = (JButton) e.getSource();
+			Color currentColor = ((ColoredJButtonUI) button.getUI()).getBackgroundColor();
+
+			if (currentColor.equals(Color.GRAY))
+				currentColor = Color.BLACK;
+
+			@SuppressWarnings("rawtypes")
+			ArrayList seqOfAnnotations = new ArrayList();
+
+			ConcordanceShell concordanceShell;
+			ConcordanceShellController concordanceController;
+
+			if (areAmbiguities)
+			{
+				String analysis = auDialog.getComboPattern().getSelectedItem().toString();
+
+				if (analysis.equals("") || analysis.charAt(0) != '<' || analysis.charAt(analysis.length() - 1) != '>')
+					return;
+
+				if (corpusController != null && corpusController.getShell() != null)
+				{
+					corpusController.setListOfConcordanceFiles(null);
+					corpusController.setListOfColors(null);
+					corpusController.setAbsoluteBeginAddresses(null);
+					corpusController.setAbsoluteEndAddresses(null);
+
+					TextEditorShellController corpusTextController = corpusController.getTextController();
+					if (corpusTextController != null)
+					{
+						CustomJSpinner spinner = corpusTextController.getTextShell().getSpinner();
+						spinner.setCustomValue(1);
+					}
+
+					// get concordance controller and shell, and open a new if there is no concordance window opened
+					concordanceController = corpusController.getConcordanceController();
+
+					if (concordanceController != null)
+					{
+						concordanceShell = concordanceController.getConcordanceShell();
+
+						// Changed when removing static variables
+						concordanceShell.getCustomForegroundTableRenderer().setSortedPreview(false);
+						// clear old color map
+						concordanceShell.getCustomForegroundTableRenderer().setColoredRowsMap(
+								new HashMap<Integer, Color>());
+
+						concordanceShell.dispose();
+						concordanceController.setTableModel(null);
+						concordanceController = null;
+					}
+
+					concordanceShell = new ConcordanceShell(corpusController, corpusController.getTextController());
+					Launcher.getDesktopPane().add(concordanceShell);
+					concordanceShell.setVisible(true);
+					corpusController.setConcordanceController(concordanceShell.getController());
+
+					concordanceController = concordanceShell.getController();
+
+					// set flag of a renderer, so it could read unsorted map
+					CustomForegroundTableRenderer renderer = concordanceShell.getCustomForegroundTableRenderer();
+					renderer.setSortedPreview(false);
+					renderer.setColoredRowsMap(new HashMap<Integer, Color>());
+
+					concordanceController.setTheItems(new ArrayList<Object>());
+					Corpus corpus = corpusController.getCorpus();
+					List<String> listOfTextFiles = corpus.listOfFileTexts;
+
+					for (int i = 0; i < selectedItemsLength; i++)
+					{
+						for (String fileName : listOfTextFiles)
+						{
+							String fullPath = corpusController.getFullPath() + Constants.DIRECTORY_SUFFIX
+									+ System.getProperty("file.separator") + fileName;
+
+							Ntext myText = null;
+							try
+							{
+								myText = Ntext.loadForCorpus(fullPath, corpus.lan, corpus.multiplier);// load results
+							}
+							catch (IOException e1)
+							{
+								JOptionPane.showMessageDialog(Launcher.getDesktopPane(), e1.getMessage(),
+										Constants.ERROR_MESSAGE_TITLE_NTEXT_LOAD_FOR_CORPUS, JOptionPane.ERROR_MESSAGE);
+								return;
+							}
+
+							ArrayList<Object> positions = (ArrayList<Object>) tableModel
+									.getValueAt(selectedItems[i], 2);
+
+							for (int j = 0; j < positions.size(); j += 4)
+							{
+								double absoluteBeginAddress = (Double) positions.get(j);
+								double absoluteEndAddress = (Double) positions.get(j + 1);
+								String fileNameInConcordance = positions.get(j + 2).toString();
+
+								if (!fileName.equals(fileNameInConcordance))
+									continue;
+
+								double tuNumb = Double.valueOf(positions.get(j + 3).toString());
+								int tuNb = (int) tuNumb;
+
+								seqOfAnnotations.add(tuNb);
+								seqOfAnnotations.add(analysis);
+								seqOfAnnotations.add(absoluteBeginAddress);
+								seqOfAnnotations.add(absoluteEndAddress);
+
+								seqOfAnnotations.add(absoluteBeginAddress);
+								seqOfAnnotations.add(analysis);
+								seqOfAnnotations.add(absoluteBeginAddress);
+
+								concordanceController.AddData(myText, fileName, currentColor, tuNb,
+										absoluteBeginAddress, absoluteEndAddress, seqOfAnnotations, false,
+										"Selected Tokens");
+							}
+						}
+					}
+				}
+
+				else
+				{
+					textController.setListOfColors(null);
+					textController.setAbsoluteBeginAddresses(null);
+					textController.setAbsoluteEndAddresses(null);
+
+					CustomJSpinner spinner = textController.getTextShell().getSpinner();
+					spinner.setCustomValue(1);
+
+					// get concordance controller and shell, and open a new if there is no concordance window opened
+					concordanceController = textController.getConcordanceController();
+
+					if (concordanceController == null)
+					{
+						concordanceShell = new ConcordanceShell(corpusController, textController);
+						Launcher.getDesktopPane().add(concordanceShell);
+						concordanceShell.setVisible(true);
+					}
+					else
+					{
+						concordanceShell = concordanceController.getConcordanceShell();
+
+						// Changed when removing static variables
+						// set flag of a renderer, so it could read unsorted map
+						concordanceShell.getCustomForegroundTableRenderer().setSortedPreview(false);
+					}
+
+					concordanceController = concordanceShell.getController();
+
+					// set flag of a renderer, so it could read unsorted map
+					CustomForegroundTableRenderer renderer = concordanceShell.getCustomForegroundTableRenderer();
+					renderer.setSortedPreview(false);
+					renderer.setColoredRowsMap(new HashMap<Integer, Color>());
+
+					textController.setConcordanceController(concordanceController);
+					concordanceController.setTheItems(new ArrayList<Object>());
+
+					for (int i = 0; i < selectedItemsLength; i++)
+					{
+						ArrayList<Object> positions = (ArrayList<Object>) tableModel.getValueAt(selectedItems[i], 2);
+
+						for (int j = 0; j < positions.size(); j += 3)
+						{
+							double absoluteBeginAddress = (Double) positions.get(j);
+							double absoluteEndAddress = (Double) positions.get(j + 1);
+
+							double tuNumb = Double.valueOf(positions.get(j + 2).toString());
+							int tuNb = (int) tuNumb;
+
+							seqOfAnnotations.add(tuNb);
+							seqOfAnnotations.add(analysis);
+							seqOfAnnotations.add(absoluteBeginAddress);
+							seqOfAnnotations.add(absoluteEndAddress);
+
+							seqOfAnnotations.add(absoluteBeginAddress);
+							seqOfAnnotations.add(analysis);
+							seqOfAnnotations.add(absoluteBeginAddress);
+
+							concordanceController.AddData(textController.getMyText(), "", currentColor, tuNb,
+									absoluteBeginAddress, absoluteEndAddress, seqOfAnnotations, false,
+									"Selected Tokens");
+						}
+					}
+				}
+			}
+
+			else
+			{
+				String analysis = tableModel.getValueAt(selectedItems[0], 1).toString();
+
+				if (analysis.equals("") || analysis.charAt(0) != '<' || analysis.charAt(analysis.length() - 1) != '>')
+					return;
+
+				ArrayList<Object> positions = (ArrayList<Object>) tableModel.getValueAt(selectedItems[0], 2);
+
+				if (corpusController != null && corpusController.getShell() != null)
+				{
+					corpusController.setListOfConcordanceFiles(null);
+					corpusController.setListOfColors(null);
+					corpusController.setAbsoluteBeginAddresses(null);
+					corpusController.setAbsoluteEndAddresses(null);
+
+					TextEditorShellController corpusTextController = corpusController.getTextController();
+					if (corpusTextController != null)
+					{
+						CustomJSpinner spinner = corpusTextController.getTextShell().getSpinner();
+						spinner.setCustomValue(1);
+					}
+
+					// get concordance controller and shell, and open a new if there is no concordance window opened
+					concordanceController = corpusController.getConcordanceController();
+
+					if (concordanceController != null)
+					{
+						concordanceShell = concordanceController.getConcordanceShell();
+						concordanceShell.dispose();
+						concordanceController = null;
+					}
+
+					concordanceShell = new ConcordanceShell(corpusController, corpusController.getTextController());
+					Launcher.getDesktopPane().add(concordanceShell);
+					concordanceShell.setVisible(true);
+					corpusController.setConcordanceController(concordanceShell.getController());
+
+					concordanceController = concordanceShell.getController();
+
+					// set flag of a renderer, so it could read unsorted map
+					CustomForegroundTableRenderer renderer = concordanceShell.getCustomForegroundTableRenderer();
+					renderer.setSortedPreview(false);
+					renderer.setColoredRowsMap(new HashMap<Integer, Color>());
+
+					concordanceController.setTheItems(new ArrayList<Object>());
+					Corpus corpus = corpusController.getCorpus();
+					List<String> listOfTextFiles = corpus.listOfFileTexts;
+
+					for (String fileName : listOfTextFiles)
+					{
+						String fullPath = corpusController.getFullPath() + Constants.DIRECTORY_SUFFIX
+								+ System.getProperty("file.separator") + fileName;
+
+						Ntext myText = null;
+						try
+						{
+							myText = Ntext.loadForCorpus(fullPath, corpus.lan, corpus.multiplier);// load results
+						}
+						catch (IOException e1)
+						{
+							JOptionPane.showMessageDialog(Launcher.getDesktopPane(), e1.getMessage(),
+									Constants.ERROR_MESSAGE_TITLE_NTEXT_LOAD_FOR_CORPUS, JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+
+						for (int j = 0; j < positions.size(); j += 4)
+						{
+							double absoluteBeginAddress = (Double) positions.get(j);
+							double absoluteEndAddress = (Double) positions.get(j + 1);
+							String fileNameInConcordance = positions.get(j + 2).toString();
+
+							if (!fileName.equals(fileNameInConcordance))
+								continue;
+
+							double tuNumb = Double.valueOf(positions.get(j + 3).toString());
+							int tuNb = (int) tuNumb;
+
+							seqOfAnnotations.add(tuNb);
+							seqOfAnnotations.add(analysis);
+							seqOfAnnotations.add(absoluteBeginAddress);
+							seqOfAnnotations.add(absoluteEndAddress);
+
+							seqOfAnnotations.add(absoluteBeginAddress);
+							seqOfAnnotations.add(analysis);
+							seqOfAnnotations.add(absoluteBeginAddress);
+
+							concordanceController.AddData(myText, fileName, currentColor, tuNb, absoluteBeginAddress,
+									absoluteEndAddress, seqOfAnnotations, false, "Selected Tokens");
+						}
+					}
+				}
+
+				else
+				{
+					textController.setListOfColors(null);
+					textController.setAbsoluteBeginAddresses(null);
+					textController.setAbsoluteEndAddresses(null);
+
+					CustomJSpinner spinner = textController.getTextShell().getSpinner();
+					spinner.setCustomValue(1);
+
+					// get concordance controller and shell, and open a new if there is no concordance window opened
+					concordanceController = textController.getConcordanceController();
+
+					if (concordanceController == null)
+					{
+						concordanceShell = new ConcordanceShell(corpusController, textController);
+						Launcher.getDesktopPane().add(concordanceShell);
+						concordanceShell.setVisible(true);
+					}
+					else
+						concordanceShell = concordanceController.getConcordanceShell();
+
+					concordanceController = concordanceShell.getController();
+
+					// set flag of a renderer, so it could read unsorted map
+					CustomForegroundTableRenderer renderer = concordanceShell.getCustomForegroundTableRenderer();
+					renderer.setSortedPreview(false);
+					renderer.setColoredRowsMap(new HashMap<Integer, Color>());
+
+					textController.setConcordanceController(concordanceController);
+					concordanceController.setTheItems(new ArrayList<Object>());
+
+					for (int j = 0; j < positions.size(); j += 3)
+					{
+						double absoluteBeginAddress = (Double) positions.get(j);
+						double absoluteEndAddress = (Double) positions.get(j + 1);
+
+						double tuNumb = Double.valueOf(positions.get(j + 2).toString());
+						int tuNb = (int) tuNumb;
+
+						seqOfAnnotations.add(tuNb);
+						seqOfAnnotations.add(analysis);
+						seqOfAnnotations.add(absoluteBeginAddress);
+						seqOfAnnotations.add(absoluteEndAddress);
+
+						seqOfAnnotations.add(absoluteBeginAddress);
+						seqOfAnnotations.add(analysis);
+						seqOfAnnotations.add(absoluteBeginAddress);
+
+						concordanceController.AddData(textController.getMyText(), "", currentColor, tuNb,
+								absoluteBeginAddress, absoluteEndAddress, seqOfAnnotations, false, "Selected Tokens");
+					}
+				}
+			}
+
+			concordanceController.refreshConcordance();
+			ambigUnambigTable.clearSelection();
+		}
+		else
+			fillTheTable(corpusController, textController, auDialog, areAmbiguities);
+	}
+
+	/**
+	 * Function responsible for changing single row of preview data table of (Un)Ambiguities Dialog into row of tags.
+	 * 
+	 * @param ambig
+	 *            - Text value of current row to change
+	 * 
+	 * @return - Newly created tag row value
+	 * 
+	 */
+	public static String keepOnlyCategory(String ambig)
+	{
+		// parse row value
+		String[] tokensList = Dic.parseSequenceOfSymbols(ambig);
+		StringBuilder result = new StringBuilder();
+		for (String t : tokensList)
+		{
+			// if there is no category for a word, just add it to the new row
+			int tPos = t.indexOf(",");
+			if (tPos == -1)
+			{
+				result.append(t);
+				continue;
+			}
+			tPos++;
+			int i;
+			// add category to row
+			for (i = 0; tPos + i < t.length() && Character.isUpperCase(t.charAt(tPos + i)); i++)
+				;
+			if (i == 0)
+			{
+				result.append(t);
+				continue;
+			}
+			String cat = t.substring(tPos, tPos + i);
+			result.append("<" + cat + "> ");
+		}
+		return result.toString();
+	}
+
+	/**
+	 * Function responsible for changing table of (Un)Ambiguities Dialog depending of the fact if the category checkBox
+	 * is selected or not. If it's not visible (Unambiguous Dialog) - then it isn't selected by default.
+	 * 
+	 * @param areAmbiguities
+	 *            - flag determinator that tells if we are in Ambiguities Dialog or not
+	 */
+	@SuppressWarnings({ "unchecked" })
+	public static void fillTheTable(CorpusEditorShellController corpusController,
+			TextEditorShellController textController, AmbiguitiesUnambiguitiesDialog auDialog, boolean areAmbiguities)
+	{
+		HashMap<String, ArrayList<Double>> hList = new HashMap<String, ArrayList<Double>>();
+
+		JTable tableAmbigUnambig = auDialog.getTableAmbigUnambig();
+		DefaultTableModel tableModel = (DefaultTableModel) tableAmbigUnambig.getModel();
+		tableModel.getDataVector().removeAllElements();
+		tableModel.fireTableDataChanged();
+
+		if (auDialog.isACorpus())
+		{
+			// get adequate hash table
+			if (areAmbiguities)
+				hList = corpusController.getCorpus().hAmbiguities;
+			else
+				hList = corpusController.getCorpus().hUnambiguities;
+
+			// process the table
+			for (String ambiguity : hList.keySet())
+			{
+				ArrayList<Double> positions = hList.get(ambiguity);
+				int freq = (int) positions.size() / 4;
+				if (auDialog.getcBoxDisplayCategories().isSelected())
+				{
+					Object[] obj = new Object[3];
+					obj[0] = freq;
+					obj[1] = keepOnlyCategory(ambiguity);
+					obj[2] = positions;
+					tableModel.addRow(obj);
+				}
+				else
+				{
+					Object[] obj = new Object[3];
+					obj[0] = freq;
+					obj[1] = ambiguity;
+					obj[2] = positions;
+					tableModel.addRow(obj);
+				}
+			}
+
+			tableAmbigUnambig.setModel(tableModel);
+		}
+		else
+		{
+			// get adequate hash table
+			if (areAmbiguities)
+				hList = textController.getMyText().hAmbiguities;
+			else
+				hList = textController.getMyText().hUnambiguities;
+
+			// process the table
+			for (String ambiguity : hList.keySet())
+			{
+				ArrayList<Double> positions = hList.get(ambiguity);
+				int freq = (int) positions.size() / 3;
+				if (auDialog.getcBoxDisplayCategories().isSelected() && areAmbiguities)
+				{
+					Object[] obj = new Object[3];
+					obj[0] = freq;
+					obj[1] = keepOnlyCategory(ambiguity);
+					obj[2] = positions;
+					tableModel.addRow(obj);
+				}
+				else
+				{
+					Object[] obj = new Object[3];
+					obj[0] = freq;
+					obj[1] = ambiguity;
+					obj[2] = positions;
+					tableModel.addRow(obj);
+				}
+			}
+
+			tableAmbigUnambig.setModel(tableModel);
+		}
+
+		setWidthOfTableColumn(tableAmbigUnambig, tableModel, 0);
+		setWidthOfTableColumn(tableAmbigUnambig, tableModel, 1);
+	}
+
+	/**
+	 * Function for dynamically auto sorting of column widths. Takes care of small columns, too.
+	 * 
+	 * @param table
+	 *            - table whose columns widths needs to be fixed
+	 * @param tableModel
+	 *            - model of a table
+	 * @param column
+	 *            - actual column that needs to be sorted
+	 */
+	public static void setWidthOfTableColumn(JTable table, DefaultTableModel tableModel, int column)
+	{
+		int width = 0;
+
+		// for every row, calculate preferred size of the width, and set maximum
+		for (int row = 0; row < tableModel.getRowCount(); row++)
+		{
+			TableCellRenderer renderer = table.getCellRenderer(row, column);
+			Component comp = table.prepareRenderer(renderer, row, column);
+			width = Math.max(comp.getPreferredSize().width, width);
+		}
+
+		// part that takes care of small columns; if it's first column and needs to be wider...
+		if (column == 0 && width < 50)
+			width = 50;
+
+		// if a column is less than the rest of the table
+		else if (column != 0 && width < 230)
+			width = 230;
+
+		// set max and preffered width (increased for 5 pixels to avoid the dots) to column of a table
+		table.getColumnModel().getColumn(column).setMaxWidth(width + 5);
+		table.getColumnModel().getColumn(column).setPreferredWidth(width + 5);
+	}
+}

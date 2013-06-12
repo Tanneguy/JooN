@@ -1,0 +1,33 @@
+package net.nooj4nlp.gui.actions.shells.construct;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.GramStructShell;
+import net.nooj4nlp.gui.shells.GrammarEditorShell;
+
+public class GramStructActionListener implements ActionListener {
+
+	private GramStructShell formGramStruct;
+	
+	public GramStructActionListener(GrammarEditorShell grammarEditorShell) {
+		formGramStruct = grammarEditorShell.getController().formGramStruct;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		Launcher.getDesktopPane().add(formGramStruct);
+	    formGramStruct.setVisible(true);
+	    formGramStruct.getController().visit(formGramStruct.tvGraphs);
+	    formGramStruct.getController().expandAll(true);
+	    
+//	    gramStruct.visit(gramStruct.tvGraphs);
+//        gramStruct.tvGraphs.beginUpdate();
+//        gramStruct.tvGraphs.expandAll();
+//        gramStruct.tvGraphs.endUpdate();
+//        gramStruct.tvGraphs.select();
+//        gramStruct.tvGraphs.selectedNode = this.CurrentNode;
+	}
+
+}

@@ -1,0 +1,140 @@
+package net.nooj4nlp.gui.dialogs;
+
+import java.awt.Font;
+import java.awt.SystemColor;
+
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
+
+import net.nooj4nlp.controller.packageconfigurationdialog.PackageConfigurationDialogController;
+import net.nooj4nlp.controller.packageconfigurationdialog.RefreshActionListener;
+import net.nooj4nlp.controller.packageconfigurationdialog.SaveProjectActionListener;
+
+/**
+ * 
+ * Package configuration dialog
+ * 
+ */
+public class PackageConfigurationDialog extends JInternalFrame
+{
+	private static final long serialVersionUID = 1021274592244274784L;
+
+	private JTable tableFiles;
+	private JTextPane textDocumentation;
+	private JTextArea textResources;
+
+	private PackageConfigurationDialogController packageConfigurationDialogController;
+
+	/**
+	 * Creates the frame.
+	 */
+	public PackageConfigurationDialog()
+	{
+		setBounds(100, 100, 488, 590);
+		getContentPane().setLayout(null);
+
+		// Frame shouldn't have the option to be minimized/maximized/closed - closing is done from menu!
+		setClosable(false);
+		setIconifiable(false);
+		setMaximizable(false);
+
+		JLabel lblFiles = new JLabel("Following files are to be included in Project:");
+		lblFiles.setBounds(10, 16, 221, 14);
+		getContentPane().add(lblFiles);
+
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setBounds(274, 7, 89, 32);
+		getContentPane().add(btnRefresh);
+
+		JButton btnSave = new JButton("Save");
+		btnSave.setBounds(373, 7, 89, 32);
+		getContentPane().add(btnSave);
+
+		String[] columnNames = { "Type", "File", "Directory" };
+		DefaultTableModel tableModel = new DefaultTableModel(null, columnNames);
+		tableFiles = new JTable(tableModel);
+		tableFiles.setShowGrid(false);
+
+		JScrollPane scrollTable = new JScrollPane(tableFiles);
+		scrollTable.setBounds(10, 50, 452, 119);
+		getContentPane().add(scrollTable);
+
+		tableFiles.setFillsViewportHeight(true);
+
+		JLabel lblResources = new JLabel("Following Resources are to be included in Project:");
+		lblResources.setBounds(10, 180, 272, 14);
+		getContentPane().add(lblResources);
+
+		textResources = new JTextArea();
+		textResources.setBackground(SystemColor.control);
+		textResources.setFont(new Font("Tahoma", Font.PLAIN, 11));
+
+		JScrollPane scrollResources = new JScrollPane(textResources);
+		scrollResources.setBounds(10, 205, 452, 119);
+		getContentPane().add(scrollResources);
+
+		JLabel lblDocumentation = new JLabel("Project Documentation:");
+		lblDocumentation.setBounds(10, 335, 142, 14);
+		getContentPane().add(lblDocumentation);
+
+		textDocumentation = new JTextPane();
+		textDocumentation.setFont(new Font("Tahoma", Font.PLAIN, 11));
+
+		JScrollPane scrollDocumentation = new JScrollPane(textDocumentation);
+		scrollDocumentation.setBounds(10, 360, 452, 192);
+		getContentPane().add(scrollDocumentation);
+
+		packageConfigurationDialogController = new PackageConfigurationDialogController(this);
+
+		// Adding listeners
+		btnRefresh.addActionListener(new RefreshActionListener(packageConfigurationDialogController));
+		btnSave.addActionListener(new SaveProjectActionListener(packageConfigurationDialogController));
+	}
+
+	public PackageConfigurationDialogController getPackageConfigurationDialogController()
+	{
+		return packageConfigurationDialogController;
+	}
+
+	public void setPackageConfigurationDialogController(
+			PackageConfigurationDialogController packageConfigurationDialogController)
+	{
+		this.packageConfigurationDialogController = packageConfigurationDialogController;
+	}
+
+	public JTable getTableFiles()
+	{
+		return tableFiles;
+	}
+
+	public void setTableFiles(JTable tableFiles)
+	{
+		this.tableFiles = tableFiles;
+	}
+
+	public JTextArea getTextResources()
+	{
+		return textResources;
+	}
+
+	public void setTextResources(JTextArea textResources)
+	{
+		this.textResources = textResources;
+	}
+
+	public JTextPane getTextDocumentation()
+	{
+		return textDocumentation;
+	}
+
+	public void setTextDocumentation(JTextPane textDocumentation)
+	{
+		this.textDocumentation = textDocumentation;
+	}
+}

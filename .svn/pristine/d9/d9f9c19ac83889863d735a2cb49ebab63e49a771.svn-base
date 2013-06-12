@@ -1,0 +1,115 @@
+package net.nooj4nlp.gui.actions.shells.control;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
+
+import net.nooj4nlp.controller.CorpusEditorShell.CorpusEditorShellController;
+import net.nooj4nlp.controller.CorpusEditorShell.ExportColoredToHtmlActionListener;
+import net.nooj4nlp.controller.CorpusEditorShell.ExportXmlActionListener;
+import net.nooj4nlp.controller.CorpusEditorShell.LinguisticAnalysisActionListener;
+import net.nooj4nlp.controller.LocateDialog.LocateDialogTextActionListener;
+import net.nooj4nlp.gui.main.Launcher;
+
+/**
+ * 
+ * InternalFrameListener that adds a CORPUS menu to the menu bar each time a text editor is activated, and removes it
+ * whenever the editor loses focus
+ * 
+ */
+public class CorpusCommandInternalFrameListener implements InternalFrameListener
+{
+	private JMenuItem mntmLinguisticAnalysis;
+	private JMenuItem mntmLocate;
+	private JMenuItem mntmExportAnnotatedTexts;
+	private JMenuItem mntmExportColoredTexts;
+	private static JMenu mnCorpus;
+	private JMenuBar menuBar;
+
+	private CorpusEditorShellController corpusController;
+
+	public CorpusCommandInternalFrameListener(CorpusEditorShellController corpusController)
+	{
+		super();
+		this.corpusController = corpusController;
+	}
+
+	@Override
+	public void internalFrameActivated(InternalFrameEvent e)
+	{
+		mnCorpus = new JMenu("CORPUS");
+		menuBar = Launcher.getMenuBar();
+		menuBar.add(mnCorpus);
+
+		mntmLinguisticAnalysis = new JMenuItem("Linguistic analysis");
+		mnCorpus.add(mntmLinguisticAnalysis);
+		mntmLinguisticAnalysis.addActionListener(new LinguisticAnalysisActionListener(corpusController));
+
+		mntmLocate = new JMenuItem("Locate");
+		mnCorpus.add(mntmLocate);
+		mntmLocate.addActionListener(new LocateDialogTextActionListener(null, corpusController));
+
+		JSeparator separator_12 = new JSeparator();
+		mnCorpus.add(separator_12);
+
+		mntmExportColoredTexts = new JMenuItem("Export colored texts as HTML documents");
+		mnCorpus.add(mntmExportColoredTexts);
+		mntmExportColoredTexts.setEnabled(corpusController.isColored());
+		mntmExportColoredTexts.addActionListener(new ExportColoredToHtmlActionListener(corpusController, null));
+
+		mntmExportAnnotatedTexts = new JMenuItem("Export annotated texts as XML documents");
+		mnCorpus.add(mntmExportAnnotatedTexts);
+		mntmExportAnnotatedTexts.addActionListener(new ExportXmlActionListener(corpusController));
+	}
+
+	@Override
+	public void internalFrameDeactivated(InternalFrameEvent e)
+	{
+		// Clear previous component action listeners
+		mntmLinguisticAnalysis.removeActionListener(mntmLinguisticAnalysis.getActionListeners()[0]);
+		mntmLocate.removeActionListener(mntmLocate.getActionListeners()[0]);
+		mntmExportColoredTexts.removeActionListener(mntmExportColoredTexts.getActionListeners()[0]);
+		mntmExportAnnotatedTexts.removeActionListener(mntmExportAnnotatedTexts.getActionListeners()[0]);
+
+		menuBar.remove(mnCorpus);
+		menuBar.repaint();
+	}
+
+	@Override
+	public void internalFrameOpened(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameClosing(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameClosed(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameIconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameDeiconified(InternalFrameEvent e)
+	{
+	}
+
+	public static JMenu getMnCorpus()
+	{
+		return mnCorpus;
+	}
+
+	public JMenuItem getMntmExportColoredTexts()
+	{
+		return mntmExportColoredTexts;
+	}
+}

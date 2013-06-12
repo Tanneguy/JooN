@@ -1,0 +1,561 @@
+# NooJ V3
+#
+# Inflectional/Derivational description
+#
+# Language is: fr
+#
+# Special Characters: '=' '<' '>' '\' '"' ':' '+' '/' '#' ';'
+#
+# Generic Commands:
+# <B>: keyboard Backspace
+# <C>: change Case
+# <D>: Duplicate current char
+# <E>: Empty string
+# <L>: keyboard Left arrow
+# <N>: go to end of Next word form
+# <P>: go to end of Previous word form
+# <R>: keyboard Right arrow
+# <S>: delete/Suppress current char
+# Arguments for commands <B>, <L>, <N>, <P>, <R>, <S>:
+# xx number: repeat xx times
+# W: whole word
+# Examples
+# <R3>: go right 3 times
+# <LW>: go to beg. of word
+#
+# Language-Specific Commands:
+# (None)
+
+# Author: François Trouilleux
+# Institution: Clermont Université, Université Blaise Pascal, EA 999, LRL
+
+
+
+SG = <E>/m+s | <E>/f+s ;
+PL = <E>/m+p | <E>/f+p ;
+
+
+M_S   = <E>/m+s  |       s/m+p ;
+M_X   = <E>/m+s  |       x/m+p ;
+M_0   = <E>/m+s  |     <E>/m+p ;
+M_AL  = <E>/m+s  |   <B>ux/m+p ;
+M_AIL = <E>/m+s  |  <B2>ux/m+p ;
+
+F_S   = <E>/f+s  |       s/f+p ;
+F_X   = <E>/f+s  |       x/f+p ;
+F_0   = <E>/f+s  |     <E>/f+p ;
+NOVA  = <E>/f+s  |       e/f+p ;
+
+BONHOMME    = <E>/m+s  |  <L5>s<R5>s/m+p ;
+MONSIEUR    = <E>/m+s  |  <LW><R3><B2>es<RW>s/m+p ;
+
+
+M_SG = <E>/m+s ;
+M_PL = <E>/m+p ;
+F_SG = <E>/f+s ;
+F_PL = <E>/f+p ;
+
+
+# formes à deux pluriels
+
+M_S_0 =      <E>/m+s  |   s/m+p  |      <E>/m+p ;
+M_S_ES =     <E>/m+s  |   s/m+p  |       es/m+p ;
+M_0_ES =     <E>/m+s  | <E>/m+p  |       es/m+p ;
+M_YS_IES =   <E>/m+s  |   s/m+p  |   <B>ies/m+p ;
+M_ALS_AUX =  <E>/m+s  |   s/m+p  |    <B>ux/m+p ;
+M_AILS_AUX = <E>/m+s  |   s/m+p  |   <B2>ux/m+p ;
+M_UMS_A =    <E>/m+s  |   s/m+p  |    <B2>a/m+p ;
+M_OS_I =     <E>/m+s  |   s/m+p  |     <B>i/m+p ;
+M_US_I =     <E>/m+s  | <E>/m+p  |    <B2>i/m+p ;
+M_MANS_MEN = <E>/m+s  |   s/m+p  |  <B3>men/m+p ;
+
+AIL         = <E>/m+s  |    s/m+p  |   <BW>aulx/m+p ;
+CIEL        = <E>/m+s  |    s/m+p  |  <BW>cieux/m+p ;
+OEIL        = <E>/m+s  |    s/m+p  |   <BW>yeux/m+p ;
+CORPUS      = <E>/m+s  |  <E>/m+p  |    <B2>ora/m+p ;
+KIBBOUTZ    = <E>/m+s  |  <E>/m+p  |         im/m+p ;
+SEFARDI     = <E>/m+s  |  <E>/m+p  |          m/m+p ;
+CONDOTTIERE = <E>/m+s  |    s/m+p  |       <B>i/m+p ;
+MEHARI      = <E>/m+s  |    s/m+p  |       <B>a/m+p ;
+PFENNIG     = <E>/m+s  |    s/m+p  |          e/m+p ;
+PENNY       = <E>/m+s | <B2>ce/m+p |     <B>ies/m+p ;
+LIED        = <E>/m+s  |    s/m+p  |         er/m+p ;
+KSAR        = <E>/m+s  |    s/m+p  |    <B2>our/m+p ;
+
+LEU         = <E>/m+s  | <B>i/m+p ;
+LEV         = <E>/m+s  |    a/m+p ;
+
+F_YS_IES    = <E>/f+s  |    s/f+p  |     <B>ies/f+p ;
+F_MANS_MEN  = <E>/f+s  |    s/f+p  |    <B3>men/f+p ;
+MADAME      = <E>/f+s  | <LW><R2><B>es<RW>s/f+p  |    s/f+p ;
+
+AMOUR       = <E>/m+s  |    s/m+p   |    s/f+p  ;
+
+
+
+
+# Modèles adjectivaux et nominaux à QUATRE formes
+
+0_0   = <E>/m+s  |   <E>/f+s  |  <E>/m+p  |    <E>/f+p ;
+S_E   = <E>/m+s  |     e/f+s  |    s/m+p  |     es/f+p ;
+S_0   = <E>/m+s  |   <E>/f+s  |    s/m+p  |      s/f+p ;
+0_E   = <E>/m+s  |     e/f+s  |  <E>/m+p  |     es/f+p ;
+X_SSE = <E>/m+s  | <B>sse/f+s |  <E>/m+p  | <B>sses/f+p ;    # bas, faux
+X_CE  = <E>/m+s  | <B>ce/f+s  |  <E>/m+p  |  <B>ces/f+p ;
+S_SE  = <E>/m+s  |    se/f+s  |    s/m+p  |    ses/f+p ;
+S_DE  = <E>/m+s  |  <D>e/f+s  |    s/m+p  |  <D>es/f+p ;
+S_Ë   = <E>/m+s  |     ë/f+s  |    s/m+p  |     ës/f+p 
+                 | <B>üe/f+s              | <B>ües/f+p ; # nouvelle orthographe
+
+AUX_ALE   = <E>/m+s  |         e/f+s  |  <B>ux/m+p  |         es/f+p ;
+EAUX_ELLE = <E>/m+s  |   <B2>lle/f+s  |      x/m+p  |   <B2>lles/f+p ;
+ERS_ERE   = <E>/m+s  |   <B2>ère/f+s  |      s/m+p  |   <B2>ères/f+p ;
+ETS_ETE   = <E>/m+s  |   <B2>ète/f+s  |      s/m+p  |   <B2>ètes/f+p ;
+EUX_EUSE  = <E>/m+s  |     <B>se/f+s  |    <E>/m+p  |     <B>ses/f+p ;
+EURS_EUSE = <E>/m+s  |     <B>se/f+s  |      s/m+p  |     <B>ses/f+p ;
+ERS_EUSE  = <E>/m+s  |    <B>use/f+s  |      s/m+p  |    <B>uses/f+p ;
+EURS_ESSE = <E>/m+s  |      esse/f+s  |      s/m+p  |      esses/f+p ;
+EURS_ERESSE = <E>/m+s| <B2>resse/f+s  |      s/m+p  |  <B2>resses/f+p ;
+S_SSE     = <E>/m+s  |       sse/f+s  |      s/m+p  |       sses/f+p ;
+S_ESSE    = <E>/m+s  |      esse/f+s  |      s/m+p  |      esses/f+p ;
+ABBE      = <E>/m+s  |   <B>esse/f+s  |      s/m+p  |   <B>esses/f+p ;
+EURS_RICE = <E>/m+s  |  <B3>rice/f+s  |      s/m+p  |  <B3>rices/f+p ;
+EFS_EVE   = <E>/m+s  |   <B2>ève/f+s  |      s/m+p  |   <B2>èves/f+p ;
+FS_VE     = <E>/m+s  |     <B>ve/f+s  |      s/m+p  |     <B>ves/f+p ;
+GS_GUE    = <E>/m+s  |    <B>gue/f+s  |      s/m+p  |    <B>gues/f+p ;
+CS_QUE    = <E>/m+s  |    <B>que/f+s  |      s/m+p  |    <B>ques/f+p ;
+CS_CQUE   = <E>/m+s  |   <B>cque/f+s  |      s/m+p  |   <B>cques/f+p ;
+CS_CHE    = <E>/m+s  |    <B>che/f+s  |      s/m+p  |    <B>ches/f+p ;
+ECS_ECHE  = <E>/m+s  |  <B2>èche/f+s  |      s/m+p  |  <B2>èches/f+p ;
+INS_IGNE  = <E>/m+s  |    <B>gne/f+s  |      s/m+p  |  <B>gnes/f+p ;
+S_INE     = <E>/m+s  |       ine/f+s  |      s/m+p  |     ines/f+p ;
+OS_A      = <E>/m+s  |      <B>a/f+s  |      s/m+p  |    <B>as/f+p ;
+
+S_TE    = <E>/m+s  |       te/f+s  |    s/m+p  |        tes/f+p ;
+X_DE    = <E>/m+s  |       de/f+s  |    x/m+p  |        des/f+p ;
+0_SE    = <E>/m+s  |    <B>se/f+s  |  <E>/m+p  |     <B>ses/f+p ;
+ES_ESSE = <E>/m+s  | <B2>esse/f+s  |  <E>/m+p  |  <B2>esses/f+p ;
+
+FRAIS   = <E>/m+s  | <B2>îche/f+s  |  <E>/m+p  |  <B2>îches/f+p 
+                   | <B2>iche/f+s              |  <B2>iches/f+p ;
+
+ROI     = <E>/m+s  |   <BW>reine/f+s  |    s/m+p  |  <BW>reines/f+p ;
+COPAIN  = <E>/m+s  |     <B3>ine/f+s  |    s/m+p  |    <B3>ines/f+p ;
+HEROS   = <E>/m+s  |      <B>ïne/f+s  |  <E>/m+p  |     <B>ïnes/f+p ;
+DUC     = <E>/m+s  |       hesse/f+s  |    s/m+p  |      hesses/f+p ;
+BUTOR   = <E>/m+s  |          de/f+s  |    s/m+p  |         des/f+p ;
+DEVIN   = <E>/m+s  |        euse/f+s  |    s/m+p  |       euses/f+p 
+                   |      eresse/f+s              |     eresses/f+p ;
+CLOWN   = <E>/m+s  |         <E>/f+s  |    s/m+p  |           s/f+p 
+                   |        esse/f+s              |       esses/f+p ;
+
+CONFRERE  = <E>/m+s | <BW>consoeur/f+s |    s/m+p  | <BW>consoeurs/f+p ;
+SERVITEUR = <E>/m+s | <BW>servante/f+s |    s/m+p  | <BW>servantes/f+p ;
+EMPEREUR  = <E>/m+s | <BW>impératrice/f+s | s/m+p  | <BW>impératrices/f+p ;
+NEGRE     = <E>/m+s | <BW>négresse/f+s |    s/m+p  | <BW>négresses/f+p ;
+PROPHETE  = <E>/m+s |   <B3>étesse/f+s |    s/m+p  |   <B3>étesses/f+p ;
+SOPRANO   = <E>/m+s |   <E>/f+s |   s/m+p  |   s/f+p |   <B>i/m+p  |   <B>i/f+p ;
+
+AIEUL     = <E>/m+s | e/f+s  |    s/m+p  |    <B>x/m+p  | es/f+p ;
+
+
+# Modèles adjectivaux et nominaux à CINQ ou SIX formes
+
+FOU   = <E>/m+s  |    <B>l/m+s  |    <B>lle/f+s  |    s/m+p  |    <B>lles/f+p ;
+BEAU  = <E>/m+s  |   <B2>l/m+s  |   <B2>lle/f+s  |    x/m+p  |   <B2>lles/f+p ;
+VIEUX = <E>/m+s  |  <B2>il/m+s  |  <B2>ille/f+s  |  <E>/m+p  |  <B2>illes/f+p ;
+
+FINAL = <E>/m+s  |  e/f+s  |  <B>ux/m+p  |  s/m+p  |  es/f+p ;
+
+NIPPON     = <E>/m+s  |   e/f+s  |    <D>e/f+s  |   s/m+p  |   es/f+p  |    <D>es/f+p ;
+PARTISAN   = <E>/m+s  |   e/f+s  |      te/f+s  |   s/m+p  |   es/f+p  |      tes/f+p ;
+RAPIAT     = <E>/m+s  | <E>/f+s  |       e/f+s  |   s/m+p  |    s/f+p  |       es/f+p ;
+MALIN      = <E>/m+s  |   e/f+s  |  <B>gne/f+s  |   s/m+p  |   es/f+p  |  <B>gnes/f+p ;
+CHAMPI     = <E>/m+s  |  se/f+s  |     sse/f+s  |   s/m+p  |  ses/f+p  |     sses/f+p ;
+MAIRE      = <E>/m+s  | <E>/f+s  |     sse/f+s  |   s/m+p  | <E>s/f+p  |     sses/f+p ;
+ENQUETEUR  = <E>/m+s | <B>se/f+s | <B3>rice/f+s |   s/m+p  | <B>ses/f+p | <B3>rices/f+p ;
+
+VENDEUR    = <E>/m+s  |   <B>se/f+s  |   <B3>eresse/f+s 
+           |   s/m+p  |  <B>ses/f+p  |  <B3>eresses/f+p ;
+CHAUFFEUR  = <E>/m+s  |   <B>se/f+s  |          <E>/f+s 
+           |   s/m+p  |  <B>ses/f+p  |         <E>s/f+p ;
+ACQUEREUR  = <E>/m+s  |   <B>se/f+s  |     <B3>esse/f+s 
+           |   s/m+p  |  <B>ses/f+p  |    <B3>esses/f+p ;
+DOCTEUR    = <E>/m+s  |     <E>/f+s  |   <B3>oresse/f+s 
+           |   s/m+p  |       s/f+p  |  <B3>oresses/f+p ;
+POETE      = <E>/m+s  |     <E>/f+s  |   <B3>étesse/f+s 
+           |   s/m+p  |       s/f+p  |  <B3>étesses/f+p ;
+MAURE      = <E>/m+s  |     <E>/f+s  |         sque/f+s 
+           |   s/m+p  |       s/f+p  |        sques/f+p ;
+LANDGRAVE  = <E>/m+s  |     <E>/f+s  |       <B>ine/f+s 
+           |   s/m+p  |       s/f+p  |      <B>ines/f+p ;
+
+
+
+
+# DERIVATION DES ADVERBES EN -MENT
+
+NUL = <E>/dadj ;
+
+MENT = ment/ADV ;
+B_EGRAVE_MENT = <B>ément/ADV ;
+EMENT = ement/ADV ;
+EGRAVE_MENT = ément/ADV ;
+TEMENT = tement/ADV ;
+CEMENT = <B>cement/ADV ;
+ESSEMENT = <B2>essément/ADV ;
+AICHEMENT = <B2>îchement/ADV | <B2>ichement/ADV ; 
+D_EMENT = <D>ement/ADV ;
+MMENT = <B2>mment/ADV ;
+LLEMENT = <B2>llement/ADV ;
+SSEMENT = <B>ssement/ADV ;
+OLLEMENT = <B>llement/ADV ;
+EREMENT = <B2>èrement/ADV ;
+ETEMENT = <B2>ètement/ADV ;
+EUSEMENT = <B>sement/ADV ;
+IEVEMENT = <B2>ièvement/ADV ;
+VEMENT = <B>vement/ADV ;
+GUEMENT = <B>guement/ADV ;
+QUEMENT = <B>quement/ADV ;
+CHEMENT = <B>chement/ADV ;
+ECHEMENT = <B2>èchement/ADV ;
+UMENT = <B>ûment/ADV ;
+
+
+
+
+#-------------------- PREMIER GROUPE
+
+# 11 modèles:
+# AIMER, MANGER, PLACER, JETER, NOYER, PESER, CEDER, FLECHER, PIEGER, PAYER, ENVOYER
+
+ATONES = e/1+s+PR  |  es/2+s+PR  |  e/3+s+PR |  ent/3+p+PR 
+       | e/1+s+S   |  es/2+s+S   |  e/3+s+S  |  ent/3+p+S 
+       | e/2+s+IP  ;
+
+TON_ei  =     ez/2+p+IP | ez/2+p+PR
+          | ions/1+p+I  |  iez/2+p+I |  èrent/3+p+PS
+          | ions/1+p+S  |  iez/2+p+S  
+          | é/PP+m+s  |  ée/PP+f+s  |  és/PP+m+p  |  ées/PP+f+p ;
+
+TON_ao  =   ons/1+p+IP |  ons/1+p+PR  
+          | ais/1+s+I  |  ais/2+s+I  | ait/3+s+I |  aient/3+p+I 
+          |  ai/1+s+PS |   as/2+s+PS |   a/3+s+PS |  âmes/1+p+PS  | âtes/2+p+PS 
+          |    asse/1+s+IS  |   asses/2+s+IS  |      ât/3+s+IS 
+          | assions/1+p+IS  |  assiez/2+p+IS  |  assent/3+p+IS
+          | ant/G ;
+
+TONIQUES = :TON_ei | :TON_ao ;
+
+FC  =   ai/1+s+F  |   as/2+s+F  |    a/3+s+F  |   ons/1+p+F  |   ez/2+p+F  |    ont/3+p+F 
+    |  ais/1+s+C  |  ais/2+s+C  |  ait/3+s+C  |  ions/1+p+C  |  iez/2+p+C  |  aient/3+p+C ;
+
+
+AIMER = <B2> (:ATONES | :TONIQUES) | :FC  |  <E>/INF ;
+
+MANGER = <B2> (:ATONES | :TON_ei) | <B2>e :TON_ao | :FC  |  <E>/INF ;
+
+PLACER = <B2> (:ATONES | :TON_ei) | <B3>ç :TON_ao | :FC  |  <E>/INF ;
+
+JETER = <B2><D> :ATONES | <B2> :TONIQUES | <B2><D>er :FC  |  <E>/INF ;
+
+NOYER = <B3>i :ATONES | <B2> :TONIQUES | <B3>ier :FC  |  <E>/INF ;
+
+PESER = <B2><L><B>è<R> :ATONES | <B2> :TONIQUES |        <B2><L><B>è<R>er :FC  | <E>/INF ;
+
+DEPECER = (<B2><L><B>è<R> :ATONES) | (<B2> :TON_ei)  | (<B3>ç :TON_ao)
+         | (<B2><L><B>è<R>er :FC)  | <E>/INF ;
+
+CEDER = <B2><L><B>è<R> :ATONES | <B2> :TONIQUES | :FC  | <B2><L><B>è<R>er :FC  | <E>/INF ;
+
+FLECHER = <B2><L2><B>è<R2> :ATONES | <B2> :TONIQUES | :FC 
+        | <B2><L2><B>è<R2>er :FC  |  <E>/INF ;
+
+PIEGER = (<B2><L><B>è<R> :ATONES) | (<B2> :TON_ei) | (<B2>e :TON_ao)
+       | :FC  | (<B2><L><B>è<R>er :FC)  |  <E>/INF ;
+
+RAPIECER = (<B2><L><B>è<R> :ATONES) | (<B2> :TON_ei) | (<B3>ç :TON_ao)
+       | :FC  | (<B2><L><B>è<R>er :FC)  |  <E>/INF ;
+
+PAYER = <B2> :ATONES | <B3>i :ATONES | <B2> :TONIQUES | :FC  | <B3>ier :FC  | <E>/INF ;
+
+ENVOYER = <B3>i :ATONES | <B2> :TONIQUES | <B4>err :FC | <E>/INF ;
+
+
+#-------------------- DEUXIEME ET TROISIEME GROUPE
+
+PRES_s_0 =  s/s+1+PR | s/s+2+PR | <E>/s+3+PR | s/s+2+IP  ;
+
+PRES_s_t =  s/s+1+PR | s/s+2+PR | t/s+3+PR | s/s+2+IP  ;
+
+PRES_x_t =  x/s+1+PR | x/s+2+PR | t/s+3+PR   ;
+
+PRES_ît =  is/s+1+PR | is/s+2+PR | ît/s+3+PR  | it/s+3+PR | is/s+2+IP  ;
+
+PRES_ôt =  os/s+1+PR | os/s+2+PR | ôt/s+3+PR | ot/s+3+PR | os/s+2+IP  ;
+
+PRES_e  =  e/s+1+PR | es/s+2+PR | e/s+3+PR | e/s+2+IP  ;
+
+IMP1 =  ons/p+1+PR |  ez/p+2+PR  
+     | ais/s+1+I  | ais/s+2+I  | ait/s+3+I  | ions/p+1+I   | iez/p+2+I | aient/p+3+I ;
+IMP2    =  ons/p+1+IP |   ez/p+2+IP  | ions/p+1+S  | iez/p+2+S  | ant/G ; 
+
+IMP     =  :IMP1 | :IMP2 ; 
+
+SUBJ1   = e/s+1+S | es/s+2+S | e/s+3+S | ent/p+3+S ;
+SUBJ    = ent/p+3+PR | :SUBJ1 ;
+
+PS_IS_a   = ai/s+1+PS |    as/s+2+PS |  a/s+3+PS |    âmes/p+1+PS |   âtes/p+2+PS |  èrent/p+3+PS
+        | asse/s+1+IS | asses/s+2+IS | ât/s+3+IS | assions/p+1+IS | assiez/p+2+IS | assent/p+3+IS ;
+
+PS_IS_i   = is/s+1+PS |    is/s+2+PS | it/s+3+PS |    îmes/p+1+PS |   îtes/p+2+PS |  irent/p+3+PS
+        | isse/s+1+IS | isses/s+2+IS | ît/s+3+IS | issions/p+1+IS | issiez/p+2+IS | issent/p+3+IS ;
+
+PS_IS_ï   = ïs/s+1+PS |    ïs/s+2+PS | ït/s+3+PS |    ïmes/p+1+PS |   ïtes/p+2+PS |  ïrent/p+3+PS
+        | ïsse/s+1+IS | ïsses/s+2+IS | ït/s+3+IS | ïssions/p+1+IS | ïssiez/p+2+IS | ïssent/p+3+IS ;
+
+PS_IS_u   = us/s+1+PS |    us/s+2+PS | ut/s+3+PS |    ûmes/p+1+PS |   ûtes/p+2+PS |  urent/p+3+PS
+        | usse/s+1+IS | usses/s+2+IS | ût/s+3+IS | ussions/p+1+IS | ussiez/p+2+IS | ussent/p+3+IS ;
+
+PS_IS_û   = ûs/s+1+PS |    ûs/s+2+PS | ût/s+3+PS |    ûmes/p+1+PS |   ûtes/p+2+PS |  ûrent/p+3+PS
+        | ûsse/s+1+IS | ûsses/s+2+IS | ût/s+3+IS | ûssions/p+1+IS | ûssiez/p+2+IS | ûssent/p+3+IS ;
+
+PS_IS_in   = ins/s+1+PS |    ins/s+2+PS | int/s+3+PS |    înmes/p+1+PS |   întes/p+2+PS |  inrent/p+3+PS
+         | insse/s+1+IS | insses/s+2+IS | înt/s+3+IS | inssions/p+1+IS | inssiez/p+2+IS | inssent/p+3+IS ;
+
+PP  = <E>/m+s+PP | e/f+s+PP | s/m+p+PP | es/f+p+PP ;
+PPs = <E>/m+s+PP | e/f+s+PP | <E>/m+p+PP | es/f+p+PP ;
+
+
+ETRE  =  (<BW> ( suis/1+s+PR |   es/2+s+PR  |   est/3+s+PR 
+             | sommes/1+p+PR | êtes/2+p+PR  |  sont/3+s+PR))
+      | (<BW>ét (ais/s+1+I   | ais/s+2+I      | ait/s+3+I 
+              | ions/p+1+I   | iez/p+2+I    | aient/p+3+I ))
+      | (<BW>étant/G)
+      | (<BW> ( sois/1+s+S |   sois/2+s+S  |    soit/3+s+S 
+             | soyons/1+p+S |  soyez/2+p+S  |  soient/3+p+S))
+      | (<BW> ( sois/2+s+IP | soyons/1+p+IP |   soyez/2+p+IP))
+      | (<BW>f :PS_IS_u)    | (<BW>ser :FC)  
+      | (<BW>été/PP)        |  <E>/INF ;
+
+
+AVOIR = (<BW> ( ai/1+s+PR |   as/2+s+PR     |   a/3+s+PR |   ont/3+p+PR
+             | aie/s+1+S  | aies/s+2+S      | ait/s+3+S  | aient/p+3+S ))
+      | (<B3> :IMP1)      | (<B4>y :IMP2)   |  <BW>aie/s+2+IP
+      | (<BW>e :PS_IS_u)  | (<B4>ur :FC)
+      | (<BW>eu :PP)      | <E>/INF ;
+
+
+
+
+
+FINIR    = (<B> :PRES_s_t)     | (<B>ss :IMP)  | (<B>ss :SUBJ) | (<B2> :PS_IS_i)
+         | (:FC)               | (<B> :PP)     |  <E>/INF ;
+FLEURIR  = (<B> :PRES_s_t)     | (<B>ss :IMP)  | (<B>ss :SUBJ) | (<B2> :PS_IS_i)
+         | (<B5>oriss :IMP)    | (<B5>oriss :SUBJ) 
+         | (:FC)               | (<B> :PP)     |  <E>/INF ;
+
+HAIR     = (<B2>i :PRES_s_t)   | (<B>ss :IMP)  | (<B>ss :SUBJ) | (<B2> :PS_IS_ï)
+         | (:FC)               | (<B> :PP)     |  <E>/INF ;
+
+
+TENIR    = (<B4>ien :PRES_s_t) | (<B2> :IMP)   | (<B4>ienn :SUBJ) | (<B4> :PS_IS_in)
+         | (<B4>iendr :FC)     | (<B2>u :PP)   |  <E>/INF ;
+ACQUERIR = (<B4>ier :PRES_s_t) | (<B4>ér :IMP) | (<B4>ièr :SUBJ)  | (<B4> :PS_IS_i) 
+         | (<B4>err :FC)       | (<B4>is :PPs)    |  <E>/INF ;
+SENTIR   = (<B3> :PRES_s_t)    | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+         | (:FC)               | (<B> :PP)     |  <E>/INF ;
+VETIR    = (<B2> :PRES_s_0)    | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i)
+         | (:FC)               | (<B2>u :PP)   |  <E>/INF ;
+COUVRIR  = (<B2> :PRES_e )     | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+         | (:FC)               | (<B3>ert :PP) |  <E>/INF ;
+CUEILLIR = (<B2> :PRES_e )     | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+         | (<B2>er :FC)        | (<B> :PP)     |  <E>/INF ;
+ASSAILLIR = (<B2> :PRES_e )    | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+          | (:FC)  |    (<B2>er :FC)           | (<B> :PP)     |  <E>/INF ;
+FAILLIR = (<B5>u :PRES_x_t )   | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+          | (:FC)              | (<B> :PP)     |  <E>/INF ;
+BOUILLIR = (<B5> :PRES_s_t )   | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+          | (:FC)              | (<B> :PP)     |  <E>/INF ;
+COURIR   = (<B2> :PRES_s_t )   | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_u) 
+          | (<B2>r :FC)        | (<B2>u :PP)   |  <E>/INF ;
+MOURIR   = (<B5>eur :PRES_s_t )| (<B2> :IMP)   | (<B5>eur :SUBJ)  | (<B2> :PS_IS_u) 
+          | (<B2>r :FC)        | (<B4>rt :PP)  |  <E>/INF ;
+SERVIR   = (<B3> :PRES_s_t )   | (<B2> :IMP)   | (<B2> :SUBJ)     | (<B2> :PS_IS_i) 
+          | (:FC)              | (<B> :PP)     |  <E>/INF ;
+FUIR     = (<B> :PRES_s_t )   | (<B2>y :IMP)  | (<B> :SUBJ)      | (<B2> :PS_IS_i) 
+          | (:FC)              | (<B> :PP)     |  <E>/INF ;
+OUIR     = (<B3>i :PRES_s_t )  | (<B3>y :IMP)  | (<B3>i :SUBJ)    | (<B2> :PS_IS_ï) 
+          | (:FC)  | (<B3>rr :FC)  | (<B3>ir :FC)  | (<B> :PP)    |  <E>/INF ;
+GESIR    = (<B4>i :PRES_s_t )  | (<B4>is :IMP) | (<B4>is :SUBJ)   |  <E>/INF
+          | (<B4>ît/s+3+PR) ;
+RECEVOIR =  (<B6>çoi :PRES_s_t ) | (<B3> :IMP)  | (<B6>çoiv :SUBJ) | (<B6>ç :PS_IS_u) 
+          | (<B3>r :FC)          | (<B6>çu :PP) |  <E>/INF ;
+VOIR     =  (<B> :PRES_s_t )   | (<B2>y :IMP)   | (<B> :SUBJ)      | (<B3> :PS_IS_i) 
+          | (<B3>err :FC)      | (<B3>u :PP)    |  <E>/INF ;
+PREVOIR  =  (<B> :PRES_s_t )   | (<B2>y :IMP)   | (<B> :SUBJ)      | (<B3> :PS_IS_i) 
+          | (:FC)              | (<B3>u :PP)    |  <E>/INF ;
+PLEUVOIR =  (<B4> :PRES_s_t )  | (<B3> :IMP)    | (<B3> :SUBJ)     | (<B6> :PS_IS_u) 
+          | (<B3>r :FC)        | (<B6>u :PP)    |  <E>/INF ;
+
+
+ASSEOIR  = (<B4>ied :PRES_s_0 )| (<B4>ey :IMP)  | (<B4>ey :SUBJ)
+         | (<B4>oi  :PRES_s_t )| (<B4>oy :IMP)  | (<B4>oi :SUBJ)
+         | (<B4> :PS_IS_i)     | (<B4>iér :FC)  | (<B4>oir :FC)  | (<B4>is :PP) | <E>/INF ;
+
+SEOIR    = (<B4>ied :PRES_s_0 )| (<B4>ey :IMP)  | (<B4>ié :SUBJ)
+         | (<B4>iér :FC)       | (<B4>is :PP)   | <E>/INF
+         | <B4>éant/G ;
+
+MESSEOIR = (<B4>ied :PRES_s_0 )| (<B4>ey :IMP)  | (<B4>ié :SUBJ)
+         | (<B4>iér :FC)       | <E>/INF        | <B4>éant/G ;
+
+SURSEOIR =  (<B4>oi :PRES_s_t )| (<B4>oy :IMP)    | (<B4>oi :SUBJ)      | (<B4> :PS_IS_i) 
+          | (:FC)        | (<B4>is :PPs)    |  <E>/INF   ;
+
+
+POURVOIR =  (<B> :PRES_s_t )   | (<B2>y :IMP)   | (<B> :SUBJ)      | (<B3> :PS_IS_u) 
+          | (:FC)              | (<B3>u :PP)    |  <E>/INF ;
+
+SAVOIR   =  (<B4>i :PRES_s_t ) | (<B3> :IMP1)
+          | <B3>ent/p+3+PR     | (<B4>ch :SUBJ1)  
+          | (<B5> :PS_IS_u)    | (<B4>ur :FC)       | (<B5>u :PP)       |  <E>/INF 
+          | <B4>chons/p+1+IP   |   <B4>chez/p+2+IP  | <B4>chions/p+1+S  | <B4>chiez/p+2+S  | <B4>chant/G ;
+DEVOIR   =  (<B5>oi :PRES_s_t )| (<B3> :IMP)    | (<B5>oiv :SUBJ)  | (<B5> :PS_IS_u) 
+          | (<B3>r :FC)    |  <E>/INF 
+          | <B5>û/m+s+PP | <B5>ue/f+s+PP | <B5>us/m+p+PP | <B5>ues/f+p+PP;
+POUVOIR  =  (<B6>eu :PRES_x_t )| (<B3> :IMP1)       
+          | <B6>euvent/p+3+PR  | (<B6>uiss :SUBJ1) 
+          | (<B6> :PS_IS_u)    | (<B4>rr :FC)       | (<B6>u :PP)       |  <E>/INF 
+          | <B6>uissions/p+1+S | <B6>uissiez/p+2+S  |  <B3>ant/G  | <B6>uis/s+1+PR ;
+
+MOUVOIR  =  (<B6>eu :PRES_s_t )| (<B3> :IMP)    | (<B6>euv :SUBJ)      | (<B6> :PS_IS_u) 
+          | (<B3>r :FC)        | (<B6>u :PP)    |  <E>/INF   | <B6>û/m+s+PP ;
+
+
+VALOIR   =  (<B4>u :PRES_x_t ) | (<B3> :IMP)    | (<B4>ill :SUBJ)      | (<B3> :PS_IS_u) 
+          | (<B4>udr :FC)      | (<B3>u :PP)    |  <E>/INF   ;
+FALLOIR  =  (<B5>u :PRES_s_t ) | (<B3> :IMP)    | (<B5>ill :SUBJ)  | (<B3> :PS_IS_u) 
+          | (<B5>udr :FC)      | (<B3>u :PP)    |  <E>/INF ;
+
+
+VOULOIR  =  (<B6>eu :PRES_x_t )| (<B3> :IMP)       
+          | <B6>eulent/p+3+PR  | (<B6>euill :SUBJ1) 
+          | (<B3> :PS_IS_u)    | (<B4>dr :FC)       | (<B3>u :PP)       |  <E>/INF 
+          | <B6>euille/s+2+IP  | <B6>euillons/p+1+IP  | <B6>euillez/p+2+IP ;
+
+CHOIR    =  (<B> :PRES_s_t )   | (<B3> :PS_IS_u) 
+          | (:FC)        | (<B3>err :FC)        | (<B3>u :PP)    |  <E>/INF   ;
+DECHOIR  =  (<B> :PRES_s_t )   | (<B2>y :IMP)   | (<B>  :SUBJ)   | (<B3> :PS_IS_u) 
+          | (:FC)        | (<B3>err :FC)        | (<B3>u :PP)    |  <E>/INF   ;
+
+RENDRE   = (<B2> :PRES_s_0 )   | (<B2> :IMP)  | (<B2> :SUBJ)      | (<B2> :PS_IS_i) 
+          | (<B> :FC)          | (<B2>u :PP)  |  <E>/INF ;
+FOUTRE   = (<B3> :PRES_s_t )   | (<B2> :IMP)  | (<B2> :SUBJ)  
+          | (<B> :FC)          | (<B2>u :PP)  |  <E>/INF ;
+
+FICHE    = (<B> :ATONES)   | (<B> :IMP)  |  <B> :PS_IS_a 
+          | (r :FC)        | (<B>u :PP)  |  <E>/INF ;
+
+PRENDRE  = (<B2> :PRES_s_0 )   | (<B3> :IMP)  | (<B3>n :SUBJ)     | (<B5> :PS_IS_i) 
+          | (<B> :FC)          | (<B5>is :PPs) |  <E>/INF ;
+BATTRE   = (<B3> :PRES_s_0 )   | (<B2> :IMP)  | (<B2> :SUBJ)      | (<B2> :PS_IS_i) 
+          | (<B> :FC)          | (<B2>u :PP)  |  <E>/INF ;
+METTRE   = (<B3> :PRES_s_0 )   | (<B2> :IMP)  | (<B2> :SUBJ)      | (<B5> :PS_IS_i) 
+          | (<B> :FC)          | (<B5>is :PPs) |  <E>/INF ;
+ROMPRE   = (<B2> :PRES_s_t )   | (<B2> :IMP)  | (<B2> :SUBJ)      | (<B2> :PS_IS_i) 
+          | (<B> :FC)          | (<B2>u :PP)  |  <E>/INF ;
+PEINDRE  = (<B3> :PRES_s_t )   | (<B4>gn :IMP)| (<B4>gn :SUBJ)    | (<B4>gn :PS_IS_i) 
+          | (<B> :FC)          | (<B3>t :PP)  |  <E>/INF ;
+
+SOURDRE  = (<B2> :PRES_s_0 )   | (<B2> :IMP)   
+          | (<B> :FC)          |  <E>/INF ;
+
+VAINCRE  = (<B2> :PRES_s_0 )   | (<B3>qu :IMP)| (<B3>qu :SUBJ)    | (<B3>qu :PS_IS_i) 
+          | (<B> :FC)          | (<B2>u :PP)  |  <E>/INF ;
+TRAIRE   = (<B2> :PRES_s_t )   | (<B3>y :IMP) | (<B2> :SUBJ)    
+          | (<B> :FC)          | (<B2>t :PP)  |  <E>/INF ;
+PLAIRE   = (<B3> :PRES_ît )   | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B4> :PS_IS_u)   
+          | (<B> :FC)          | (<B4>u :PP)  |  <E>/INF ;
+CONNAITRE = (<B4> :PRES_ît )   | (<B4>iss :IMP) | (<B4>iss :SUBJ)  | (<B5> :PS_IS_u)      
+          | (<B> :FC)          | (<B5>u :PP)  |  <E>/INF ;
+NAITRE    = (<B4> :PRES_ît )   | (<B4>iss :IMP) | (<B4>iss :SUBJ)  | (<B4>qu :PS_IS_i)      
+          | (<B> :FC)          | (<B5>é :PP)  |  <E>/INF ;
+PAITRE    = (<B4> :PRES_ît )   | (<B4>iss :IMP) | (<B4>iss :SUBJ)        
+          | (<B> :FC)          | (<B5>u :PP)  |  <E>/INF ;
+REPAITRE  = (<B4> :PRES_ît )   | (<B4>iss :IMP) | (<B4>iss :SUBJ)  | (<B5> :PS_IS_u)            
+          | (<B> :FC)          | (<B5>u :PP)  |  <E>/INF ;
+CROITRE   = (<B3> :PRES_s_t )  | (<B4>iss :IMP) | (<B4>iss :SUBJ)  | (<B5> :PS_IS_û)      
+          | (<B> :FC)          | <E>/INF 
+          |  <B5>û/m+s+PP | <B5>ue/f+s+PP | <B5>ûs/m+p+PP | <B5>ues/f+p+PP ;
+CROIRE    = (<B2> :PRES_s_t )  | (<B3>y :IMP) | (<B2> :SUBJ)   | (<B4> :PS_IS_u)   
+          | (<B> :FC)          | (<B4>u :PP)  |  <E>/INF ;
+BOIRE     = (<B2> :PRES_s_t )  | (<B4>uv :IMP)| (<B2>v :SUBJ)   | (<B4> :PS_IS_u)   
+          | (<B> :FC)          | (<B4>u :PP)  |  <E>/INF ;
+CLORE     = (<B3> :PRES_ôt )   | (<B2>s :IMP) | (<B2>s :SUBJ)     
+          | (<B> :FC)          | (<B2>s :PPs) |  <E>/INF ;
+FORCLORE  = (<B2>s :PPs) |  <E>/INF ;
+INCLURE   = (<B2> :PRES_s_t )  | (<B2> :IMP)  | (<B2> :SUBJ)   | (<B3> :PS_IS_u)   
+          | (<B> :FC)          | (<B2>s :PP)   |  <E>/INF ;
+CONCLURE  = (<B2> :PRES_s_t )  | (<B2> :IMP)  | (<B2> :SUBJ)   | (<B3> :PS_IS_u)   
+          | (<B> :FC)          | (<B2> :PP)   |  <E>/INF ;
+ABSOUDRE  = (<B3> :PRES_s_t )  | (<B5>olv :IMP)  | (<B5>olv :SUBJ)    
+          | (<B> :FC)          |  <E>/INF 
+          | <B3>s/m+s+PP | <B3>te/f+s+PP | <B3>s/m+p+PP | <B3>tes/f+p+PP ;
+RESOUDRE  = (<B3> :PRES_s_t )  | (<B5>olv :IMP)  | (<B5>olv :SUBJ)   | (<B4>l :PS_IS_u)             | (<B> :FC)          |  <E>/INF 
+          | <B3>s/m+s+PP | <B3>te/f+s+PP | <B3>s/m+p+PP | <B3>tes/f+p+PP 
+          | (<B4>lu :PP) ;
+COUDRE    = (<B2> :PRES_s_0 )  | (<B3>s :IMP) | (<B3>s :SUBJ)   | (<B3>s :PS_IS_i)   
+          | (<B> :FC)          | (<B3>su :PP) |  <E>/INF ;
+MOUDRE    = (<B2> :PRES_s_0 )  | (<B3>l :IMP) | (<B3>l :SUBJ)   | (<B3>l :PS_IS_u)   
+          | (<B> :FC)          | (<B3>lu :PP) |  <E>/INF ;
+SUIVRE    = (<B3> :PRES_s_t )  | (<B2> :IMP)  | (<B2> :SUBJ)    | (<B2> :PS_IS_i)   
+          | (<B> :FC)          | (<B2>i :PP)  |  <E>/INF ;
+VIVRE     = (<B3> :PRES_s_t )  | (<B2> :IMP)  | (<B2> :SUBJ)    | (<B4>éc :PS_IS_u)   
+          | (<B> :FC)          | (<B4>écu :PP)|  <E>/INF ;
+LIRE      = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B3> :PS_IS_u)   
+          | (<B> :FC)          | (<B3>u :PP)  |  <E>/INF ;
+DIRE      = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B3>it :PP) |  <E>/INF        | <B2>tes/p+2+PR  | <B2>tes/p+2+IP ;
+MAUDIRE   = (<B2> :PRES_s_t )  | (<B2>ss :IMP)| (<B2>ss :SUBJ)  | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B3>it :PP) |  <E>/INF   ;
+RIRE      = (<B2> :PRES_s_t )  | (<B2> :IMP)  | (<B2> :SUBJ)    | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B3>i :PP)  |  <E>/INF ;
+ECRIRE    = (<B2> :PRES_s_t )  | (<B2>v :IMP) | (<B2>v :SUBJ)   | (<B2>v :PS_IS_i)   
+          | (<B> :FC)          | (<B2>t :PP)  |  <E>/INF ;
+CONFIRE   = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B2>t :PP)  |  <E>/INF ;
+SUFFIRE   = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B2>/PP)  |  <E>/INF ;
+CIRCONCIRE = (<B2> :PRES_s_t ) | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B3> :PS_IS_i)   
+          | (<B> :FC)          | (<B2>s :PP)  |  <E>/INF ;
+CUIRE     = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B2>s :PS_IS_i)   
+          | (<B> :FC)          | (<B2>t :PP)  |  <E>/INF ;
+LUIRE     = (<B2> :PRES_s_t )  | (<B2>s :IMP) | (<B2>s :SUBJ)   | (<B2>s :PS_IS_i)   
+          | (<B> :FC)          |  <B2> :PP    |  <E>/INF        | (<B3> :PS_IS_i)     ;
+
+OCCIRE    = (<B2>s :PPs)  |  <E>/INF ;
+RASSIR    =  <B>s/m+s+PP  | <B>e/f+s+PP | <B>s/m+p+PP | <B>es/f+p+PP  |  <E>/INF ;
+
+
+ALLER     = <B5>vais/s+1+PR | <B5>vas/s+2+PR  | <B5>va/s+3+PR | <B5>vas/s+2+IP  | <B5>vont/p+3+PR  
+	     | (<B2> :IMP)     | (<B5>aill :SUBJ1)   | (<B2> :PS_IS_a)   
+          | (<B5>ir :FC)    | (<B2>é :PP)  |  <E>/INF ;
+
+
+
+
+# On surgénère 'faisez+PR+2+p'
+
+FAIRE    = (<B2> :PRES_s_t )
+         |  <B2>tes/p+2+PR | <B4>ont/p+3+PR		  
+         | (<B2>s :IMP1)  
+         | (<B2> (sons/p+1+IP | tes/p+2+IP | sant/G))  
+         | (<B3>ss (:SUBJ1 | ions/p+1+S | iez/+p+2+S))
+         | (<B4> :PS_IS_i) 
+         | (<B4>er :FC)       | (<B2>t :PP)   |  <E>/INF  ;
+
+FORFAIRE =  (<B2> :PRES_s_t )  | (<B2>t :PP) |  <E>/INF ;
+
+PARFAIRE =  (<B2>t :PP) |  <E>/INF ;
+

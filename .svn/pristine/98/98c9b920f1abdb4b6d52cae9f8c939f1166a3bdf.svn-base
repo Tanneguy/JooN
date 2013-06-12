@@ -1,0 +1,18 @@
+package net.nooj4nlp.engine.helper;
+
+import java.io.Serializable;
+
+@SuppressWarnings("hiding")
+public class PenAttributes<Color, Float> implements Serializable
+{
+	private static final long serialVersionUID = 1L;
+	public Color color;
+	// not using BasicStroke, as it's not serializable
+	public float stroke;
+
+	public PenAttributes(Color c, float s)
+	{
+		color = c;
+		stroke = s;
+	}
+}

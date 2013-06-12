@@ -1,0 +1,19 @@
+package net.nooj4nlp.controller.packageconfigurationdialog;
+
+import java.io.Serializable;
+
+public class WindowPosition implements Serializable
+{
+	private static final long serialVersionUID = 7573632402456703052L;
+
+	public int posX, posY;
+	public int width, height;
+
+	public WindowPosition(int posX, int posY, int width, int height)
+	{
+		this.posX = posX;
+		this.posY = posY;
+		this.width = width;
+		this.height = height;
+	}
+}

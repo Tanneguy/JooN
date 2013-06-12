@@ -1,0 +1,134 @@
+package Nooj;
+
+import java.util.ArrayList;
+
+import net.nooj4nlp.engine.Grammar;
+import net.nooj4nlp.engine.Graph;
+
+public class WoxGrammar
+{
+	private ArrayList<WoxGraph> graphs;
+	private int windowHeight, windowWidth;
+	private static WoxGramType gramType;
+	private static String author;
+	private static String institution;
+	// Unused code
+	// private static String password;
+	private int lockType;
+	private String checkText = null;
+	private String iLanguage, oLanguage;
+
+	private ArrayList<Object> extraParams;
+	private String iFontName;
+	private float iFontSize;
+
+	private int iFontStyle;
+	private String oFontName;
+	private float oFontSize;
+	private int oFontStyle;
+	private String cFontName;
+	private float cFontSize;
+	private int cFontStyle;
+	private WoxColor cColor;
+	private WoxColor aColor, bColor, fColor, sColor, vColor;
+	private boolean dispFrame;
+	private boolean dispFile;
+	private boolean dispDir;
+	private boolean dispDate;
+	private boolean dispBox;
+	private boolean dispState;
+	private boolean dispAuthor;
+	private boolean dispInstitution;
+	private boolean dispGrid;
+
+	public WoxGrammar(Grammar g)
+	{
+		if (g.graphs == null)
+			graphs = null;
+		else
+		{
+			graphs = new ArrayList<WoxGraph>();
+			for (Object item : g.graphs)
+				graphs.add(new WoxGraph((Graph) item));
+		}
+		windowHeight = g.windowHeight;
+		windowWidth = g.windowWidth;
+		gramType = new WoxGramType(g.gramType);
+		author = g.author;
+		institution = g.institution;
+		// Unused code
+		// password = g.institution;
+		lockType = g.lockType;
+		checkText = g.checkText;
+		iLanguage = g.iLanguage;
+		oLanguage = g.oLanguage;
+		extraParams = g.getExtraParams();
+		iFontName = g.iFontName;
+		iFontSize = g.iFontSize;
+		iFontStyle = g.iFontStyle;
+		oFontName = g.oFontName;
+		oFontSize = g.oFontSize;
+		oFontStyle = g.oFontStyle;
+		cFontName = g.cFontName;
+		cFontSize = g.cFontSize;
+		cFontStyle = g.cFontStyle;
+		cColor = new WoxColor(g.cColor);
+		aColor = new WoxColor(g.aColor);
+		bColor = new WoxColor(g.bColor);
+		fColor = new WoxColor(g.fColor);
+		sColor = new WoxColor(g.sColor);
+		vColor = new WoxColor(g.vColor);
+		dispFrame = g.dispFrame;
+		dispFile = g.dispFile;
+		dispDir = g.dispDir;
+		dispDate = g.dispDate;
+		dispBox = g.dispBox;
+		dispState = g.dispState;
+		dispAuthor = g.dispAuthor;
+		dispInstitution = g.dispInstitution;
+		dispGrid = g.dispGrid;
+	}
+
+	public Grammar toGrammar()
+	{
+		Grammar g = new Grammar();
+		g.graphs = new ArrayList<Graph>();
+		for (Object item : graphs)
+			g.graphs.add(((WoxGraph) item).toGraph());
+		g.windowHeight = windowHeight;
+		g.windowWidth = windowWidth;
+		g.gramType = gramType.toGramType();
+		g.author = author;
+		g.institution = institution;
+		g.lockType = lockType;
+		g.checkText = checkText;
+		g.iLanguage = iLanguage;
+		g.oLanguage = oLanguage;
+		g.setExtraParams(extraParams);
+		g.iFontName = iFontName;
+		g.iFontSize = iFontSize;
+		g.iFontStyle = iFontStyle;
+		g.oFontName = oFontName;
+		g.oFontSize = oFontSize;
+		g.oFontStyle = oFontStyle;
+		g.cFontName = cFontName;
+		g.cFontSize = cFontSize;
+		g.cFontStyle = cFontStyle;
+		g.cColor = cColor.toColor();
+		g.aColor = aColor.toColor();
+		g.bColor = bColor.toColor();
+		g.fColor = fColor.toColor();
+		g.sColor = sColor.toColor();
+		g.vColor = vColor.toColor();
+		g.dispFrame = dispFrame;
+		g.dispFile = dispFile;
+		g.dispDir = dispDir;
+		g.dispDate = dispDate;
+		g.dispBox = dispBox;
+		g.dispState = dispState;
+		g.dispAuthor = dispAuthor;
+		g.dispInstitution = dispInstitution;
+		g.dispGrid = dispGrid;
+		return g;
+	}
+}

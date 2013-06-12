@@ -1,0 +1,48 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.util.HashMap;
+
+/**
+ * Class that contains the prefix of a grammar.
+ * 
+ * @author Silberztein Max
+ * 
+ */
+class GrammarFirst
+{
+	HashMap<String, String> first; // hashtable that contains all the word forms that prefix the grammar
+	boolean first_HasBeg; // the grammar starts with <^>
+	boolean first_HasCap; // the grammar starts with <CAP>
+	boolean first_HasLow; // the grammar starts with <LOW>
+	boolean first_HasUpp; // the grammar starts with <UPP>
+	boolean first_HasL; // the grammar starts with <L>
+	boolean first_HasU; // the grammar starts with <U>
+	boolean first_HasW; // the grammar starts with <W>
+	boolean first_HasSpecial; // any of the above
+	boolean nullable;
+
+	/**
+	 * Constructor based on nullable value.
+	 * 
+	 * @param nullable
+	 */
+	GrammarFirst(boolean nullable)
+	{
+		first = null;
+		first_HasBeg = first_HasCap = first_HasLow = first_HasUpp = first_HasL = first_HasU = first_HasW = first_HasSpecial = false;
+		this.nullable = nullable;
+	}
+}

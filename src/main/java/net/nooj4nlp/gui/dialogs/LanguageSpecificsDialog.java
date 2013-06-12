@@ -1,0 +1,138 @@
+package net.nooj4nlp.gui.dialogs;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JCheckBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.TitledBorder;
+
+import net.nooj4nlp.controller.LanguageSpecificsDialog.CheckBoxListener;
+import net.nooj4nlp.controller.LanguageSpecificsDialog.ListListener;
+import net.nooj4nlp.controller.LanguageSpecificsDialog.TextListener;
+import net.nooj4nlp.engine.Language;
+import net.nooj4nlp.gui.main.Launcher;
+
+/**
+ * 
+ * Language Specifics lab dialog
+ * 
+ */
+public class LanguageSpecificsDialog extends JInternalFrame
+{
+	private static final long serialVersionUID = 2932349941342007726L;
+
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JScrollPane scrollPane;
+
+	/**
+	 * Creates the frame.
+	 */
+	public LanguageSpecificsDialog()
+	{
+		setTitle("Language Specifics");
+		setClosable(true);
+		setIconifiable(true);
+		getContentPane().setFont(new Font("Tahoma", Font.BOLD, 18));
+		setBounds(400, 100, 465, 300);
+		getContentPane().setLayout(null);
+
+		JPanel pnlIsoName = new JPanel();
+		pnlIsoName.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "ISO 639-3 Name:",
+				TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlIsoName.setBounds(10, 11, 136, 227);
+		getContentPane().add(pnlIsoName);
+		pnlIsoName.setLayout(null);
+
+		DefaultListModel model = new DefaultListModel();
+		String[] languages = Language.getAllLanguages();
+		for (int i = 0; i < languages.length; i++)
+			model.add(i, languages[i]);
+		JList listIsoName = new JList(model);
+		Language lan = new Language(Launcher.preferences.deflanguage);
+		listIsoName.setSelectedValue(lan.isoName, true);
+
+		scrollPane = new JScrollPane(listIsoName, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		scrollPane.setBounds(10, 24, 116, 192);
+		pnlIsoName.add(scrollPane);
+
+		// FIXME: Text fields and date label should be dynamic
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(156, 11, 283, 20);
+		textField.setText(lan.natName);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBounds(156, 42, 283, 20);
+		textField_1.setText(lan.engName);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+
+		JLabel lblDate = new JLabel();
+		lblDate.setBounds(156, 73, 283, 14);
+		getContentPane().add(lblDate);
+
+		Date today = new Date();
+		lblDate.setText(DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, Locale.US).format(today));
+
+		JPanel pnlComparison = new JPanel();
+		pnlComparison.setBorder(new TitledBorder(null, "Alphabetical Comparison", TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
+		pnlComparison.setBounds(156, 98, 283, 140);
+		getContentPane().add(pnlComparison);
+		pnlComparison.setLayout(null);
+
+		JLabel lblText = new JLabel("Text1:");
+		lblText.setBounds(10, 26, 46, 14);
+		pnlComparison.add(lblText);
+
+		textField_2 = new JTextField();
+		textField_2.setBounds(66, 23, 207, 20);
+		pnlComparison.add(textField_2);
+		textField_2.setColumns(10);
+
+		JLabel lblEquals = new JLabel("equals");
+		lblEquals.setBounds(116, 54, 150, 14);
+		pnlComparison.add(lblEquals);
+
+		JLabel lblText_1 = new JLabel("Text2:");
+		lblText_1.setBounds(10, 79, 46, 14);
+		pnlComparison.add(lblText_1);
+
+		textField_3 = new JTextField();
+		textField_3.setBounds(66, 76, 207, 20);
+		pnlComparison.add(textField_3);
+		textField_3.setColumns(10);
+
+		JCheckBox chckbxIgnoreCase = new JCheckBox("Ignore Case");
+		chckbxIgnoreCase.setBounds(6, 110, 150, 23);
+		pnlComparison.add(chckbxIgnoreCase);
+
+		textField_2.getDocument().addDocumentListener(
+				new TextListener(textField_2, textField_3, lblEquals, chckbxIgnoreCase, listIsoName));
+		textField_3.getDocument().addDocumentListener(
+				new TextListener(textField_2, textField_3, lblEquals, chckbxIgnoreCase, listIsoName));
+		listIsoName.addListSelectionListener(new ListListener(listIsoName, textField, textField_1, lblDate));
+		chckbxIgnoreCase.addChangeListener(new CheckBoxListener(textField_2, textField_3, lblEquals, chckbxIgnoreCase,
+				listIsoName));
+	}
+}

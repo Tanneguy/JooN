@@ -1,0 +1,101 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.util.HashMap;
+
+/**
+ * Class that contains the prefix of a grammar.
+ * 
+ * @author Silberztein Max
+ * 
+ */
+public class GrammarFirst
+{
+	public HashMap<String, String> first; // hashtable that contains all the word forms that prefix the grammar
+	public boolean first_HasBeg; // the grammar starts with <^>
+	public boolean first_HasCap; // the grammar starts with <CAP>
+	public boolean first_HasLow; // the grammar starts with <LOW>
+	public boolean first_HasUpp; // the grammar starts with <UPP>
+	public boolean first_HasL; // the grammar starts with <L>
+	public boolean first_HasU; // the grammar starts with <U>
+	public boolean first_HasW; // the grammar starts with <W>
+	public boolean first_HasSpecial; // any of the above
+	public boolean nullable;
+
+	/**
+	 * Constructor based on nullable value.
+	 * 
+	 * @param nullable
+	 */
+	public GrammarFirst(boolean nullable)
+	{
+		first = null;
+		first_HasBeg = first_HasCap = first_HasLow = first_HasUpp = first_HasL = first_HasU = first_HasW = first_HasSpecial = false;
+		this.nullable = nullable;
+	}
+
+	/**
+	 * Checks whether token matches given criteria.
+	 * 
+	 * @param token
+	 *            - token to be checked
+	 * @param begOfUnit
+	 *            - flag that represents if grammar starts with <^>
+	 * @return
+	 */
+	public final boolean match(String token, boolean begOfUnit)
+	{
+		if (first.containsKey(token))
+		{
+			return true;
+		}
+		if (!first_HasSpecial)
+		{
+			return false;
+		}
+		if (first_HasBeg && begOfUnit) // grammar starts with <^>
+		{
+			return true;
+		}
+		if (first_HasLow && Language.isLower(token)) // grammar starts with <LOW> or <W>
+		{
+			return true;
+		}
+		if (first_HasUpp && Language.isUpper(token)) // grammar starts with <UPP> or <U>
+		{
+			return true;
+		}
+		if (first_HasCap && Language.isCapital(token)) // grammar starts with <CAP> or <U>
+		{
+			return true;
+		}
+		if (first_HasL && token.length() == 1 && Language.isLetter(token.charAt(0))) // grammar starts with <LOW> or <W>
+		{
+			return true;
+		}
+		if (first_HasU && token.length() == 1 && Character.isUpperCase(token.charAt(0))) // grammar starts with <UPP> or
+																							// <U>
+		{
+			return true;
+		}
+		if (first_HasW && token.length() == 1 && Character.isLowerCase(token.charAt(0))) // grammar starts with <CAP> or
+																							// <U>
+		{
+			return true;
+		}
+
+		return false;
+	}
+}

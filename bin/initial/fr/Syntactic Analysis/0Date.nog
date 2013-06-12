@@ -1,0 +1,326 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE fr
+OLANGUAGE fr
+NUMBEROFGRAPHS 15
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 255
+FORECOLOR 0
+SELECOLOR 16711680
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME n
+#
+#
+Main
+12
+"<E>/<ADV+Date" 63 220 2 3 6 
+"" 800 220 0 
+":le lundi 2 mars+:demain+:il y a 10 jours" 154 77 2 7 11 
+":en mai 2002" 331 220 1 4 
+"<E>/>" 729 220 1 1 
+":à 17H33" 490 91 1 8 
+"<E>" 99 141 2 2 7 
+"<E>/<ADV+Horaire" 294 141 3 5 9 10 
+"<E>/>" 667 140 1 4 
+":vers dix heures et quart" 424 126 1 8 
+":à 7h du matin" 483 151 1 8 
+"<E>" 670 77 1 4 
+#
+le lundi 2 mars
+22
+"<E>" 31 312 2 2 3 
+"" 941 312 0 
+"le" 85 312 2 6 3 
+"lundi+mardi+mercredi+jeudi+vendredi+samedi+dimanche" 147 118 2 6 17 
+"dernier+prochain+<E>" 847 312 1 1 
+"avril+juin+septembre+novembre" 553 312 1 14 
+"<E>" 293 312 5 7 9 13 12 8 
+"1+2" 338 236 2 8 16 
+"2+3+4+5+6+7+8+9" 405 266 1 15 
+"1er" 384 377 1 15 
+"février" 559 241 1 14 
+"janvier+mars+mai+juillet+août+octobre+décembre" 554 446 1 14 
+"30" 390 418 3 5 11 21 
+"31" 391 446 2 11 21 
+"<E>" 700 312 2 4 19 
+"<E>" 445 312 4 10 5 11 21 
+"0+1" 404 152 1 15 
+"<E>" 704 118 1 4 
+":trois types de mois+(29, 30 et 31 jours)" 454 295 0 
+"<NB>" 747 384 1 4 
+":année" 739 380 0 
+"<E>" 557 585 1 4 
+#
+en mai 2002
+32
+"<E>" 18 391 2 10 15 
+"" 993 425 0 
+"janvier+février+mars+avril+mai+juin+juillet+août+septembre+octobre+novembre+décembre" 460 273 3 4 6 3 
+"dernier+prochain" 673 321 1 1 
+"<E>" 574 425 1 5 
+"<NB>" 627 425 1 6 
+"<E>" 743 425 2 1 7 
+"après+avant" 798 536 2 8 31 
+"l'égire+l'hégire+notre ère" 873 536 1 1 
+"après+avant+début+en+fin" 137 308 2 2 4 
+"<E>" 54 209 4 9 11 19 24 
+"au" 85 107 1 13 
+"de+d'" 411 107 1 2 
+"commencement+début+milieu" 141 107 2 12 14 
+"du" 298 160 1 18 
+"<E>" 74 529 3 16 21 25 
+"pendant" 164 602 1 17 
+"l'année" 407 602 2 26 28 
+"mois" 348 186 1 12 
+"pendant" 113 197 2 20 2 
+"le" 277 186 1 18 
+"au" 152 498 1 22 
+"commencement+début+milieu" 203 498 1 23 
+"de" 355 570 2 17 4 
+"à la fin" 100 160 2 14 2 
+"à la fin" 244 562 2 23 4 
+"<NB>" 588 537 1 27 
+"<E>" 742 536 2 7 30 
+"dernière+prochaine" 569 640 1 29 
+"<E>" 929 623 1 1 
+"de" 806 586 1 8 
+"J.C." 876 496 1 1 
+#
+à 17H33
+14
+"<E>" 43 330 2 12 11 
+"" 839 315 0 
+"0+1" 401 333 2 3 6 
+"5+6+7+8+9" 495 368 1 4 
+"h" 550 315 2 8 10 
+"2" 400 263 1 6 
+"0+1+2+3+4" 496 266 1 4 
+"exactes+précises+tapantes" 744 252 1 1 
+"0+1+2+3+4+5" 595 230 1 9 
+"<D>" 634 230 1 10 
+"<E>" 703 315 2 7 1 
+"après+avant+vers" 121 419 1 13 
+"à+à exactement+juste à" 93 243 1 13 
+"<E>" 323 335 3 5 2 6 
+#
+vers dix heures et quart
+26
+"<E>" 33 366 2 23 24 
+"" 961 353 0 
+"deux+trois+quatre+cinq" 319 260 1 3 
+"heures" 396 260 2 4 5 
+":moins le quart" 464 229 1 5 
+"<E>" 632 261 2 6 13 
+"du matin+de l'après-midi" 669 217 1 13 
+"six+sept+huit+neuf+dix+onze" 334 470 1 8 
+"heures" 412 470 2 9 10 
+":moins le quart" 492 420 1 10 
+"<E>" 656 470 2 11 12 
+"du matin+du soir" 709 432 1 12 
+"<E>" 812 470 1 1 
+"<E>" 828 261 1 1 
+"midi+minuit" 331 352 2 15 16 
+":moins le quart" 451 320 1 16 
+"<E>" 625 353 1 1 
+"une" 321 152 1 18 
+"heure" 391 152 2 20 19 
+":moins le quart" 465 120 1 20 
+"<E>" 637 152 2 21 22 
+"du matin+de l'après-midi" 674 108 1 22 
+"<E>" 831 152 1 1 
+"après+avant+vers" 101 441 1 25 
+"à+à exactement+juste à" 77 293 1 25 
+"<E>" 230 357 4 17 2 14 7 
+#
+à 7h du matin
+24
+"<E>" 17 292 2 20 21 
+"" 891 293 0 
+"1+2+3+4+5" 239 219 1 3 
+"h" 310 219 3 4 6 17 
+"<E>+1+2+3+4+5" 355 111 1 5 
+"0+1+2+3+4+5+6+7+8+9" 422 111 1 6 
+"<E>" 468 219 2 7 8 
+"du matin+de l'après-midi" 514 163 1 8 
+"<E>" 665 219 1 9 
+"<E>" 724 293 2 1 23 
+"6+7+8+9+10+11" 235 365 1 11 
+"h" 312 364 3 12 14 18 
+"<E>+1+2+3+4+5" 359 472 1 13 
+"0+1+2+3+4+5+6+7+8+9" 426 472 1 14 
+"<E>" 479 364 2 15 16 
+"du matin+du soir" 543 324 1 16 
+"<E>" 676 364 1 9 
+":moins le quart" 346 270 1 6 
+":moins le quart" 345 322 1 14 
+"<E>" 171 291 2 2 10 
+"après+avant+vers" 78 398 1 19 
+"à+juste à+à exactement+à précisément+à à peu prés" 47 211 1 19 
+"\"à 12h\" ou \"à 0h\" ne sont pas décrites ici,+mais dans les heures \"militaires\"" 642 536 0 
+"exactement+juste+précises+tapantes" 772 224 1 1 
+#
+moins le quart
+3
+"<E>" 217 334 1 2 
+"" 469 334 0 
+"pile+cinq+dix+et quart+vingt+vingt-cinq+et demi+moins vingt-cinq+moins vingt+moins le quart+moins dix+moins cinq" 316 334 1 1 
+#
+demain
+5
+"<E>" 125 202 3 2 3 4 
+"" 375 202 0 
+"aujourd'hui" 203 202 1 1 
+"demain+après-demain" 202 282 1 1 
+"hier+avant-hier" 202 132 1 1 
+#
+il y a 10 jours
+15
+"<E>" 156 308 2 7 9 
+"" 818 306 0 
+"<E>" 454 312 2 3 12 
+"<NB>+:Dnum" 554 470 1 4 
+"secondes+minutes+heures+jours+semaines+mois+trimestres+semestres+ans+décennies+siècles+millénaires" 674 470 1 1 
+"un" 560 187 1 6 
+"jour+mois+trimestre+semestre+an+siècle+millénaire" 670 246 1 1 
+"il y a" 196 286 1 10 
+"à peu près+exactement" 319 229 1 2 
+"dans" 201 346 1 10 
+"<E>" 275 312 2 8 2 
+"seconde+minute+heure+semaine+décennie" 671 125 1 1 
+"<E>" 507 150 3 5 13 14 
+"une" 552 119 1 11 
+"1" 558 151 2 11 6 
+#
+Dnum
+6
+"<E>" 164 268 3 2 3 4 
+"" 444 268 0 
+":Dnum [2,99]" 260 204 1 1 
+":Dnum [100,999]" 244 268 1 1 
+":Dnum [1000,999999]" 236 332 1 1 
+"Ce graphe représente les Dnum composés, i,e, de 1 à 999 999" 484 352 0 
+#
+Dnum [2,99]
+22
+"<E>" 72 245 7 10 6 12 7 14 13 15 
+"" 752 41 0 
+"deux+trois+quatre+cinq+six" 656 120 1 17 
+"dix+douze+treize+quatorze+quinze+seize" 569 311 1 17 
+"-" 494 94 2 2 11 
+"et" 496 41 1 18 
+"vingt+trente+quarante+cinquante+soixante+septante+huitante+octante+nonante" 325 107 2 5 4 
+"soixante" 308 350 2 9 16 
+"onze" 560 384 1 17 
+"et" 443 332 1 8 
+"quatre-vingt-" 308 212 6 2 11 18 12 8 3 
+"sept+huit+neuf" 655 214 1 17 
+"dix-" 518 247 1 11 
+"quatre-vingts" 378 573 1 19 
+"dix+vingt+trente+quarante+cinquante+soixante+septante+huitante+octante+nonante" 381 474 1 17 
+"deux+trois+quatre+cinq+six+sept+huit+neuf+dix+onze+douze+treize+quatorze+quinze+seize" 129 541 1 20 
+"-" 447 368 2 3 12 
+"<E>" 714 384 1 1 
+"un" 657 41 1 1 
+"<E>" 628 574 1 17 
+"<E>" 411 634 1 19 
+"Ce graphe représente les Dnum de 2 à 99,+Il contient des mots simples et composés,+et apparaît obligatoirement en fin de Dnum (cf, 'quatre-vingts')" 586 664 0 
+#
+Dnum [100,999]
+11
+"<E>" 215 449 2 4 6 
+"" 748 366 0 
+":Dnum [2,99]" 622 369 1 1 
+"cent" 419 228 1 8 
+"deux+trois+quatre+cinq+six+sept+huit+neuf" 329 259 2 5 3 
+"cents" 419 350 1 7 
+"cent" 333 449 2 7 8 
+"<E>" 674 449 1 1 
+"<E>" 560 335 3 2 9 10 
+"un" 650 239 1 1 
+"une" 650 287 1 1 
+#
+Dnum [2,99] internes
+23
+"<E>" 72 245 8 11 6 13 7 10 15 14 16 
+"" 924 254 0 
+"deux+trois+quatre+cinq+six" 656 120 1 18 
+"dix+douze+treize+quatorze+quinze+seize" 588 384 1 18 
+"-" 494 94 2 2 12 
+"et" 496 42 1 19 
+"vingt+trente+quarante+cinquante+soixante+septante+octante+nonante" 325 107 2 5 4 
+"soixante" 288 285 2 9 17 
+"onze" 595 300 1 18 
+"et" 423 267 1 8 
+"quatre-vingt-" 350 346 3 8 3 13 
+"quatre-vingt-" 308 212 3 2 12 19 
+"sept+huit+neuf" 655 214 1 18 
+"dix-" 518 247 1 12 
+"quatre-vingt" 378 573 1 20 
+"dix+vingt+trente+quarante+cinquante+soixante+septante+octante+nonante" 375 460 1 18 
+"deux+trois+quatre+cinq+six+sept+huit+neuf+dix+onze+douze+treize+quatorze+quinze+seize" 129 541 1 21 
+"-" 427 303 2 3 13 
+"<E>" 803 420 1 1 
+"un" 657 38 1 1 
+"<E>" 767 570 1 18 
+"<E>" 411 634 1 20 
+"Ce graphe représente les Dnum de 2 à 99,+Il contient des mots simples et composés,+et apparaît obligatoirement au milieu d'un Dnum (cf, 'quatre-vingt')" 592 679 0 
+#
+Dnum [100,999] internes
+7
+"<E>" 209 414 2 4 3 
+"" 724 340 0 
+":Dnum [2,99] internes" 472 408 1 1 
+"cent" 338 340 1 5 
+"deux+trois+quatre+cinq+six+sept+huit+neuf" 240 256 1 3 
+"<E>" 416 340 3 2 6 1 
+"un" 500 284 1 1 
+#
+Dnum [1000,999999]
+15
+"<E>" 216 376 4 4 3 5 9 
+"" 808 364 0 
+":Dnum [100,999]" 612 108 1 1 
+"mille" 484 228 4 2 10 11 14 
+":Dnum [100,999] internes" 248 96 1 3 
+"onze+douze+treize+quatorze+quinze+seize+dix-sept+dix-huit+dix-neuf" 384 508 2 6 8 
+"cent" 484 312 2 7 11 
+":Dnum [2,99]" 608 392 1 1 
+"cents" 596 508 1 1 
+":Dnum [2,99] internes" 260 180 1 3 
+":Dnum [2,99]" 624 164 1 1 
+"<E>+et" 600 228 2 12 13 
+"un" 692 212 1 1 
+"une" 692 276 1 1 
+"<E>" 628 328 1 1 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#
+le 1er janvier
+*le 1 février
+
+le 2 février
+* 3 février
+
+*le 31 février
+le 31
+
+le lundi 2 mars
+mardi 3 avril
+le mercredi 4 mai prochain
+jeudi 5 juin 2005
+vendredi
+samedi dernier
+le dimanche 6 juillet 1952
+
+en août
+en septembre prochain
+en 1932
+en 52 avant J.C.

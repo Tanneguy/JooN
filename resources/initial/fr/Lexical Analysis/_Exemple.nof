@@ -1,0 +1,144 @@
+# NooJ V2
+# Inflectional/Derivational Description
+#
+# Language is: fr
+#
+# Special Characters: '=' '<' '>' '\' '"' '+' '/' '#' ' '
+#
+# Generic Commands:
+# <B>: keyboard Backspace
+# <C>: change Case
+# <D>: Duplicate current char
+# <E>: Empty string
+# <L>: keyboard Left arrow
+# <N>: go to end of Next word form
+# <P>: go to end of Previous word form
+# <R>: keyboard Right arrow
+# <S>: delete/Suppress current char
+# Arguments for commands <B>, <L>, <N>, <P>, <R>, <S>:
+# xx number: repeat xx times
+# W: whole word
+# Examples
+# <R3>: go right 3 times
+# <LW>: go to beg. of word
+#
+# Language-Specific Commands:
+# <A>: remove Accent
+# <Á>: add acute accent
+# <Â>: add circumflexe
+# <Ä>: add dieresis
+# <À>: add grave accent
+
+# Max Silberztein
+# Ces paradigmes sont utilisés dans le dictionnaire _Exemple.dic
+
+####################################
+# Les noms et adjectifs
+####################################
+
+# noms masculins
+
+Crayon = <E>/m+s | s/m+p;
+
+Cheval = <E>/m+s | <B>ux/m+p;
+
+Travail = <E>/m+s | <B2>ux/m+p;
+
+# noms féminins
+
+Table = <E>/f+s | s/f+p;
+
+# noms masculins et féminins
+
+Artiste = <E>/m+s | <E>/f+s
+        | s/m+p | s/f+p;
+
+Genre = <E>/m | e/f ;
+Nombre = <E>/s | s/p ;
+
+Cousin = :Genre :Nombre;
+
+####################################
+# Les verbes
+####################################
+
+Avoir = <E>/INF
+      | <B4>yant/G
+      | <B4>yons/IP+p+1 | <B4>yez/IP+p+2
+      | <BW>eu (<E>/PP+m+s | e/PP+f+s | s/PP+m+p | es/PP+f+p)
+      | <BW> (ai/PR+s+1 | as/PR+s+2 | a/PR+s+3 | avons/PR+p+1 | avez/PR+p+2 | ont/PR+p+3)
+      | <B3> (ais/I+1+s+2 | ait/I+s+3 | ions/I+p+1 | iez/I+p+2 | aient/I+p+3)
+      | <B5>aur (ai/F+s+1 | as/F+s+2 | a/F+s+3 | ons/F+p+1 | ez/F+p+2 | ont/F+p+3) ;
+
+# Verbes du premier groupe
+
+Aimer = <E>/INF
+      | <B2>ant/G
+      | <B2>é/PP+m+s | <B2>ée/PP+f+s | <B2>és/PP+m+p | <B2>ées/PP+f+p
+      | <B>/IP+s+2 | <B2>ons/IP+p+1 | <B>z/IP+p+2
+      | <B>/PR+s+1 | <B>s/PR+s+2 | <B>/PR+s+3 | <B2>ons/PR+p+1 | <B>z/PR+p+2 | <B>nt/PR+p+3
+      | <B>/S+s+1 | <B>s/S+s+2 | <B>/S+s+3 | <B2>ions/S+p+1 | <B2>iez/S+p+2 | <B>nt/S+p+3
+      | ais/C+s+1 | ais/C+s+2 | ait/C+s+3 | ions/C+p+1 | iez/C+p+2 | aient/C+p+3
+      | <B2> (ais/I+s+1 | ais/I+s+2 | ait/I+s+3 | ions/I+p+1 | iez/I+p+2 | aient/I+p+3)
+      | <B2> (ai/PS+s+1 | as/PS+s+2 | a/PS+s+3 | âmes/PS+p+1 | âtes/PS+p+2 | èrent/PS+p+3)
+      | ai/F+s+1 | as/F+s+2 | a/F+s+3 | ons/F+p+1 | ez/F+p+2 | ont/F+p+3;
+
+Manger = <E>/INF
+      | <B>ant/G
+      | <B2>é/PP+m+s | <B2>ée/PP+f+s | <B2>és/PP+m+p | <B2>ées/PP+f+p
+      | <B>/IP+s+2 | <B>ons/IP+p+1 | <B>z/IP+p+2
+      | <B>/PR+s+1 | <B>s/PR+s+2 | <B>/PR+s+3 | <B>ons/PR+p+1 | <B>z/PR+p+2 | <B>nt/PR+p+3
+      | <B>/S+s+1 | <B>s/S+s+2 | <B>/S+s+3 | <B2>ions/S+p+1 | <B2>iez/S+p+2 | <B>nt/S+p+3
+      | ais/C+s+1 | ais/C+s+2 | ait/C+s+3 | ions/C+p+1 | iez/C+p+2 | aient/C+p+3
+      | <B> (ais/I+s+1 | ais/I+s+2 | ait/I+s+3 | aient/I+p+3)
+      | <B2> (ions/I+p+1 | iez/I+p+2)
+      | <B> (ai/PS+s+1 | as/PS+s+2 | a/PS+s+3 | âmes/PS+p+1 | âtes/PS+p+2) | <B2>èrent/PS+p+3
+      | ai/F+s+1 | as/F+s+2 | a/F+s+3 | ons/F+p+1 | ez/F+p+2 | ont/F+p+3;
+
+####################################
+# Les dérivations
+####################################
+
+#
+# la description des dérivations est utilisée seulement
+# pour construire le lemme dérivé.
+# Si le lemme dérivé se fléchit de la même façon que le lemme initial,
+# il est inutile de préciser sa flexion. Exemple :
+#              monter,V+FLX=Aider+DRV=Re
+# ("monter" se dérive en "remonter" qui se conjugue de la même façon)
+# Si le lemme dérivé ne se fléchit pas de la même façon
+# que le lemme initial, il faut préciser le nom du paradigme
+# flexionnel du lemme dérivé. Exemple : 
+#              monter,V+DRV=Able:Artiste
+# ("monter" se dérive en "montable", qui se fléchit comme "Artiste")
+#
+
+Re = <LW>re/V; # monter => remonter
+
+Ré = <LW>ré/V; # apprendre => réapprendre
+
+R = <LW>r/V; # amener => ramener
+
+Dé = <LW>dé/V; # monter => démonter
+
+Able = <B2>able/A; # monter => montable
+
+Eable = <B>able/A; # manger => mangeable
+
+Ible = <B2>sible/A; # rire => risible
+
+Uvable = <B4>uvable/A; # boire => buvable
+
+####################################
+# Noms composés
+####################################
+
+CousinGermain = :Cousin <P> :Cousin ; # NooJ prend en compte l'accord entre les constituants
+
+# ATTENTION à cocher la case "Check Agreement" dans Lab > Dictionary
+# Cette description flexionnelle est plus compacte que:
+# <E>/m+s | e<P>e/f+s | s<P>s/m+p | es<P>es/f+p;
+
+TableRonde = <PW> :Table <N> :Table; # NooJ prend en compte l'accord entre les constituants
+
+PommeDeTerre = <PW> :Table; # les mots composés en Nxxx sont traités tout comme les mots simples

@@ -1,0 +1,69 @@
+package Nooj;
+
+import java.util.ArrayList;
+
+import net.nooj4nlp.engine.Ntext;
+
+public class WoxNtext {
+
+	private String languageName;
+    private String delimPattern;
+    private String[] xmlNodes;
+
+    private String buffer;
+    private WoxMft mft;
+    private ArrayList annotations;
+
+    private int nbOfTextUnits;
+    private int nbOfChars; private int nbOfDiffChars;
+    private int nbOfLetters; private int nbOfDiffLetters;
+    private int nbOfDelimiters; private int nbOfDiffDelimiters;
+    private int nbOfBlanks; private int nbOfDiffBlanks;
+    private int nbOfDigits; private int nbOfDiffDigits;
+    private int nbOfTokens; private int nbOfDiffTokens;
+    private int nbOfWords; private int nbOfDiffWords;
+	
+	public WoxNtext(Ntext t)
+    {
+        languageName = t.LanguageName;
+        delimPattern = t.DelimPattern;
+        xmlNodes = t.XmlNodes;
+
+        buffer = t.buffer;
+        mft = new WoxMft(t.mft);
+        annotations = t.annotations;
+
+        nbOfTextUnits = t.nbOfTextUnits;
+        nbOfChars = t.nbOfChars;   nbOfDiffChars = t.nbOfDiffChars;
+        nbOfLetters = t.nbOfLetters;   nbOfDiffLetters = t.nbOfDiffLetters;
+        nbOfDelimiters = t.nbOfDelimiters; nbOfDiffDelimiters = t.nbOfDiffDelimiters;
+        nbOfBlanks = t.nbOfBlanks; nbOfDiffBlanks = t.nbOfDiffBlanks;
+        nbOfDigits = t.nbOfDigits;   nbOfDiffDigits = t.nbOfDiffDigits;
+        nbOfTokens = t.nbOfTokens;   nbOfDiffTokens = t.nbOfDiffTokens;
+        nbOfWords = t.nbOfWords;   nbOfDiffWords = t.nbOfDiffWords;
+    }
+	
+	public Ntext toNtext()
+    {
+        Ntext t = new Ntext();
+
+        t.LanguageName = languageName;
+        t.DelimPattern = delimPattern;
+        t.XmlNodes = xmlNodes;
+
+        t.buffer = buffer;
+        t.mft = mft.toMft();
+        t.annotations = annotations;
+
+        t.nbOfTextUnits = nbOfTextUnits;
+        t.nbOfChars = nbOfChars; t.nbOfDiffChars = nbOfDiffChars;
+        t.nbOfLetters = nbOfLetters; t.nbOfDiffLetters = nbOfDiffLetters;
+        t.nbOfDelimiters = nbOfDelimiters; t.nbOfDiffDelimiters = nbOfDiffDelimiters;
+        t.nbOfBlanks = nbOfBlanks; t.nbOfDiffBlanks = nbOfDiffBlanks;
+        t.nbOfDigits = nbOfDigits; t.nbOfDiffDigits = nbOfDiffDigits;
+        t.nbOfTokens = nbOfTokens; t.nbOfDiffTokens = nbOfDiffTokens;
+        t.nbOfWords = nbOfWords; t.nbOfDiffWords = nbOfDiffWords;
+
+        return t;
+    }
+}

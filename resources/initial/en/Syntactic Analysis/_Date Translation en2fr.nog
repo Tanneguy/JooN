@@ -1,0 +1,128 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE fr
+NUMBEROFGRAPHS 4
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+6
+"<E>" 126 268 3 2 4 5 
+"" 611 217 0 
+":Monday 3 January" 266 176 1 3 
+"<E>/$DDay$FR $DNb $DMonth$FR" 550 264 1 1 
+":Monday January the 3rd" 258 264 1 3 
+":Monday the 3rd of January" 248 353 1 3 
+#
+Monday 3 January
+21
+"$(DDay" 39 294 1 19 
+"" 998 294 0 
+"Monday+Tuesday+Wednesday+Thursday+Friday+Saturday+Sunday" 123 138 0 
+"2" 504 194 5 4 7 10 13 14 
+"4+5+6+7+8+9" 564 354 1 18 
+"$(DNb" 424 294 5 3 4 8 12 9 
+",+<E>" 347 294 1 5 
+"0" 564 174 1 18 
+"1" 520 381 2 9 4 
+"0+1+2+3" 564 474 1 18 
+"2" 564 214 1 18 
+"$)" 285 294 1 6 
+"3" 504 134 1 13 
+"1" 564 134 1 18 
+"3" 564 254 1 18 
+"January+February+March+April+May+June+July+August+September+November+December" 758 145 0 
+"$(DMonth" 697 294 1 20 
+"$)" 955 294 1 1 
+"$)" 625 294 1 16 
+"<N\+DateDayName>" 82 294 1 11 
+"<N\+DateMonthName>" 740 294 1 17 
+#
+Monday January the 3rd
+32
+"$(DDay" 27 319 1 30 
+"" 1000 351 0 
+"Monday+Tuesday+Wednesday+Thursday+Friday+Saturday+Sunday" 121 157 0 
+"the+<E>" 654 319 1 6 
+"2" 783 263 5 5 8 11 14 21 
+"4+5+6+7+8+9" 850 379 1 25 
+"$(DNb" 710 319 7 4 5 9 13 14 11 21 
+",+<E>" 299 319 1 28 
+"0" 850 199 1 17 
+"1" 807 408 2 10 5 
+"0+1+2+3" 850 499 1 24 
+"2" 850 239 1 19 
+"$)" 259 319 1 7 
+"3" 790 159 1 14 
+"1" 850 159 1 15 
+"$)" 890 159 1 16 
+"st" 930 159 1 1 
+"$)" 890 199 1 18 
+"th" 930 199 1 1 
+"$)" 890 239 1 20 
+"nd" 930 239 0 
+"3" 850 279 1 22 
+"$)" 890 279 1 23 
+"rd" 930 279 1 1 
+"$)" 890 499 1 26 
+"$)" 890 379 1 26 
+"th" 930 439 1 1 
+"January+February+March+April+May+June+July+August+September+November+December" 426 154 0 
+"$(DMonth" 362 319 1 31 
+"$)" 616 319 1 3 
+"<N\+DateDayName>" 65 319 1 12 
+"<N\+DateMonthName>" 399 319 1 29 
+#
+Monday the 3rd of January
+33
+"$(DDay" 20 364 1 31 
+"" 989 362 0 
+"Monday+Tuesday+Wednesday+Thursday+Friday+Saturday+Sunday" 78 202 0 
+"the" 348 364 1 6 
+"2" 458 308 5 5 8 11 14 21 
+"4+5+6+7+8+9" 525 424 1 25 
+"$(DNb" 397 363 7 4 5 9 13 14 11 21 
+",+<E>" 290 364 1 3 
+"0" 525 244 1 17 
+"1" 482 453 2 10 5 
+"0+1+2+3" 525 544 1 24 
+"2" 525 284 1 19 
+"$)" 246 364 1 7 
+"3" 465 204 1 14 
+"1" 525 204 1 15 
+"$)" 565 204 1 16 
+"st" 605 204 1 28 
+"$)" 565 244 1 18 
+"th" 605 244 1 28 
+"$)" 565 284 1 20 
+"nd" 605 284 1 28 
+"3" 525 324 1 22 
+"$)" 565 324 1 23 
+"rd" 605 324 1 28 
+"$)" 565 544 1 26 
+"$)" 565 424 1 26 
+"th" 605 484 1 28 
+"January+February+March+April+May+June+July+August+September+November+December" 754 185 0 
+"of" 653 363 1 29 
+"$(DMonth" 694 363 1 32 
+"$)" 949 363 1 1 
+"<N\+DateDayName>" 57 364 1 12 
+"<N\+DateMonthName>" 734 363 1 30 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

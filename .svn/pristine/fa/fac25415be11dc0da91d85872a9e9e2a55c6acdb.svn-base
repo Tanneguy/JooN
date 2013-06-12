@@ -1,0 +1,57 @@
+package net.nooj4nlp.gui.actions.grammar;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import net.nooj4nlp.controller.GrammarEditorShell.GrammarEditorShellController;
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.GrammarEditorShell;
+
+public class PasteActionListener implements ActionListener
+{
+
+	private GrammarEditorShell editor;
+	private GrammarEditorShellController controller;
+
+	public PasteActionListener(GrammarEditorShell shell)
+	{
+		editor = shell;
+		controller = editor.getController();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+		if (Launcher.graphClipboard == null || Launcher.graphClipboard.label.size() == 0)
+			return;
+		Launcher.iGraphClipboard += 10;
+
+		// copy all nodes
+		int nodebasis = controller.grf.label.size();
+		for (int inode = 0; inode < Launcher.graphClipboard.label.size(); inode++)
+		{
+			String labl = (String) Launcher.graphClipboard.label.get(inode);
+			if (labl == null || labl == "")
+				labl = "<E>";
+			controller.grf.addNode(labl, (Integer) Launcher.graphClipboard.posX.get(inode) + Launcher.iGraphClipboard,
+					(Integer) Launcher.graphClipboard.posY.get(inode) + Launcher.iGraphClipboard);
+			ArrayList clpchildren = (ArrayList) Launcher.graphClipboard.child.get(inode);
+
+			for (int idest = 0; idest < clpchildren.size(); idest++)
+			{
+				int dest = (Integer) clpchildren.get(idest);
+				ArrayList dstchildren = (ArrayList) controller.grf.child.get(nodebasis + inode);
+				dstchildren.add(nodebasis + dest);
+			}
+		}
+
+		// select all new nodes
+		for (int inode = 0; inode < nodebasis; inode++)
+			controller.grf.selected.set(inode, false);
+		for (int inode = nodebasis; inode < controller.grf.label.size(); inode++)
+			controller.grf.selected.set(inode, true);
+	}
+
+}

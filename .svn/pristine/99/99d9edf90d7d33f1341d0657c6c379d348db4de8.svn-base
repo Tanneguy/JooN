@@ -1,0 +1,73 @@
+package net.nooj4nlp.gui.shells;
+
+import javax.swing.JEditorPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.Charset;
+
+import javax.swing.text.BadLocationException;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+
+@SuppressWarnings("serial")
+public class LabShell extends JInternalFrame {
+
+	/**
+	 * Create the frame.
+	 */
+	public LabShell(String instructions) {
+		setBounds(100, 100, 450, 459);
+		setTitle(instructions);
+		setResizable(true);
+		setIconifiable(true);
+
+		HTMLEditorKit html = new HTMLEditorKit();
+	    JEditorPane editor = new JEditorPane();
+	    editor.setEditorKit(html);
+	    editor.setBackground(Color.white);
+	    editor.setEditable(false);
+	    getContentPane().add(editor, BorderLayout.NORTH);
+	    HTMLDocument doc = (HTMLDocument)editor.getDocument();
+	    doc.putProperty("IgnoreCharsetDirective", new Boolean(true));
+		
+		JScrollPane scrollPane = new JScrollPane(editor);
+		getContentPane().add(scrollPane, BorderLayout.CENTER);
+		FileInputStream fInput = null;
+		
+		Reader fin = null;  
+		
+		// Load appropriate instruction file into the editor area
+	    try {   	
+	    	switch(instructions.charAt(0)){
+	    		case 'T': fInput = new FileInputStream("_Misc/TextEncoding.htm"); break;
+	    		case 'M': fInput = new FileInputStream("_Misc/Morphology.htm"); break;
+	    		case 'C': fInput = new FileInputStream("_Misc/CorpusConstruction.htm"); break;
+	    		case 'D': fInput = new FileInputStream("_Misc/Dictionary.htm"); break;
+	    		case 'P': fInput = new FileInputStream("_Misc/Perl.htm"); break;
+	    		case 'L': fInput = new FileInputStream("_Misc/LanguageSpecifics.htm"); break;
+	    		default: System.out.println("NONE!");
+	    	}
+	    	// FIXME(?): Some unicode characters are not being decoded correctly
+	    	// when loaded as RTF. BufferedReader workaround works for HTML, but
+	    	// often causes the GUI to freeze when loading an instruction file
+	    	fin = new BufferedReader(new InputStreamReader(fInput, Charset.forName("UTF-8")));	    	
+	    	html.read(fin, doc, 0);
+	    }
+	    catch (FileNotFoundException e) {
+	    	System.out.println("File not found");
+	    }
+	    catch (IOException e) {
+	    	System.out.println("I/O error");
+	    }
+	    catch (BadLocationException e) {
+	    }
+	}
+}

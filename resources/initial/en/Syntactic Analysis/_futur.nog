@@ -1,0 +1,77 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 5
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+24
+"<E>" 36 204 3 2 5 17 
+"" 685 203 0 
+"shall+shan't+will+won't" 178 126 2 3 4 
+"<V\+INF>" 414 126 1 1 
+"<ADV>" 289 77 2 3 4 
+"<be\+PR>" 112 336 3 6 10 11 
+"going to" 344 336 1 7 
+"<V\+INF>" 482 336 1 1 
+":Futur" 138 105 0 
+":near Futur" 94 318 0 
+"<ADV>" 224 288 2 10 6 
+"about to" 315 387 1 7 
+"tomorrow" 177 553 1 13 
+"<E>" 428 553 1 18 
+"in a few+in the next" 174 601 1 15 
+":days" 322 601 1 16 
+"<E>" 425 601 1 18 
+"<E>" 84 553 3 14 12 19 
+"<E>" 646 553 1 1 
+"coming+next" 185 486 3 20 22 23 
+":day" 314 451 1 21 
+"<E>" 436 486 1 18 
+":Monday" 305 486 1 21 
+":January" 302 518 1 21 
+#
+days
+4
+"<E>" 99 249 2 2 3 
+"" 321 250 0 
+"seconds+minutes+hours+days+weeks+months+years+decades+centuries+milleniums+millenia" 169 137 1 1 
+"springs+summers+autumns+falls+winters" 165 316 1 1 
+#
+day
+4
+"<E>" 120 283 2 2 3 
+"" 350 279 0 
+"second+minute+hour+day+week+month+season+year+decade+century+millenium" 207 191 1 1 
+"spring+summer+automn+fall+winter" 203 386 1 1 
+#
+Monday
+2
+"Monday+Tuesday+Wednesday+Thirsday+Friday+Saturday+Sunday" 173 183 1 1 
+"" 356 183 0 
+#
+January
+4
+"<E>" 61 335 2 2 3 
+"" 425 272 0 
+"January+February+March+April+May+June+July+August+September+Septembre+October+Octobre+November+Novembre+December+Decembre" 200 156 1 1 
+"Jan.+Feb.+Mar.+Apr.+May+Jun.+Jul.+Aug.+Sep.+Oct.+Nov.+Dec." 219 457 1 1 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

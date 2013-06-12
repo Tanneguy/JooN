@@ -1,0 +1,98 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: en
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' and properties' definition files (.nof or .def), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+
+##Max Silberztein
+##This dictionary contains special entries that describe contracted word forms
+##
+##Give highest priority to this dictionary
+
+# Pronoun be
+
+I'm,<I,I,PRO><am,be,V+PR+1+s>+UNAMB
+you're,<you,you,PRO+2+s><are,be,V+2+s>+UNAMB
+he's,<he,he,PRO+3+m+s><is,be,V+PR+3+s>+UNAMB
+it's,<it,it,PRO+3+n+s><is,be,V+PR+3+s>+UNAMB
+she's,<she,she,PRO+3+f+s><is,be,V+PR+3+s>+UNAMB
+we're,<we,we,PRO+1+p><are,be,V+PR+1+p>+UNAMB
+you're,<you,you,PRO+2+p><are,be,V+2+p>+UNAMB
+they're,<they,they,PRO+3+p><are,be,V+PR+3+p>+UNAMB
+
+# Pronoun have
+
+I've,<I,I,PRO+1+s><have,have,V+PR+1+s>+UNAMB
+you've,<you,PRO+2+s><have,have,V+PR+2+s>+UNAMB
+he's,<he,he,PRO+3+m+s><has,have,V+PR+3+s>+UNAMB
+it's,<it,it,PRO+3+n+s><has,have,V+PR+3+s>+UNAMB
+she's,<she,she,PRO+3+f+s><has,have,V+PR+3+s>+UNAMB
+we've,<we,we,PRO+1+p><have,have,V+PR+1+p>+UNAMB
+you've,<you,PRO+2+p><have,have,V+PR+2+p>+UNAMB
+they've,<they,they,PRO+3+p><have,have,V+PR+3+p>+UNAMB
+
+# Pronoun will
+
+I'll,<I,I,PRO+1+s><will,V+PR+1+s>+UNAMB
+you'll,<you,PRO+2+s><will,V+PR+2+s>+UNAMB
+he'll,<he,he,PRO+3+m+s><will,V+PR+3+s>+UNAMB
+it'll,<it,it,PRO+3+n+s><will,V+PR+3+s>+UNAMB
+she'll,<she,she,PRO+3+f+s><will,V+PR+3+s>+UNAMB
+we'll,<we,we,PRO+1+p><will,V+PR+1+p>+UNAMB
+you'll,<you,PRO+2+p><will,V+PR+2+p>+UNAMB
+they'll,<they,they,PRO+3+p><will,V+PR+3+p>+UNAMB
+
+# Negations
+
+# be Negation
+
+ain't,<am,be,V+PR+1+s><not,ADV>+UNAMB
+aren't,<are,be,V+PR+2+s><not,ADV>+UNAMB
+isn't,<is,be,V+PR+3+s><not,ADV>+UNAMB 
+aren't,<are,be,V+PR+p><not,ADV>+UNAMB
+
+wasn't,<was,be,V+PT+3+s><not,ADV>+UNAMB
+weren't,<were,be,V+PT+2+s><not,ADV>+UNAMB
+weren't,<were,be,V+PT+p><not,ADV>+UNAMB
+
+# have Negation
+
+hasn't,<has,have,V+PR+3+s><not,ADV>+UNAMB
+haven't,<have,have,V+PR+1+s><not,ADV>+UNAMB
+haven't,<have,have,V+PR+2+s><not,ADV>+UNAMB
+haven't,<have,have,V+PR+p><not,ADV>+UNAMB
+
+hadn't,<has,have,V+PT><not,ADV>+UNAMB
+
+# can Negation
+
+can't,<can,can,V+PR><not,ADV>+UNAMB 
+cannot,<can,can,V+PR><not,ADV>+UNAMB 
+couldn't,<could,can,V+PT><not,ADV>+UNAMB 
+
+# do Negation
+
+don't,<do,do,V+PR+1+s><not,ADV>+UNAMB 
+don't,<do,do,V+PR+2+s><not,ADV>+UNAMB 
+doesn't,<does,do,V+PR+3+s><not,ADV>+UNAMB
+don't,<do,do,V+PR+p><not,ADV>+UNAMB 
+
+didn't,<did,do,V+PT><not,ADV>+UNAMB
+
+# misc Negation
+
+mustn't,<must,must,V+PR><not,ADV>+UNAMB 
+needn't,<need,need,V+PR><not,ADV>+UNAMB 
+shan't,<shall,shall,V+PR><not,ADV>+UNAMB 
+won't,<will,will,V+PR><not,ADV>+UNAMB 
+wouldn't,<would,will,V+PT><not,ADV>+UNAMB

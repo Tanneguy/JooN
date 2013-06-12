@@ -1,0 +1,12 @@
+package net.nooj4nlp.engine;
+
+public class ParsingException extends Exception {
+
+	public String message;
+
+	public ParsingException(String string) {
+		super();
+		this.message = string;
+	}
+
+}

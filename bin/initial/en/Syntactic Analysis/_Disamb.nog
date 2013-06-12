@@ -1,0 +1,62 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 3
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+4
+"<E>" 114 250 2 2 3 
+"" 587 185 0 
+":PREP" 333 119 1 1 
+":PRO" 308 269 1 1 
+#
+PREP
+7
+"<E>" 153 274 1 6 
+"" 577 273 0 
+"a+an+another+any+anything+his+some+the" 382 241 1 1 
+"<V\+INF>" 375 364 1 1 
+"<N\+PR>" 383 333 1 1 
+"<E>" 300 274 3 2 4 3 
+"at+by+for+in+into+of+off+out+to+up+upon/<PREP>" 217 274 1 5 
+#
+PRO
+18
+"<E>" 43 407 2 2 9 
+"" 720 328 0 
+"her+his+many+these+this+that/<PRO>" 147 296 7 3 6 7 8 11 14 16 
+"\".\"+\";\"+\",\"+\"!\"+\"?\"" 288 76 1 13 
+"a+an+another+any+anything+his+some+the+this+that" 379 172 1 12 
+"how+what+when+with+without+why" 365 487 1 12 
+"at+for+in+into+of+off+out+to" 364 348 1 12 
+"again+away+here+there+till+until" 293 426 1 15 
+"and+as+but+by+if+instead+than" 288 257 1 12 
+"her+his/<DET>" 197 620 1 10 
+"own+so" 492 620 1 1 
+"it+itself+myself+yourself" 288 550 1 17 
+"<E>" 551 320 1 1 
+"<E>" 439 76 1 12 
+"<E>" 260 172 1 4 
+"<E>" 414 426 1 12 
+"<E>" 282 487 1 5 
+"<E>" 438 550 1 12 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

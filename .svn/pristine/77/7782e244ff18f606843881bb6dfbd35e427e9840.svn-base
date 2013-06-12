@@ -1,0 +1,55 @@
+package net.nooj4nlp.gui.actions.grammar;
+
+import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.apache.commons.io.FilenameUtils;
+
+import net.nooj4nlp.controller.GrammarEditorShell.GrammarEditorShellController;
+import net.nooj4nlp.engine.GramType;
+import net.nooj4nlp.engine.Paths;
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.GrammarEditorShell;
+
+public class ExportGrammarActionListener implements ActionListener
+{
+
+	private GrammarEditorShell editor;
+	private GrammarEditorShellController controller;
+
+	public ExportGrammarActionListener(GrammarEditorShell shell)
+	{
+		editor = shell;
+		controller = editor.getController();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+		JFileChooser saveGraphChooser = new JFileChooser();
+		saveGraphChooser.setDialogTitle("Save as");
+		saveGraphChooser.setAcceptAllFileFilterUsed(false);
+		
+		String currentDirToBeSetPath = FilenameUtils.concat(Paths.docDir,
+				org.apache.commons.io.FilenameUtils.concat(controller.lan.isoName, "Syntactic Analysis"));
+		saveGraphChooser.setCurrentDirectory(new File(currentDirToBeSetPath));
+
+		FileNameExtensionFilter filterGrammar = new FileNameExtensionFilter("Graph (*.grf)", "grf");
+		saveGraphChooser.addChoosableFileFilter(filterGrammar);
+		saveGraphChooser.setFileFilter(filterGrammar);
+		
+		if (saveGraphChooser.showSaveDialog(null) == JFileChooser.CANCEL_OPTION)
+			return;
+
+		
+		String fullName = saveGraphChooser.getSelectedFile().getAbsolutePath() + ".grf";
+
+        controller.SaveGraph(fullName);
+	}
+}

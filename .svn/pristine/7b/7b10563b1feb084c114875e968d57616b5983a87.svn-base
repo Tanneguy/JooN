@@ -1,0 +1,364 @@
+package net.nooj4nlp.gui.actions.shells.modify;
+
+import java.awt.Color;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JTextPane;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
+import net.nooj4nlp.controller.CorpusEditorShell.CorpusEditorShellController;
+import net.nooj4nlp.controller.TextEditorShell.TextEditorShellController;
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.gui.components.CustomJSpinner;
+import net.nooj4nlp.gui.shells.TextEditorShell;
+
+/**
+ * 
+ * CaretListener used to select individual text units (TUs) based on care position.
+ * 
+ */
+public class UnitSelectionListener implements CaretListener
+{
+	private JTextPane textPane;
+	private StyledDocument doc;
+	private int paragraphStart;
+	private String text = "";
+	private String delimiter;
+	// private String newlineChar = TextEditorShell.getText().getDelimPattern();
+	private boolean doNothing = false;
+	private CustomJSpinner spinner;
+
+	private TextEditorShellController controller;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param controller
+	 *            - text controller
+	 * @param t
+	 *            - text pane of a Text Editor Shell
+	 */
+
+	public UnitSelectionListener(TextEditorShellController controller, JTextPane t)
+	{
+		this.controller = controller;
+		TextEditorShell textShell = controller.getTextShell();
+
+		delimiter = textShell.getText().getDelimPattern();
+
+		textPane = t;
+		textPane.setForeground(Color.gray);
+		spinner = textShell.getSpinner();
+		doc = textPane.getStyledDocument();
+
+		Style active = textPane.addStyle("Active", null);
+		StyleConstants.setForeground(active, Color.black);
+
+		Style inactive = textPane.addStyle("Inactive", null);
+		StyleConstants.setForeground(inactive, Color.gray);
+
+		Style redStyle = textPane.addStyle("Red", null);
+		StyleConstants.setForeground(redStyle, Color.RED);
+
+		Style blueStyle = textPane.addStyle("Blue", null);
+		StyleConstants.setForeground(blueStyle, Color.BLUE);
+
+		Style greenStyle = textPane.addStyle("Green", null);
+		StyleConstants.setForeground(greenStyle, Color.GREEN);
+
+		Style blackStyle = textPane.addStyle("Black", null);
+		StyleConstants.setForeground(blackStyle, Color.BLACK);
+		StyleConstants.setUnderline(blackStyle, true);
+
+		try
+		{
+			// The newline character is represented differently within a Document ('\n') and
+			// the String retrieved directly from the JTextPane (i.e. text.getText() retrieves
+			// a delimiter that's platform dependent). Retrieving the string directly could result
+			// in an index that's off by 1 for each new paragraph (in Windows ('\r\n')).
+			text = textPane.getDocument().getText(0, textPane.getDocument().getLength());
+		}
+		catch (BadLocationException e1)
+		{
+			e1.printStackTrace();
+		}
+		paragraphStart = 0;
+
+		// Added this check because of static variables removal
+		if (!text.equals(""))
+		{
+			int firstParagraphEnd = text.indexOf(delimiter);
+			String currentParagraph;
+			// If delimiter was found.
+			if (firstParagraphEnd != -1)
+				currentParagraph = text.substring(paragraphStart, firstParagraphEnd);
+			else
+				currentParagraph = text;
+			// Clear old style first
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+
+			// Set new style (highlight new paragraph)
+			doc.setCharacterAttributes(paragraphStart, currentParagraph.length(), textPane.getStyle("Active"), true);
+		}
+		else
+		{
+			String currentParagraph = "";
+			// Clear old style first
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+
+			// Set new style (highlight new paragraph)
+			doc.setCharacterAttributes(paragraphStart, currentParagraph.length(), textPane.getStyle("Active"), true);
+		}
+	}
+
+	@Override
+	public void caretUpdate(CaretEvent e)
+	{
+		TextEditorShell textShell = controller.getTextShell();
+
+		this.textPane = textShell.getTextPane();
+		doc = textPane.getStyledDocument();
+		String text = "";
+
+		try
+		{
+			text = doc.getText(0, doc.getLength());
+		}
+		catch (BadLocationException e1)
+		{
+			System.out.println(Constants.FILE_FORMAT_CONFLICT_ERROR + Constants.INCORRECT_FILE_FORMAT_ERROR
+					+ "in text pane!" + "\n" + e1.getMessage());
+			return;
+		}
+
+		int caretPosition = e.getDot();
+		paragraphStart = 0;
+
+		int paragraphEnd = -1;
+
+		if (delimiter.equals("\n"))
+		{
+			paragraphStart = text.lastIndexOf(delimiter, caretPosition);
+			paragraphEnd = text.indexOf(delimiter, paragraphStart + 1);
+		}
+		else
+		{
+			Pattern rexp = Pattern.compile(delimiter, Pattern.MULTILINE);
+			Matcher matchCollection = rexp.matcher(text);
+
+			int counter = 0;
+			int tempStart = 0;
+
+			outerLoop: while (matchCollection.find())
+			{
+				counter++;
+				tempStart = matchCollection.end();
+
+				if (caretPosition < matchCollection.end())
+				{
+					Matcher helpMatchCollection = rexp.matcher(text);
+					int helpCounter = 0;
+					while (helpMatchCollection.find())
+					{
+						if (counter == 1)
+						{
+							paragraphStart = helpMatchCollection.start() == 0 ? helpMatchCollection.end() : 0;
+
+							if (paragraphStart == 0)
+								break;
+							else
+							{
+								Matcher helpMatchCollection2 = rexp.matcher(text);
+								helpMatchCollection2.region(paragraphStart, text.length());
+
+								if (helpMatchCollection.find())
+									paragraphEnd = helpMatchCollection.start();
+								else
+									paragraphEnd = text.length();
+
+								break outerLoop;
+							}
+						}
+						else if (counter - 2 == helpCounter || counter - 1 == helpCounter)
+						{
+							paragraphStart = helpMatchCollection.end();
+							break;
+						}
+
+						helpCounter++;
+					}
+					paragraphEnd = matchCollection.start();
+					break;
+				}
+				else
+					continue;
+			}
+
+			if (counter != 1 && paragraphStart == 0)
+				paragraphStart = tempStart;
+		}
+
+		// Check for BOF
+		if (paragraphStart == -1)
+			paragraphStart = 0;
+
+		// Check for EOF
+		if (paragraphEnd == -1 || paragraphEnd > text.length() || paragraphEnd < paragraphStart)
+			paragraphEnd = text.length();
+
+		String currentParagraph = text.substring(paragraphStart, paragraphEnd);
+
+		// exit if ordered not to reflect changes
+		if (doNothing)
+		{
+			spinner.setEnabled(true);
+			spinner.setValue(new Integer(spinner.getCurrentlySelectedTU() + 1));
+			spinner.setEnabled(false);
+			return;
+		}
+
+		if (controller.isCurrentTextUnitIsBlack())
+		{
+			// Clear old style first
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+
+			// Set new style (highlight new paragraph)
+			doc.setCharacterAttributes(paragraphStart, currentParagraph.length(), textPane.getStyle("Active"), true);
+			spinner.setValue(new Integer(spinner.getCurrentlySelectedTU() + 1));
+			textPane.getCaret().setVisible(true);
+			textPane.moveCaretPosition(caretPosition);
+			DefaultCaret caret = (DefaultCaret) textPane.getCaret();
+			caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+			paintTextInRGB();
+		}
+		else
+		{
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Active"), true);
+			spinner.setValue(new Integer(spinner.getCurrentlySelectedTU() + 1));
+			paintTextInRGB();
+		}
+
+		int spinnerValue = spinner.getCurrentlySelectedTU() + 1;
+		spinner.setPositionAtTheMoment(spinnerValue);
+
+		// If TAS is selected, show text annotations...
+		if (textShell.getChckbxShowTextAnnotation().isSelected())
+		{
+			// Set up tuGraph
+			controller.setTuGraph((Integer) controller.getTextShell().getSpinner().getValue());
+			// TODO check
+			controller.getTuGraph().setNeedToBeComputed(true);
+			controller.showAndScrollTas(caretPosition);
+
+			// // Repainting components
+			textShell.invalidate();
+			textShell.validate();
+			textShell.repaint();
+		}
+	}
+
+	/**
+	 * Function paints concordance sequences in text with adequate colors.
+	 */
+	public void paintTextInRGB()
+	{
+		List<Color> listOfColors = null;
+		List<Integer> absoluteBeginAddresses = null;
+		List<Integer> absoluteEndAddresses = null;
+		List<String> listOfFiles = null;
+		CorpusEditorShellController corpusController = controller.corpusController;
+
+		// get data (color, beginning index, ending index) from controller
+		if (corpusController != null && corpusController.getShell() != null)
+		{
+			listOfColors = corpusController.getListOfColors();
+			absoluteBeginAddresses = corpusController.getAbsoluteBeginAddresses();
+			absoluteEndAddresses = corpusController.getAbsoluteEndAddresses();
+			listOfFiles = corpusController.getListOfConcordanceFiles();
+		}
+		else
+		{
+			listOfColors = controller.getListOfColors();
+			absoluteBeginAddresses = controller.getAbsoluteBeginAddresses();
+			absoluteEndAddresses = controller.getAbsoluteEndAddresses();
+		}
+
+		// if there is data...
+		if (absoluteBeginAddresses != null)
+		{
+			for (int i = 0; i < absoluteBeginAddresses.size(); i++)
+			{
+				String fileName = "";
+				if (listOfFiles != null)
+					fileName = listOfFiles.get(i);
+
+				if (!fileName.equals("") && !fileName.equals(controller.getFileToBeOpenedOrImported().getName()))
+					continue;
+
+				Color color = listOfColors.get(i);
+				String styleString = "";
+
+				// get the color, and if it's black, do nothing
+				if (color.equals(Constants.NOOJ_RED_BUTTON_COLOR))
+					styleString = "Red";
+				else if (color.equals(Constants.NOOJ_BLUE_BUTTON_COLOR))
+					styleString = "Blue";
+				else if (color.equals(Constants.NOOJ_GREEN_BUTTON_COLOR))
+					styleString = "Green";
+				else
+					styleString = "Black";
+
+				// paint sequence's style over current style
+				int begin = absoluteBeginAddresses.get(i);
+				doc.setCharacterAttributes(begin, absoluteEndAddresses.get(i) - begin, textPane.getStyle(styleString),
+						false);
+			}
+		}
+	}
+
+	/**
+	 * Functions sets caret of Text Editor Shell to custom position.
+	 * 
+	 * @param caretPosition
+	 *            - custom caret position
+	 */
+
+	public void setCaret(int caretPosition)
+	{
+		TextEditorShell textShell = controller.getTextShell();
+
+		textShell.textPane.getCaret().setVisible(true);
+		textShell.textPane.moveCaretPosition(caretPosition);
+		DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+	}
+
+	// getters and setters
+	public int getParagraphStart()
+	{
+		return paragraphStart + 1;
+	}
+
+	public void setParagraphStart(int paragraphStart)
+	{
+		this.paragraphStart = paragraphStart;
+	}
+
+	public void setDoNothing(boolean nothing)
+	{
+		doNothing = nothing;
+	}
+
+	public void setText(String text)
+	{
+		this.text = text;
+	}
+}

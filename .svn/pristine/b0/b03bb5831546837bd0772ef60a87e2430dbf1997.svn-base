@@ -1,0 +1,210 @@
+package net.nooj4nlp.gui.actions.shells.control;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
+import javax.swing.text.JTextComponent;
+
+import net.nooj4nlp.controller.ConcordanceShell.ConcordanceFilterSelectionActionListener;
+import net.nooj4nlp.controller.ConcordanceShell.ConcordanceShellController;
+import net.nooj4nlp.controller.ConcordanceShell.ExportConcordanceActionListener;
+import net.nooj4nlp.controller.ConcordanceShell.ExtractConcordanceActionListener;
+import net.nooj4nlp.gui.actions.documents.CopyActionListener;
+import net.nooj4nlp.gui.actions.documents.CutActionListener;
+import net.nooj4nlp.gui.actions.documents.PasteActionListener;
+import net.nooj4nlp.gui.actions.documents.SelectAllActionListener;
+import net.nooj4nlp.gui.actions.shells.construct.OpenStatsActionListener;
+import net.nooj4nlp.gui.actions.shells.construct.SyntacticTreeActionListener;
+import net.nooj4nlp.gui.components.CursorChangeEffect;
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.ConcordanceShell;
+
+/**
+ * 
+ * InternalFrameListener that adds a CONCORDANCE menu to the menu bar each time a concordance window is activated, and
+ * removes it whenever the concordance window loses focus.
+ * 
+ */
+
+public class ConcordanceCommandInternalFrameListener implements InternalFrameListener
+{
+	private JTextComponent text;
+	private JMenuItem mntmCut;
+	private JMenuItem mntmCopy;
+	private JMenuItem mntmPaste;
+	private JMenuItem mntmSelectAll;
+	private static JMenuItem mntmAddRemoveAnnotations;
+	private static JMenuItem mntmDisplaySyntacticAnalysis;
+	private JMenuBar menuBar;
+	private static JMenu mnConcordance;
+	private ConcordanceShellController controller;
+
+	public ConcordanceCommandInternalFrameListener(ConcordanceShellController controller)
+	{
+		this.controller = controller;
+	}
+
+	@Override
+	public void internalFrameActivated(InternalFrameEvent e)
+	{
+		mntmCut = Launcher.getTextCommands().get("Cut");
+		mntmCopy = Launcher.getTextCommands().get("Copy");
+		mntmPaste = Launcher.getTextCommands().get("Paste");
+		mntmSelectAll = Launcher.getTextCommands().get("Select All");
+
+		// Add cut/copy/paste functionality to the current component
+		mntmCut.addActionListener(new CutActionListener(text));
+		mntmCopy.addActionListener(new CopyActionListener(text));
+		mntmPaste.addActionListener(new PasteActionListener(text));
+		mntmSelectAll.addActionListener(new SelectAllActionListener(text));
+
+		menuBar = Launcher.getMenuBar();
+		mnConcordance = new JMenu("CONCORDANCE");
+
+		JMenuItem mntmSelectAll = new JMenuItem("Select all");
+		mnConcordance.add(mntmSelectAll);
+		mntmSelectAll.addActionListener(new ConcordanceFilterSelectionActionListener(controller, true, false, false));
+
+		JMenuItem mntmUnselectAll = new JMenuItem("Unselect all");
+		mnConcordance.add(mntmUnselectAll);
+		mntmUnselectAll
+				.addActionListener(new ConcordanceFilterSelectionActionListener(controller, false, false, false));
+
+		JMenuItem mntmFilterSelectedLines = new JMenuItem("Filter out selected lines");
+		mnConcordance.add(mntmFilterSelectedLines);
+		mntmFilterSelectedLines.addActionListener(new ConcordanceFilterSelectionActionListener(controller, false, true,
+				true));
+
+		JMenuItem mntmFilterUnselectedLines = new JMenuItem("Filter out unselected lines");
+		mnConcordance.add(mntmFilterUnselectedLines);
+		mntmFilterUnselectedLines.addActionListener(new ConcordanceFilterSelectionActionListener(controller, false,
+				true, false));
+
+		JMenuItem mntmRepeatSegmentsHideHapaxes = new JMenuItem("Repeted segments only / Hide hapaxes");
+		mnConcordance.add(mntmRepeatSegmentsHideHapaxes);
+		mntmRepeatSegmentsHideHapaxes.addActionListener(new ConcordanceFilterSelectionActionListener(controller));
+
+		JSeparator separator_1 = new JSeparator();
+		mnConcordance.add(separator_1);
+
+		mntmAddRemoveAnnotations = new JMenuItem("Annotate Text (add/remove annotations)");
+		mnConcordance.add(mntmAddRemoveAnnotations);
+		mntmAddRemoveAnnotations.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent arg0)
+			{
+				try
+				{
+					CursorChangeEffect.setCustomCursor(CursorChangeEffect.CURSOR_BUSY);
+					controller.annotate();
+					// ConcordanceShellController.annotate();
+				}
+
+				finally
+				{
+					CursorChangeEffect.setCustomCursor(CursorChangeEffect.CURSOR_DEFAULT);
+				}
+			}
+		});
+
+		mntmDisplaySyntacticAnalysis = new JMenuItem("Display Syntactic Analysis");
+		mnConcordance.add(mntmDisplaySyntacticAnalysis);
+		mntmDisplaySyntacticAnalysis.addActionListener(new SyntacticTreeActionListener(controller));
+
+		JSeparator separator_2 = new JSeparator();
+		mnConcordance.add(separator_2);
+
+		JMenuItem mntmExportConcordanceAsText = new JMenuItem("Export Concordance As TXT");
+		mnConcordance.add(mntmExportConcordanceAsText);
+		mntmExportConcordanceAsText.addActionListener(new ExportConcordanceActionListener(controller, 1));
+
+		JMenuItem mntmExportConcordanceAsWeb = new JMenuItem("Export Concordance As Web Page");
+		mnConcordance.add(mntmExportConcordanceAsWeb);
+		mntmExportConcordanceAsWeb.addActionListener(new ExportConcordanceActionListener(controller, 2));
+
+		JMenuItem mntmExportIndex = new JMenuItem("Export Index");
+		mnConcordance.add(mntmExportIndex);
+		mntmExportIndex.addActionListener(new ExportConcordanceActionListener(controller, 3));
+
+		JMenuItem mntmExtractMatchingTU = new JMenuItem("Extract Matching Text Units");
+		mnConcordance.add(mntmExtractMatchingTU);
+		mntmExtractMatchingTU.addActionListener(new ExtractConcordanceActionListener(controller, true));
+
+		JMenuItem mntmExtractNonMatchingTU = new JMenuItem("Extract Non Matching Text Units");
+		mnConcordance.add(mntmExtractNonMatchingTU);
+		mntmExtractNonMatchingTU.addActionListener(new ExtractConcordanceActionListener(controller, false));
+
+		JMenuItem mntmStatisticalAnalyses = new JMenuItem("Statistical Analyses");
+		mnConcordance.add(mntmStatisticalAnalyses);
+		mntmStatisticalAnalyses.addActionListener(new OpenStatsActionListener(controller.getCorpusController(),
+				controller.getTextController(), controller));
+
+		mnConcordance.setVisible(true);
+		menuBar.add(mnConcordance);
+	}
+
+	@Override
+	public void internalFrameClosed(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameClosing(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameDeactivated(InternalFrameEvent e)
+	{
+		// Clear previous component action listeners
+		mntmCut.removeActionListener(mntmCut.getActionListeners()[0]);
+		mntmCopy.removeActionListener(mntmCopy.getActionListeners()[0]);
+		mntmPaste.removeActionListener(mntmPaste.getActionListeners()[0]);
+		mntmSelectAll.removeActionListener(mntmSelectAll.getActionListeners()[0]);
+
+		mnConcordance.setVisible(false);
+		menuBar.remove(mnConcordance);
+		menuBar.repaint();
+
+		ConcordanceShell shell = controller.getConcordanceShell();
+		controller.setCbMatchesIsPressed(shell.getCbMatches().isSelected());
+		controller.setCbOutputsIsPressed(shell.getCbOutputs().isSelected());
+	}
+
+	@Override
+	public void internalFrameDeiconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameIconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameOpened(InternalFrameEvent e)
+	{
+	}
+
+	public static JMenu getMnText()
+	{
+		return mnConcordance;
+	}
+
+	public static JMenuItem getMntmAddRemoveAnnotations()
+	{
+		return mntmAddRemoveAnnotations;
+	}
+
+	public static JMenuItem getMntmDisplaySyntacticAnalysis()
+	{
+		return mntmDisplaySyntacticAnalysis;
+	}
+}

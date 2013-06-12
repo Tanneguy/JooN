@@ -1,0 +1,1702 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: fr
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' and properties' definition files (.nof or .def), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+
+## Max Silberztein
+## ce dictionnaire formalise la table C1D
+## construit au LADL (Univ. Paris 7, CNRS) par Maurice Gross.
+
+#use _dm.nof
+
+abandonner,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=pose+Passif+FLX=AIMER
+abandonner,V+FXC+N0Hum+DET1=la+N1=compétition+Passif+FLX=AIMER
+abandonner,V+FXC+N0Hum+DET1=le+N1=domicile conjugal+Passif+FLX=AIMER
+abandonner,V+FXC+N0Hum+DET1=le+N1=terrain+Passif+FLX=AIMER
+abandonner,V+FXC+N0Hum+DET1=les+N1=lieux+Passif+FLX=AIMER
+abandonner,V+FXC+N0Hum+N0V+DET1=la+N1=partie+Passif+FLX=AIMER
+abjurer,V+FXC+N0Hum+DET1=la+N1=foi catholique+Passif+FLX=AIMER
+abolir,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=FINIR
+accélérer,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+Passif+FLX=CEDER
+accompagner,V+FXC+N0Hum+DET1=le+N1=pas+Passif+FLX=AIMER
+accomplir,V+FXC+N0Hum+DET1=le+N1=rêve de <DET+Poss0> vie+Passif+FLX=FINIR
+accrocher,V+FXC+N0Hum+DET1=le+N1=linge+Passif+FLX=AIMER
+accuser,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=AIMER
+accuser,V+FXC+N0Hum+N0NHum+DET1=les+N1=années+FLX=AIMER
+accuser,V+FXC+N0Hum+N0NHum+DET1=les+N1=ans+FLX=AIMER
+achever,V+FXC+N0NHum+DET1=le+N1=tableau+FLX=PESER
+activer,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+FLX=AIMER
+adorer,V+FXC+N0Hum+DET1=le+N1=veau d'or+Passif+FLX=AIMER
+adoucir,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=FINIR
+afficher,V+FXC+N0Hum+DET1=la+N1=couleur+Passif+FLX=AIMER
+affronter,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=mort+Passif+FLX=AIMER
+affronter,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=danger+Passif+FLX=AIMER
+agiter,V+FXC+N0NHum+DET1=la+N0VDETN1+N1=queue+N1pc+FLX=AIMER
+agiter,V+FXC+N0Hum+DET1=la+N1=main+N1pc+FLX=AIMER
+agiter,V+FXC+N0Hum+DET1=le+N1=bras+N1pc+FLX=AIMER
+agiter,V+FXC+N0Hum+DET1=les+N1=bras+N1pc+FLX=AIMER
+agiter,V+FXC+N0Hum+DET1=les+N1=mains+N1pc+FLX=AIMER
+agiter,V+FXC+N0Hum+DET1=les+N1=pieds+N1pc+FLX=AIMER
+agrémenter,V+FXC+N0Hum+N0NHum+DET1=le+N1=tableau+Passif+FLX=AIMER
+ajuster,V+FXC+N0Hum+DET1=le+N1=tir+Passif+FLX=AIMER
+aller,V+FXC+N0NHum+DET1=l'+N1=amble+FLX=ALLER
+allonger,V+FXC+N0Hum+DET1=la+N1=sauce+Passif+FLX=MANGER
+allonger,V+FXC+N0Hum+DET1=le+N1=pas+Passif+FLX=MANGER
+allumer,V+FXC+N0Hum+DET1=l'+N1=électricité+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=la+N1=lumière+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=la+N1=radio+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=la+N1=télé+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=le+N1=chauffage+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=le+N1=gaz+Passif+FLX=AIMER
+allumer,V+FXC+N0Hum+DET1=le+N1=poste+Passif+FLX=AIMER
+améliorer,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=ordinaire+Passif+FLX=AIMER
+amener,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=pavillon+FLX=PESER
+amener,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=couleurs+FLX=PESER
+ameuter,V+FXC+N0Hum+N0NHum+DET1=le+N1=voisinage+Passif+FLX=AIMER
+amorcer,V+FXC+N0Hum+N0NHum+DET1=la+N1=pompe+Passif+FLX=PLACER
+amortir,V+FXC+N0Hum+N0NHum+DET1=le+N1=choc+Passif+FLX=FINIR
+amortir,V+FXC+N0Hum+N0NHum+DET1=le+N1=coup+Passif+FLX=FINIR
+amuser,V+FXC+N0Hum+DET1=la+N1=galerie+FLX=AIMER
+amuser,V+FXC+N0Hum+N0NHum+DET1=le+N1=tapis+FLX=AIMER
+apaiser,V+FXC+N0Hum+N0NHum+N0V+DET1=les+N0VDETN1+N1=esprits+Passif+FLX=AIMER
+appréhender,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=AIMER
+apprendre,V+FXC+N0Hum+DET1=le fin+N1=mot de l'histoire+FLX=PRENDRE
+apprendre,V+FXC+N0Hum+DET1=les+N1=ficelles du métier+Passif+FLX=PRENDRE
+arpenter,V+FXC+N0Hum+DET1=le+N1=bitume+FLX=AIMER
+arpenter,V+FXC+N0Hum+DET1=le+N1=macadam+Passif+FLX=AIMER
+arpenter,V+FXC+N0Hum+DET1=le+N1=trottoir+Passif+FLX=AIMER
+arranger,V+FXC+N0NHum+NegOblig+DET1=les+N1=choses+Passif+FLX=MANGER
+arrêter,V+FXC+N0Hum+DET1=le+N1=massacre+Passif+FLX=AIMER
+arrêter,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours du temps+Passif+FLX=AIMER
+arrêter,V+FXC+N0Hum+N0NHum+DET1=les+N1=frais+Passif+FLX=AIMER
+arrondir,V+FXC+N0Hum+N0NHum+DET1=les+N1=angles+Passif+FLX=FINIR
+assombrir,V+FXC+N0Hum+N0NHum+DET1=le+N1=crédit+Passif+FLX=FINIR
+assouplir,V+FXC+N0NHum+DET1=le+N1=ciel+Passif+FLX=FINIR
+assouplir,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=FINIR
+assumer,V+FXC+N0Hum+DET1=la+N1=conséquence de <DET+Poss> actes+Passif+FLX=AIMER
+assumer,V+FXC+N0Hum+DET1=les+N1=conséquences de <DET+Poss> actes+Passif+FLX=AIMER
+attacher,V+FXC+N0Hum+DET1=le+N1=grelot+Passif+FLX=AIMER
+atteindre,V+FXC+N0NHum+DET1=la+N1=cote d'alerte+Passif+FLX=PEINDRE
+atteindre,V+FXC+N0NHum+DET1=la+N1=cote d'alerte+Passif+FLX=PEINDRE
+atteindre,V+FXC+N0Hum+N0NHum+DET1=la+N1=perfection+Passif+FLX=PEINDRE
+atteindre,V+FXC+N0Hum+N0NHum+DET1=la+N1=perfection+Passif+FLX=PEINDRE
+attendre,V+FXC+N0Hum+DET1=la deuxième+N1=chaussure+FLX=RENDRE
+attendre,V+FXC+N0Hum+DET1=le+N1=Prince Charmant+FLX=RENDRE
+attendre,V+FXC+N0Hum+N0NHum+DET1=le+N1=résultat de l'enquête+Passif+FLX=RENDRE
+attirer,V+FXC+N0NHum+DET1=l'+N1=oeil+N1pc+Passif+FLX=AIMER
+attraper,V+FXC+N0Hum+DET1=le+N1=ballon+FLX=AIMER
+attraper,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=AIMER
+avaler,V+FXC+N0Hum+DET1=l'+N1=obstacle+FLX=AIMER
+avaler,V+FXC+N0Hum+DET1=la+N1=fumée+FLX=AIMER
+avaler,V+FXC+N0Hum+DET1=la+N1=pilule+Passif+FLX=AIMER
+baiser,V+FXC+N0Hum+DET1=le+N1=cul de la fanny+FLX=AIMER
+baiser,V+FXC+N0Hum+DET1=le+N1=cul de la vieille+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=la+N1=voix+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=le+N1=front+N1pc+Passif+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=le+N1=nez+N1pc+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=le+N1=ton+FLX=AIMER
+baisser,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+baisser,V+FXC+N0Hum+N0NHum+DET1=l'+N1=ordre public+Passif+FLX=AIMER
+balancer,V+FXC+N0Hum+DET1=la+N1=purée+N1pc+Passif+FLX=PLACER
+barrer,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=mentions inutiles+Passif+FLX=AIMER
+battre,V+FXC+N0NHum+DET1=l'+N1=air+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=l'+N1=estrade+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=cadence+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=campagne+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=chamade+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=charge+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=diane+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=mesure+Passif+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=retraite+Passif+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=savate+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=la+N1=semelle+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=le+N1=ban+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=le+N1=beurre+Passif+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=le+N1=briquet+Passif+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=le+N1=pavé+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=le+N1=tambour+FLX=BATTRE
+battre,V+FXC+N0Hum+DET1=les+N1=cartes+Passif+FLX=BATTRE
+battre,V+FXC+N0Hum+N0NHum+DET1=la+N1=breloque+FLX=BATTRE
+biseauter,V+FXC+N0Hum+DET1=les+N1=cartes+Passif+FLX=AIMER
+bloquer,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=AIMER
+bloquer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+boire,V+FXC+N0Hum+DET1=l'+N1=eau du Léthé+Passif+FLX=BOIRE
+boire,V+FXC+N0Hum+DET1=l'+N1=obstacle+FLX=BOIRE
+boire,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=goutte+Passif+FLX=BOIRE
+boire,V+FXC+N0Hum+DET1=la+N1=tasse+FLX=BOIRE
+boire,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=coup de l'étrier+Passif+FLX=BOIRE
+boire,V+FXC+N0Hum+N0V+DET1=le+N1=coup+FLX=BOIRE
+boucher,V+FXC+N0Hum+PPV=se+DET1=le+N1=nez+N1pc+FLX=AIMER
+boucher,V+FXC+N0Hum+PPV=se+DET1=les+N1=oreilles+N1pc+FLX=AIMER
+boucler,V+FXC+N0Hum+DET1=la+N1=boucle+Passif+FLX=AIMER
+bouger,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+FLX=MANGER
+bouger,V+FXC+N0Hum+DET1=les+N1=oreilles+N1pc+FLX=MANGER
+bourrer,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=urnes+Passif+FLX=AIMER
+branler,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+branler,V+FXC+N0Hum+DET1=le+N1=chef+N1pc+FLX=AIMER
+braver,V+FXC+N0Hum+N0NHum+DET1=la+N1=mort+FLX=AIMER
+braver,V+FXC+N0Hum+N0NHum+DET1=le+N1=danger+FLX=AIMER
+braver,V+FXC+N0Hum+N0NHum+DET1=le+N1=qu'en dira-t-on+FLX=AIMER
+briser,V+FXC+N0Hum+N0NHum+DET1=la+N1=glace+Passif+FLX=AIMER
+briser,V+FXC+N0Hum+N0NHum+DET1=le+N1=cercle de la violence+Passif+FLX=AIMER
+brosser,V+FXC+N0Hum+PPV=se+DET1=le+N1=ventre+N1pc+FLX=AIMER
+brosser,V+FXC+N0Hum+PPV=se+DET1=les+N1=dents+N1pc+FLX=AIMER
+brouiller,V+FXC+N0Hum+N0NHum+DET1=les+N1=cartes+Passif+FLX=AIMER
+brouiller,V+FXC+N0Hum+N0NHum+DET1=les+N1=pistes+Passif+FLX=AIMER
+brûler,V+FXC+N0Hum+DET1=le+N1=pavé+FLX=AIMER
+brûler,V+FXC+N0Hum+DET1=les+N1=étapes+Passif+FLX=AIMER
+brûler,V+FXC+N0Hum+DET1=les+N1=planches+FLX=AIMER
+brusquer,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+FLX=AIMER
+brusquer,V+FXC+N0Hum+N0NHum+DET1=les+N1=choses+FLX=AIMER
+brusquer,V+FXC+N0Hum+N0NHum+DET1=les+N1=événemements+FLX=AIMER
+cailler,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=meules+N1pc+FLX=AIMER
+cailler,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=miches+N1pc+FLX=AIMER
+calmer,V+FXC+N0Hum+N0NHum+DET1=le+N1=jeu+FLX=AIMER
+calmer,V+FXC+N0Hum+N0NHum+N0V+DET1=les+N1=esprits+FLX=AIMER
+cambrer,V+FXC+N0Hum+DET1=les+N1=reins+N1pc+FLX=AIMER
+caresser,V+FXC+N0Hum+DET1=la+N1=bouteille+FLX=AIMER
+casser,V+FXC+N0NHum+DET1=les+N1=vitres+FLX=AIMER
+casser,V+FXC+N0NHum+PPV=se+DET1=la+N1=figure+N1pc+FLX=AIMER
+casser,V+FXC+N0NHum+PPV=se+DET1=la+N1=gueule+N1pc+FLX=AIMER
+casser,V+FXC+N0Hum+DET1=le+N1=moule+Passif+FLX=AIMER
+casser,V+FXC+N0Hum+DET1=les+N1=cailloux+FLX=AIMER
+casser,V+FXC+N0Hum+N0NHum+DET1=la+N1=baraque+FLX=AIMER
+casser,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=marché+Passif+FLX=AIMER
+casser,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=tarifs+Passif+FLX=AIMER
+casser,V+FXC+N0Hum+PPV=se+DET1=la+N1=binette+N1pc+FLX=AIMER
+casser,V+FXC+N0Hum+PPV=se+DET1=la+N1=margoulette+N1pc+FLX=AIMER
+casser,V+FXC+N0Hum+PPV=se+DET1=le+N1=bonnet+FLX=AIMER
+casser,V+FXC+N0Hum+PPV=se+DET1=le+N1=cou+N1pc+FLX=AIMER
+ceindre,V+FXC+N0Hum+DET1=la+N1=tiare+FLX=PEINDRE
+célébrer,V+FXC+N0Hum+DET1=la+N1=messe+Passif+FLX=CEDER
+cesser,V+FXC+N0Hum+DET1=le+N1=feu+FLX=AIMER
+cesser,V+FXC+N0Hum+DET1=le+N1=travail+Passif+FLX=AIMER
+changer,V+FXC+N0Hum+N0NHum+DET1=la+N1=face du monde +Passif+FLX=MANGER
+changer,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours de l'histoire+Passif+FLX=MANGER
+changer,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours des événements+Passif+FLX=MANGER
+chanter,V+FXC+N0Hum+DET1=la même+N1=antienne+Passif+FLX=AIMER
+chasser,V+FXC+N0Hum+DET1=<le>+N1=<N+gibier>+FLX=AIMER
+chasser,V+FXC+N0Hum+DET1=<le>+N1=bécasse+FLX=AIMER
+chasser,V+FXC+N0Hum+DET1=<le>+N1=sanglier+FLX=AIMER
+chasser,V+FXC+N0Hum+DET1=le+N1=dahut+Passif+FLX=AIMER
+chasser,V+FXC+N0Hum+N0NHum+DET1=le+N1=client+Passif+FLX=AIMER
+chausser,V+FXC+N0Hum+DET1=les+N1=étriers+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=l'+N1=aventure+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=la petite+N1=bête+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=la+N1=difficulté+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=la+N1=facilité+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=la+N1=femme+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=le+N1=joint+FLX=AIMER
+chercher,V+FXC+N0Hum+DET1=le+N1=sommeil+FLX=AIMER
+chercher,V+FXC+N0Hum+N0V+DET1=la+N0VDETN1+N1=bagarre+FLX=AIMER
+choisir,V+FXC+N0Hum+DET1=la+N1=liberté+FLX=FINIR
+choisir,V+FXC+N0Hum+DET1=le+N1=moindre d'entre deux maux+Passif+FLX=FINIR
+ciller,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+claquer,V+FXC+N0Hum+DET1=la+N1=langue+N1pc+FLX=AIMER
+claquer,V+FXC+N0Hum+DET1=la+N1=porte+FLX=AIMER
+claquer,V+FXC+N0Hum+DET1=les+N1=talons+N1pc+FLX=AIMER
+cligner,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+clore,V+FXC+N0Hum+N0NHum+DET1=la+N1=marche+Passif+FLX=CLORE
+clore,V+FXC+N0Hum+N0NHum+DET1=la+N1=parenthèse+Passif+FLX=CLORE
+clore,V+FXC+N0Hum+N0NHum+DET1=les+N1=guillemets+Passif+FLX=CLORE
+coincer,V+FXC+N0Hum+DET1=la+N1=bulle+FLX=PLACER
+combler,V+FXC+N0Hum+N0NHum+DET1=la+N1=mesure+FLX=AIMER
+commander,V+FXC+N0Hum+DET1=le+N1=feu+FLX=AIMER
+commencer,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=compte à rebours+Passif+FLX=PLACER
+commettre,V+FXC+N0Hum+DET1=l'+N1=irréparable+Passif+FLX=METTRE
+commettre,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=METTRE
+compléter,V+FXC+N0NHum+DET1=le+N1=tableau+FLX=CEDER
+compléter,V+FXC+N0NHum+DET1=le+N1=tout+Passif+FLX=CEDER
+compliquer,V+FXC+N0Hum+DET1=les+N1=choses+FLX=AIMER
+comprendre,V+FXC+N0Hum+DET1=la+N1=plaisanterie+FLX=PRENDRE
+comprendre,V+FXC+N0Hum+DET1=la+N1=vie+FLX=PRENDRE
+comprendre,V+FXC+N0Hum+DET1=les+N1=choses+FLX=PRENDRE
+comprimer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=coûts+Passif+FLX=AIMER
+comprimer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges bénéficiaires+Passif+FLX=AIMER
+comprimer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges+Passif+FLX=AIMER
+comprimer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+compter,V+FXC+N0NHum+DET1=le+N1=<N+Tuple> de ce que ça <compter>+FLX=AIMER
+compter,V+FXC+N0NHum+DET1=le+N1=double de ce que ça <compter>+FLX=AIMER
+compter,V+FXC+N0NHum+DET1=le+N1=quadruple de ce que ça <compter>+FLX=AIMER
+compter,V+FXC+N0NHum+DET1=le+N1=triple de ce que ça <compter>+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=<N+Temps>+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=<N+Temps> qui <LE> <séparer> de <N-Hum>+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=coups+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=étoiles+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=heures+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=heures qui <LE> <séparer> de <N-Hum>+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=jours+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=jours qui <LE> <séparer> de <N-Hum>+FLX=AIMER
+compter,V+FXC+N0Hum+DET1=les+N1=points+Passif+FLX=AIMER
+concentrer,V+FXC+N0NHum+DET1=les+N0VDETN1+N1=regards+Passif+FLX=AIMER
+concerner,V+FXC+N0Hum+N0NHum+DET1=la+N1=ligne droite+FLX=AIMER
+conduire,V+FXC+N0Hum+DET1=la+N1=danse+Passif+FLX=CUIRE
+conduire,V+FXC+N0Hum+DET1=le+N1=bal+Passif+FLX=CUIRE
+conduire,V+FXC+N0Hum+DET1=le+N1=deuil+Passif+FLX=CUIRE
+conjurer,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=crise+Passif+FLX=AIMER
+conjurer,V+FXC+N0Hum+N0NHum+DET1=le mauvais+N1=sort+Passif+FLX=AIMER
+conjurer,V+FXC+N0Hum+N0NHum+DET1=le+N1=démon+Passif+FLX=AIMER
+conjurer,V+FXC+N0Hum+N0NHum+DET1=le+N1=sort+Passif+FLX=AIMER
+connaître,V+FXC+N0Hum+DET1=la+N1=chanson+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=la+N1=combine+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=la+N1=coupure+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=la+N1=musique+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=le fin+N1=mot de l'histoire+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=le+N1=dessous des cartes+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=le+N1=joint+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=le+N1=truc+Passif+FLX=CONNAITRE
+connaître,V+FXC+N0Hum+DET1=les bonnes+N1=manières+Passif+FLX=CONNAITRE
+conserver,V+FXC+N0Hum+DET1=la+N1=mesure+Passif+FLX=AIMER
+conserver,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=anonymat+Passif+FLX=AIMER
+contempler,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=avenir+FLX=AIMER
+contempler,V+FXC+N0Hum+PPV=se+DET1=le+N1=nombril+N1pc+FLX=AIMER
+contracter,V+FXC+N0Hum+DET1=<le>+N0VDETN1+N1=<N+Maladie>+Passif+FLX=AIMER
+contracter,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=variole+Passif+FLX=AIMER
+contracter,V+FXC+N0Hum+DET1=les+N1=mâchoires+N1pc+FLX=AIMER
+contrôler,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=situation+Passif+FLX=AIMER
+contrôler,V+FXC+N0Hum+N0NHum+DET1=les+N1=naissances+Passif+FLX=AIMER
+corriger,V+FXC+N0Hum+N0NHum+DET1=le+N1=tir+Passif+FLX=MANGER
+couper,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=contact+Passif+FLX=AIMER
+couper,V+FXC+N0Hum+DET1=le+N1=ruban tricolore+Passif+FLX=AIMER
+couper,V+FXC+N0Hum+N0V+DET1=le+N0VDETN1+N1=cordon ombilical+N1pc+Passif+FLX=AIMER
+courber,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+courir,V+FXC+N0NHum+DET1=les+N1=rues+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=la+N1=fortune du pot+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=le+N1=cachet+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=le+N1=monde+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=boîtes de nuit+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=boutiques+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=cabarets+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=cafés+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=magasins+FLX=COURIR
+courir,V+FXC+N0Hum+DET1=les+N1=rues+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=la+N1=gueuse+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=la+N1=prétentaine+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=le+N1=cotillon+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=le+N1=guilledou+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=les+N1=filles+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=les+N1=garçons+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=les+N1=honneurs+FLX=COURIR
+courir,V+FXC+N0Hum+N0V+DET1=les+N1=jupons+FLX=COURIR
+couronner,V+FXC+N0NHum+DET1=le+N1=tout+Passif+FLX=AIMER
+couvrir,V+FXC+N0Hum+PPV=se+DET1=la+N1=face+N1pc+FLX=COUVRIR
+cracher,V+FXC+N0NHum+DET1=le+N1=feu+FLX=AIMER
+craindre,V+FXC+N0NHum+DET1=la+N1=humidité+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=la+N1=humidité+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=chaud+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=chaud+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=froid+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=froid+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=gel+FLX=PEINDRE
+craindre,V+FXC+N0NHum+DET1=le+N1=gel+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=la+N1=chatouille+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=la+N1=chatouille+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=le+N1=pire+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=le+N1=pire+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=les+N1=chatouilles+FLX=PEINDRE
+craindre,V+FXC+N0Hum+DET1=les+N1=chatouilles+FLX=PEINDRE
+créer,V+FXC+N0Hum+N0NHum+DET1=la+N1=surprise+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=caboche+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=cervelle+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=nénette+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=tête+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=ciboulot+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=citron+N1pc+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=esprit+FLX=AIMER
+creuser,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=méninges+N1pc+FLX=AIMER
+crever,V+FXC+N0Hum+DET1=la+N1=faim+FLX=PESER
+crever,V+FXC+N0Hum+DET1=la+N1=gueule ouverte+FLX=PESER
+crever,V+FXC+N0Hum+N0NHum+DET1=l'+N1=abcès+N1pc+Passif+FLX=PESER
+crever,V+FXC+N0Hum+N0NHum+DET1=l'+N1=écran+FLX=PESER
+crever,V+FXC+N0Hum+N0NHum+DET1=la+N1=toile+Passif+FLX=PESER
+crisper,V+FXC+N0Hum+DET1=la+N1=bouche+N1pc+FLX=AIMER
+crisper,V+FXC+N0Hum+DET1=les+N1=doigts+N1pc+Passif+FLX=AIMER
+crisper,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+FLX=AIMER
+croire,V+FXC+N0Hum+PPV=se+N0V+DET1=le premier+N1=moutardier du pape+FLX=CROIRE
+croiser,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=jambes+N1pc+Passif+FLX=AIMER
+croiser,V+FXC+N0Hum+DET1=les+N1=doigts+N1pc+FLX=AIMER
+croquer,V+FXC+N0Hum+DET1=la+N1=pomme+FLX=AIMER
+croquer,V+FXC+N0Hum+DET1=le+N1=marmot+FLX=AIMER
+cultiver,V+FXC+N0Hum+DET1=le+N1=paradoxe+FLX=AIMER
+curer,V+FXC+N0Hum+PPV=se+DET1=les+N1=dents+N1pc+FLX=AIMER
+cuver,V+FXC+N0Hum+DET1=le+N1=vin <que> <il> <boire>+Passif+FLX=AIMER
+débarrasser,V+FXC+N0Hum+N0NHum+N0V+DET1=la+N1=table+Passif+FLX=AIMER
+débrouiller,V+FXC+N0Hum+N0NHum+DET1=l'+N1=écheveau+Passif+FLX=AIMER
+découvrir,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=COUVRIR
+découvrir,V+FXC+N0Hum+DET1=le+N1=pot aux roses+Passif+FLX=COUVRIR
+décréter,V+FXC+N0Hum+DET1=le+N1=couvre-feu+Passif+FLX=CEDER
+décréter,V+FXC+N0Hum+DET1=le+N1=état d'urgence+Passif+FLX=CEDER
+décrocher,V+FXC+N0Hum+DET1=la+N1=timbale+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+DET1=le gros+N1=lot+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+DET1=le+N1=combiné+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+DET1=le+N1=coquetier+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+DET1=le+N1=jackpot+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+DET1=le+N1=pompon+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+N0V+DET1=l'+N0VDETN1+N1=appareil+Passif+FLX=AIMER
+décrocher,V+FXC+N0Hum+N0V+DET1=le+N0VDETN1+N1=récepteur+Passif+FLX=AIMER
+défier,V+FXC+N0NHum+DET1=l'+N0VDETN1+N1=imagination+FLX=AIMER
+défier,V+FXC+N0NHum+DET1=le+N1=temps+FLX=AIMER
+défier,V+FXC+N0NHum+DET1=les+N1=années+FLX=AIMER
+défier,V+FXC+N0NHum+DET1=les+N1=ans+FLX=AIMER
+défier,V+FXC+N0NHum+DET1=les+N1=siècles+FLX=AIMER
+défier,V+FXC+N0Hum+N0NHum+DET1=le+N1=sort+FLX=AIMER
+déformer,V+FXC+N0Hum+N0NHum+DET1=la+N1=réalité+Passif+FLX=AIMER
+déformer,V+FXC+N0Hum+N0NHum+DET1=la+N1=vérité+Passif+FLX=AIMER
+défrayer,V+FXC+N0NHum+DET1=la+N0VDETN1+N1=conversation+FLX=PAYER
+défrayer,V+FXC+N0Hum+N0NHum+DET1=la+N1=chronique+FLX=PAYER
+dégourdir,V+FXC+N0Hum+PPV=se+DET1=les+N1=jambes+N1pc+FLX=FINIR
+délier,V+FXC+N0Hum+DET1=les+N1=cordons de <DET+Poss> bourse+Passif+FLX=AIMER
+demander,V+FXC+N0Hum+DET1=la+N1=lune+FLX=AIMER
+demander,V+FXC+N0Hum+DET1=le+N1=divorce+Passif+FLX=AIMER
+démêler,V+FXC+N0Hum+N0NHum+DET1=l'+N1=écheveau+Passif+FLX=AIMER
+démentir,V+FXC+N0NHum+DET1=les+N1=faits+Passif+FLX=SENTIR
+dénaturer,V+FXC+N0Hum+N0NHum+DET1=les+N1=faits+Passif+FLX=AIMER
+dénouer,V+FXC+N0Hum+DET1=les+N1=cordons de <DET+Poss> bourse+Passif+FLX=AIMER
+dépasser,V+FXC+N0NHum+DET1=l'+N1=imagination+Passif+FLX=AIMER
+dépasser,V+FXC+N0Hum+N0NHum+DET1=la+N1=mesure+Passif+FLX=AIMER
+dépasser,V+FXC+N0Hum+NegOblig+DET1=la+N1=dose prescrite+Passif+FLX=AIMER
+déposer,V+FXC+N0Hum+DET1=le+N1=masque+FLX=AIMER
+dépouiller,V+FXC+N0Hum+DET1=le vieil+N1=homme+FLX=AIMER
+désamorcer,V+FXC+N0Hum+N0NHum+DET1=le+N1=pétard+Passif+FLX=PLACER
+descendre,V+FXC+N0Hum+DET1=la+N1=gamme+FLX=RENDRE
+desserrer,V+FXC+N0Hum+DET1=les+N1=cordons de <DET+Poss> bourse+Passif+FLX=AIMER
+desserrer,V+FXC+N0Hum+DET1=les+N1=dents+N1pc+FLX=AIMER
+desserrer,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+Passif+FLX=AIMER
+desserrer,V+FXC+N0Hum+DET1=les+N1=mâchoires+N1pc+FLX=AIMER
+desserrer,V+FXC+N0Hum+N0NHum+DET1=le+N1=crédit+Passif+FLX=AIMER
+desservir,V+FXC+N0Hum+N0V+DET1=la+N1=table+Passif+FLX=SERVIR
+détendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=atmosphère+Passif+FLX=RENDRE
+détenir,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=TENIR
+déterrer,V+FXC+N0Hum+DET1=la+N1=hache de la guerre+Passif+FLX=AIMER
+détourner,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+détourner,V+FXC+N0Hum+N0NHum+DET1=la+N1=conversation+Passif+FLX=AIMER
+devancer,V+FXC+N0Hum+DET1=le+N1=appel+Passif+FLX=PLACER
+dévisser,V+FXC+N0Hum+PPV=se+DET1=le+N1=cou+N1pc+FLX=AIMER
+dévorer,V+FXC+N0Hum+N0NHum+DET1=la+N1=route+FLX=AIMER
+dévorer,V+FXC+N0Hum+N0NHum+DET1=les+N1=distances+FLX=AIMER
+dévorer,V+FXC+N0Hum+N0NHum+DET1=les+N1=kilomètres+FLX=AIMER
+diffuser,V+FXC+N0Hum+DET1=la bonne+N1=parole+Passif+FLX=AIMER
+dire,V+FXC+N0Hum+DET1=le+N1=bénédicité+Passif+FLX=DIRE
+dire,V+FXC+N0Hum+DET1=les+N1=grâces+Passif+FLX=DIRE
+distiller,V+FXC+N0NHum+DET1=le+N0VDETN1+N1=venin+Passif+FLX=AIMER
+dominer,V+FXC+N0Hum+DET1=la+N1=question+Passif+FLX=AIMER
+dominer,V+FXC+N0Hum+DET1=la+N1=situation+Passif+FLX=AIMER
+dominer,V+FXC+N0Hum+DET1=le+N1=problème+Passif+FLX=AIMER
+dominer,V+FXC+N0Hum+N0NHum+DET1=le+N1=lot+Passif+FLX=AIMER
+donner,V+FXC+N0NHum+DET1=l'+N1=alarme+Passif+FLX=AIMER
+donner,V+FXC+N0NHum+DET1=l'+N1=heure exacte+Passif+FLX=AIMER
+donner,V+FXC+N0NHum+DET1=l'+N1=heure juste+Passif+FLX=AIMER
+donner,V+FXC+N0Hum+DET1=l'+N1=alarme+Passif+FLX=AIMER
+donner,V+FXC+N0Hum+DET1=la+N1=gomme+Passif+FLX=AIMER
+donner,V+FXC+N0Hum+DET1=le+N1=meilleur de <lui>-même+FLX=AIMER
+donner,V+FXC+N0Hum+DET1=toute la+N1=gomme+Passif+FLX=AIMER
+donner,V+FXC+N0Hum+PPV=se+DET1=la+N1=mort+FLX=AIMER
+doubler,V+FXC+N0Hum+DET1=le+N1=pas+FLX=AIMER
+dresser,V+FXC+N0Hum+DET1=la+N1=table+Passif+FLX=AIMER
+dresser,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+Passif+FLX=AIMER
+dresser,V+FXC+N0Hum+DET1=le+N1=buste+N1pc+Passif+FLX=AIMER
+dresser,V+FXC+N0Hum+DET1=le+N1=couvert+Passif+FLX=AIMER
+dresser,V+FXC+N0Hum+DET1=le+N1=nez+N1pc+Passif+FLX=AIMER
+écarquiller,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+écarter,V+FXC+N0Hum+DET1=les deux+N1=bras+N1pc+Passif+FLX=AIMER
+écarter,V+FXC+N0Hum+DET1=les+N1=bras+N1pc+Passif+FLX=AIMER
+écarter,V+FXC+N0Hum+DET1=les+N1=jambes+N1pc+Passif+FLX=AIMER
+écarter,V+FXC+N0Hum+DET1=les+N1=sourcils+N1pc+Passif+FLX=AIMER
+échauffer,V+FXC+N0NHum+DET1=les+N1=esprits+Passif+FLX=AIMER
+écorcher,V+FXC+N0Hum+N0NHum+DET1=la+N1=vérité+Passif+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=la+N1=radio+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=la+N1=voix de <DET+Poss> conscience+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=la+N1=voix de la raison+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=la+N1=voix de la sagesse+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=la+N1=voix du sang+FLX=AIMER
+écouter,V+FXC+N0Hum+DET1=le+N1=chant des sirènes+FLX=AIMER
+écraser,V+FXC+N0Hum+DET1=l'+N1=accélérateur+Passif+FLX=AIMER
+écraser,V+FXC+N0Hum+DET1=la+N1=pédale du frein+Passif+FLX=AIMER
+écraser,V+FXC+N0Hum+DET1=le+N1=champignon+Passif+FLX=AIMER
+écraser,V+FXC+N0Hum+DET1=le+N1=coup+FLX=AIMER
+écraser,V+FXC+N0Hum+DET1=les+N1=prix+Passif+FLX=AIMER
+effeuiller,V+FXC+N0Hum+DET1=la+N1=marguerite+Passif+FLX=AIMER
+égrener,V+FXC+N0NHum+DET1=les douze+N1=coups de midi+FLX=PESER
+égrener,V+FXC+N0NHum+DET1=les douze+N1=coups de minuit+FLX=PESER
+égrener,V+FXC+N0NHum+DET1=les+N1=heures+FLX=PESER
+emmêler,V+FXC+N0Hum+PPV=se+DET1=les+N1=crayons+N1pc+FLX=AIMER
+emmêler,V+FXC+N0Hum+PPV=se+DET1=les+N1=pieds+N1pc+FLX=AIMER
+emmêler,V+FXC+N0Hum+PPV=se+DET1=les+N1=pinceaux+N1pc+FLX=AIMER
+employer,V+FXC+N0Hum+DET1=les grands+N1=moyens+Passif+FLX=NOYER
+emporter,V+FXC+N0Hum+DET1=la+N1=décision+Passif+FLX=AIMER
+emporter,V+FXC+N0Hum+DET1=la+N1=mise+Passif+FLX=AIMER
+emporter,V+FXC+N0Hum+DET1=la+N1=partie+Passif+FLX=AIMER
+emporter,V+FXC+N0Hum+DET1=le+N1=morceau+FLX=AIMER
+emporter,V+FXC+N0Hum+DET1=les+N1=suffrages+Passif+FLX=AIMER
+emporter,V+FXC+N0Hum+N0NHum+DET1=la+N1=épreuve+Passif+FLX=AIMER
+emprunter,V+FXC+N0Hum+DET1=la+N1=voie royale+Passif+FLX=AIMER
+encaisser,V+FXC+N0Hum+N0V+DET1=le+N1=coup+Passif+FLX=AIMER
+endosser,V+FXC+N0Hum+DET1=le+N1=harnois+Passif+FLX=AIMER
+endosser,V+FXC+N0Hum+DET1=le+N1=uniforme+Passif+FLX=AIMER
+enfler,V+FXC+N0Hum+DET1=la+N1=voix+FLX=AIMER
+enfoncer,V+FXC+N0Hum+N0NHum+DET1=le+N1=clou+Passif+FLX=PLACER
+enfreindre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=loi+Passif+FLX=PEINDRE
+enfreindre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=règle+Passif+FLX=PEINDRE
+enfreindre,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=règlement+Passif+FLX=PEINDRE
+engager,V+FXC+N0Hum+DET1=la+N1=partie+Passif+FLX=MANGER
+engager,V+FXC+N0Hum+DET1=le+N1=débat+Passif+FLX=MANGER
+engendrer,V+FXC+N0Hum+N0NHum+NegOblig+DET1=la+N1=mélancolie+FLX=AIMER
+enlever,V+FXC+N0Hum+DET1=la+N1=épreuve+Passif+FLX=PESER
+enlever,V+FXC+N0Hum+DET1=le+N1=bas+Passif+FLX=PESER
+enlever,V+FXC+N0Hum+DET1=le+N1=haut+Passif+FLX=PESER
+enlever,V+FXC+N0Hum+DET1=le+N1=morceau+Passif+FLX=PESER
+entendre,V+FXC+N0Hum+DET1=la+N1=accusation+Passif+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=défense+Passif+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=plaisanterie+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=voix de <DET+Poss> conscience+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=voix de la raison+Passif+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=voix de la sagesse+FLX=RENDRE
+entendre,V+FXC+N0Hum+DET1=la+N1=voix du sang+FLX=RENDRE
+enterrer,V+FXC+N0Hum+DET1=la+N1=hache de guerre+Passif+FLX=AIMER
+entraver,V+FXC+N0Hum+N0NHum+DET1=l'+N1=action de la justice+Passif+FLX=AIMER
+entraver,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=AIMER
+entrouvrir,V+FXC+N0Hum+DET1=l'+N1=oeil droit+N1pc+Passif+FLX=COUVRIR
+entrouvrir,V+FXC+N0Hum+DET1=l'+N1=oeil gauche+N1pc+Passif+FLX=COUVRIR
+entrouvrir,V+FXC+N0Hum+DET1=les deux+N1=yeux+N1pc+FLX=COUVRIR
+entrouvrir,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=COUVRIR
+envisager,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=MANGER
+épaissir,V+FXC+N0Hum+N0NHum+DET1=le+N1=mystère+Passif+FLX=FINIR
+épater,V+FXC+N0Hum+N0NHum+DET1=le+N1=bourgeois+FLX=AIMER
+épater,V+FXC+N0Hum+N0NHum+N0V+DET1=la+N1=galerie+Passif+FLX=AIMER
+essuyer,V+FXC+N0Hum+DET1=les+N1=plâtres+Passif+FLX=NOYER
+étaler,V+FXC+N0Hum+DET1=les+N1=horaires+Passif+FLX=AIMER
+éteindre,V+FXC+N0Hum+DET1=l'+N1=électricité+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=la+N1=lumière+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=la+N1=radio+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=la+N1=télé+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=le+N1=chauffage+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=le+N1=gaz+Passif+FLX=PEINDRE
+éteindre,V+FXC+N0Hum+DET1=le+N1=poste+Passif+FLX=PEINDRE
+étouffer,V+FXC+N0Hum+N0NHum+DET1=l'+N1=affaire+Passif+FLX=AIMER
+éventer,V+FXC+N0Hum+DET1=la+N1=mèche+Passif+FLX=AIMER
+éviter,V+FXC+N0Hum+N0NHum+DET1=la+N1=catastrophe+Passif+FLX=AIMER
+éviter,V+FXC+N0Hum+N0NHum+DET1=le+N1=pire+Passif+FLX=AIMER
+exercer,V+FXC+N0Hum+DET1=la+N1=médecine+Passif+FLX=PLACER
+exercer,V+FXC+N0Hum+DET1=le+N1=pouvoir+Passif+FLX=PLACER
+expédier,V+FXC+N0Hum+DET1=les+N1=affaires courantes+Passif+FLX=AIMER
+faire,V+FXC+N0NHum+DET1=le+N1=reste+FLX=FAIRE
+faire,V+FXC+N0NHum+NegOblig+DET1=l'+N1=ombre d'un doute+FLX=FAIRE
+faire,V+FXC+N0NHum+NegOblig+DET1=l'+N1=ombre d'un pli+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=Algérie+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=andouille+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=apprenti-sorcier+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=avocat du diable+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=école buissionnière+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=enfant+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=enfant gâté+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=entendu+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=ignorant+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=Indo+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=Indochine+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=innocent+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=l'+N1=intéressant+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la fine+N1=bouche+N1pc+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=foire+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=sieste+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=bégueule+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=bringue+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=dégoûtée+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=guerre+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=gueule+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=ignorante+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=innocente+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=intéressante+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=maline+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=moitié du chemin+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=mouche du coche+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=part des choses+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=la+N1=politique du pire+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le grand+N1=saut+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le grand+N1=voyage+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le jeune+N1=homme+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le joli+N1=coeur+N1pc+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le meilleur+N1=temps+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=découpage d'un film+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=point+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=beau+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=bégueule+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=bien+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=bitume+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=brave+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=break+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=charlot+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=con+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=dégoûté+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=délicat+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=fier+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=Jacques+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=macadam+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=mal+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=malin+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=méchant+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=mort+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=mur+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=pied de grue+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=le+N1=trottoir+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les cents+N1=coups+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les cents+N1=pas+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les premiers+N1=pas+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les quatre cents+N1=coups+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les trois+N1=huit+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les+N1=boutiques+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les+N1=magasins+FLX=FAIRE
+faire,V+FXC+N0Hum+DET1=les+N1=poubelles+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=l'+N1=unanimité+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=la+N1=décision+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=la+N1=différence+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=la+N1=part du feu+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=la+N1=roue+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+DET1=les+N1=frais de la conversation+Passif+FLX=FAIRE
+faire,V+FXC+N0Hum+N0NHum+NegOblig+DET1=le+N1=poids+FLX=FAIRE
+faire,V+FXC+N0Hum+NegOblig+DET1=le+N1=détail+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=en+DET1=le moins+N1=possible+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=en+DET1=le plus+N1=possible+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=se+DET1=l'+N1=avocat du diable+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=se+DET1=la+N1=malle+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=se+DET1=la+N1=paire+FLX=FAIRE
+faire,V+FXC+N0Hum+PPV=se+DET1=la+N1=valise+FLX=FAIRE
+falsifier,V+FXC+N0Hum+N0NHum+DET1=l'+N1=histoire+Passif+FLX=AIMER
+fatiguer,V+FXC+N0Hum+DET1=la+N1=salade+Passif+FLX=AIMER
+faucher,V+FXC+N0Hum+DET1=les+N1=marguerites+FLX=AIMER
+fendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=air+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=eau+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=océan+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=onde+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=la+N1=mer+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=les+N1=flots+Passif+FLX=RENDRE
+fendre,V+FXC+N0Hum+N0NHum+DET1=les+N1=vagues+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=bille+N1pc+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=bouille+N1pc+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=gueule+N1pc+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=pêche+N1pc+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=pipe+N1pc+FLX=RENDRE
+fendre,V+FXC+N0Hum+PPV=se+DET1=la+N1=poire+N1pc+FLX=RENDRE
+fermer,V+FXC+N0Hum+DET1=l'+N1=électricité+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=l'+N1=oeil droit+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=l'+N1=oeil gauche+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=bouche+N1pc+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=lumière+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=main droite+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=main gauche+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=main+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=parenthèse+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=radio+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=la+N1=télé+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=le+N1=ban+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=le+N1=chauffage+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=le+N1=gaz+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=le+N1=poste+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=les deux+N1=mains+N1pc+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=les+N1=guillemets+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=les+N1=paupières+N1pc+FLX=AIMER
+fermer,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+fermer,V+FXC+N0Hum+N0NHum+DET1=la+N1=chasse+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+N0NHum+DET1=la+N1=marche+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+N0NHum+DET1=la+N1=pêche+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+N0NHum+DET1=le+N1=bal+Passif+FLX=AIMER
+fermer,V+FXC+N0Hum+N0NHum+DET1=le+N1=cortège+Passif+FLX=AIMER
+fêter,V+FXC+N0Hum+DET1=la+N1=<saint>-<N+Prenom>+Passif+FLX=AIMER
+fêter,V+FXC+N0Hum+DET1=la+N1=Saint-Léa+Passif+FLX=AIMER
+fêter,V+FXC+N0Hum+DET1=la+N1=Saint-Max+Passif+FLX=AIMER
+ficher,V+FXC+N0Hum+DET1=le+N1=paquet+FLX=AIMER
+finir,V+FXC+N0Hum+DET1=les+N1=fonds de bouteille+Passif+FLX=FINIR
+flairer,V+FXC+N0Hum+DET1=le+N1=vent+FLX=AIMER
+fléchir,V+FXC+N0Hum+DET1=la+N1=taille+N1pc+Passif+FLX=FINIR
+fléchir,V+FXC+N0Hum+DET1=les+N1=bras+N1pc+Passif+FLX=FINIR
+fléchir,V+FXC+N0Hum+DET1=les+N1=genoux+N1pc+Passif+FLX=FINIR
+fléchir,V+FXC+N0Hum+DET1=les+N1=jambes+N1pc+Passif+FLX=FINIR
+fondre,V+FXC+N0Hum+N0NHum+DET1=la+N1=glace+Passif+FLX=RENDRE
+forcer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=chance+FLX=PLACER
+forcer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=marche+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+DET1=la+N1=dose+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+DET1=la+N1=voix+FLX=PLACER
+forcer,V+FXC+N0Hum+DET1=le+N1=pas+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+DET1=les+N1=feux+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=décision+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=destinée+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+N0NHum+DET1=la+N1=dépense+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+N0NHum+DET1=la+N1=nature+FLX=PLACER
+forcer,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=destin+Passif+FLX=PLACER
+forcer,V+FXC+N0Hum+N0V+DET1=la+N1=mesure+FLX=PLACER
+forcer,V+FXC+N0Hum+N0V+DET1=la+N1=note+Passif+FLX=PLACER
+former,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=haie+Passif+FLX=AIMER
+former,V+FXC+N0Hum+DET1=le+N1=carré+Passif+FLX=AIMER
+former,V+FXC+N0Hum+DET1=les+N1=rangs+Passif+FLX=AIMER
+foutre,V+FXC+N0Hum+DET1=le+N1=paquet+FLX=RENDRE
+franchir,V+FXC+N0NHum+DET1=les+N1=frontières+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=la+N1=ligne+Passif+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=cap de la cinquantaine+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=cap de la quarantaine+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=cap de la soixantaine+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=cap de la trentaine+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=pas+Passif+FLX=FINIR
+franchir,V+FXC+N0Hum+DET1=le+N1=Rubicon+Passif+FLX=FINIR
+franchir,V+FXC+N0Hum+N0NHum+DET1=la+N1=barre des <DET+Dnum> points+Passif+FLX=FINIR
+franchir,V+FXC+N0Hum+N0NHum+DET1=la+N1=barre des mille points+Passif+FLX=FINIR
+franchir,V+FXC+N0Hum+N0NHum+DET1=le+N1=mur du son+Passif+FLX=FINIR
+frapper,V+FXC+N0Hum+DET1=les trois+N1=coups+Passif+FLX=AIMER
+frapper,V+FXC+N0Hum+PPV=se+DET1=la+N1=poitrine+N1pc+FLX=AIMER
+frapper,V+FXC+N0Hum+PPV=se+DET1=le+N1=front+N1pc+FLX=AIMER
+freiner,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=AIMER
+fréquenter,V+FXC+N0Hum+DET1=les+N1=allées du pouvoir+Passif+FLX=AIMER
+fréquenter,V+FXC+N0Hum+DET1=les+N1=antichambres du pouvoir+Passif+FLX=AIMER
+fréquenter,V+FXC+N0Hum+DET1=les+N1=salles obscures+Passif+FLX=AIMER
+friser,V+FXC+N0Hum+DET1=la+N1=cinquantaine+FLX=AIMER
+friser,V+FXC+N0Hum+DET1=la+N1=quarantaine+FLX=AIMER
+friser,V+FXC+N0Hum+DET1=la+N1=soixantaine+FLX=AIMER
+friser,V+FXC+N0Hum+DET1=la+N1=trentaine+FLX=AIMER
+froncer,V+FXC+N0Hum+DET1=les+N1=sourcils+N1pc+FLX=PLACER
+frotter,V+FXC+N0Hum+PPV=se+DET1=les+N1=paupières+N1pc+FLX=AIMER
+frotter,V+FXC+N0Hum+PPV=se+DET1=les+N1=yeux+N1pc+FLX=AIMER
+fuir,V+FXC+N0Hum+DET1=les+N1=responsabilités de <DET+Poss> fonction+FLX=FUIR
+fumer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=cigarette+FLX=AIMER
+fumer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=pipe+FLX=AIMER
+fumer,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=cigare+FLX=AIMER
+gâcher,V+FXC+N0Hum+N0NHum+DET1=le+N1=métier+Passif+FLX=AIMER
+gâcher,V+FXC+N0Hum+N0NHum+DET1=les+N1=prix+Passif+FLX=AIMER
+gagner,V+FXC+N0Hum+DET1=le gros+N1=lot+Passif+FLX=AIMER
+gagner,V+FXC+N0Hum+DET1=le+N1=coquetier+Passif+FLX=AIMER
+gagner,V+FXC+N0Hum+DET1=le+N1=Paradis+FLX=AIMER
+gagner,V+FXC+N0Hum+DET1=le+N1=pompon+Passif+FLX=AIMER
+gagner,V+FXC+N0Hum+N0NHum+DET1=le+N1=large+Passif+FLX=AIMER
+gagner,V+FXC+N0Hum+N0V+DET1=la+N1=partie+Passif+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=anonymat+Passif+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=position+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=la+N1=chambre+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=la+N1=mesure+Passif+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=la+N1=pose+Passif+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=cap+Passif+FLX=AIMER
+garder,V+FXC+N0Hum+DET1=le+N1=lit+FLX=AIMER
+garder,V+FXC+N0Hum+N0NHum+DET1=la+N1=ligne droite+FLX=AIMER
+garder,V+FXC+N0Hum+N0NHum+DET1=le juste+N0VDETN1+N1=milieu+Passif+FLX=AIMER
+gâter,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=AIMER
+gâter,V+FXC+N0Hum+N0NHum+DET1=le+N1=métier+FLX=AIMER
+geler,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=PESER
+geler,V+FXC+N0Hum+PPV=se+DET1=le+N1=cul+N1pc+FLX=PESER
+geler,V+FXC+N0Hum+PPV=se+DET1=les+N1=burnes+N1pc+FLX=PESER
+geler,V+FXC+N0Hum+PPV=se+DET1=les+N1=claouis+N1pc+FLX=PESER
+geler,V+FXC+N0Hum+PPV=se+DET1=les+N1=couilles+N1pc+FLX=PESER
+geler,V+FXC+N0Hum+PPV=se+DET1=les+N1=fesses+N1pc+FLX=PESER
+gêner,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=AIMER
+gérer,V+FXC+N0Hum+DET1=la+N1=pénurie+FLX=CEDER
+gérer,V+FXC+N0Hum+DET1=le+N1=quotidien+Passif+FLX=CEDER
+gober,V+FXC+N0Hum+DET1=la+N1=mouche+Passif+FLX=AIMER
+gober,V+FXC+N0Hum+DET1=le+N1=hameçon+FLX=AIMER
+gober,V+FXC+N0Hum+DET1=le+N1=morceau+FLX=AIMER
+gominer,V+FXC+N0Hum+PPV=se+DET1=les+N1=cheveux+N1pc+Passif+FLX=AIMER
+gratter,V+FXC+N0NHum+DET1=la+N1=gorge+N1pc+FLX=AIMER
+gratter,V+FXC+N0Hum+DET1=les+N1=fonds de tiroir+Passif+FLX=AIMER
+gratter,V+FXC+N0Hum+PPV=se+DET1=l'+N1=oreille+N1pc+FLX=AIMER
+griller,V+FXC+N0Hum+DET1=les+N1=étapes+FLX=AIMER
+grouiller,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=rondelle+N1pc+FLX=AIMER
+grouiller,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=cul+N1pc+FLX=AIMER
+grouiller,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=train+N1pc+FLX=AIMER
+grouiller,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=fesses+N1pc+FLX=AIMER
+grouiller,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=miches+N1pc+FLX=AIMER
+hâter,V+FXC+N0Hum+DET1=le+N1=pas+FLX=AIMER
+hâter,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+FLX=AIMER
+hausser,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+FLX=AIMER
+hisser,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=drapeau blanc+Passif+FLX=AIMER
+hisser,V+FXC+N0Hum+DET1=les+N1=couleurs+Passif+FLX=AIMER
+hisser,V+FXC+N0Hum+DET1=les+N1=voiles+Passif+FLX=AIMER
+hocher,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+humer,V+FXC+N0Hum+DET1=l'+N1=air+FLX=AIMER
+humer,V+FXC+N0Hum+DET1=l'+N1=air du temps+FLX=AIMER
+humer,V+FXC+N0Hum+DET1=la+N1=brise+FLX=AIMER
+humer,V+FXC+N0Hum+DET1=le+N1=vent+FLX=AIMER
+hypothéquer,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=avenir+Passif+FLX=CEDER
+imaginer,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=AIMER
+implorer,V+FXC+N0Hum+DET1=le+N1=Ciel+Passif+FLX=AIMER
+imposer,V+FXC+N0Hum+DET1=le+N1=couvre-feu+Passif+FLX=AIMER
+imposer,V+FXC+N0Hum+DET1=les+N1=mains+N1pc+FLX=AIMER
+inaugurer,V+FXC+N0Hum+DET1=les+N1=chrisanthèmes+Passif+FLX=AIMER
+incliner,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+Passif+FLX=AIMER
+incliner,V+FXC+N0Hum+DET1=le+N1=buste+N1pc+Passif+FLX=AIMER
+incliner,V+FXC+N0Hum+DET1=le+N1=front+N1pc+Passif+FLX=AIMER
+interpeller,V+FXC+N0Hum+DET1=le+N1=gouvernement+Passif+FLX=AIMER
+interrompre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=LIRE
+interrompre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=RENDRE
+interrompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours de <DET+Poss> pensées+Passif+FLX=LIRE
+interrompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours de <DET+Poss> pensées+Passif+FLX=RENDRE
+interrompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=fil de <DET+Poss> pensées+Passif+FLX=LIRE
+interrompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=fil de <DET+Poss> pensées+Passif+FLX=RENDRE
+intervertir,V+FXC+N0Hum+N0NHum+DET1=les+N1=rôles+Passif+FLX=FINIR
+inventer,V+FXC+N0Hum+NegOblig+DET1=l'+N1=eau chaude+FLX=AIMER
+inventer,V+FXC+N0Hum+NegOblig+DET1=l'+N1=eau tiède+FLX=AIMER
+inventer,V+FXC+N0Hum+NegOblig+DET1=la+N1=poudre+FLX=AIMER
+inventer,V+FXC+N0Hum+NegOblig+DET1=le+N1=fil à couper le beurre+FLX=AIMER
+inverser,V+FXC+N0Hum+N0NHum+DET1=les+N1=rôles+Passif+FLX=AIMER
+inviter,V+FXC+N0NHum+DET1=le+N1=respect+FLX=AIMER
+invoquer,V+FXC+N0Hum+DET1=la légitime+N1=défense+Passif+FLX=AIMER
+invoquer,V+FXC+N0Hum+DET1=le+N1=Ciel+Passif+FLX=AIMER
+invoquer,V+FXC+N0Hum+DET1=le+N1=secret professionnel+Passif+FLX=AIMER
+jeter,V+FXC+N0NHum+DET1=l'+N1=alarme+Passif+FLX=JETER
+jeter,V+FXC+N0Hum+DET1=l'+N1=alarme+Passif+FLX=JETER
+jeter,V+FXC+N0Hum+DET1=l'+N1=éponge+FLX=JETER
+jeter,V+FXC+N0Hum+DET1=le+N1=masque+Passif+FLX=JETER
+jeter,V+FXC+N0Hum+DET1=les hauts+N1=cris+FLX=JETER
+joindre,V+FXC+N0Hum+DET1=les+N1=mains+N1pc+Passif+FLX=PEINDRE
+joindre,V+FXC+N0Hum+DET1=les+N1=mains+N1pc+Passif+FLX=PEINDRE
+joindre,V+FXC+N0Hum+NegOblig+DET1=les deux+N1=bouts+FLX=PEINDRE
+joindre,V+FXC+N0Hum+NegOblig+DET1=les deux+N1=bouts+FLX=PEINDRE
+joncher,V+FXC+N0NHum+DET1=le+N0VDETN1+N1=sol+Passif+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=la mauvaise+N1=carte+Passif+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=la+N1=défense+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=la+N1=fille de l'air+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=la+N1=touche+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=le+N1=bonhomme+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=le+N1=jeu+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les brillants+N1=seconds+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les gros+N1=bras+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les seconds+N1=rôles+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=apprentis-sorciers+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=Cassandre+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=casseurs+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=durs+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=enfants gâtés+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=innocents+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=justiciers+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=prolongations+Passif+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=redresseurs de torts+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=Tartuffe+FLX=AIMER
+jouer,V+FXC+N0Hum+DET1=les+N1=utilités+FLX=AIMER
+lâcher,V+FXC+N0Hum+DET1=la+N1=rampe+FLX=AIMER
+lâcher,V+FXC+N0Hum+DET1=le grand+N1=mot+Passif+FLX=AIMER
+lâcher,V+FXC+N0Hum+DET1=le+N1=mot+Passif+FLX=AIMER
+lâcher,V+FXC+N0Hum+DET1=les+N1=écluses+Passif+FLX=AIMER
+lâcher,V+FXC+N0Hum+DET1=les+N1=rênes+Passif+FLX=AIMER
+laisser,V+FXC+N0Hum+NegOblig+DET1=que les quatre+N1=murs+FLX=AIMER
+lancer,V+FXC+N0Hum+DET1=le+N1=disque+FLX=PLACER
+lancer,V+FXC+N0Hum+DET1=le+N1=javelot+FLX=PLACER
+lancer,V+FXC+N0Hum+DET1=le+N1=poids+FLX=PLACER
+laver,V+FXC+N0Hum+PPV=se+DET1=les+N1=dents+N1pc+FLX=AIMER
+lever,V+FXC+N0Hum+DET1=l'+N1=ancre+FLX=PESER
+lever,V+FXC+N0Hum+DET1=l'+N1=audience+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=l'+N1=étendard de la révolte+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=la+N1=cuisse+N1pc+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=la+N1=grosse+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=la+N1=main+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=la+N1=patte+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=poing+N1pc+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=bras+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=camp+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=corps+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=coude+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=courrier+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=doigt+N1pc+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=front+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=masque+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=menton+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=pied+N1pc+FLX=PESER
+lever,V+FXC+N0Hum+DET1=le+N1=rideau+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=les+N1=bras+N1pc+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=les+N1=lettres+Passif+FLX=PESER
+lever,V+FXC+N0Hum+DET1=les+N1=mains+N1pc+FLX=PESER
+libérer,V+FXC+N0Hum+DET1=le+N1=contingent+Passif+FLX=CEDER
+libérer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=CEDER
+limiter,V+FXC+N0Hum+N0NHum+DET1=la+N1=casse+Passif+FLX=AIMER
+limiter,V+FXC+N0Hum+N0NHum+DET1=les+N1=dégats+Passif+FLX=AIMER
+lire,V+FXC+N0Hum+DET1=le+N1=braille+Passif+FLX=LIRE
+longer,V+FXC+N0Hum+DET1=les+N1=murs+FLX=MANGER
+louper,V+FXC+N0Hum+DET1=le+N1=coche+FLX=AIMER
+louper,V+FXC+N0Hum+DET1=le+N1=train+FLX=AIMER
+magner,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=train+N1pc+FLX=AIMER
+maintenir,V+FXC+N0Hum+N0NHum+DET1=l'+N1=ordre+Passif+FLX=TENIR
+manger,V+FXC+N0Hum+DET1=la+N1=consigne+Passif+FLX=MANGER
+manger,V+FXC+N0Hum+DET1=la+N1=grenouille+FLX=MANGER
+manger,V+FXC+N0Hum+DET1=le+N1=morceau+FLX=MANGER
+manier,V+FXC+N0Hum+DET1=l'+N1=encensoir+FLX=AIMER
+manier,V+FXC+N0Hum+DET1=la+N1=brosse à reluire+FLX=AIMER
+manier,V+FXC+N0Hum+DET1=la+N1=carotte+Passif+FLX=AIMER
+manier,V+FXC+N0Hum+DET1=le+N1=bâton+Passif+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=rondelle+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=arrière-train+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=cul+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=derche+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=popotin+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=pot+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=train+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=le+N1=tronc+N1pc+FLX=AIMER
+manier,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=fesses+N1pc+FLX=AIMER
+manquer,V+FXC+N0Hum+DET1=le+N1=coche+FLX=AIMER
+manquer,V+FXC+N0Hum+DET1=le+N1=train+FLX=AIMER
+marcher,V+FXC+N0Hum+N0NHum+DET1=le+N1=tonnerre+FLX=AIMER
+marquer,V+FXC+N0NHum+DET1=la+N1=taille+N1pc+Passif+FLX=AIMER
+marquer,V+FXC+N0Hum+DET1=le+N1=coup+FLX=AIMER
+marquer,V+FXC+N0Hum+N0NHum+DET1=la+N1=mesure+Passif+FLX=AIMER
+marquer,V+FXC+N0Hum+N0NHum+DET1=le+N1=pas+FLX=AIMER
+matraquer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+mélanger,V+FXC+N0Hum+DET1=les+N1=cartes+Passif+FLX=MANGER
+mélanger,V+FXC+N0Hum+PPV=se+DET1=les+N1=crayons+N1pc+FLX=MANGER
+mélanger,V+FXC+N0Hum+PPV=se+DET1=les+N1=pédales+FLX=MANGER
+mélanger,V+FXC+N0Hum+PPV=se+DET1=les+N1=pieds+N1pc+FLX=MANGER
+mélanger,V+FXC+N0Hum+PPV=se+DET1=les+N1=pinceaux+N1pc+FLX=MANGER
+mêler,V+FXC+N0Hum+DET1=les+N1=cartes+Passif+FLX=AIMER
+mener,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=vie <que> <il> <avoir> choisi+FLX=CEDER
+mener,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=vie <que> <il> <avoir> choisi+FLX=PESER
+mener,V+FXC+N0Hum+DET1=la+N1=danse+Passif+FLX=CEDER
+mener,V+FXC+N0Hum+DET1=la+N1=danse+Passif+FLX=PESER
+mener,V+FXC+N0Hum+DET1=le+N1=bal+FLX=CEDER
+mener,V+FXC+N0Hum+DET1=le+N1=bal+FLX=PESER
+mener,V+FXC+N0Hum+DET1=le+N1=train+Passif+FLX=CEDER
+mener,V+FXC+N0Hum+DET1=le+N1=train+Passif+FLX=PESER
+mener,V+FXC+N0Hum+N0NHum+DET1=le+N1=jeu+Passif+FLX=CEDER
+mener,V+FXC+N0Hum+N0NHum+DET1=le+N1=jeu+Passif+FLX=PESER
+mériter,V+FXC+N0NHum+DET1=le+N1=déplacement+FLX=AIMER
+mériter,V+FXC+N0NHum+DET1=le+N1=détour+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=la+N1=chaise électrique+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=la+N1=corde+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=la+N1=guillotine+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=la+N1=potence+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=le+N1=bagne+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=le+N1=gibet+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=le+N1=peloton d'éxécution+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=le+N1=poteau+FLX=AIMER
+mériter,V+FXC+N0Hum+N0NHum+DET1=le+N1=poteau d'éxécution+FLX=AIMER
+mesurer,V+FXC+N0Hum+DET1=la+N1=étendue des dégâts+Passif+FLX=AIMER
+mesurer,V+FXC+N0Hum+DET1=la+N1=étendue du désastre +Passif+FLX=AIMER
+mettre,V+FXC+N0Hum+DET1=l'+N1=électricité+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=dose+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=gomme+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=lumière+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=manière+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=nappe+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=radio+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=sauce+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=table+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=la+N1=télé+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=chauffage+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=contact+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=couvert+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=gaz+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=loquet+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=paquet+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=prix+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=le+N1=verrou+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=les+N1=gaz+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=les+N1=informations+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=les+N1=nouvelles+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+DET1=les+N1=pouces+FLX=METTRE
+mettre,V+FXC+N0Hum+N0NHum+DET1=le+N1=rouge+Passif+FLX=METTRE
+mettre,V+FXC+N0Hum+PPV=se+DET1=la+N1=ceinture+FLX=METTRE
+mettre,V+FXC+N0Hum+PPV=se+DET1=la+N1=trique+FLX=METTRE
+mettre,V+FXC+N0Hum+PPV=y+DET1=le+N1=prix+FLX=METTRE
+minimiser,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=incident+Passif+FLX=AIMER
+minimiser,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=faits+Passif+FLX=AIMER
+mobiliser,V+FXC+N0Hum+N0NHum+N0V+DET1=les+N0VDETN1+N1=énergies+Passif+FLX=AIMER
+monter,V+FXC+N0Hum+DET1=la+N1=gamme+FLX=AIMER
+monter,V+FXC+N0Hum+DET1=la+N1=garde+FLX=AIMER
+montrer,V+FXC+N0Hum+DET1=la+N1=oreille+N1pc+FLX=AIMER
+montrer,V+FXC+N0Hum+DET1=le+N1=bout de l'oreille+N1pc+FLX=AIMER
+montrer,V+FXC+N0Hum+DET1=le+N1=bout du nez+N1pc+FLX=AIMER
+montrer,V+FXC+N0Hum+DET1=les+N1=griffes+N1pc+FLX=AIMER
+mordre,V+FXC+N0NHum+PPV=se+DET1=la+N1=queue+FLX=RENDRE
+mordre,V+FXC+N0Hum+DET1=la+N1=poussière+FLX=RENDRE
+nager,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=indienne+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=brasse+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=brasse coulée+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=brasse papillon+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=crawl+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=dos crawlé+N1pc+FLX=MANGER
+nager,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=dos+N1pc+FLX=MANGER
+narguer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=mort+Passif+FLX=AIMER
+narguer,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=danger+Passif+FLX=AIMER
+nettoyer,V+FXC+N0Hum+N0NHum+DET1=les+N1=écuries d'Augias+Passif+FLX=NOYER
+nier,V+FXC+N0Hum+DET1=les+N1=faits qui <lui> sont reprochés+FLX=AIMER
+nier,V+FXC+N0Hum+N0NHum+DET1=l'+N1=évidence+Passif+FLX=AIMER
+nouer,V+FXC+N0Hum+N0NHum+DET1=les+N1=fils de <DET> intrigue+Passif+FLX=AIMER
+noyer,V+FXC+N0Hum+DET1=le+N1=poisson+Passif+FLX=NOYER
+observer,V+FXC+N0Hum+DET1=le+N1=silence+Passif+FLX=AIMER
+obtenir,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=match nul+Passif+FLX=TENIR
+occuper,V+FXC+N0Hum+DET1=la+N1=ligne+Passif+FLX=AIMER
+occuper,V+FXC+N0Hum+DET1=le+N1=devant de la scène+Passif+FLX=AIMER
+occuper,V+FXC+N0Hum+DET1=les+N1=lieux de travail+Passif+FLX=AIMER
+occuper,V+FXC+N0Hum+DET1=les+N1=locaux+Passif+FLX=AIMER
+occuper,V+FXC+N0Hum+N0NHum+DET1=le+N1=terrain+Passif+FLX=AIMER
+oublier,V+FXC+N0Hum+DET1=la+N1=heure+Passif+FLX=AIMER
+oublier,V+FXC+N0Hum+DET1=le+N1=passé+Passif+FLX=AIMER
+ouvrir,V+FXC+N0Hum+DET1=l'+N1=oeil droit+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=l'+N1=oeil gauche+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=audience+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=bouche+N1pc+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=électricité+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=gueule+N1pc+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=lumière+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=main droite+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=main gauche+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=main+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=marque+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=parenthèse+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=radio+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=la+N1=télé+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=ban+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=bec+N1pc+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=chauffage+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=gaz+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=poste+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=robinet du gaz+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=le+N1=score+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=les deux+N1=mains+N1pc+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=les+N1=guillemets+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=la+N1=chasse+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=la+N1=marche+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=la+N1=pêche+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=le+N1=bal+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=le+N1=cortège+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=les+N1=hostilités+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+DET1=les+N1=paris+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+N0NHum+N0V+DET1=le+N1=jeu+Passif+FLX=COUVRIR
+ouvrir,V+FXC+N0Hum+PPV=se+DET1=les+N1=veines+N1pc+FLX=COUVRIR
+oxygéner,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=poumons+N1pc+FLX=CEDER
+pacifier,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=esprits+Passif+FLX=AIMER
+paqueter,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=fraise+N1pc+FLX=JETER
+parcourir,V+FXC+N0Hum+N0NHum+DET1=le+N1=monde+FLX=COURIR
+passer,V+FXC+N0NHum+DET1=l'+N1=écran+FLX=AIMER
+passer,V+FXC+N0NHum+DET1=la+N1=rampe+FLX=AIMER
+passer,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la <Dnumième>+N1=vitesse+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la deuxième+N1=vitesse+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la première+N1=vitesse+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=<N+Dnumième>+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=ligne+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=main+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=marche arrière+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=première+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=sébille+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=seconde+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=la+N1=troisième+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=le+N1=cap de la cinquantaine+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=le+N1=cap de la quarantaine+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=le+N1=cap de la soixantaine+FLX=AIMER
+passer,V+FXC+N0Hum+DET1=le+N1=cap de la trentaine+FLX=AIMER
+passer,V+FXC+N0Hum+N0NHum+DET1=la+N1=barre des <DET+Dnum> points+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+N0NHum+DET1=la+N1=barre des mille points+Passif+FLX=AIMER
+passer,V+FXC+N0Hum+N0NHum+DET1=la+N1=mesure+FLX=AIMER
+passer,V+FXC+N0Hum+NegOblig+DET1=<le>+N1=<N+Tps>+FLX=AIMER
+passer,V+FXC+N0Hum+NegOblig+DET1=la+N1=nuit+FLX=AIMER
+paver,V+FXC+N0Hum+DET1=le+N1=plan+Passif+FLX=AIMER
+payer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=casse+Passif+FLX=PAYER
+payer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=facture+Passif+FLX=PAYER
+payer,V+FXC+N0Hum+DET1=le+N1=prix+FLX=PAYER
+payer,V+FXC+N0Hum+DET1=les+N1=violons+Passif+FLX=PAYER
+payer,V+FXC+N0Hum+N0NHum+N0V+DET1=les+N1=pots cassés+Passif+FLX=PAYER
+payer,V+FXC+N0Hum+N0V+DET1=le+N1=prix du sang+Passif+FLX=PAYER
+pêcher,V+FXC+N0Hum+DET1=<le>+N1=<N+Poisson>+FLX=AIMER
+pêcher,V+FXC+N0Hum+DET1=la+N1=morue+FLX=AIMER
+pêcher,V+FXC+N0Hum+DET1=le+N1=maquereau+FLX=AIMER
+peigner,V+FXC+N0Hum+DET1=la+N1=girafe+FLX=AIMER
+peler,V+FXC+N0Hum+PPV=se+DET1=le+N1=cul+N1pc+FLX=PESER
+peler,V+FXC+N0Hum+PPV=se+DET1=les+N1=couilles+N1pc+FLX=PESER
+peler,V+FXC+N0Hum+PPV=se+DET1=les+N1=fesses+N1pc+FLX=PESER
+pencher,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+Passif+FLX=AIMER
+pendre,V+FXC+N0Hum+DET1=la+N1=crémaillère+Passif+FLX=RENDRE
+pendre,V+FXC+N0Hum+DET1=le+N1=linge+Passif+FLX=RENDRE
+penser,V+FXC+N0Hum+NegOblig+DET1=le premier+N1=mot de ce <que> <il> <dire>+FLX=AIMER
+percer,V+FXC+N0Hum+N0NHum+DET1=l'+N1=abcès+Passif+FLX=PLACER
+perdre,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=anonymat+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=l'+N1=appétit+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=l'+N1=équilibre+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=l'+N1=esprit+N1pc+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=l'+N1=ouïe+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=l'+N1=usage de la parole+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la première+N1=manche+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la première+N1=place+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=boule+N1pc+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=boussole+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=face+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=foi+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=mémoire+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=nénette+N1pc+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=parole+N1pc+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=partie+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=raison+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=tramontane+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=vie+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=voix+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=la+N1=vue+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=le+N1=contrôle de <DET+Poss> véhicule+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=le+N1=jugement+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=le+N1=nord+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=les+N1=eaux+N1pc+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=les+N1=pédales+FLX=RENDRE
+perdre,V+FXC+N0Hum+DET1=les+N1=usages+Passif+FLX=RENDRE
+perdre,V+FXC+N0Hum+N0V+DET1=la+N1=bataille+Passif+FLX=RENDRE
+péter,V+FXC+N0Hum+DET1=la+N1=faim+FLX=CEDER
+péter,V+FXC+N0Hum+DET1=la+N1=forme+FLX=CEDER
+péter,V+FXC+N0Hum+DET1=la+N1=santé+FLX=CEDER
+péter,V+FXC+N0Hum+DET1=le+N1=feu+FLX=CEDER
+péter,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=gueule+N1pc+FLX=CEDER
+pincer,V+FXC+N0Hum+DET1=la+N1=bouche+N1pc+Passif+FLX=PLACER
+pincer,V+FXC+N0Hum+DET1=le+N1=nez+N1pc+Passif+FLX=PLACER
+pincer,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+Passif+FLX=PLACER
+pincer,V+FXC+N0Hum+DET1=les+N1=narines+N1pc+Passif+FLX=PLACER
+pincer,V+FXC+N0Hum+PPV=se+DET1=le+N1=nez+N1pc+FLX=PLACER
+pinter,V+FXC+N0Hum+PPV=se+N0V+DET1=la+N1=gueule+N1pc+Passif+FLX=AIMER
+piper,V+FXC+N0Hum+DET1=les+N1=cartes+Passif+FLX=AIMER
+piper,V+FXC+N0Hum+DET1=les+N1=dés+Passif+FLX=AIMER
+piquer,V+FXC+N0Hum+PPV=se+DET1=le+N1=nez+N1pc+Passif+FLX=AIMER
+pisser,V+FXC+N0Hum+N0NHum+DET1=le+N1=sang+N1pc+FLX=AIMER
+plaider,V+FXC+N0Hum+DET1=la légitime+N1=défense+FLX=AIMER
+plaquer,V+FXC+N0Hum+PPV=se+DET1=les+N1=cheveux+N1pc+Passif+FLX=AIMER
+pleurer,V+FXC+N0Hum+DET1=les+N1=larmes de <DET+Poss> corps+FLX=AIMER
+plier,V+FXC+N0Hum+DET1=le+N1=dos+N1pc+Passif+FLX=AIMER
+plisser,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+ployer,V+FXC+N0Hum+DET1=le+N1=dos+N1pc+Passif+FLX=NOYER
+ployer,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+Passif+FLX=NOYER
+pointer,V+FXC+N0Hum+DET1=le+N1=nez+N1pc+FLX=AIMER
+pointer,V+FXC+N0Hum+DET1=les+N1=oreilles+N1pc+Passif+FLX=AIMER
+polir,V+FXC+N0Hum+PPV=se+DET1=le+N1=chinois+N1pc+FLX=FINIR
+porter,V+FXC+N0NHum+DET1=la+N1=marque du génie+FLX=AIMER
+porter,V+FXC+N0NHum+DET1=le+N1=sceau du génie+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=la+N1=barbe+N1pc+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=la+N1=bure+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=la+N1=moustache+N1pc+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=la+N1=soutane+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=la+N1=tiare+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=chapeau+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=deuil de <DET+Poss> blanchisseuse+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=joug+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=maillot jaune+Passif+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=masque+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=motif+Passif+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=le+N1=uniforme+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=les+N1=armes+FLX=AIMER
+porter,V+FXC+N0Hum+DET1=les+N1=cornes+FLX=AIMER
+posséder,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=CEDER
+pousser,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=verrou+Passif+FLX=AIMER
+pousser,V+FXC+N0Hum+DET1=le+N1=feu+Passif+FLX=AIMER
+pousser,V+FXC+N0Hum+DET1=les hauts+N1=cris+FLX=AIMER
+pousser,V+FXC+N0Hum+DET1=les+N1=feux+Passif+FLX=AIMER
+prêcher,V+FXC+N0Hum+DET1=la bonne+N1=parole+Passif+FLX=AIMER
+prêcher,V+FXC+N0Hum+DET1=le+N1=exemple+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=allure+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=cadence+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=marche+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=rythme+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=les+N1=choses+Passif+FLX=AIMER
+précipiter,V+FXC+N0Hum+N0NHum+DET1=les+N1=événements+FLX=AIMER
+prendre,V+FXC+N0NHum+DET1=la+N1=direction de la poubelle+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=la+N1=direction des chiottes+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=la+N1=direction des toilettes+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=la+N1=eau+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=la+N1=lumière+Passif+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=le+N1=chemin de la poubelle+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=le+N1=chemin des chiottes+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=le+N1=chemin des toilettes+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=le+N1=jour+Passif+FLX=PRENDRE
+prendre,V+FXC+N0NHum+DET1=le+N1=large+FLX=PRENDRE
+prendre,V+FXC+N0NHum+NegOblig+PPV=en+DET1=la+N1=direction+FLX=PRENDRE
+prendre,V+FXC+N0NHum+NegOblig+PPV=en+DET1=le+N1=chemin+FLX=PRENDRE
+prendre,V+FXC+N0NHum+PPV=en+DET1=le+N1=chemin+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=l'+N1=air+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=l'+N1=apéritif+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=l'+N1=apéro+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=communication+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=barre+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=clé des champs+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=direction des opérations+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=douche+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=fuite+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=goutte+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=mouche+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=offensive+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=pilule+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=plume+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=poudre d'escampette+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=queue+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=sauce+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=soutane+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=tangente+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=la+N1=voie royale+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=air du bureau+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=café+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=chemin des écoliers+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=combiné+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=digestif+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=écouteur+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=frais+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=galop+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=habit+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=large+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=maquis+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=pouvoir+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=quart+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=soleil+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=téléphone+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=temps de respirer+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=temps de souffler+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=trot+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=vent+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=le+N1=voile+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=les grands+N1=moyens+FLX=PRENDRE
+prendre,V+FXC+N0Hum+DET1=les+N1=eaux+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=avion+Passif+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=air+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=route+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=la+N1=flotte+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=la+N1=mer+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=la+N1=pluie+FLX=PRENDRE
+prendre,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=métro+Passif+FLX=PRENDRE
+préparer,V+FXC+N0Hum+DET1=la+N1=table+Passif+FLX=AIMER
+préparer,V+FXC+N0Hum+DET1=les grandes+N0VDETN1+N1=écoles+Passif+FLX=AIMER
+préparer,V+FXC+N0Hum+N0NHum+DET1=le+N1=avenir+Passif+FLX=AIMER
+préparer,V+FXC+N0Hum+N0NHum+DET1=le+N1=terrain+Passif+FLX=AIMER
+presser,V+FXC+N0Hum+DET1=la+N1=détente+FLX=AIMER
+presser,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=contact+Passif+FLX=AIMER
+presser,V+FXC+N0Hum+DET1=le+N1=pas+FLX=AIMER
+presser,V+FXC+N0Hum+N0NHum+DET1=la+N1=allure+FLX=AIMER
+presser,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+FLX=AIMER
+prévenir,V+FXC+N0Hum+DET1=la+N1=famille+Passif+FLX=TENIR
+prévoir,V+FXC+N0Hum+DET1=le+N1=avenir+FLX=PREVOIR
+prévoir,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=PREVOIR
+proclamer,V+FXC+N0Hum+DET1=l'+N1=état d'urgence+Passif+FLX=AIMER
+proclamer,V+FXC+N0Hum+DET1=la+N1=loi martiale+Passif+FLX=AIMER
+proclamer,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=AIMER
+proclamer,V+FXC+N0Hum+DET1=le+N1=couvre-feu+Passif+FLX=AIMER
+prononcer,V+FXC+N0Hum+DET1=la+N1=dissolution du Parlement+Passif+FLX=PLACER
+prononcer,V+FXC+N0Hum+DET1=le+N1=huis-clos+FLX=PLACER
+prononcer,V+FXC+N0Hum+DET1=le+N1=mot+Passif+FLX=PLACER
+prononcer,V+FXC+N0Hum+DET1=le+N1=règlement judiciaire+FLX=PLACER
+publier,V+FXC+N0Hum+DET1=les+N1=bans+Passif+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=la+N1=merde+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=argent+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=brûlé+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=cramé+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=fric+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=moisi+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=pourri+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=rance+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=renfermé+FLX=AIMER
+puer,V+FXC+N0NHum+DET1=le+N1=roussi+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=l'+N1=uniforme+Passif+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=la+N1=scène politique+Passif+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=la+N1=table+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=la+N1=terre+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=le+N1=habit+Passif+FLX=AIMER
+quitter,V+FXC+N0Hum+DET1=les+N1=lieux+FLX=AIMER
+raccrocher,V+FXC+N0Hum+DET1=le+N1=combiné+Passif+FLX=AIMER
+raccrocher,V+FXC+N0Hum+DET1=les+N1=gants+Passif+FLX=AIMER
+raccrocher,V+FXC+N0Hum+N0V+DET1=l'+N0VDETN1+N1=appareil+Passif+FLX=AIMER
+raccrocher,V+FXC+N0Hum+N0V+DET1=le+N0VDETN1+N1=récepteur+Passif+FLX=AIMER
+racler,V+FXC+N0Hum+DET1=les+N1=fonds de tiroir+Passif+FLX=AIMER
+rafler,V+FXC+N0Hum+DET1=le+N1=mise+Passif+FLX=AIMER
+rafler,V+FXC+N0Hum+DET1=les+N1=mises+Passif+FLX=AIMER
+rafraîchir,V+FXC+N0NHum+DET1=la+N1=température+Passif+FLX=FINIR
+rafraîchir,V+FXC+N0NHum+DET1=le+N1=temps+Passif+FLX=FINIR
+rajuster,V+FXC+N0Hum+DET1=le+N1=tir+Passif+FLX=AIMER
+ralentir,V+FXC+N0Hum+DET1=le+N1=pas+FLX=FINIR
+ralentir,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=circulation+Passif+FLX=FINIR
+ralentir,V+FXC+N0Hum+N0NHum+DET1=le+N1=mouvement+Passif+FLX=FINIR
+rallier,V+FXC+N0Hum+DET1=le+N1=bord+Passif+FLX=AIMER
+rallonger,V+FXC+N0Hum+N0NHum+DET1=la+N1=sauce+Passif+FLX=MANGER
+ramasser,V+FXC+N0Hum+DET1=les+N1=miettes+Passif+FLX=AIMER
+raser,V+FXC+N0Hum+DET1=les+N1=murs+FLX=AIMER
+rater,V+FXC+N0Hum+DET1=le+N1=coche+FLX=AIMER
+rater,V+FXC+N0Hum+DET1=le+N1=train+FLX=AIMER
+rattraper,V+FXC+N0Hum+DET1=le+N1=coup+Passif+FLX=AIMER
+rattraper,V+FXC+N0Hum+DET1=le+N1=temps perdu+Passif+FLX=AIMER
+rayer,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=mentions inutiles+Passif+FLX=PAYER
+rayonner,V+FXC+N0Hum+DET1=la+N1=joie+FLX=AIMER
+rayonner,V+FXC+N0Hum+DET1=le+N1=bonheur+FLX=AIMER
+réaliser,V+FXC+N0Hum+DET1=le meilleur+N1=temps+Passif+FLX=AIMER
+rebâtir,V+FXC+N0Hum+DET1=le+N1=monde+Passif+FLX=FINIR
+recevoir,V+FXC+N0NHum+DET1=la+N1=visite des cambrioleurs+FLX=RECEVOIR
+recevoir,V+FXC+N0NHum+DET1=la+N1=visite des voleurs+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=l'+N1=alternative+Passif+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=le+N1=baptême du feu+Passif+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=le+N1=baptême+Passif+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=le+N1=coup du lapin+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=le+N1=message+Passif+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=les derniers+N1=sacrements de l'Eglise+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+DET1=les derniers+N1=sacrements+Passif+FLX=RECEVOIR
+recevoir,V+FXC+N0Hum+N0NHum+DET1=la+N1=sauce+FLX=RECEVOIR
+réchauffer,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=atmosphère+Passif+FLX=AIMER
+rechercher,V+FXC+N0Hum+DET1=la+N1=difficulté+FLX=AIMER
+rechercher,V+FXC+N0Hum+DET1=la+N1=facilité+FLX=AIMER
+réclamer,V+FXC+N0Hum+DET1=la+N1=parole+FLX=AIMER
+recoller,V+FXC+N0Hum+N0NHum+DET1=les+N1=morceaux+Passif+FLX=AIMER
+récolter,V+FXC+N0Hum+DET1=la+N1=tempête+FLX=AIMER
+recommencer,V+FXC+N0Hum+DET1=les mêmes+N1=erreurs+Passif+FLX=PLACER
+recommencer,V+FXC+N0Hum+DET1=les mêmes+N1=fautes+Passif+FLX=PLACER
+reconnaître,V+FXC+N0Hum+DET1=le+N1=terrain+Passif+FLX=CONNAITRE
+reconnaître,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=faits+Passif+FLX=CONNAITRE
+reconnaître,V+FXC+N0Hum+DET1=les+N1=lieux+Passif+FLX=CONNAITRE
+reconnaître,V+FXC+N0Hum+DET1=les+N1=siens+FLX=CONNAITRE
+reconquérir,V+FXC+N0Hum+DET1=le+N1=marché intérieur+FLX=ACQUERIR
+reconstituer,V+FXC+N0Hum+DET1=les+N1=faits+Passif+FLX=AIMER
+reconstruire,V+FXC+N0Hum+DET1=le+N1=monde+Passif+FLX=CUIRE
+recouvrer,V+FXC+N0Hum+DET1=l'+N1=usage de <DET+Poss> <N+Organe>+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=l'+N1=usage de <DET+Poss> main+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=l'+N1=usage de la parole+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=l'+N1=usage de la vue+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=la+N1=parole+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=la+N1=vue+Passif+FLX=AIMER
+recouvrer,V+FXC+N0Hum+DET1=le+N1=usage de <DET+Poss> main droite+Passif+FLX=AIMER
+rectifier,V+FXC+N0Hum+DET1=la+N1=position+Passif+FLX=AIMER
+rectifier,V+FXC+N0Hum+DET1=le+N1=tir+Passif+FLX=AIMER
+récupérer,V+FXC+N0Hum+DET1=la+N1=TVA+Passif+FLX=CEDER
+redistribuer,V+FXC+N0Hum+N0NHum+DET1=la+N1=richesse+Passif+FLX=AIMER
+redistribuer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=cartes+Passif+FLX=AIMER
+redistribuer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=rôles+Passif+FLX=AIMER
+redouter,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=AIMER
+redresser,V+FXC+N0NHum+DET1=le+N1=nez+N1pc+FLX=AIMER
+redresser,V+FXC+N0Hum+DET1=la+N1=barre+Passif+FLX=AIMER
+redresser,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+Passif+FLX=AIMER
+redresser,V+FXC+N0Hum+DET1=le+N1=front+N1pc+Passif+FLX=AIMER
+redresser,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+FLX=AIMER
+redresser,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=gouvernail+Passif+FLX=AIMER
+réduire,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=CUIRE
+réduire,V+FXC+N0Hum+N0NHum+DET1=la+N1=marque+Passif+FLX=CUIRE
+réduire,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=coûts+Passif+FLX=CUIRE
+réduire,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges bénéficiaires+Passif+FLX=CUIRE
+réduire,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges+Passif+FLX=CUIRE
+rééquilibrer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=comptes+Passif+FLX=AIMER
+refaire,V+FXC+N0Hum+N0NHum+DET1=l'+N1=histoire+Passif+FLX=FAIRE
+refaire,V+FXC+N0Hum+N0NHum+DET1=le+N1=monde+Passif+FLX=FAIRE
+refaire,V+FXC+N0Hum+PPV=se+DET1=la+N1=façade+N1pc+FLX=FAIRE
+refroidir,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=atmosphère+Passif+FLX=FINIR
+refuser,V+FXC+N0NHum+DET1=l'+N1=obstacle+FLX=AIMER
+refuser,V+FXC+N0Hum+DET1=le+N1=combat+FLX=AIMER
+regagner,V+FXC+N0Hum+DET1=le+N1=domicile conjugal+Passif+FLX=AIMER
+regagner,V+FXC+N0Hum+DET1=le+N1=terrain perdu+Passif+FLX=AIMER
+regarder,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=avenir+FLX=AIMER
+regarder,V+FXC+N0Hum+DET1=la+N1=télé+FLX=AIMER
+regarder,V+FXC+N0Hum+DET1=la+N1=télévision+FLX=AIMER
+regarder,V+FXC+N0Hum+DET1=la+N1=TV+FLX=AIMER
+regarder,V+FXC+N0Hum+PPV=se+DET1=le+N1=nombril+N1pc+FLX=AIMER
+réintégrer,V+FXC+N0Hum+DET1=le+N1=domicile conjugal+Passif+FLX=CEDER
+réinventer,V+FXC+N0Hum+DET1=l'+N1=eau chaude+FLX=AIMER
+réinventer,V+FXC+N0Hum+DET1=l'+N1=eau tiède+FLX=AIMER
+réinventer,V+FXC+N0Hum+DET1=la+N1=poudre+FLX=AIMER
+réinventer,V+FXC+N0Hum+DET1=le+N1=fil à couper le beurre+FLX=AIMER
+rejoindre,V+FXC+N0Hum+DET1=le+N1=Seigneur+FLX=PEINDRE
+rejoindre,V+FXC+N0Hum+DET1=le+N1=Seigneur+FLX=PEINDRE
+relâcher,V+FXC+N0NHum+DET1=les+N1=moeurs+Passif+FLX=AIMER
+relancer,V+FXC+N0Hum+N0NHum+DET1=l'+N1=économie+FLX=PLACER
+relancer,V+FXC+N0Hum+N0NHum+DET1=la+N1=consommation+FLX=PLACER
+relancer,V+FXC+N0Hum+N0NHum+DET1=le+N1=débat+Passif+FLX=PLACER
+relever,V+FXC+N0Hum+DET1=la+N1=garde+Passif+FLX=PESER
+relever,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=PESER
+relever,V+FXC+N0Hum+DET1=le+N1=front+N1pc+Passif+FLX=PESER
+relever,V+FXC+N0Hum+DET1=les+N1=copies+Passif+FLX=PESER
+relever,V+FXC+N0Hum+PPV=se+DET1=la+N1=nuit+FLX=PESER
+remettre,V+FXC+N0Hum+DET1=l'+N1=audience+Passif+FLX=METTRE
+remettre,V+FXC+N0Hum+DET1=le+N1=couvert+FLX=METTRE
+remonter,V+FXC+N0Hum+DET1=le+N1=courant+Passif+FLX=AIMER
+remonter,V+FXC+N0Hum+N0V+DET1=la+N1=pente+FLX=AIMER
+remplir,V+FXC+N0NHum+DET1=les+N1=cimetières+FLX=FINIR
+remporter,V+FXC+N0Hum+DET1=la+N1=palme+Passif+FLX=AIMER
+remuer,V+FXC+N0NHum+DET1=la+N0VDETN1+N1=queue+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=l'+N1=ordure+Passif+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=la+N1=boue+Passif+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=la+N1=fange+Passif+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=la+N1=merde+Passif+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=la+N1=terre+Passif+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=le+N1=popotin+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=les+N1=hanches+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+DET1=les+N1=oreilles+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+PPV=se+DET1=le+N1=train+FLX=AIMER
+remuer,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=fesses+N1pc+FLX=AIMER
+remuer,V+FXC+N0Hum+PPV=se+N0V+DET1=les+N1=méninges+N1pc+FLX=AIMER
+rencontrer,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=âme soeur+FLX=AIMER
+rendre,V+FXC+N0Hum+DET1=la+N1=justice+Passif+FLX=RENDRE
+rendre,V+FXC+N0Hum+DET1=le dernier+N1=souffle+FLX=RENDRE
+rendre,V+FXC+N0Hum+DET1=le dernier+N1=soupir+FLX=RENDRE
+rendre,V+FXC+N0Hum+DET1=les+N1=armes+FLX=RENDRE
+rendre,V+FXC+N0Hum+N0NHum+DET1=l'+N1=âme+FLX=RENDRE
+renseigner,V+FXC+N0Hum+DET1=l'+N1=adversaire+Passif+FLX=AIMER
+renseigner,V+FXC+N0Hum+DET1=l'+N1=ennemi+Passif+FLX=AIMER
+renseigner,V+FXC+N0Hum+DET1=la+N1=police+Passif+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=la+N1=moisson+Passif+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=la+N1=poitrine+N1pc+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=le+N1=ventre+N1pc+Passif+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+Passif+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=les+N1=foins+Passif+FLX=AIMER
+rentrer,V+FXC+N0Hum+DET1=les+N1=poubelles+FLX=AIMER
+renverser,V+FXC+N0Hum+DET1=la+N1=vapeur+Passif+FLX=AIMER
+renverser,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=situation+Passif+FLX=AIMER
+renverser,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=cabinet+Passif+FLX=AIMER
+renverser,V+FXC+N0Hum+N0NHum+DET1=le+N0VDETN1+N1=gouvernement+Passif+FLX=AIMER
+renverser,V+FXC+N0Hum+N0NHum+DET1=les+N1=rôles+Passif+FLX=AIMER
+renvoyer,V+FXC+N0Hum+DET1=la+N1=classe+FLX=ENVOYER
+répandre,V+FXC+N0Hum+N0NHum+DET1=le+N1=sang+FLX=RENDRE
+réparer,V+FXC+N0Hum+DET1=le+N1=désordre de <DET+Poss> coiffure+Passif+FLX=AIMER
+réparer,V+FXC+N0Hum+DET1=le+N1=désordre de <DET+Poss> toilette+Passif+FLX=AIMER
+réparer,V+FXC+N0Hum+N0NHum+DET1=les+N1=outrages du temps+FLX=AIMER
+répartir,V+FXC+N0Hum+DET1=la+N1=pénurie+FLX=FINIR
+reposer,V+FXC+N0NHum+DET1=la+N1=vue+FLX=AIMER
+reposer,V+FXC+N0NHum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+reprendre,V+FXC+N0Hum+DET1=l'+N1=audience+Passif+FLX=PRENDRE
+reprendre,V+FXC+N0Hum+DET1=le+N1=chemin de l'école+Passif+FLX=PRENDRE
+reprendre,V+FXC+N0Hum+DET1=le+N1=collier+FLX=PRENDRE
+reprendre,V+FXC+N0Hum+DET1=le+N1=travail+Passif+FLX=PRENDRE
+reprendre,V+FXC+N0Hum+N0NHum+N0V+DET1=le+N1=dessus+FLX=PRENDRE
+résoudre,V+FXC+N0Hum+N0NHum+DET1=la+N1=quadrature du cercle+Passif+FLX=ABSOUDRE
+respecter,V+FXC+N0Hum+N0NHum+DET1=l'+N1=ordre public+Passif+FLX=AIMER
+respecter,V+FXC+N0Hum+N0NHum+DET1=les+N1=droits de l'Homme+Passif+FLX=AIMER
+respirer,V+FXC+N0NHum+DET1=la+N1=santé+FLX=AIMER
+respirer,V+FXC+N0Hum+DET1=la+N1=santé+FLX=AIMER
+respirer,V+FXC+N0Hum+N0NHum+DET1=l'+N0VDETN1+N1=ennui+FLX=AIMER
+ressentir,V+FXC+N0Hum+DET1=les premières+N1=attaques de <DET> <N+Maladie>+Passif+FLX=SENTIR
+ressentir,V+FXC+N0Hum+DET1=les premières+N1=attaques de <DET> mal+Passif+FLX=SENTIR
+resserrer,V+FXC+N0Hum+DET1=la+N1=ceinture+Passif+FLX=AIMER
+resserrer,V+FXC+N0Hum+DET1=les+N1=boutons+Passif+FLX=AIMER
+resserrer,V+FXC+N0Hum+N0NHum+DET1=le+N1=crédit+Passif+FLX=AIMER
+resserrer,V+FXC+N0Hum+N0NHum+DET1=les+N1=boulons+Passif+FLX=AIMER
+rétablir,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=vérité+Passif+FLX=FINIR
+rétablir,V+FXC+N0Hum+N0NHum+DET1=les+N1=faits+Passif+FLX=FINIR
+retourner,V+FXC+N0Hum+DET1=la+N1=salade+Passif+FLX=AIMER
+retourner,V+FXC+N0Hum+DET1=le+N1=foin+Passif+FLX=AIMER
+retourner,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=situation+Passif+FLX=AIMER
+retrousser,V+FXC+N0Hum+DET1=les+N1=manches+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=l'+N1=usage de <DET+Poss> <N+Organe>+Passif+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=l'+N1=usage de <DET+Poss> main droite+Passif+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=l'+N1=usage de <DET+Poss> main+Passif+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=l'+N1=usage de la parole+Passif+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=l'+N1=usage de la vue+Passif+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=la+N1=foi+FLX=AIMER
+retrouver,V+FXC+N0Hum+DET1=la+N1=vue+Passif+FLX=AIMER
+réveiller,V+FXC+N0Hum+N0NHum+DET1=le+N1=chat qui dort+FLX=AIMER
+revêtir,V+FXC+N0Hum+DET1=l'+N1=uniforme+Passif+FLX=VETIR
+rincer,V+FXC+N0Hum+PPV=se+DET1=l'+N1=oeil+N1pc+FLX=PLACER
+rincer,V+FXC+N0Hum+PPV=se+DET1=la+N1=bouche+N1pc+Passif+FLX=PLACER
+rincer,V+FXC+N0Hum+PPV=se+DET1=la+N1=dalle+N1pc+FLX=PLACER
+rincer,V+FXC+N0Hum+PPV=se+DET1=le+N1=gosier+N1pc+FLX=PLACER
+risquer,V+FXC+N0Hum+DET1=la+N1=chaise électrique+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=la+N1=corde+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=la+N1=guillotine+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=la+N1=potence+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=le+N1=coup+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=le+N1=gibet+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=le+N1=peloton d'éxécution+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=le+N1=poteau+FLX=AIMER
+risquer,V+FXC+N0Hum+DET1=le+N1=poteau d'éxécution+FLX=AIMER
+risquer,V+FXC+N0Hum+N0NHum+DET1=le+N1=bagne+FLX=AIMER
+rompre,V+FXC+N0NHum+DET1=la+N1=monotonie+FLX=LIRE
+rompre,V+FXC+N0NHum+DET1=la+N1=monotonie+FLX=RENDRE
+rompre,V+FXC+N0NHum+DET1=les+N1=amarres+Passif+FLX=LIRE
+rompre,V+FXC+N0NHum+DET1=les+N1=amarres+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+DET1=la+N1=glace+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+DET1=la+N1=glace+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+DET1=le+N1=ban+FLX=LIRE
+rompre,V+FXC+N0Hum+DET1=le+N1=ban+FLX=RENDRE
+rompre,V+FXC+N0Hum+DET1=le+N1=pain+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+DET1=le+N1=pain+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+DET1=le+N1=silence+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+DET1=le+N1=silence+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+DET1=les+N1=rangs+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+DET1=les+N1=rangs+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+N0NHum+DET1=la+N1=poche des eaux+N1pc+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+N0NHum+DET1=la+N1=poche des eaux+N1pc+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=charme+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+N0NHum+DET1=le+N1=charme+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+N0V+DET1=le+N1=combat+FLX=LIRE
+rompre,V+FXC+N0Hum+N0V+DET1=le+N1=combat+FLX=RENDRE
+rompre,V+FXC+N0Hum+N0V+DET1=les+N1=faisceaux+Passif+FLX=LIRE
+rompre,V+FXC+N0Hum+N0V+DET1=les+N1=faisceaux+Passif+FLX=RENDRE
+rompre,V+FXC+N0Hum+PPV=se+DET1=le+N1=cou+N1pc+FLX=LIRE
+rompre,V+FXC+N0Hum+PPV=se+DET1=le+N1=cou+N1pc+FLX=RENDRE
+rouler,V+FXC+N0Hum+DET1=les+N1=épaules+N1pc+FLX=AIMER
+rouler,V+FXC+N0Hum+DET1=les+N1=hanches+N1pc+FLX=AIMER
+rouler,V+FXC+N0Hum+DET1=les+N1=r+Passif+FLX=AIMER
+rouler,V+FXC+N0Hum+DET1=les+N1=yeux+N1pc+FLX=AIMER
+rouler,V+FXC+N0Hum+PPV=se+DET1=les+N1=pouces+N1pc+FLX=AIMER
+sabler,V+FXC+N0Hum+DET1=le+N1=champagne+Passif+FLX=AIMER
+sabrer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+sacrifier,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+saluer,V+FXC+N0Hum+DET1=le+N1=drapeau+Passif+FLX=AIMER
+sauter,V+FXC+N0Hum+DET1=le+N1=fossé+Passif+FLX=AIMER
+sauter,V+FXC+N0Hum+DET1=le+N1=mur+Passif+FLX=AIMER
+sauter,V+FXC+N0Hum+DET1=le+N1=pas+FLX=AIMER
+sauvegarder,V+FXC+N0Hum+N0NHum+DET1=les+N1=apparences+Passif+FLX=AIMER
+sauver,V+FXC+N0Hum+DET1=les+N1=apparences+Passif+FLX=AIMER
+sauver,V+FXC+N0Hum+N0NHum+DET1=l'+N1=honneur+Passif+FLX=AIMER
+sauver,V+FXC+N0Hum+N0NHum+DET1=la+N1=face+FLX=AIMER
+sauver,V+FXC+N0Hum+N0NHum+DET1=la+N1=situation+Passif+FLX=AIMER
+sauver,V+FXC+N0Hum+N0NHum+DET1=les+N1=meubles+Passif+FLX=AIMER
+savoir,V+FXC+N0Hum+DET1=la+N1=vérité+Passif+FLX=SAVOIR
+savoir,V+FXC+N0Hum+DET1=le fin+N1=mot de l'histoire+FLX=SAVOIR
+scier,V+FXC+N0Hum+DET1=la+N1=branche sur laquelle <il> <être> <asseoir+PP>+FLX=AIMER
+secouer,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+FLX=AIMER
+secouer,V+FXC+N0Hum+DET1=le+N1=cocotier+FLX=AIMER
+semer,V+FXC+N0Hum+N0NHum+DET1=la+N1=désolation+Passif+FLX=PESER
+semer,V+FXC+N0Hum+N0NHum+DET1=la+N1=mort+Passif+FLX=PESER
+semer,V+FXC+N0Hum+N0NHum+DET1=le bon+N1=grain+Passif+FLX=PESER
+sentir,V+FXC+N0NHum+DET1=l'+N1=école+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=la+N1=merde+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=brûlé+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=cramé+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=moisi+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=rance+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=réchauffé+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=renfermé+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=roussi+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=sapin+FLX=SENTIR
+sentir,V+FXC+N0NHum+DET1=le+N1=terroir+FLX=SENTIR
+sentir,V+FXC+N0NHum+NegOblig+DET1=la+N1=rose+FLX=SENTIR
+sentir,V+FXC+N0Hum+DET1=l'+N1=écurie+FLX=SENTIR
+sentir,V+FXC+N0Hum+N0NHum+DET1=le+N1=fagot+FLX=SENTIR
+sentir,V+FXC+N0Hum+N0NHum+N0V+DET1=la+N1=crevette+FLX=SENTIR
+sentir,V+FXC+N0Hum+N0NHum+N0V+DET1=le+N1=bouc+FLX=SENTIR
+sentir,V+FXC+N0Hum+N0NHum+N0V+DET1=le+N1=fauve+FLX=SENTIR
+sérier,V+FXC+N0Hum+DET1=les+N1=difficultés+Passif+FLX=AIMER
+sérier,V+FXC+N0Hum+DET1=les+N1=problèmes+Passif+FLX=AIMER
+sérier,V+FXC+N0Hum+DET1=les+N1=questions+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=la+N1=bouche+N1pc+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=prix+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=coudes+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=dents+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=doigts+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=fesses+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=lèvres+N1pc+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=mâchoires+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=miches+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=poings+N1pc+FLX=AIMER
+serrer,V+FXC+N0Hum+DET1=les+N1=rangs+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges bénéficiaires+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=marges+Passif+FLX=AIMER
+serrer,V+FXC+N0Hum+PPV=se+DET1=la+N1=ceinture+FLX=AIMER
+serrer,V+FXC+N0Hum+PPV=se+DET1=les+N1=coudes+N1pc+FLX=AIMER
+servir,V+FXC+N0Hum+DET1=la+N1=France+FLX=SERVIR
+servir,V+FXC+N0Hum+PPV=se+DET1=la+N1=première+FLX=SERVIR
+servir,V+FXC+N0Hum+PPV=se+DET1=le+N1=premier+FLX=SERVIR
+siffler,V+FXC+N0Hum+DET1=la mi-+N1=temps+Passif+FLX=AIMER
+siffler,V+FXC+N0Hum+DET1=la+N1=fin du match+Passif+FLX=AIMER
+sillonner,V+FXC+N0Hum+N0NHum+DET1=le+N1=ciel+Passif+FLX=AIMER
+sillonner,V+FXC+N0Hum+N0NHum+DET1=les+N1=airs+Passif+FLX=AIMER
+sillonner,V+FXC+N0Hum+N0NHum+DET1=les+N1=mers+Passif+FLX=AIMER
+sonder,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=terrain+Passif+FLX=AIMER
+sonner,V+FXC+N0NHum+DET1=l'+N1=alarme+Passif+FLX=AIMER
+sonner,V+FXC+N0NHum+DET1=le+N1=creux+FLX=AIMER
+sonner,V+FXC+N0NHum+DET1=le+N1=plein+FLX=AIMER
+sonner,V+FXC+N0NHum+DET1=le+N1=vide+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=l'+N1=alarme+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=l'+N1=extinction des feux+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=l'+N1=hallali+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=la+N1=charge+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=la+N1=diane+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=la+N1=retraite+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=le+N1=branlebas de combat+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=le+N1=réveil+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=le+N1=rocsin+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+DET1=les+N1=vêpres+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+N0NHum+DET1=l'+N1=alerte+Passif+FLX=AIMER
+sonner,V+FXC+N0Hum+N0NHum+DET1=le+N1=glas+Passif+FLX=AIMER
+sortir,V+FXC+N0Hum+DET1=les+N1=poubelles+FLX=FINIR
+sortir,V+FXC+N0Hum+DET1=les+N1=poubelles+FLX=SENTIR
+souffrir,V+FXC+N0Hum+DET1=le+N1=martyre+FLX=COUVRIR
+soulager,V+FXC+N0Hum+DET1=la+N1=humanité souffrante+Passif+FLX=MANGER
+soûler,V+FXC+N0Hum+PPV=se+DET1=la+N1=gueule+N1pc+FLX=AIMER
+soupçonner,V+FXC+N0Hum+DET1=le+N1=pire+Passif+FLX=AIMER
+soutenir,V+FXC+N0NHum+DET1=la+N1=conversation+Passif+FLX=TENIR
+soutenir,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=gageure+Passif+FLX=TENIR
+soutenir,V+FXC+N0Hum+N0NHum+DET1=le+N1=choc+Passif+FLX=TENIR
+subir,V+FXC+N0Hum+N0NHum+DET1=les+N1=outrages du temps+FLX=FINIR
+subir,V+FXC+N0Hum+DET1=la+N1=loi de la jungle+FLX=FINIR
+subir,V+FXC+N0Hum+DET1=la+N1=loi du plus fort+Passif+FLX=FINIR
+subir,V+FXC+N0Hum+DET1=la+N1=question+FLX=FINIR
+subir,V+FXC+N0Hum+DET1=les derniers+N1=outrages+FLX=FINIR
+sucrer,V+FXC+N0Hum+DET1=les+N1=fraises+FLX=AIMER
+suinter,V+FXC+N0NHum+DET1=l'+N0VDETN1+N1=ennui+FLX=AIMER
+suinter,V+FXC+N0NHum+DET1=la+N0VDETN1+N1=misère+FLX=AIMER
+suinter,V+FXC+N0NHum+DET1=la+N0VDETN1+N1=pauvreté+FLX=AIMER
+suivre,V+FXC+N0Hum+DET1=la+N1=voie royale+Passif+FLX=SUIVRE
+suivre,V+FXC+N0Hum+DET1=le droit+N1=chemin+FLX=SUIVRE
+suivre,V+FXC+N0Hum+DET1=le+N1=mouvement+FLX=SUIVRE
+suivre,V+FXC+N0Hum+DET1=le+N1=train+FLX=SUIVRE
+suivre,V+FXC+N0Hum+DET1=le+N1=troupeau+FLX=SUIVRE
+suivre,V+FXC+N0Hum+N0NHum+DET1=la+N0VDETN1+N1=mode+Passif+FLX=SUIVRE
+suivre,V+FXC+N0Hum+N0NHum+DET1=la+N1=voie de la raison+Passif+FLX=SUIVRE
+suivre,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=chemins battus+FLX=SUIVRE
+suivre,V+FXC+N0Hum+N0NHum+DET1=les+N0VDETN1+N1=sentiers battus+FLX=SUIVRE
+supporter,V+FXC+N0Hum+NegOblig+DET1=la+N1=vue du sang+FLX=AIMER
+supporter,V+FXC+N0NHum+NegOblig+DET1=la+N1=médiocrité+FLX=AIMER
+suspendre,V+FXC+N0Hum+DET1=l'+N1=audience+Passif+FLX=RENDRE
+suspendre,V+FXC+N0Hum+N0NHum+DET1=le+N1=cours du temps+Passif+FLX=RENDRE
+tailler,V+FXC+N0Hum+N0NHum+DET1=la+N1=route+FLX=AIMER
+tailler,V+FXC+N0Hum+PPV=se+DET1=la+N1=part du lion+FLX=AIMER
+taper,V+FXC+N0Hum+DET1=l'+N1=incruste+FLX=AIMER
+taper,V+FXC+N0Hum+DET1=le+N1=carton+FLX=AIMER
+taper,V+FXC+N0Hum+DET1=les trois+N1=coups+Passif+FLX=AIMER
+taper,V+FXC+N0Hum+PPV=se+DET1=la+N1=cloche+FLX=AIMER
+taquiner,V+FXC+N0Hum+DET1=l'+N1=ablette+FLX=AIMER
+taquiner,V+FXC+N0Hum+DET1=la+N1=dame de pique+FLX=AIMER
+taquiner,V+FXC+N0Hum+DET1=la+N1=muse+FLX=AIMER
+taquiner,V+FXC+N0Hum+DET1=le+N1=goujon+FLX=AIMER
+tâter,V+FXC+N0Hum+DET1=le+N1=terrain+Passif+FLX=AIMER
+tendre,V+FXC+N0NHum+DET1=l'+N0VDETN1+N1=ambiance+Passif+FLX=RENDRE
+tendre,V+FXC+N0NHum+DET1=l'+N0VDETN1+N1=atmosphère+Passif+FLX=RENDRE
+tendre,V+FXC+N0NHum+DET1=la+N1=situation+Passif+FLX=RENDRE
+tendre,V+FXC+N0NHum+DET1=le+N0VDETN1+N1=climat+Passif+FLX=RENDRE
+tendre,V+FXC+N0Hum+DET1=la+N1=main+N1pc+Passif+FLX=RENDRE
+tendre,V+FXC+N0Hum+DET1=la+N1=sébile+Passif+FLX=RENDRE
+tendre,V+FXC+N0Hum+DET1=le+N1=cou+N1pc+Passif+FLX=RENDRE
+tendre,V+FXC+N0Hum+DET1=le+N1=dos+N1pc+FLX=RENDRE
+tenir,V+FXC+N0NHum+DET1=l'+N1=air+FLX=TENIR
+tenir,V+FXC+N0NHum+DET1=l'+N1=eau+FLX=TENIR
+tenir,V+FXC+N0NHum+DET1=la+N1=mer+FLX=TENIR
+tenir,V+FXC+N0NHum+DET1=la+N1=route+FLX=TENIR
+tenir,V+FXC+N0NHum+DET1=le+N1=accord+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=forme+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=barre+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=bouteille+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=caisse+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=caméra+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=chandelle+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=droite+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=maison+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=marque+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=plume+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=pose+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=queue du poêle+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=la+N1=vedette+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le bon+N1=bout+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le mauvais+N1=bout+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=ménage+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le+N1=litre+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le+N1=micro+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le+N1=vin+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=le+N1=volant+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=les+N1=cordons de la bourse+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+DET1=les+N1=cordons du poêle+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+N0NHum+DET1=la+N1=distance+FLX=TENIR
+tenir,V+FXC+N0Hum+N0NHum+DET1=le+N1=coup+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+N0NHum+DET1=le+N1=devant de la scène+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+N0NHum+DET1=le+N1=haut du pavé+Passif+FLX=TENIR
+tenir,V+FXC+N0Hum+N0NHum+N0V+DET1=l'+N1=affiche+FLX=TENIR
+tenir,V+FXC+N0Hum+PPV=se+DET1=les+N1=coudes+N1pc+FLX=TENIR
+tenter,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=aventure+FLX=AIMER
+tenter,V+FXC+N0Hum+DET1=la+N1=chance+FLX=AIMER
+tenter,V+FXC+N0Hum+DET1=la+N1=fortune+FLX=AIMER
+tenter,V+FXC+N0Hum+DET1=le+N1=coup+FLX=AIMER
+tenter,V+FXC+N0Hum+DET1=le+N1=diable+FLX=AIMER
+tirer,V+FXC+N0NHum+DET1=l'+N1=oeil+N1pc+FLX=AIMER
+tirer,V+FXC+N0NHum+DET1=le+N1=regard+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=fenêtre+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N0VDETN1+N1=sonnette d'alarme+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N1=chasse d'eau+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N1=jambe+N1pc+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N1=langue+N1pc+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=la+N1=porte+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=le bon+N1=numéro+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=le mauvais+N1=numéro+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=le+N0VDETN1+N1=signal d'alarme+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=le+N1=canon+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=les+N1=cordons de sonnettes+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=les+N1=rideaux+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=les+N1=rois+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+DET1=les+N1=volets+Passif+FLX=AIMER
+tirer,V+FXC+N0Hum+PPV=se+DET1=les+N1=flûtes+FLX=AIMER
+tomber,V+FXC+N0Hum+DET1=la+N1=veste+Passif+FLX=AIMER
+tordre,V+FXC+N0Hum+PPV=se+DET1=la+N1=cheville droite+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=la+N1=cheville gauche+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=la+N1=cheville+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=la+N1=jambe+N1pc+Passif+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=bras+N1pc+Passif+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=pied droit+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=pied gauche+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=pied+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=poignet+N1pc+Passif+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=le+N1=pouce+N1pc+Passif+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=les deux+N1=chevilles+N1pc+FLX=RENDRE
+tordre,V+FXC+N0Hum+PPV=se+DET1=les deux+N1=pieds+N1pc+FLX=RENDRE
+toucher,V+FXC+N0Hum+DET1=le gros+N1=lot+Passif+FLX=AIMER
+toucher,V+FXC+N0Hum+DET1=le+N1=tiercé+Passif+FLX=AIMER
+tourner,V+FXC+N0Hum+DET1=l'+N1=obstacle+Passif+FLX=AIMER
+tourner,V+FXC+N0Hum+DET1=la+N1=page+Passif+FLX=AIMER
+tourner,V+FXC+N0Hum+DET1=la+N1=tête+N1pc+Passif+FLX=AIMER
+tourner,V+FXC+N0Hum+DET1=le+N1=coin de la rue+Passif+FLX=AIMER
+tourner,V+FXC+N0Hum+PPV=se+DET1=les+N1=pouces+N1pc+FLX=AIMER
+traîner,V+FXC+N0Hum+DET1=la+N1=savate+FLX=AIMER
+traîner,V+FXC+N0Hum+DET1=les+N1=pieds+N1pc+Passif+FLX=AIMER
+traîner,V+FXC+N0Hum+DET1=les+N1=rues+Passif+FLX=AIMER
+traîner,V+FXC+N0Hum+N0V+DET1=la+N1=jambe+N1pc+FLX=AIMER
+traîner,V+FXC+N0Hum+N0V+DET1=la+N1=patte+N1pc+FLX=AIMER
+trancher,V+FXC+N0Hum+N0NHum+N0V+DET1=le+N1=noeud gordien+Passif+FLX=AIMER
+travailler,V+FXC+N0Hum+DET1=la+N1=terre+Passif+FLX=AIMER
+traverser,V+FXC+N0NHum+DET1=les+N1=siècles+FLX=AIMER
+travestir,V+FXC+N0Hum+N0NHum+DET1=la+N1=vérité+Passif+FLX=FINIR
+tromper,V+FXC+N0Hum+N0NHum+DET1=l'+N1=adversaire+FLX=AIMER
+tromper,V+FXC+N0Hum+N0NHum+DET1=le+N1=temps+Passif+FLX=AIMER
+troubler,V+FXC+N0Hum+N0NHum+DET1=l'+N1=ordre établi+Passif+FLX=AIMER
+troubler,V+FXC+N0Hum+N0NHum+DET1=l'+N1=ordre public+Passif+FLX=AIMER
+troubler,V+FXC+N0Hum+N0NHum+DET1=la+N1=fête+Passif+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=l'+N0VDETN1+N1=âme soeur+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=la+N1=foi+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=la+N1=paix du Seigneur+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=le+N1=filon+Passif+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=le+N1=joint+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=le+N1=repos+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=le+N1=repos éternel+FLX=AIMER
+trouver,V+FXC+N0Hum+DET1=le+N1=sommeil+FLX=AIMER
+tuer,V+FXC+N0Hum+DET1=le+N1=cochon+Passif+FLX=AIMER
+tuer,V+FXC+N0Hum+DET1=le+N1=veau gras+FLX=AIMER
+tuer,V+FXC+N0Hum+N0NHum+DET1=la+N1=poule aux oeufs d'or+FLX=AIMER
+tuer,V+FXC+N0Hum+N0NHum+DET1=le+N1=temps+FLX=AIMER
+tuer,V+FXC+N0Hum+N0NHum+DET1=le+N1=ver+FLX=AIMER
+tutoyer,V+FXC+N0Hum+DET1=les+N1=anges+FLX=NOYER
+valoir,V+FXC+N0NHum+DET1=la+N1=bagatelle de <DET+Dnum> <N+Somme>+N1pc+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=bagatelle de six francs+N1pc+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peau des fesses+N1pc+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peau du cul+N1pc+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peine+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peine d'en parler+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peine d'être <vivre+PP>+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=la+N1=peine d'être <voir+PP>+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=le+N1=coup+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=le+N1=déplacement+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=le+N1=détour+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=le+N1=jus+FLX=VALOIR
+valoir,V+FXC+N0NHum+DET1=les+N1=yeux de la tête+N1pc+FLX=VALOIR
+valoir,V+FXC+N0NHum+NegOblig+DET1=la+N1=chandelle+FLX=VALOIR
+varier,V+FXC+N0Hum+N0NHum+DET1=les+N1=plaisirs+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N0VDETN1+N1=ordures+Passif+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N1=arçons+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N1=étriers+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N1=fonds de bouteilles+Passif+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N1=fonds de verres+Passif+FLX=AIMER
+vider,V+FXC+N0Hum+DET1=les+N1=lieux+Passif+FLX=AIMER
+vider,V+FXC+N0Hum+N0NHum+DET1=l'+N1=abcès+Passif+FLX=AIMER
+voir,V+FXC+N0Hum+DET1=l'+N1=extrémité du tunnel+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=l'+N1=extrémité du tunnel+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=la+N1=fin du tunnel+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=la+N1=fin du tunnel+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=le+N1=bout du tunnel+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=le+N1=bout du tunnel+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=le+N1=fond du sac+Passif+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=le+N1=fond du sac+Passif+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=le+N1=loup+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=le+N1=loup+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=le+N1=tableau+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=le+N1=tableau+FLX=VOIR
+voir,V+FXC+N0Hum+DET1=le+N1=travail+FLX=VIVRE
+voir,V+FXC+N0Hum+DET1=le+N1=travail+FLX=VOIR
+vouloir,V+FXC+N0Hum+NegOblig+DET1=la+N1=mort du pécheur+FLX=VOULOIR

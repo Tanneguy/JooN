@@ -1,0 +1,361 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.EventObject;
+import java.util.Vector;
+
+import javax.swing.AbstractCellEditor;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
+
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.engine.Paths;
+import net.nooj4nlp.gui.components.CustomCell;
+import net.nooj4nlp.gui.dialogs.PreferencesDialog;
+import net.nooj4nlp.gui.main.Launcher;
+
+import org.apache.commons.io.FilenameUtils;
+
+public class UpdateTablesListener
+{
+
+	private JTable lvDic;
+	private JTable lvMor;
+	private JList lbAvailableSyntacticResources;
+	private JTable lvSGrm;
+	private JScrollPane scrollDictionary;
+	private JButton btnEditLex;
+	private JButton btnHight;
+	private JButton btnLow;
+	private JButton btnDeleteFileLex;
+	private JComboBox cbDefLanguage;
+	private JTextArea txtFileInfoLex;
+	private JLabel lblLexDoc;
+	private JScrollPane scrollMorphology;
+	private CopyToPreferences copyToPreferences;
+	private PreferencesDialog dialog;
+
+	public UpdateTablesListener(JScrollPane scrollDictionary, JScrollPane scrollMorphology, JTable lvDic, JTable lvMor,
+			JList lbAvailableSyntacticResources, JTable lvSGrm, JButton bEdit, JButton bHigh, JButton bLow,
+			JButton bDelete, JComboBox cbDefLanguage, JTextArea txtFileInfoLex, JLabel lblLexDoc,
+			CopyToPreferences copyToPreferences, PreferencesDialog dialog)
+	{
+		this.lvDic = lvDic;
+		this.lvMor = lvMor;
+		this.dialog = dialog;
+		this.lbAvailableSyntacticResources = lbAvailableSyntacticResources;
+		this.lvSGrm = lvSGrm;
+		this.scrollDictionary = scrollDictionary;
+		this.scrollMorphology = scrollMorphology;
+		this.btnEditLex = bEdit;
+		this.btnHight = bHigh;
+		this.btnLow = bLow;
+		this.copyToPreferences = copyToPreferences;
+		this.btnDeleteFileLex = bDelete;
+		this.cbDefLanguage = cbDefLanguage;
+		this.txtFileInfoLex = txtFileInfoLex;
+		this.lblLexDoc = lblLexDoc;
+	}
+
+	public void GetAllResourcesFromDisk(boolean projectmode, String languagename)
+	{
+		String[] columnNames = { "Dictionary", "Priority" };
+		DefaultTableModel dicModel = new DefaultTableModel(null, columnNames);
+		lvDic = new JTable(dicModel);
+		scrollDictionary.setViewportView(lvDic);
+		lvDic.setName("DictionaryTable");
+		lvDic.setRowHeight(20);
+		dialog.setTableDictionary(lvDic);
+
+		// Table select listener
+		lvDic.getSelectionModel().addListSelectionListener(
+				new LexTableSelectionListener(lvDic, btnEditLex, btnHight, btnLow, btnDeleteFileLex, cbDefLanguage,
+						txtFileInfoLex, lblLexDoc));
+
+		String[] columnNames1 = { "Morphology", "Priority" };
+		DefaultTableModel morModel = new DefaultTableModel(null, columnNames1);
+		lvMor = new JTable(morModel);
+		scrollMorphology.setViewportView(lvMor);
+		lvMor.setName("MorphologyTable");
+		lvMor.setRowHeight(20);
+		dialog.setTableMorphology(lvMor);
+		// Table select listener
+		lvMor.getSelectionModel().addListSelectionListener(
+				new LexTableSelectionListener(lvMor, btnEditLex, btnHight, btnLow, btnDeleteFileLex, cbDefLanguage,
+						txtFileInfoLex, lblLexDoc));
+
+		DefaultListModel listModel = (DefaultListModel) lbAvailableSyntacticResources.getModel();
+		listModel.removeAllElements();
+		DefaultTableModel sGrmModel = (DefaultTableModel) lvSGrm.getModel();
+		sGrmModel.getDataVector().removeAllElements();
+
+		boolean loadprojectresources = false;
+		if (projectmode)
+		{
+			String zname = FilenameUtils.concat(Paths.projectDir, languagename);
+			File dir = new File(zname);
+			if (dir.isDirectory())
+				loadprojectresources = true;
+			else
+				loadprojectresources = false;
+		}
+
+		if (!loadprojectresources)
+		{
+			// lexical analysis
+			String docDirLex = Paths.docDir + "\\" + languagename + "\\Lexical Analysis";
+			File ldir = new File(docDirLex);
+			if (!ldir.isDirectory())
+				ldir.mkdir();
+			else
+			{
+				lvDic.getColumn("Dictionary").setCellRenderer(new CellEditorRenderer());
+				lvDic.getColumn("Dictionary").setCellEditor(new CellEditorRenderer());
+
+				lvMor.getColumn("Morphology").setCellRenderer(new CellEditorRenderer());
+				lvMor.getColumn("Morphology").setCellEditor(new CellEditorRenderer());
+
+				String[] list = ldir.list();
+				for (String file : list)
+				{
+					String ext = FilenameUtils.getExtension(file);
+					if (ext.equalsIgnoreCase(Constants.JNOD_EXTENSION))
+					{
+						CustomCell value = new CustomCell();
+						value.label.setText(file);
+						value.label
+								.setSize(value.label.getPreferredSize().width, value.label.getPreferredSize().height);
+
+						File f = new File(docDirLex + "\\" + file.substring(0, file.lastIndexOf("."))
+								+ Constants.JNOG_EXTENSION);
+						if (f.exists())
+							value.setForeground(Color.RED);
+						dicModel.addRow(new Object[] { value, "" });
+					}
+					else if (ext.equalsIgnoreCase(Constants.JNOM_EXTENSION))
+					{
+						morModel.addRow(new Object[] { new JCheckBox(file), "" });
+					}
+				}
+			}
+			String docDirSyn = Paths.docDir + "\\" + languagename + "\\Syntactic Analysis";
+			File sdir = new File(docDirSyn);
+			if (!sdir.isDirectory())
+				sdir.mkdir();
+			else
+			{
+				String[] list = ldir.list();
+				for (String file : list)
+				{
+					String ext = FilenameUtils.getExtension(file);
+					if (ext.equalsIgnoreCase(Constants.JNOG_EXTENSION))
+					{
+						// listSynResources
+						listModel.addElement(file);
+					}
+				}
+			}
+		}
+		else
+		{
+			// TODO project resources
+			// // load resources from project's directory
+			//
+			// // lexical analysis
+			// string lexname = Path.Combine(prjDir, (Path.Combine(languagename,
+			// "Lexical Analysis")));
+			// if (Directory.Exists (lexname))
+			// prjDirLex = lexname;
+			// else
+			// prjDirLex = Path.Combine(prjDir, languagename);
+			// foreach (string fullname in Directory.GetFiles (prjDirLex))
+			// {
+			// if (!File.Exists (fullname))
+			// {
+			// MessageBox.Show ("Resource file " + fullname +
+			// " does not exist.","NooJ: Project file is invalid");
+			// continue;
+			// }
+			//
+			// string dname = Path.GetDirectoryName (fullname);
+			// string fname = Path.GetFileName (fullname);
+			// string fname2 = fname.Substring (2);
+			// string ext = Path.GetExtension (fullname);
+			// if (ext == ".nod")
+			// {
+			// // is it a lexicon-grammar ?
+			// Color c = Color.Black;
+			// string nogfile = Path.Combine(dname,
+			// Path.GetFileNameWithoutExtension(fullname) + ".nog");
+			// if (File.Exists(nogfile))
+			// {
+			// c = Color.Red;
+			// }
+			// ListViewItem item = new ListViewItem(new string[] { fname2, "" },
+			// 0, c, Color.White, null);
+			// this.lvDic.Items.Add(item);
+			// }
+			// else if (ext == ".nom")
+			// {
+			// ListViewItem item = new ListViewItem(new string[] { fname2, "" },
+			// 0, Color.Black, Color.White, null);
+			// this.lvMor.Items.Add(item);
+			// }
+			// }
+			//
+			// // syntactic analysis
+			// string synname = Path.Combine(prjDir, (Path.Combine(languagename,
+			// "Syntactic Analysis")));
+			// if (Directory.Exists(synname))
+			// prjDirSyn = synname;
+			// else
+			// prjDirSyn = Path.Combine(prjDir, languagename);
+			// foreach (string fullname in Directory.GetFiles(prjDirSyn))
+			// {
+			// if (!File.Exists(fullname))
+			// {
+			// MessageBox.Show("Resource file " + fullname + " does not exist.",
+			// "NooJ: Project file is invalid");
+			// continue;
+			// }
+			//
+			// // string dname = Path.GetDirectoryName(fullname);
+			// string fname = Path.GetFileName(fullname);
+			// string pref = fname.Substring(0, 2);
+			// string fname2 = fname.Substring(2);
+			// string ext = Path.GetExtension(fullname);
+			// if (ext == ".nog")
+			// {
+			// string[] sitem = new string[2];
+			// sitem[0] = pref;
+			// sitem[1] = fname2;
+			// ListViewItem item = new ListViewItem(sitem);
+			// this.lvSGrm.Items.Add(item);
+			// this.lbAvailableSyntacticResources.Items.Add(fname2);
+			// }
+			// }
+		}
+	}
+
+	public void GetAllResourcesFromPref(String languagename)
+	{
+		// lexical analysis
+		ArrayList f = (ArrayList) Launcher.preferences.ldic.get(languagename);
+		if (f != null)
+		{
+			for (int i = 0; i < f.size(); i++)
+			{
+				String prefname = (String) f.get(i);
+				String ext = FilenameUtils.getExtension(prefname);
+				if (ext.equalsIgnoreCase(Constants.JNOD_EXTENSION))
+					CheckPrefResourceInLvLex(prefname, dialog.getTableDictionary());
+				else if (ext.equalsIgnoreCase(Constants.JNOM_EXTENSION))
+					CheckPrefResourceInLvLex(prefname, dialog.getTableMorphology());
+			}
+		}
+	}
+
+	public void CheckPrefResourceInLvLex(String prefname, JTable lv)
+	{
+		String fname = prefname;// .substring(0, prefname.length() - 4);
+
+		// compute priority
+		String prio;
+		// lexical parsing: priority from -9 (high) to 09 (low)
+		int priority;
+		String prefx = fname.substring(0, 2);
+		try
+		{
+			priority = Integer.parseInt(prefx);
+		}
+		catch (Exception e)
+		{
+			priority = 0;
+		}
+		if (priority < 0)
+			prio = "H" + String.valueOf((-priority));
+		else if (priority > 0)
+			prio = "L" + String.valueOf(priority);
+		else
+			prio = "";
+		fname = fname.substring(2);
+
+		// now find and check file
+		DefaultTableModel model = (DefaultTableModel) lv.getModel();
+		Vector<?> dataVector = model.getDataVector();
+		Object[] data = dataVector.toArray();
+		for (int i = 0; i < data.length; i++)
+		{
+			Vector<?> file = (Vector<?>) data[i];
+			CustomCell value = (CustomCell) file.get(0);
+			String fname2 = value.label.getText();
+			if (fname2.equalsIgnoreCase(fname))
+			{
+				value.checkBox.setSelected(true);
+				model.setValueAt(value, i, 0);
+				model.setValueAt(prio, i, 1);
+				return;
+			}
+		}
+	}
+
+	class CellEditorRenderer extends AbstractCellEditor implements TableCellRenderer, TableCellEditor
+	{
+
+		private static final long serialVersionUID = 1L;
+
+		private CustomCell renderer = new CustomCell();
+		private CustomCell editor = new CustomCell();
+
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+				boolean hasFocus, int row, int column)
+		{
+			renderer = (CustomCell) value;
+			if (isSelected)
+				renderer.setBackground(table.getSelectionBackground());
+			else
+				renderer.setBackground(table.getBackground());
+			return renderer;
+		}
+
+		@Override
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		{
+			editor = (CustomCell) value;
+			editor.setBackground(table.getSelectionBackground());
+			return editor;
+		}
+
+		@Override
+		public Object getCellEditorValue()
+		{
+			return editor;
+		}
+
+		@Override
+		public boolean isCellEditable(EventObject anEvent)
+		{
+			return true;
+		}
+
+		@Override
+		public boolean shouldSelectCell(EventObject anEvent)
+		{
+			return true;
+		}
+	}
+}

@@ -1,0 +1,93 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import net.nooj4nlp.gui.dialogs.PreferencesDialog;
+
+import org.apache.commons.io.FilenameUtils;
+
+public class DeleteLexActionListener implements ActionListener
+{
+
+	private PreferencesDialog dialog = null;
+	private JButton bDelete = null;
+	private JButton bSDelete = null;
+	private JLabel lLexDoc = null;
+	private JLabel lSynDoc = null;
+	private JComboBox cbDefLanguage = null;
+	private UpdateTablesListener tableListener = null;
+
+	public DeleteLexActionListener(PreferencesDialog dialog, JLabel lLexDoc, JLabel lSynDoc, JButton bDelete,
+			JButton bSDelete, UpdateTablesListener tableListener, JComboBox cbDefLanguage)
+	{
+		this.dialog = dialog;
+		this.lLexDoc = lLexDoc;
+		this.bDelete = bDelete;
+		this.bSDelete = bSDelete;
+		this.lSynDoc = lSynDoc;
+		this.tableListener = tableListener;
+		this.cbDefLanguage = cbDefLanguage;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		String fullname = null;
+
+		if (e.getSource() == this.bDelete)
+			fullname = this.lLexDoc.getText();
+		else if (e.getSource() == this.bSDelete)
+			fullname = this.lSynDoc.getText();
+		if (fullname == null || fullname == "")
+			return;
+		File f = new File(fullname);
+		if (!f.exists())
+			return;
+		String fname = FilenameUtils.getName(fullname);
+
+		if (JOptionPane.showConfirmDialog(dialog, "Are you sure you want to delete " + fname + "?", "Nooj delete?",
+				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+		{
+			f.delete();
+		}
+		String languagename = (String) cbDefLanguage.getSelectedItem();
+		UpdateLvsFromPref(false, languagename);
+	}
+
+	private void UpdateLvsFromPref(boolean projectmode, String languagename)
+	{
+		this.lLexDoc.setText("");
+		// this.rtbLComments.Text = "";
+		this.lSynDoc.setText("");
+		// this.rtbSComments.Text = "";
+
+		tableListener.GetAllResourcesFromDisk(projectmode, languagename);
+		tableListener.GetAllResourcesFromPref(languagename);
+
+		try
+		{
+			// this.lvDic.Columns[0].Width = -1;
+			// this.lvDic.Columns[1].Width = -2;
+			//
+			// this.lvMor.Columns[0].Width = -1;
+			// this.lvMor.Columns[1].Width = -2;
+			//
+			// this.lvSGrm.Columns[0].Width = -2;
+			// this.lvSGrm.Columns[1].Width = -1;
+			// TheColumnOrderSorter.CurrentColumn = 0;
+			// this.lvSGrm.ListViewItemSorter = TheColumnOrderSorter;
+			// this.lvSGrm.Sort ();
+		}
+		catch (Exception e)
+		{
+
+		}
+	}
+}

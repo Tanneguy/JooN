@@ -1,0 +1,53 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class PrioritySynActionListener implements ActionListener{
+
+	private JTable lvSGrm; 
+	private int inc;
+	
+	public PrioritySynActionListener(int inc, JTable lvSGrm){
+		this.lvSGrm = lvSGrm;
+		this.inc = inc;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// look for item in this.lvSGrm
+		int id = lvSGrm.getSelectedRow();
+		if(id < 0) return;
+		
+		DefaultTableModel model = (DefaultTableModel) lvSGrm.getModel();
+		Vector data = model.getDataVector();
+		
+		String cprio = (String)((Vector)data.get(id)).get(0);
+		String citem = (String)((Vector)data.get(id)).get(1);
+		int cpriority = Integer.parseInt(cprio);
+		
+		if(inc == 0) 
+			cpriority = 0;					
+		else {
+			cpriority += inc;
+			if(cpriority <= 0) cpriority = 1;
+			if (cpriority > lvSGrm.getRowCount()) cpriority = lvSGrm.getRowCount();
+		}		
+		model.setValueAt(String.valueOf(cpriority), id, 0);
+		for(int i = 0; i < data.size(); i++){
+			String item = (String)((Vector)data.get(i)).get(1);
+			int priority = Integer.parseInt((String)((Vector)data.get(i)).get(0));
+			if(!item.equalsIgnoreCase(citem) && !(priority == cpriority)){
+				priority -= inc;
+				model.setValueAt(String.valueOf(priority), i, 0);
+			}
+		}
+		if(inc == 0)
+			model.removeRow(id);
+	}
+
+}

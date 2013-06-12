@@ -1,0 +1,43 @@
+#OpenNooJ 1.0
+TYPE MORPHOLOGY
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME n
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+16
+"$(R" 14 257 1 2 
+"" 641 257 0 
+"<L>" 75 257 2 2 3 
+"$)" 164 257 1 6 
+"ed/<$R,V$1S\+PT>" 423 397 1 1 
+"ed/<$R,V$1S\+PP>" 426 315 1 1 
+"<E>/<$R=V\+Conj3>" 219 257 5 4 5 7 8 11 
+"<E>/<$R,V$1S\+PR>" 423 257 1 1 
+"s/<$R,V$1S\+PR\+3\+s>" 423 146 1 1 
+"laugh..." 80 86 1 10 
+"...s" 424 86 0 
+"<E>/<$R,V$1S\+INF>" 426 203 1 1 
+"=> <laugh,V\+PR\+3\+s>" 512 86 0 
+"This morphological grammar simulates+certain verbs' inflection. The root (e.g. \"laugh\")+is followed by a set of inflectional suffixes (<E>, s, ed)." 13 32 0 
+"The resulting annotation lemmatizes lemmatizes+the form into its root, and then produces the+corresponding inflectional code" 329 459 0 
+"The lexical constraint <$R=V\+Conj3>+checks that the root is a lexical entry+associated with the category Verb (V)+and the Conjugation paradigm Conj3" 13 398 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

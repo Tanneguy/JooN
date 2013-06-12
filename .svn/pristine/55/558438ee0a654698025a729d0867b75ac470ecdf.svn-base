@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>This lab allows users to construct a NooJ corpus (</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:Calibri;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal>This lab allows users to construct a NooJ corpus (.noc file)
+from a single text file.</p>
+
+<p class=MsoNormal>A NooJ corpus is a set of texts that are processed together.
+All the texts’ files must be represented in the same file format, and will be
+processed by the same set of linguistic resources (i.e. there is only one
+language module for a corpus).</p>
+
+<p class=MsoNormal>(1) Enter the original file name which will be split into a
+large number of text files that will constitute the corpus. For instance, one
+might want to enter the file HERALDTRIBUNE1994.TXT in order to split it into a
+12-file corpus (one file per month), or a 365-file corpus (one file per day),
+or even split it into thousands of files (one file per article).</p>
+
+<p class=MsoNormal>(2) Enter the original file format. It might be UTF8
+(Unicode) or (Other raw text formats &gt; “Windows Western European”)</p>
+
+<p class=MsoNormal>There is an option to process PDF files; warning: this
+functionality does not work with PDF images (i.e. when texts are represented by
+a series of images, rather than real text), and it does not work if the PDF is
+encrypted (i.e. protected against copy).</p>
+
+<p class=MsoNormal>(3) Enter a Perl expression to identify delimitations
+between specific text units inside the corpus. For instance, in order to split
+the newspaper HERALDTRIBUNE1994.TXT into a set of articles, one needs to
+identify the header/title section that introduces each article, for instance,
+the following Perl expression:</p>
+
+<p class=MsoNormal>^([A-Z]| )* ([0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9])</p>
+
+<p class=MsoNormal>Would recognize headers such as:</p>
+
+<p class=MsoNormal>A NEW PRESIDENT (1994-12-15)</p>
+
+<p class=MsoNormal>(4) Each article/unit will be stored in a different file.
+Choose the base name for all the files, as well as the number used to numerate
+the first file. For instance, if the base name is “ht1994-” and the first file
+number is 1, then the file HERALDTRIBUNE.TXT will be split into:</p>
+
+<p class=MsoNormal>ht1994-1.not, ht1994-2.not, ht1994-3.not, ht1994-4.not, ht1994-5.not,
+etc.</p>
+
+<p class=MsoNormal>The resulting files can be stored either in a NooJ corpus (a
+single .noc file) or in a folder.</p>
+
+</div>
+
+</body>
+
+</html>

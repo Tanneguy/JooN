@@ -1,0 +1,30 @@
+package net.nooj4nlp.controller.GramStructShell;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CollapseActionListener implements ActionListener
+{
+
+	private GramStructShellController controller;
+
+	public CollapseActionListener(GramStructShellController controller)
+	{
+		this.controller = controller;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		controller.expandAll(false);
+		// TODO:
+		// formGrammar.Current = 0;
+		// formGrammar.grf = (Graph) formGrammar.Grammar.Graphs[formGrammar.Current];
+		// if (formGrammar.dialogHistory != null) formGrammar.dialogHistory.UpdateNewFor (formGrammar);
+		// formGrammar.CurrentNode = tvGraphs.Nodes[0];
+		// this.tvGraphs.Select();
+		// this.tvGraphs.SelectedNode = formGrammar.CurrentNode;
+		// formGrammar.pGraph.Invalidate();
+	}
+
+}

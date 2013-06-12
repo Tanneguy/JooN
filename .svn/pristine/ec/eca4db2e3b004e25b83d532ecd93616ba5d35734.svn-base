@@ -1,0 +1,26 @@
+package net.nooj4nlp.controller.packageconfigurationdialog;
+
+import java.io.Serializable;
+
+import org.apache.commons.io.FilenameUtils;
+
+public class DialogStatus implements Serializable
+{
+	private static final long serialVersionUID = 7891217418033204686L;
+
+	public WindowPosition winp;
+	public String rexp;
+	public String gram;
+	public String radioQuery;
+	public String parentWindowName;
+
+	public DialogStatus(String parentWindowFullName, WindowPosition wp, String re, String gr, String rb)
+	{
+		winp = wp;
+		rexp = re;
+		gram = gr;
+		radioQuery = rb;
+
+		parentWindowName = FilenameUtils.getName(parentWindowFullName);
+	}
+}

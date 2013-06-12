@@ -1,0 +1,593 @@
+package net.nooj4nlp.gui.components;
+
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTextPane;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.gui.actions.shells.modify.UnitSelectionListener;
+import net.nooj4nlp.gui.shells.TextEditorShell;
+
+/**
+ * Custom JSpinner class for Open Text Dialog. Previous and next values are reversed to obtain visual sense.
+ * 
+ */
+public class CustomJSpinner extends JSpinner
+{
+	private static final long serialVersionUID = 5086608640336145412L;
+
+	private TextEditorShell textShell;
+	public String delimiter;
+	private int upperLimit;
+	private int[] textUnitStartPositions;
+	private StyledDocument doc;
+	private JTextPane textPane;
+	private boolean textHasNotBeenModified = false;
+	private int positionAtTheMoment;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param textShell
+	 *            - shell where custom spinner is
+	 * @param upperLimit
+	 *            - number of text units = upper limit of JSpinner
+	 */
+	public CustomJSpinner(TextEditorShell textShell, int upperLimit)
+	{
+		this.textShell = textShell;
+		this.upperLimit = upperLimit;
+		this.textPane = this.textShell.getTextPane();
+		// initialize editable number model
+		this.setModel(new SpinnerNumberModel(1, 1, upperLimit, 1));
+		((DefaultEditor) this.getEditor()).getTextField().setEditable(true);
+
+		// remove duplicates to eliminate empty strings in start positions array
+		int tmp[] = getTextUnitStartPositions();
+		if (tmp != null)
+			textUnitStartPositions = removeDuplicates(tmp);
+		// get doc and delimiter
+		doc = textPane.getStyledDocument();
+		delimiter = this.textShell.getText().getDelimPattern();
+
+		// styles to choose
+		Style active = textPane.addStyle("Active", null);
+		StyleConstants.setForeground(active, Color.black);
+
+		Style inactive = textPane.addStyle("Inactive", null);
+		StyleConstants.setForeground(inactive, Color.gray);
+
+		positionAtTheMoment = 1;
+	}
+
+	/**
+	 * Set custom value to CustomJSpinner.
+	 * 
+	 * @param value
+	 *            -
+	 */
+	public void setCustomValue(int value)
+	{
+		// text and doc needs to be taken every time to reflect the changes
+		String text = "";
+		this.setValue(value);
+
+		try
+		{
+			text = doc.getText(0, doc.getLength());
+		}
+		catch (BadLocationException e)
+		{
+			System.out.println(Constants.FILE_FORMAT_CONFLICT_ERROR + Constants.INCORRECT_FILE_FORMAT_ERROR
+					+ "in text pane!" + "\n" + e.getMessage());
+			return;
+		}
+
+		doc = textPane.getStyledDocument();
+		if (textHasNotBeenModified)
+		{
+			customValueHelpFunction(text, value);
+		}
+		// if text has been modified, paint it in black, deselect, and scroll to top
+		else
+		{
+			boolean blackStyled = false;
+			Object a = doc.getCharacterElement(0).getAttributes().getAttribute(StyleConstants.Foreground);
+			Object b = doc.getCharacterElement(doc.getLength()).getAttributes().getAttribute(StyleConstants.Foreground);
+
+			if ((Color.BLACK).equals(a) && (Color.BLACK).equals(b))
+				blackStyled = true;
+
+			if (!textShell.getSpinner().isEnabled() || blackStyled)
+			{
+				// set new style (highlight chosen paragraph)
+				doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Active"), true);
+
+				// move and update caret and focus (needs to be called every time to reflect the changes)
+				textShell.textPane.moveCaretPosition(textUnitStartPositions[value - 1]);
+				textShell.textPane.getCaret().setVisible(true);
+				DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+				caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+			}
+			else
+			{
+				customValueHelpFunction(text, value);
+			}
+		}
+
+		positionAtTheMoment = value;
+	}
+
+	/**
+	 * Overridden function for finding previous paragraph with CustomJSpinner.
+	 */
+	public Object getPreviousValue()
+	{
+		// if current value is at maximum, just exit...
+		if ((Integer) this.getValue() == upperLimit)
+			return null;
+
+		// ...otherwise, increase counter and get text
+		this.setValue((Integer) this.getValue() + 1);
+		doc = textPane.getStyledDocument();
+		String text = "";
+
+		try
+		{
+			text = doc.getText(0, doc.getLength());
+		}
+		catch (BadLocationException e)
+		{
+			System.out.println(Constants.FILE_FORMAT_CONFLICT_ERROR + Constants.INCORRECT_FILE_FORMAT_ERROR
+					+ "in text pane!" + "\n" + e.getMessage());
+			return null;
+		}
+
+		// get current text unit, and if it's the last one, just exit
+		int currentTU = getCurrentlySelectedTU();
+		if (currentTU == upperLimit - 1)
+			return null;
+
+		// get next paragraph's start and end
+		int nextTUStart = textUnitStartPositions[currentTU + 1];
+		int nextTUEnd = -1;
+
+		// if text is colored in black, keep the black color
+		boolean blackStyled = false;
+		Object a = doc.getCharacterElement(0).getAttributes().getAttribute(StyleConstants.Foreground);
+		Object b = doc.getCharacterElement(doc.getLength()).getAttributes().getAttribute(StyleConstants.Foreground);
+
+		if ((Color.BLACK).equals(a) && (Color.BLACK).equals(b))
+			blackStyled = true;
+
+		if (blackStyled)
+		{
+			// set new style (highlight chosen paragraph)
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Active"), true);
+
+			// move and update caret and focus (needs to be called every time to reflect the changes)
+			textShell.textPane.moveCaretPosition(textUnitStartPositions[(Integer) this.getValue() - 1]);
+			textShell.textPane.getCaret().setVisible(true);
+			DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+			caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+			return null;
+		}
+
+		if (delimiter.equals("\n"))
+			nextTUEnd = text.indexOf(delimiter, nextTUStart + 1);
+		else
+		{
+			Pattern rexp = Pattern.compile(delimiter, Pattern.MULTILINE);
+			Matcher matchCollection = rexp.matcher(text);
+			int counter = -1;
+
+			while (matchCollection.find())
+			{
+				counter++;
+				if (counter == currentTU + 1)
+				{
+					nextTUEnd = matchCollection.start();
+					break;
+				}
+				else if (currentTU + 1 == textUnitStartPositions.length - 1)
+				{
+					nextTUEnd = text.length();
+					break;
+				}
+				else
+					continue;
+			}
+		}
+		// if end is end of the document, validate the index
+		if (nextTUEnd == -1 || nextTUEnd > text.length())
+			nextTUEnd = text.length();
+		String nextParagraph = text.substring(nextTUStart, nextTUEnd);
+
+		// Clear old style first
+		doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+		// Set new style (highlight new paragraph)
+		doc.setCharacterAttributes(nextTUStart, nextParagraph.length(), textPane.getStyle("Active"), true);
+
+		// change start of actual paragraph
+		textShell.getUnitSelectionListener().setParagraphStart(nextTUStart);
+
+		// move and update caret and focus (needs to be called every time to reflect the changes)
+		textShell.textPane.getCaret().setVisible(true);
+		UnitSelectionListener tuListener = textShell.getUnitSelectionListener();
+		textShell.textPane.removeCaretListener(tuListener);
+		textShell.textPane.moveCaretPosition(nextTUStart);
+		DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		textShell.textPane.addCaretListener(tuListener);
+		textShell.getUnitSelectionListener().paintTextInRGB();
+
+		// If TAS is selected, show text annotations...
+		if (textShell.getChckbxShowTextAnnotation().isSelected())
+		{
+			// Repainting components
+			textShell.invalidate();
+			textShell.validate();
+			textShell.repaint();
+			// reseting scroll..
+			JScrollPane scroll = textShell.getPanelScrollPane();
+			scroll.getVerticalScrollBar().setValue(0);
+			scroll.getHorizontalScrollBar().setValue(0);
+		}
+
+		positionAtTheMoment = (Integer) this.getValue();
+		return null;
+	}
+
+	/**
+	 * Overridden function for finding next paragraph with CustomJSpinner.
+	 */
+	@Override
+	public Object getNextValue()
+	{
+		// if current value is at minimum, just exit...
+		if ((Integer) this.getValue() == 1)
+			return null;
+
+		// ...otherwise, decrease counter and get text
+		this.setValue((Integer) this.getValue() - 1);
+		String text = "";
+
+		try
+		{
+			text = doc.getText(0, doc.getLength());
+		}
+		catch (BadLocationException e)
+		{
+			System.out.println(Constants.FILE_FORMAT_CONFLICT_ERROR + Constants.INCORRECT_FILE_FORMAT_ERROR
+					+ "in text pane!" + "\n" + e.getMessage());
+			return null;
+		}
+
+		// get current text unit, and if it's the first one, just exit
+		int currentTU = getCurrentlySelectedTU();
+		if (currentTU == 0)
+			return null;
+
+		doc = textPane.getStyledDocument();
+		// get previous paragraph's start and end
+		int previousTUStart = textUnitStartPositions[currentTU - 1];
+		int previousTUEnd = -1;
+
+		// if text is colored in black, keep the black color
+		boolean blackStyled = false;
+		Object a = doc.getCharacterElement(0).getAttributes().getAttribute(StyleConstants.Foreground);
+		Object b = doc.getCharacterElement(doc.getLength()).getAttributes().getAttribute(StyleConstants.Foreground);
+
+		if ((Color.BLACK).equals(a) && (Color.BLACK).equals(b))
+			blackStyled = true;
+
+		if (blackStyled)
+		{
+			// set new style (highlight chosen paragraph)
+			doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Active"), true);
+
+			// move and update caret and focus (needs to be called every time to reflect the changes)
+			textShell.textPane.moveCaretPosition(textUnitStartPositions[(Integer) this.getValue() - 1]);
+			textShell.textPane.getCaret().setVisible(true);
+			DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+			caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+			return null;
+		}
+
+		if (delimiter.equals("\n"))
+			previousTUEnd = text.indexOf(delimiter, previousTUStart + 1);
+		else
+		{
+			Pattern rexp = Pattern.compile(delimiter, Pattern.MULTILINE);
+			Matcher matchCollection = rexp.matcher(text);
+			int counter = 0;
+
+			while (matchCollection.find())
+			{
+				counter++;
+				if (counter == currentTU)
+				{
+					previousTUEnd = matchCollection.start();
+					break;
+				}
+			}
+		}
+
+		// if end is end of the document, validate the index
+		if (previousTUEnd == -1 || previousTUEnd > text.length())
+			previousTUEnd = text.length();
+
+		String previousParagraph = text.substring(previousTUStart, previousTUEnd);
+
+		// Clear old style first
+		doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+		// Set new style (highlight new paragraph)
+		doc.setCharacterAttributes(previousTUStart, previousParagraph.length(), textPane.getStyle("Active"), true);
+
+		// change start of actual paragraph
+		textShell.getUnitSelectionListener().setParagraphStart(previousTUStart);
+
+		// move and update caret and focus (needs to be called every time to reflect the changes)
+		textShell.textPane.getCaret().setVisible(true);
+		UnitSelectionListener tuListener = textShell.getUnitSelectionListener();
+		textShell.textPane.removeCaretListener(tuListener);
+		textShell.textPane.moveCaretPosition(previousTUStart);
+		DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		textShell.textPane.addCaretListener(tuListener);
+		textShell.getUnitSelectionListener().paintTextInRGB();
+
+		// If TAS is selected, show text annotations...
+		if (textShell.getChckbxShowTextAnnotation().isSelected())
+		{
+			// Repainting components
+			textShell.invalidate();
+			textShell.validate();
+			textShell.repaint();
+			// reseting scroll..
+			JScrollPane scroll = textShell.getPanelScrollPane();
+			scroll.getVerticalScrollBar().setValue(0);
+			scroll.getHorizontalScrollBar().setValue(0);
+		}
+
+		positionAtTheMoment = (Integer) this.getValue();
+		return null;
+	}
+
+	/**
+	 * Function for determination of currently selected text unit of text pane in Open Text Dialog.
+	 * 
+	 * @return - index of currently selected text unit.
+	 */
+
+	public int getCurrentlySelectedTU()
+	{
+		int currentlySelected = 0;
+		// get the start of curently selected paragraph
+		int currentStartIndex = textShell.getUnitSelectionListener().getParagraphStart();
+
+		if (textUnitStartPositions != null)
+		{
+			for (int i = 0; i < textUnitStartPositions.length - 1; i++)
+			{
+				// find the paragraph's start in start positions array; if accidentally, start is between two starts,
+				// return lower; if it's the last paragraph, return last start position
+				if ((currentStartIndex >= textUnitStartPositions[i] && currentStartIndex < textUnitStartPositions[i + 1])
+						|| (i == textUnitStartPositions.length - 2 && currentStartIndex >= textUnitStartPositions[i + 1]))
+				{
+					currentlySelected = (i == textUnitStartPositions.length - 2 && currentStartIndex >= textUnitStartPositions[i + 1]) ? i + 1
+							: i;
+					break;
+				}
+			}
+		}
+
+		return currentlySelected;
+	}
+
+	/**
+	 * Function removes duplicates from an integer array.
+	 * 
+	 * @param array
+	 *            - array with duplicates
+	 * @return - input array without duplicates
+	 */
+
+	public int[] removeDuplicates(int[] array)
+	{
+		// create hash set out of the array; all duplications are removed
+		HashSet<Integer> hs = new HashSet<Integer>();
+		for (int i = 0; i < array.length; i++)
+			hs.add(array[i]);
+
+		// initialization of new array
+		int newArray[] = new int[hs.size()];
+		// iterate through hash set and fill in new array
+		Iterator<Integer> iter = hs.iterator();
+		int i = 0;
+		while (iter.hasNext())
+		{
+			newArray[i] = iter.next();
+			i++;
+		}
+
+		// new array is not sorted!
+		Arrays.sort(newArray);
+
+		return newArray;
+	}
+
+	/**
+	 * Help function for Custom JSpinner.
+	 * 
+	 * @param text
+	 *            - text in text pane.
+	 * @param value
+	 *            - value to be set to JSpinner
+	 */
+	private void customValueHelpFunction(String text, int value)
+	{
+		// collect the value's start (filtered to be a regular one) and end of TU
+		int customTUStart = textUnitStartPositions[value - 1];
+		int customTUEnd = -1;
+
+		// move and update caret and focus (needs to be called every time to reflect the changes)
+		textShell.textPane.getCaret().setVisible(true);
+		UnitSelectionListener tuListener = textShell.getUnitSelectionListener();
+		textShell.textPane.removeCaretListener(tuListener);
+		textShell.textPane.moveCaretPosition(customTUStart);
+		DefaultCaret caret = (DefaultCaret) textShell.textPane.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+		textShell.textPane.addCaretListener(tuListener);
+
+		if (delimiter.equals("\n"))
+			customTUEnd = text.indexOf(delimiter, customTUStart + 1);
+		else
+		{
+			Pattern rexp = Pattern.compile(delimiter, Pattern.MULTILINE);
+			Matcher matchCollection = rexp.matcher(text);
+			int counter = 0;
+			int tempStart = 0;
+
+			outerLoop: while (matchCollection.find())
+			{
+				counter++;
+				tempStart = matchCollection.end();
+
+				if (textPane.getCaretPosition() < matchCollection.end())
+				{
+					Matcher helpMatchCollection = rexp.matcher(text);
+					int helpCounter = 0;
+					while (helpMatchCollection.find())
+					{
+						if (counter == 1)
+						{
+							customTUStart = helpMatchCollection.start() == 0 ? helpMatchCollection.end() : 0;
+
+							if (customTUStart == 0)
+								break;
+							else
+							{
+								Matcher helpMatchCollection2 = rexp.matcher(text);
+								helpMatchCollection2.region(customTUStart, text.length());
+
+								if (helpMatchCollection.find())
+									customTUEnd = helpMatchCollection.start();
+								else
+									customTUEnd = text.length();
+
+								break outerLoop;
+							}
+						}
+						else if (counter - 2 == helpCounter || counter - 1 == helpCounter)
+						{
+							customTUStart = helpMatchCollection.end();
+							break;
+						}
+
+						helpCounter++;
+					}
+					customTUEnd = matchCollection.start();
+					break;
+				}
+				else
+					continue;
+			}
+
+			if (counter != 1 && customTUStart == 0)
+				customTUStart = tempStart;
+		}
+		if (customTUEnd == -1 || customTUEnd > text.length())
+			customTUEnd = text.length();
+		// find custom paragraph
+		String paragraph = text.substring(customTUStart, customTUEnd);
+
+		// color whole doc in inactive color
+		doc.setCharacterAttributes(0, text.length(), textPane.getStyle("Inactive"), true);
+		// set new style (highlight chosen paragraph)
+		doc.setCharacterAttributes(customTUStart, paragraph.length(), textPane.getStyle("Active"), true);
+
+		// change start of actual paragraph
+		textShell.getUnitSelectionListener().setParagraphStart(customTUStart);
+
+		textShell.getUnitSelectionListener().paintTextInRGB();
+
+		// reseting scroll..
+		JScrollPane scroll = textShell.getPanelScrollPane();
+		scroll.getVerticalScrollBar().setValue(0);
+		scroll.getHorizontalScrollBar().setValue(0);
+	}
+
+	/**
+	 * Function returns the value for Custom JSpinner if beginning of text unit is given.
+	 * 
+	 * @param begin
+	 *            - beginning of TU
+	 * 
+	 * @return - new value for JSpinner
+	 */
+	public int returnSpinnerValueIfMiddleOfTUIsGiven(int begin)
+	{
+		// set new start of paragraph
+		textShell.getUnitSelectionListener().setParagraphStart(begin);
+
+		int currentlySelected = 0;
+		for (int i = 0; i < textUnitStartPositions.length - 1; i++)
+		{
+			// find the paragraph's start in start positions array; if accidentally, start is between two starts,
+			// return lower; if it's the last paragraph, return last start position
+			if ((begin >= textUnitStartPositions[i] && begin < textUnitStartPositions[i + 1])
+					|| (i == textUnitStartPositions.length - 2 && begin >= textUnitStartPositions[i + 1]))
+			{
+				currentlySelected = (i == textUnitStartPositions.length - 2 && begin >= textUnitStartPositions[i + 1]) ? i + 1
+						: i;
+				break;
+			}
+		}
+
+		// index is increased because array index starts from 0 (JSpinner starts from 1)
+		return currentlySelected + 1;
+	}
+
+	// getters and setters
+	private int[] getTextUnitStartPositions()
+	{
+		if (textShell.getText().mft != null)
+			return textShell.getText().mft.tuAddresses;
+		else
+			return null;
+	}
+
+	public int getUpperLimit()
+	{
+		return upperLimit;
+	}
+
+	public void setTextHasNotBeenModified(boolean textHasNotBeenModified)
+	{
+		this.textHasNotBeenModified = textHasNotBeenModified;
+	}
+
+	public int getPositionAtTheMoment()
+	{
+		return positionAtTheMoment;
+	}
+
+	public void setPositionAtTheMoment(int positionAtTheMoment)
+	{
+		this.positionAtTheMoment = positionAtTheMoment;
+	}
+}

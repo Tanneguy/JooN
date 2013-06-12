@@ -1,0 +1,1296 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: en
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' and properties' definition files (.nof or .def), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+
+##             Peter A. Machonis, Florida International University
+##        Dictionary of English Phrasal Verbs (PV) with particles "out" and "up"
+##
+## This dictionary includes an exhaustive list of transitive and neutral phrasal verbs followed by 
+## the particle "up" (over 700 entries), a rather substantial list of transitive phrasal verbs
+## followed by "out" (200 entries), "down" (100 entries), "off" (90 entries), and a small
+## sampling of other particles such as "away," "back," "in," "on," "over," etc.
+##
+## The following resources were consulted in compiling this dictionary:   
+##      American Heritage Dictionary of the English Language. 2000. Fourth Edition. Boston: Houghton Mifflin Company.  
+##      Cambridge International Dictionary of Phrasal Verbs. 1997. Cambridge: Cambridge University Press.  
+##      Fraser, Bruce. 1976. The Verb-Particle Combination in English. New York: Academic Press.
+##      Longman Phrasal Verbs Dictionary. 2000. Essex: Pearson Education Limited. 
+##      Spears, Richard A. 1996. Basic Phrasal Verbs. Lincolnwood: NTC Publishing Group.
+##
+##  If you use this data, please cite the following source:
+##      Machonis, Peter A.  2009.  NooJ Dictionary of English Phrasal Verbs. <http://www.nooj4nlp.net/>
+##
+##  If you find errors in this data, please send feedback to machonis@fiu.edu
+##
+
+#use _Verbs.nof
+
+act,V+PV+FXC+Part=out+N0Hum+N1example=a story+N1NHum+synonym=perform+FLX=ASK
+air,V+PV+FXC+Part=out+N0Hum+N1example=the problem+N1NHum+synonym=discuss+FLX=ASK
+air,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the room+N1NHum+N1VPart+synonym=freshen+FLX=ASK
+argue,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the bill+N1Hum+N1NHum+NoPart+synonym=dispute+FLX=LIVE
+argue,V+PV+FXC+Part=out+N0Hum+N1example=the details+N1NHum+synonym=discuss+FLX=LIVE
+ask,V+PV+FXC+Part=in+N0Hum+N1example=Max+N1Hum+synonym=ask to come in+FLX=ASK
+ask,V+PV+FXC+Part=over+N0Hum+N1example=Max+N1Hum+synonym=ask to come over+FLX=ASK
+ask,V+PV+FXC+Part=out+N0Hum+N1example=Sue+N1Hum+synonym=ask to go out (on a date or for a social function)+FLX=ASK
+auction,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the painting+N1Hum+N1NHum+NoPart+synonym=sell+FLX=ASK+t
+average,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the figures+N1NHum+NoPart+N1VPart+synonym=average+RelatedExpression=N1 average out (at/to) N2+FLX=LIVE+t
+bail,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the boat+N1NHum+NoPart+synonym=remove water from+FLX=ASK
+bail,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the client+N1Hum+N1NHum+synonym=save from difficulties (by giving N1 money)+FLX=ASK
+bang,V+PV+FXC+Part=out+N0Hum+N1example=the report+N1NHumN1VPart+synonym=type quickly+FLX=ASK
+bang,V+PV+FXC+Part=out+N0Hum+N1example=the tune+N1NHum+NoPart+N1VPart+synonym=play loudly+FLX=ASK
+bark,V+PV+FXC+Part=out+N0Hum+N1example=commands+N1NHum+NoPart+synonym=shout+FLX=ASK
+bat,V+PV+FXC+Part=out +N0Hum+N1example=thank you cards+N1NHum+synonym=produce quickly+FLX=ADMIT
+bawl,V+PV+FXC+Part=out+N0Hum+N1example=Mary+N1Hum+synonym=scold+FLX=ASK
+bawl,V+PV+FXC+Part=out+N0Hum+N1example=the orders+N1NHum+synonym=shout+FLX=ASK
+beam,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the astronauts+N1Hum+N1NHum+N1VPart+synonym=transport by energy+FLX=ASK
+bear,V+PV+FXC+Part=out+N1Hum+N1example=the assertion+N1Hum+N1NHum+synonym=proved correct+FLX=ASK
+bear,V+PV+FXC+Part=out+N1Hum+N1example=the assertion+N1Hum+N1NHum+synonym=proved correct+FLX=BEAR
+beat,V+PV+FXC+Part=down+N0Hum+N1example=the door+N1NHum+synonym=destroy+FLX=BEAT
+beat,V+PV+FXC+Part=out+N0Hum+N1example=the fire+N1NHum+synonym=put out by hitting+FLX=BEAT
+beat,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the competition+N1Hum+N1NHum+NoPart+synonym=beat+FLX=BEAT
+bed,V+PV+FXC+Part=out+N0Hum+N1example=the plants+N1NHum+synonym=plant in the ground+FLX=ADMIT
+belch,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=smoke+N1NHum+NoPart+N1VPart+synonym=belch+FLX=ABOLISH
+belt,V+PV+FXC+Part=out+N0Hum+N1example=the tune+N1NHum+synonym=play or sing loudly+FLX=ASK
+bend,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the pages+N1NHum+NoPart+N1VPart+synonym=bend+FLX=BEND
+bid,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the competitors+N1Hum+N1NHum+synonym=outbid+RelatedExpression=N0 outbid N1+FLX=FORBID
+bitch,V+PV+FXC+Part=out+N0Hum+N1example=Max+N1Hum+synonym=criticize/hollow at+FLX=ABOLISH
+blank,V+PV+FXC+Part=out+N0Hum+N1example=the memories+N1NHum+synonym=suppress+FLX=ASK
+blank,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the paragraph+N1NHum+synonym=cover over+FLX=ASK
+blast,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the music+N1NHum+NoPart+N1VPart+synonym=blast+FLX=ASK
+block,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the street+N1NHum+NoPart+synonym=close+FLX=ASK
+block,V+PV+FXC+Part=out+N0Hum+N1example=the play+N1NHum+NoPart+synonym=sketch+FLX=ASK
+block,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=sensitive material+N1NHum+synonym=obscure+FLX=ASK
+block,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the memories+N1NHum+synonym=suppress+FLX=ASK
+blot,V+PV+FXC+Part=out+N0Hum+N1example=the answer+N1NHum+synonym=erase+FLX=ADMIT
+blot,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the bad memories+N1Hum+N1NHum+synonym=suppress+FLX=ADMIT
+blow,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the spectators+N1Hum+N1NHum+synonym=overwhelm+FLX=BLOW
+blow,V+PV+FXC+Part=away+N0NHum+N1example=the leaves+N1Hum+N1NHum+NoPart+N1VPart+synonym=blow+FLX=BLOW
+blow,V+PV+FXC+Part=down+N0NHum+N1example=the tree+N1Hum+N1NHum+N1VPart+synonym=cause to fall+FLX=BLOW
+blow,V+PV+FXC+Part=off+N0Hum+N1example=class+N1Hum+N1NHum+synonym=not attend or accompany+FLX=BLOW
+blow,V+PV+FXC+Part=over+N0NHum+N1example=the tree+N1Hum+N1NHum+N1VPart+synonym=cause to fall+FLX=BLOW
+blow,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the candle+N1NHum+N1VPart+synonym=extinguish+FLX=BLOW
+blow,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the front tire+N1NHum+NoPart+N1VPart+synonym=deflate suddenly+Nom=have a blowout+FLX=BLOW
+blow,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the windows+N1NHum+N1VPart+synonym=break+FLX=BLOW
+blow,V+PV+FXC+Part=out+N1Hum+N1example=the other team+N1NHum+synonym=easily defeat+Nom=it was a blow-out+FLX=BLOW
+bluff,V+PV+FXC+Part=out+N0Hum+N1example=the concierge+N1Hum+synonym=deceive or lie about something+FLX=ASK
+blurt,V+PV+FXC+Part=out+N0Hum+N1example=the information+N1NHum+N1VPart+synonym=say something without thinking+FLX=ASK
+bog,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the peace talks+N1NHum+N1VPart+synonym=delay progress of+FLX=ADMIT
+boil,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the water+N1NHum+NoPart+N1VPart+synonym=boil+FLX=ASK
+boil,V+PV+FXC+Part=down+N0Hum+N1example=the mushrooms+N1NHum+NoPart+N1VPart+synonym=boil+FLX=ASK
+boom,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the music+N1NHum+N1VPart+synonym=play loudly+FLX=ASK
+boss,V+PV+FXC+Part=around+N0Hum+N1example=Max+N1Hum+synonym=give orders to+FLX=ABOLISH
+box,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=limit/confine+FLX=ABOLISH
+break,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=Mary+N1Hum+N1VPart+synonym=cause to submit+FLX=SPEAK
+break,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the door+N1NHum+synonym=destroy+FLX=SPEAK
+break,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the solution+N1NHum+N1VPart+synonym=decomposebreak down+FLX=SPEAK
+break,V+PV+FXC+Part=in +N0Hum+N1example=the door+N1NHum+NoPart+synonym=destroy+FLX=SPEAK
+break,V+PV+FXC+Part=in+N0Hum+N1example=the employee+N1Hum+N1NHum+synonym=train+FLX=SPEAK
+break,V+PV+FXC+Part=out+N0Hum+N1example=the champagne+N1NHum+synonym=bring out for use+FLX=SPEAK
+break,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the data+N1NHum+synonym=sort+FLX=SPEAK
+breathe,V+PV+FXC+Part=in+N0Hum+N1example=the air+N1NHum+NoPart+synonym=breathe+FLX=LIVE
+breathe,V+PV+FXC+Part=out+N0Hum+N1example=the CO2+N1NHum+synonym=exhale+RelatedExpression=also intrans.+FLX=LIVE
+bring,V+PV+FXC+Part=about+N0Hum+N0NHum+N1example=the accident+N1NHum+synonym=cause+FLX=BRING
+bring,V+PV+FXC+Part=back+N0Hum+N1example=the jacket+N1Hum+N1NHum+synonym=return+FLX=BRING
+bring,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=cost+N1NHum+synonym=lower+FLX=BRING
+bring,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=Max+N1Hum+NoPart+synonym=make sad+FLX=BRING
+bring,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=$100+N1NHum+synonym=produce income+FLX=BRING
+bring,V+PV+FXC+Part=out+N0Hum+N1example=the magazine+N1Hum+N1NHum+synonym=show/publish+FLX=BRING
+bring,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=Max+N1Hum+synonym=make less shy+FLX=BRING
+bring,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the facts+N1NHum+synonym=reveal+FLX=BRING
+broaden,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the discussion+N1NHum+NoPart+N1VPart+synonym=become larger+FLX=ASK
+brush,V+PV+FXC+Part=down+N0Hum+N1example=the jacket+N1NHum+NoPart+synonym=clean/brush+FLX=ABOLISH
+brush,V+PV+FXC+Part=off+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=dismiss+FLX=ABOLISH
+buckle,V+PV+FXC+Part=in+N0Hum+N1example=the children+N1Hum+synonym=attach seat belts+FLX=LIVE
+bulk,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the athlete+N1Hum+N1NHum+N1VPart+synonym=make bigger/heavier+FLX=ASK
+bum,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=group+N1Hum+synonym=upset+Nom=what a bum out!+FLX=ADMIT
+bunch,V+PV+FXC+Part=together+N0Hum+N0NHum+N1example=the passengers+N1Hum+N1NHum+N1VPart+synonym=move close together+FLX=ABOLISH
+burn,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the crabgrass+N1NHum+NoPart+N1VPart+synonym=destroy by fire+FLX=LEARN
+burn,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the building+N1NHum+NoPart+N1VPart+synonym=burn+FLX=LEARN
+burn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the families+N1Hum+synonym=make s.o. leave by burning their house+FLX=LEARN
+burn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the motor+N1NHum+N1VPart+synonym=ruin+FLX=LEARN
+burn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the teacher+N1Hum+N1VPart+synonym=become exhausted+Nom=professional burnout+FLX=LEARN
+buy,V+PV+FXC+Part=back+N0Hum+N1example=the dog+N1Hum+N1NHum+NoPart+synonym=purchase+FLX=BUY
+buy,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the police+N1Hum+NoPart+synonym=bribe+FLX=BUY
+buy,V+PV+FXC+Part=out+N0Hum+N1example=the pears+N1NHum+NoPart+synonym=buy all of something+Nom=buyout (of a company)+FLX=BUY
+buy,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the competition+N1Hum+N1NHum+NoPart+synonym=remove+FLX=BUY
+call,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the friend+N1Hum+NoPart+synonym=call+FLX=ASK
+call,V+PV+FXC+Part=down+N0Hum+N1example=the student+N1Hum+synonym=criticize+FLX=ASK
+call,V+PV+FXC+Part=off+N0Hum+N1example=the engagement+N1NHum+synonym=cancel+FLX=ASK
+call,V+PV+FXC+Part=off+N0Hum+N1example=the trip+N1NHum+synonym=cancel+FLX=ASK
+call,V+PV+FXC+Part=out+N0Hum+N1example=the firefighters+N1Hum+N1NHum+NoPart+synonym=summon (skilled workers/organization) for help+FLX=ASK
+call,V+PV+FXC+Part=out+N0Hum+N1example=the workers+N1Hum+synonym=call a strike+FLX=ASK
+call,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the numbers+N1NHum+NoPart+synonym=shout+FLX=ASK
+calm,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+NoPart+N1VPart+synonym=cause to become quiet+FLX=ASK
+carry,V+PV+FXC+Part=around+N0Hum+N1example=the picture+N1Hum+N1NHum+NoPart+synonym=carry+FLX=APPLY
+carry,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the body+N1Hum+N1NHum+synonym=remove+FLX=APPLY
+carry,V+PV+FXC+Part=forward+N0Hum+N1example=the figures+N1NHum+N1VPart+synonym=transfer to next column+FLX=APPLY
+carry,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the children+N1Hum+N1NHum+synonym=remove+FLX=APPLY
+carry,V+PV+FXC+Part=off+N1example=the plan+N1NHum+synonym=handle successfully+FLX=APPLY
+carry,V+PV+FXC+Part=on+N0Hum+N1example=a family tradition+N1NHum+N1VPart+synonym=maintain+FLX=APPLY
+carry,V+PV+FXC+Part=out+N0Hum+N1example=their duties+N1NHum+synonym=follow+FLX=APPLY
+carry,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the assignment+N1NHum+synonym=accomplish+FLX=APPLY
+carry,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the attack+N1NHum+synonym=do something as planned+FLX=APPLY
+cart,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the branches+N1Hum+N1NHum+synonym=remove+FLX=ASK
+cave,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the roof+N1NHum+N1VPart+synonym=break apartcave in+FLX=LIVE
+chalk,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the play+N1NHum+synonym=illustrate with chalk+FLX=ASK
+chase,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the competition+N1Hum+N1NHum+synonym=repel+FLX=LIVE
+chase,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the killer+N1Hum+N1NHum+synonym=find+FLX=LIVE
+check,V+PV+FXC+Part=in+N0Hum+N1example=the books+N1NHum+synonym=return/examine+FLX=ASK
+check,V+PV+FXC+Part=in+N0Hum+N1example=the visitor+N1Hum+N1NHum+N1VPart+synonym=register+FLX=ASK
+check,V+PV+FXC+Part=off+N0Hum+N1example=the guests+N1Hum+N1NHum+synonym=verify on list+FLX=ASK
+check,V+PV+FXC+Part=over+N0Hum+N1example=the details+N1Hum+N1NHum+synonym=examine+FLX=ASK
+check,V+PV+FXC+Part=out+N0Hum+N1example=the situation+N1Hum+N1NHum+synonym=investigate+FLX=ASK
+check,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the items+N1NHum+synonym=record price of and take payment for+FLX=ASK
+check,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the references+N1Hum+N1NHum+NoPart+N1VPart+synonym=verify as correct+FLX=ASK
+chew,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the fat+N1NHum+NoPart+synonym=chew+FLX=ASK
+chew,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the fat+N1NHum+NoPart+synonym=chew+FLX=ASK
+chew,V+PV+FXC+Part=out+N0Hum+N1example=Max+N1Hum+synonym=scold+FLX=ASK
+choke,V+PV+FXC+Part=back+N0Hum+N1example=the tears+N1NHum+synonym=fight back+FLX=LIVE
+choke,V+PV+FXC+Part=down+N0Hum+N1example=the medicine+N1NHum+synonym=swallow with difficulty+FLX=LIVE
+chop,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the tree+N1NHum+NoPart+synonym=chop+FLX=ADMIT
+chop,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the sentence+N1Hum+N1NHum+synonym=cut off/curtail+FLX=ADMIT
+chuck,V+PV+FXC+Part=out+N0Hum+N1example=the clothes+N1Hum+N1NHum+synonym=dispose/throw out+FLX=ASK
+churn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the clothing+N1NHum+synonym=produce quickly+FLX=ASK
+clap,V+PV+FXC+Part=out+N0Hum+N1example=the beat+N1NHum+NoPart+synonym=clap to+FLX=ADMIT
+clean,V+PV+FXC+Part=down+N0Hum+N1example=the sidewalk+N1Hum+N1NHum+NoPart+synonym=clean+FLX=ASK
+clean,V+PV+FXC+Part=off+N0Hum+N1example=the table+N1NHum+synonym=tidy+FLX=ASK
+clean,V+PV+FXC+Part=out+N0Hum+N1example=the investors+N1Hum+synonym=take money from+FLX=ASK
+clean,V+PV+FXC+Part=out+N0Hum+N1example=the place+N1NHum+NoPart+synonym=steal everything from+FLX=ASK
+clean,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the closet+N1NHum+NoPart+synonym=tidy+Nom=a throrough clean-out+FLX=ASK
+clear,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the area+N1NHum+NoPart+N1VPart+synonym=clean+FLX=ASK
+clear,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the debris+N1NHum+NoPart+synonym=take away+FLX=ASK
+clear,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the table+N1NHum+NoPart+synonym=tidy+FLX=ASK
+clear,V+PV+FXC+Part=out+N0Hum+N1example=the closets+N1NHum+NoPart+synonym=tidy+Nom=a good clear-out+FLX=ASK
+clip,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the hairs+N1NHum+NoPart+synonym=cut/trim+FLX=ADMIT
+clip,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the hedges+N1NHum+NoPart+synonym=cut/trim+FLX=ADMIT
+clip,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the strings+N1NHum+NoPart+synonym=cut/trim+FLX=ADMIT
+clock,V+PV+FXC+Part=in+N0Hum+N1example=the employee+N1Hum+synonym=record time of arrival+FLX=ASK
+clock,V+PV+FXC+Part=out+N0Hum+N1example=the employee+N1Hum+synonym=record time of departure+FLX=ASK
+close,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the restaurant+N1NHum+NoPart+N1VPart+synonym=force out of business+FLX=LIVE
+close,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the class+N1NHum+NoPart+synonym=stop registration+FLX=LIVE
+close,V+PV+FXC+Part=out+N1Hum+N1example=the season+N1NHum+NoPart+synonym=end+FLX=LIVE
+close,V+PV+FXC+Part=out+N1Hum+N1example=winter goods+N1NHum+synonym=sell goods cheaply+Nom=a close-out sale+FLX=LIVE
+comb,V+PV+FXC+Part=out+N0Hum+N1example=the hair+N1NHum+NoPart+synonym=make neat+FLX=ASK
+contract,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the job+N1NHum+synonym=make agreement on+FLX=ASK
+cool,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the drinks+N1Hum+N1NHum+NoPart+N1VPart+synonym=make less hot+FLX=ASK
+cool,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the player+N1Hum+N1VPart+synonym=make less angry+FLX=ASK
+cool,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the drinks+N1Hum+N1NHum+NoPart+N1VPart+synonym=make less hot+FLX=ASK
+cool,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the player+N1Hum+N1VPart+synonym=make less angry+FLX=ASK
+count,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=everyone+N1Hum+N1NHum+synonym=include+FLX=ASK
+count,V+PV+FXC+Part=off+N0Hum+N1example=the kids+N1Hum+N1NHum+synonym=count to see who's there+FLX=ASK
+count,V+PV+FXC+Part=out+N0Hum+N1example=the tickets+N1NHum+synonym=give out while counting+FLX=ASK
+crank,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the report+N1NHum+synonym=produce quickly+FLX=ASK
+cross,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the meeting+N1Hum+N1NHum+synonym=delete+FLX=ABOLISH
+crush,V+PV+FXC+Part=out+N0Hum+N1example=the cigarette+N1NHum+synonym=extinguish+FLX=ABOLISH
+cue,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the actor+N1Hum+synonym=signal+FLX=AGE
+dash,V+PV+FXC+Part=off+N0Hum+N1example=a memo+N1NHum+synonym=do quickly+FLX=ABOLISH
+deal,V+PV+FXC+Part=out+N0Hum+N1example=the cards+N1NHum+NoPart+synonym=pass out+FLX=DEAL
+dim,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the lights+N1NHum+NoPart+N1VPart+synonym=dim+FLX=ADMIT
+do,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the shoes+N1Hum+N1NHum+synonym=wear out/ruin+FLX=DO
+do,V+PV+FXC+Part=over+N0Hum+N1example=the bathroom+N1Hum+N1NHum+synonym=make attractive/remodel+FLX=DO
+double,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=Max+N1Hum+N1VPart+synonym=make bend over+FLX=LIVE
+double,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the paper+N1NHum+N1VPart+synonym=fold over+FLX=LIVE
+drag,V+PV+FXC+Part=along+N0Hum+N1example=a friend+N1Hum+N1VPart+synonym=accompany+FLX=ADMIT
+drag,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the story+N1NHum+N1VPart+synonym=extend+FLX=ADMIT
+drag,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the story+N1NHum+N1VPart+synonym=extend+FLX=ADMIT
+draw,V+PV+FXC+Part=back+N0Hum+N1example=the curtains+N1NHum+NoPart+N1VPart+synonym=open+FLX=DRAW
+draw,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the meeting+N1NHum+synonym=extend+FLX=DRAW
+dress,V+PV+FXC+Part=down+N0Hum+N1example=the student+N1Hum+synonym=scold+FLX=ABOLISH
+drink,V+PV+FXC+Part=down+N0Hum+N1example=the milk+N1NHum+NoPart+synonym=drink+FLX=DRINK
+drink,V+PV+FXC+Part=in+N0Hum+N1example=the sights+N1NHum+synonym=absorb+FLX=DRINK
+drive,V+PV+FXC+Part=away+N0Hum+N1example=the car+N1Hum+N1NHum+NoPart+N1VPart+synonym=drive+FLX=DRIVE
+drive,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the opposition+N1Hum+N1NHum+N1VPart+synonym=repel+FLX=DRIVE
+drive,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the competition+N1Hum+N1NHum+synonym=chase away+FLX=DRIVE
+drown,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the noise+N1Hum+N1NHum+synonym=cover up+FLX=ASK
+drown,V+PV+FXC+Part=out+N1Hum+N1example=the seaside sparrows+N1Hum+N1NHum+synonym=flood out+FLX=ASK
+drum,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the rhythm+N1NHum+NoPart+synonym=play+FLX=ADMIT
+dry,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the shoes+N1Hum+N1NHum+NoPart+N1VPart+synonym=dry+FLX=APPLY
+dry,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the alcoholic+N1Hum+N1VPart+synonym=cure of alcoholism+FLX=APPLY
+dry,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the T-shirt+N1NHum+NoPart+N1VPart+synonym=dry+FLX=APPLY
+dub,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the lines+N1Hum+N1NHum+NoPart+synonym=dub+FLX=ADMIT
+dust,V+PV+FXC+Part=off+N0Hum+N1example=the piano+N1Hum+N1NHum+NoPart+synonym=brush/dust+FLX=ASK
+dust,V+PV+FXC+Part=out+N0Hum+N1example=the cupboard+N1NHum+NoPart+synonym=brush/dust+FLX=ASK
+ease,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the pressure+N1NHum+NoPart+N1VPart+synonym=reduce+FLX=LIVE
+eat,V+PV+FXC+Part=away+N0NHum+N1example=the beach+N1NHum+synonym=erode+FLX=EAT
+eat,V+PV+FXC+Part=off+N0NHum+N1example=the finish+N1NHum+NoPart+synonym=erode+FLX=EAT
+eat,V+PV+FXC+Part=out+N0Hum+N1example=Chinese+N1NHum+NoPart+synonym=eat away from home+FLX=EAT
+eat,V+PV+FXC+Part=out+N0Hum+N1example=Mary+N1Hum+NoPart+synonym=perform oral sex on (vulgar)+FLX=EAT
+eat,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the coconuts+N1NHum+synonym=consume inside of+FLX=EAT
+egg,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the professor+N1Hum+synonym=incite to do something+FLX=ASK
+elbow,V+PV+FXC+Part=aside+N0Hum+N1example=the passengers+N1Hum+synonym=push+FLX=ASK
+empty,V+PV+FXC+Part=out+N0Hum+N1example=the dishwasher+N1NHum+NoPart+synonym=empty+FLX=APPLY
+even,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the floor+N1NHum+NoPart+synonym=make level+FLX=ASK
+even,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the street+N1NHum+NoPart+N1VPart+synonym=make level+FLX=ASK
+explain,V+PV+FXC+Part=away+N0Hum+N1example=the trouble+N1NHum+N1VPart+synonym=make disappear+FLX=ASK
+face,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the cards+N1NHum+N1VPart+synonym=place front side down+FLX=LIVE
+face,V+PV+FXC+Part=down+N0Hum+N1example=Max+N1Hum+N1VPart+synonym=make back down+FLX=LIVE
+fan,V+PV+FXC+Part=out+N0Hum+N1example=her hair+N1NHum+synonym=spread out+FLX=ADMIT
+farm,V+PV+FXC+Part=out+N0Hum+N1example=the workers+N1Hum+synonym=send to someone else+FLX=ASK
+farm,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the land+N1NHum+synonym=overuse+FLX=ASK
+fight,V+PV+FXC+Part=down+N0Hum+N1example=the opponents+N1Hum+N1NHum+N1VPart+synonym=oppose+FLX=FIGHT
+figure,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=expenses+N1NHum+N1VPart+synonym=include+FLX=LIVE
+figure,V+PV+FXC+Part=out+N0Hum+N1example=the puzzle+N1Hum+N1NHum+synonym=solve+FLX=LIVE
+file,V+PV+FXC+Part=away+N0Hum+N1example=the bill+N1NHum+NoPart+synonym=file+FLX=LIVE
+fill,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the tooth+N1NHum+synonym=make full+FLX=ASK
+fill,V+PV+FXC+Part=in+N0Hum+N1example=the form+N1NHum+synonym=complete+FLX=ASK
+fill,V+PV+FXC+Part=out+N0Hum+N1example=the paperwork+N1NHum+synonym=complete+FLX=ASK
+finish,V+PV+FXC+Part=off+N0Hum+N1example=the coffee+N1NHum+NoPart+synonym=finish+FLX=ABOLISH
+fix,V+PV+FXC+Part=over+N0Hum+N1example=the bathroom+N1Hum+N1NHum+synonym=redecorate+FLX=ABOLISH
+flag,V+PV+FXC+Part=down+N0Hum+N1example=the truck driver+N1Hum+N1NHum+synonym=signal+FLX=ADMIT
+flatten,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the pavement+N1Hum+N1NHum+NoPart+N1VPart+synonym=make flat+FLX=ASK
+flick,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the switch+N1NHum+NoPart+synonym=turn off+FLX=ASK
+flick,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the switch+N1NHum+NoPart+synonym=turn on+FLX=ASK
+flush,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the debris+N1NHum+N1VPart+synonym=wash away+FLX=ABOLISH
+fold,V+PV+FXC+Part=back+N0Hum+N1example=the flaps+N1NHum+NoPart+N1VPart+synonym=bend back+FLX=ASK
+fold,V+PV+FXC+Part=over+N0Hum+N1example=the paper+N1NHum+NoPart+N1VPart+synonym=bend back+FLX=ASK
+fold,V+PV+FXC+Part=out+N0Hum+N1example=the map+N1NHum+N1VPart+synonym=unfold+FLX=ASK
+freak,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=Max+N1Hum+N1NHum+NoPart+N1VPart+synonym=cause hallucinations or paranoia+Nom=freak out+FLX=ASK
+frighten,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the children+N1Hum+N1NHum+NoPart+synonym=scare off+FLX=ASK
+frighten,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the children+N1Hum+N1NHum+NoPart+synonym=scare off+FLX=ASK
+gather,V+PV+FXC+Part=in+N0Hum+N1example=the pumpkins+N1NHum+NoPart+synonym=harvest+FLX=ASK
+get,V+PV+FXC+Part=away+N0Hum+N1example=Max+N1Hum+N1NHum+N1VPart+synonym=help escapeThey managed to get Max away+FLX=GET
+give,V+PV+FXC+Part=away+N0Hum+N1example=the dog+N1Hum+N1NHum+NoPart+synonym=give+FLX=GIVE
+give,V+PV+FXC+Part=back+N0Hum+N1example=the dog+N1Hum+N1NHum+NoPart+synonym=return+FLX=GIVE
+glance,V+PV+FXC+Part=over+N0Hum+N1example=the contract+N1Hum+N1NHum+synonym=examine quickly+FLX=LIVE
+grade,V+PV+FXC+Part=down+N0Hum+N1example=the student+N1Hum+N1NHum+synonym=grade low+FLX=LIVE
+grind,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the enamel+N1NHum+NoPart+N1VPart+synonym=wear out+FLX=FIND
+grind,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the suspect+N1Hum+N1NHum+synonym=wear down+FLX=FIND
+grind,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=tires+N1NHum+synonym=produce+FLX=FIND
+grow,V+PV+FXC+Part=out+N0Hum+N1example=his hair+N1NHum+NoPart+N1VPart+synonym=let grow+FLX=BLOW
+hack,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the tree+N1NHum+synonym=chop down+FLX=ASK
+hammer,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the nails+N1NHum+synonym=pound down+FLX=ASK
+hand,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the decision+N1NHum+synonym=issue+FLX=ASK
+hand,V+PV+FXC+Part=in+N0Hum+N1example=the exam+N1NHum+synonym=return+FLX=ASK
+haul,V+PV+FXC+Part=in+N0Hum+N1example=the suspect+N1Hum+synonym=take into custody+FLX=ASK
+have,V+PV+FXC+Part=along+N0Hum+N1example=the blanket+N1Hum+N1NHum+NoPart+synonym=have+AUX+FLX=HAVE
+have,V+PV+FXC+Part=on+N0Hum+N1example=the jacket+N1NHum+NoPart+synonym=wear+AUX+FLX=HAVE
+have,V+PV+FXC+Part=out+N0Hum+N1example=a tooth+N1NHum+synonym=have removed+AUX+FLX=HAVE
+head,V+PV+FXC+Part=off+N0Hum+N1example=the robber+N1Hum+N1NHum+synonym=intercept+FLX=ASK
+hear,V+PV+FXC+Part=out+N0Hum+N1example=Max+N1Hum+synonym=hear everything from+FLX=AGREE
+help,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=Mary+N1Hum+NoPart+synonym=help+FLX=ASK
+hold,V+PV+FXC+Part=back+N0Hum+N1example=the information+N1Hum+N1NHum+synonym=keep back+FLX=HOLD
+hold,V+PV+FXC+Part=down+N0Hum+N1example=the noise+N1Hum+N1NHum+synonym=lower/keep down+FLX=HOLD
+hold,V+PV+FXC+Part=down+N0Hum+N1example=two jobs+N1NHum+NoPart+synonym=keep/perform+FLX=HOLD
+hold,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the clients+N1Hum+N1NHum+synonym=make wait or go away+FLX=HOLD
+hold,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the play+N1Hum+N1NHum+synonym=keep for more performances+FLX=HOLD
+hollow,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the pumpkin+N1NHum+synonym=make inside hollow+FLX=ASK
+hunt,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the fox+N1Hum+N1NHum+synonym=chase and catch+FLX=ASK
+hunt,V+PV+FXC+Part=out+N0Hum+N1example=the terrorists+N1Hum+N1NHum+synonym=find+FLX=ASK
+hurl,V+PV+FXC+Part=down+N0Hum+N1example=the ball+N1Hum+N1NHum+synonym=throw to ground+FLX=ASK
+ice,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the champagne+N1NHum+synonym=cool with ice+FLX=LIVE
+idle,V+PV+FXC+Part=away+N0Hum+N1example=the morning+N1NHum+synonym=waste+FLX=LIVE
+invite,V+PV+FXC+Part=out+N0Hum+N1example=the student+N1Hum+synonym=ask on a date+FLX=LIVE
+iron,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the problem+N1NHum+synonym=fix+FLX=ASK
+iron,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the sheets+N1NHum+NoPart+synonym=make smooth with iron+FLX=ASK
+jot,V+PV+FXC+Part=down+N0Hum+N1example=the answers+N1NHum+synonym=make note of+FLX=ADMIT
+keep,V+PV+FXC+Part=back+N0Hum+N1example=the player+N1Hum+N1NHum+synonym=hold in reserve+FLX=FEEL
+keep,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the dinner+N1NHum+synonym=digest+FLX=FEEL
+keep,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the protestors+N1Hum+synonym=prevent from succeeding+FLX=FEEL
+keep,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the robbers+N1Hum+N1NHum+synonym=keep from attacking+FLX=FEEL
+keep,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the employee+N1Hum+NoPart+synonym=retain+FLX=FEEL
+kick,V+PV+FXC+Part=around+N0Hum+N1example=the idea+N1NHum+synonym=entertain+FLX=ASK
+kick,V+PV+FXC+Part=down+N0Hum+N1example=the door+N1Hum+N1NHum+synonym=destroy+FLX=ASK
+kick,V+PV+FXC+Part=in+N0Hum+N1example=the door+N1Hum+N1NHum+synonym=destroy+FLX=ASK
+kick,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the festivities+N1NHum+N1VPart+synonym=beginkick off+FLX=ASK
+kill,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the species+N1Hum+N1NHum+NoPart+synonym=kill+FLX=ASK
+kiss,V+PV+FXC+Part=off+N0Hum+N1example=the jerk+N1Hum+synonym=leave+FLX=ABOLISH
+knock,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the wall+N1Hum+N1NHum+synonym=destroy/thrust to ground+FLX=ASK
+knock,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=Max+N1Hum+synonym=surprise+FLX=ASK
+knock,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the table+N1Hum+N1NHum+synonym=make fall+FLX=ASK
+knock,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the player+N1Hum+synonym=make unconscious+FLX=ASK
+last,V+PV+FXC+Part=out+N0Hum+N1example=the concert+N1NHum+synonym=endure+FLX=ASK
+laugh,V+PV+FXC+Part=down+N0Hum+N1example=the act+N1Hum+N1NHum+synonym=ridicule+FLX=ASK
+laugh,V+PV+FXC+Part=off+N0Hum+N1example=the insult+N1NHum+synonym=treat lightly+FLX=ASK
+lay,V+PV+FXC+Part=away+N0Hum+N1example=the loved one+N1Hum+synonym=bury+FLX=LAY
+lay,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the plan+N1NHum+synonym=explain+FLX=LAY
+lead,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the crowd+N1Hum+synonym=make one believe smthThe speaker lead the crowd on+FLX=LEAD
+leak,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the news+N1NHum+NoPart+N1VPart+synonym=make become known+FLX=ASK
+leave,V+PV+FXC+Part=on+N0Hum+N1example=the TV+N1NHum+synonym=leave running+FLX=LEAVE
+let,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=Fred+N1Hum+N1NHum+synonym=disappoint+FLX=CUT
+let,V+PV+FXC+Part=out+N0Hum+N1example=the suit coat+N1NHum+synonym=enlarge+FLX=CUT
+let,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the secret+N1NHum+synonym=reveal+FLX=CUT
+level,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the floor+N1NHum+NoPart+N1VPart+synonym=make more level+FLX=ADMIT
+level,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the walkway+N1NHum+NoPart+N1VPart+synonym=make more level+FLX=ADMIT
+lick,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the icing+N1NHum+NoPart+synonym=lick+FLX=ASK
+live,V+PV+FXC+Part=down+N0Hum+N1example=the misdeed+N1NHum+synonym=overcome embarrassing problem+FLX=LIVE
+lock,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the mortgage rate+N1NHum+N1VPart+synonym=fix at a certain price+FLX=ASK
+look,V+PV+FXC+Part=over+N0Hum+N1example=the package+N1Hum+N1NHum+synonym=examine+FLX=ASK
+make,V+PV+FXC+Part=over+N0Hum+N1example=the housewife+N1Hum+N1NHum+synonym=convert+FLX=MAKE
+make,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the handwriting+N1Hum+N1NHum+synonym=decipher+FLX=MAKE
+map,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=project+N1NHum+synonym=plot out+FLX=ADMIT
+mark,V+PV+FXC+Part=down+N0Hum+N1example=the number+N1NHum+synonym=write down+FLX=ASK
+mark,V+PV+FXC+Part=down+N0Hum+N1example=the product+N1NHum+synonym=lower the price of+FLX=ASK
+measure,V+PV+FXC+Part=off+N0Hum+N1example=the property+N1NHum+NoPart+synonym=measure+FLX=LIVE
+melt,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the ice+N1NHum+NoPart+N1VPart+synonym=melt+FLX=ASK
+mist,V+PV+FXC+Part=over+N0NHum+N1example=the windshield+N1NHum+NoPart+N1VPart+synonym=mist+FLX=ASK
+mop,V+PV+FXC+Part=down+N0Hum+N1example=the floors+N1NHum+NoPart+synonym=mop+FLX=ADMIT
+mop,V+PV+FXC+Part=off+N0Hum+N1example=the counters+N1NHum+NoPart+synonym=mop+FLX=ADMIT
+motion,V+PV+FXC+Part=aside+N0Hum+N1example=the speaker+N1Hum+N1NHum+synonym=signal to move aside+FLX=ASK
+move,V+PV+FXC+Part=along+N0Hum+N0NHum+N1example=the people+N1Hum+N1NHum+N1VPart+synonym=move/progress+FLX=LIVE
+move,V+PV+FXC+Part=back+N0Hum+N1example=the deadline+N1NHum+NoPart+N1VPart+synonym=reschedule+FLX=LIVE
+move,V+PV+FXC+Part=out+N0Hum+N1example=the roommate+N1Hum+NoPart+N1VPart+synonym=relocate+FLX=LIVE
+mow,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the Taliban+N1Hum+N1NHum+synonym=destroy+FLX=SHOW
+mull,V+PV+FXC+Part=over+N0Hum+N1example=the plans+N1NHum+synonym=ponder+FLX=ASK
+nail,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the boards+N1NHum+NoPart+synonym=attach+FLX=ASK
+nose,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the opposition+N1Hum+N1NHum+synonym=defeat narrowly+FLX=LIVE
+number,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the contestants+N1Hum+synonym=give numbers to+FLX=ASK
+open,V+PV+FXC+Part=out+N0Hum+N1example=the map+N1NHum+NoPart+N1VPart+synonym=open+FLX=ASK
+order,V+PV+FXC+Part=in+N0Hum+N1example=some food+N1NHum+synonym=order for delivery+FLX=ASK
+pace,V+PV+FXC+Part=out+N0Hum+N1example=the length+N1NHum+synonym=measure the distance+FLX=LIVE
+paint,V+PV+FXC+Part=over+N0Hum+N1example=the wall+N1NHum+synonym=cover+FLX=ASK
+paint,V+PV+FXC+Part=out+N0Hum+N1example=the crayon marks+N1NHum+synonym=cover over+FLX=ASK
+parade,V+PV+FXC+Part=out+N0Hum+N1example=the children+N1Hum+N1NHum+synonym=show in public+FLX=LIVE
+pass,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=skip+FLX=ABOLISH
+pass,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the people+N1Hum+N1NHum+synonym=pass above+FLX=ABOLISH
+pass,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the salt+N1Hum+N1NHum+NoPart+synonym=pass+FLX=ABOLISH
+pay,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=Max+N1Hum+synonym=get even withpayback+FLX=ASK
+pay,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=Max+N1Hum+synonym=get even withpayback+FLX=LAY
+pay,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the bill+N1NHum+NoPart+synonym=settle entire cost+FLX=ASK
+pay,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the bill+N1NHum+NoPart+synonym=settle entire cost+FLX=LAY
+pay,V+PV+FXC+Part=out+N0Hum+N1example=the cable+N1NHum+synonym=unravel/slacken+FLX=ASK
+pay,V+PV+FXC+Part=out+N0Hum+N1example=the cable+N1NHum+synonym=unravel/slacken+FLX=LAY
+pencil,V+PV+FXC+Part=in+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=write in with pencil+FLX=ADMIT
+piece,V+PV+FXC+Part=together+N0Hum+N0NHum+N1example=the story+N1NHum+N1VPart+synonym=make sense of+FLX=LIVE
+pinch,V+PV+FXC+Part=back+N0Hum+N1example=the plant+N1NHum+synonym=pinch off top part of+FLX=ABOLISH
+plan,V+PV+FXC+Part=out+N0Hum+N1example=the attack+N1NHum+synonym=make plans for+FLX=ADMIT
+plane,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the edges+N1NHum+N1VPart+synonym=smooth down with plane+FLX=LIVE
+play,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the recording+N1NHum+NoPart+N1VPart+synonym=play+FLX=ASK
+play,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the issue+N1Hum+N1NHum+synonym=weaken+FLX=ASK
+play,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the involvement+N1Hum+N1NHum+synonym=lessen+FLX=ASK
+play,V+PV+FXC+Part=through+N0Hum+N0NHum+N1example=the album+N1NHum+NoPart+N1VPart+synonym=play all the way through+FLX=ASK
+play,V+PV+FXC+Part=out+N0Hum+N1example=the roles+N1Hum+N1NHum+NoPart+N1VPart+synonym=perform+FLX=ASK
+plot,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=a strategy+N1NHum+NoPart+synonym=map out+FLX=ADMIT
+plow,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the fertilizer+N1NHum+synonym=work into soil+FLX=ASK
+point,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=errors+N1NHum+synonym=indicate+FLX=ASK
+polish,V+PV+FXC+Part=off+N0Hum+N1example=the dessert+N1NHum+synonym=finish eating+FLX=ABOLISH
+pound,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the meat+N1NHum+synonym=hammer/flatten+FLX=ASK
+print,V+PV+FXC+Part=out+N0Hum+N1example=the word+N1NHum+NoPart+synonym=print each letter of+FLX=ASK
+print,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the text+N1NHum+NoPart+N1VPart+synonym=print with computer+Nom=print out+FLX=ASK
+pull,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the shade+N1NHum+synonym=draw down+FLX=ASK
+pull,V+PV+FXC+Part=off+N0Hum+N1example=the robbery+N1NHum+synonym=succeed in doing+FLX=ASK
+pull,V+PV+FXC+Part=out+N0Hum+N1example=a gun+N1NHum+synonym=withdraw+FLX=ASK
+pump,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the pool+N1NHum+synonym=empty by pumping+FLX=ASK
+push,V+PV+FXC+Part=along+N0Hum+N1example=the child+N1Hum+N1NHum+NoPart+N1VPart+synonym=hurry+FLX=ABOLISH
+push,V+PV+FXC+Part=aside+N0Hum+N0NHum+N1example=the books+N1Hum+N1NHum+NoPart+synonym=displace+FLX=ABOLISH
+push,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the plate+N1Hum+N1NHum+NoPart+synonym=move+FLX=ABOLISH
+push,V+PV+FXC+Part=back+N0Hum+N1example=the deadline+N1Hum+N1NHum+NoPart+synonym=move+FLX=ABOLISH
+push,V+PV+FXC+Part=off+N0Hum+N1example=the ship+N1Hum+N1NHum+NoPart+N1VPart+synonym=sail+FLX=ABOLISH
+push,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the baby+N1Hum+N1NHum+NoPart+N1VPart+synonym=force+FLX=ABOLISH
+put,V+PV+FXC+Part=down+N0Hum+N1example=the animal+N1NHum+synonym=kill mercifully+FLX=CUT
+put,V+PV+FXC+Part=down+N0Hum+N1example=the speaker+N1Hum+synonym=criticizea put-down+FLX=CUT
+put,V+PV+FXC+Part=off+N0Hum+N1example=the work+N1Hum+N1NHum+synonym=neglect+FLX=CUT
+put,V+PV+FXC+Part=on+N0Hum+N1example=the entire class+N1Hum+N1NHum+synonym=tease/deceiveHe's putting the entire class on+FLX=CUT
+put,V+PV+FXC+Part=on+N0Hum+N1example=the hat+N1NHum+synonym=don+FLX=CUT
+put,V+PV+FXC+Part=?out+N0Hum+N1Hum+N1example=Max+N1Hum+synonym=annoy+Nom=put Max out+FLX=CUT
+put,V+PV+FXC+Part=out+N0Hum+N1example=the garbage+N1NHum+synonym=place outside+FLX=CUT
+puzzle,V+PV+FXC+Part=out+N0Hum+N1example=the game+N1NHum+synonym=figure out+FLX=LIVE
+quiet,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the audience+N1Hum+N1NHum+N1VPart+synonym=make more quiet/less noisy+FLX=ASK
+raffle,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the prize+N1Hum+N1NHum+NoPart+synonym=have drawing for+FLX=LIVE
+rain,V+PV+FXC+Part=out+N1Hum+N1example=the event+N1NHum+synonym=postpone+FLX=RAIN
+rake,V+PV+FXC+Part=in+N0Hum+N1example=the bets+N1NHum+N1VPart+synonym=gather+FLX=LIVE
+rake,V+PV+FXC+Part=out+N0Hum+N1example=the yard+N1NHum+NoPart+synonym=rake+FLX=LIVE
+rattle,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the list+N1NHum+synonym=recite quickly+FLX=LIVE
+reason,V+PV+FXC+Part=out+N0Hum+N1example=the situation+N1NHum+synonym=resolve+FLX=ASK
+reel,V+PV+FXC+Part=in+N0Hum+N1example=the fish+N1NHum+synonym=bring in by winding+FLX=ASK
+reel,V+PV+FXC+Part=off+N0Hum+N1example=the speech+N1NHum+synonym=recite quickly by memory+FLX=ASK
+ride,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the elevator+N1NHum+NoPart+synonym=ride+FLX=WRITE
+ride,V+PV+FXC+Part=down+N0Hum+N1example=the horse+N1Hum+N1NHum+synonym=chase down+FLX=WRITE
+ride,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the storm+N1NHum+synonym=endure+FLX=WRITE
+ring,V+PV+FXC+Part=back+N0Hum+N1example=the caller+N1Hum+synonym=call back+FLX=ASK
+ring,V+PV+FXC+Part=back+N0Hum+N1example=the caller+N1Hum+synonym=call back+FLX=DRINK
+rinse,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the dog+N1Hum+N1NHum+synonym=clean with water+FLX=LIVE
+rinse,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the towels+N1NHum+NoPart+synonym=clean with water+FLX=LIVE
+rip,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the flyers+N1NHum+synonym=remove+FLX=ADMIT
+rip,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=rob/cheatwhat a rip-off+FLX=ADMIT
+roar,V+PV+FXC+Part=out+N0Hum+N1example=the warning+N1NHum+NoPart+N1VPart+synonym=shout+FLX=ASK
+roll,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the cart+N1NHum+N1VPart+synonym=make move by rolling+FLX=ASK
+roll,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=prices+N1NHum+N1VPart+synonym=reduceroll back+FLX=ASK
+roll,V+PV+FXC+Part=back+N0Hum+N1example=the toy+N1NHum+NoPart+N1VPart+synonym=return by rolling+FLX=ASK
+roll,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the window+N1Hum+N1NHum+N1VPart+synonym=move downward+FLX=ASK
+roll,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the paint+N1NHum+synonym=apply by rolling+FLX=ASK
+roll,V+PV+FXC+Part=over+N0Hum+N1example=the patient+N1Hum+N1NHum+N1VPart+synonym=rotate+FLX=ASK
+roll,V+PV+FXC+Part=out+N0Hum+N1example=the keg+N1NHum+NoPart+N1VPart+synonym=push along+FLX=ASK
+rope,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the scene+N1NHum+synonym=isolate+FLX=LIVE
+round,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the numbers+N1NHum+NoPart+synonym=make whole numbers of+FLX=ASK
+round,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the figures+N1NHum+NoPart+synonym=make whole numbers of+FLX=ASK
+rub,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the dirt+N1NHum+N1VPart+synonym=remove+FLX=ADMIT
+rub,V+PV+FXC+Part=down+N0Hum+N1example=the athlete+N1Hum+N1NHum+synonym=massagegive s.o. a rub down+FLX=ADMIT
+rub,V+PV+FXC+Part=in+N0Hum+N1example=the sunscreen+N1NHum+synonym=apply+FLX=ADMIT
+rule,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=that possibility+N1Hum+N1NHum+synonym=eliminate+FLX=LIVE
+run,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the children+N1Hum+N1NHum+synonym=drive over+FLX=RUN
+run,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the engine+N1NHum+N1VPart+synonym=break down+FLX=RUN
+run,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the attackers+N1Hum+N1NHum+N1VPart+synonym=chase(run off)+FLX=RUN
+run,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the copies+N1NHum+NoPart+synonym=make+FLX=RUN
+run,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the bird+N1Hum+N1NHum+synonym=drive over+FLX=RUN
+salt,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the fish+N1NHum+NoPart+synonym=salt+FLX=ASK
+scale,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the idea+N1NHum+synonym=downscale+FLX=LIVE
+scare,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+NoPart+synonym=frighten away+FLX=LIVE
+scare,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+NoPart+synonym=frighten away+FLX=LIVE
+scour,V+PV+FXC+Part=out+N0Hum+N1example=the pans+N1NHum+NoPart+N1VPart+synonym=clean by scouring+FLX=ASK
+scrape,V+PV+FXC+Part=out+N0Hum+N1example=the pot+N1NHum+NoPart+N1VPart+synonym=empty by scraping+FLX=LIVE
+scratch,V+PV+FXC+Part=out+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=eliminate+FLX=ABOLISH
+screen,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the applicants+N1Hum+N1NHum+NoPart+synonym=filter+FLX=ASK
+screw,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the table+N1NHum+synonym=secure+FLX=ASK
+screw,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the fuse+N1NHum+N1VPart+synonym=insert by turning+FLX=ASK
+scrub,V+PV+FXC+Part=down+N0Hum+N1example=the baby+N1Hum+N1NHum+NoPart+synonym=clean thoroughly+FLX=ADMIT
+scrub,V+PV+FXC+Part=off+N0Hum+N1example=the table+N1Hum+N1NHum+NoPart+N1VPart+synonym=clean+FLX=ADMIT
+scrub,V+PV+FXC+Part=out+N0Hum+N1example=the tub+N1NHum+NoPart+N1VPart+synonym=clean+FLX=ADMIT
+see,V+PV+FXC+Part=off+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=accompany/say good-bye+FLX=SEE
+see,V+PV+FXC+Part=through+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=see the deception in+FLX=SEE
+see,V+PV+FXC+Part=through+N0Hum+N0NHum+N1example=the project+N1NHum+synonym=stay with until completionMax saw the projet through+FLX=SEE
+sell,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the furniture+N1NHum+NoPart+N1VPart+synonym=sell+FLX=SELL
+sell,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the agent+N1Hum+N1NHum+synonym=betray+FLX=SELL
+set,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=Max+N1Hum+synonym=make angry+FLX=CUT
+set,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the alarm+N1NHum+N1VPart+synonym=start/ignite+FLX=CUT
+set,V+PV+FXC+Part=off+N0NHum+N1example=the art work+N1NHum+synonym=make distinct+FLX=CUT
+settle,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the students+N1Hum+N1NHum+N1VPart+synonym=make become quietThe teacher settled the students down+FLX=LIVE
+shake,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the water+N1Hum+N1NHum+N1VPart+synonym=remove+FLX=TAKE
+shake,V+PV+FXC+Part=out+N0Hum+N1example=the rugs+N1NHum+NoPart+N1VPart+synonym=clean+FLX=TAKE
+shear,V+PV+FXC+Part=off+N0NHum+N1example=the rudder+N1NHum+NoPart+N1VPart+synonym=shear/break+FLX=SHEAR
+shout,V+PV+FXC+Part=back+N0Hum+N1example=the instructions+N1NHum+NoPart+synonym=yell+FLX=ASK
+shout,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the speaker+N1Hum+synonym=stop from speaking+FLX=ASK
+show,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the dress+N1Hum+N1NHum+NoPart+synonym=display+FLX=SHOW
+shrug,V+PV+FXC+Part=off+N0Hum+N1example=the remarks+N1Hum+N1NHum+synonym=ignore+FLX=ADMIT
+shut,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the business+N1Hum+N1NHum+N1VPart+synonym=closeshut down+FLX=CUT
+shut,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the machine+N1Hum+N1NHum+N1VPart+synonym=force to stopshut down+FLX=CUT
+shut,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the students+N1Hum+N1VPart+synonym=enclose+FLX=CUT
+shut,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the lights+N1NHum+N1VPart+synonym=disengage+FLX=CUT
+shut,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the machine+N1NHum+N1VPart+synonym=stop+FLX=CUT
+shut,V+PV+FXC+Part=out+N0Hum+N1example=the surroundings+N1Hum+N1NHum+synonym=disregard+FLX=CUT
+sign,V+PV+FXC+Part=away+N0Hum+N1example=his rights+N1NHum+synonym=abandon+FLX=ASK
+sign,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the players+N1Hum+N1VPart+synonym=registersign in+FLX=ASK
+sign,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the patient+N1Hum+N1VPart+synonym=dismiss+FLX=ASK
+slap,V+PV+FXC+Part=on+N0Hum+N1example=his jeans+N1NHum+synonym=put on quickly+FLX=ADMIT
+slap,V+PV+FXC+Part=together+N0Hum+N0NHum+N1example=the roof+N1NHum+synonym=make quicklyThe workers slapped the roof together+FLX=ADMIT
+sleep,V+PV+FXC+Part=off+N0Hum+N1example=the headache+N1NHum+synonym=stop effects by sleeping+FLX=FEEL
+slice,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=a piece+N1NHum+NoPart+N1VPart+synonym=cut by slicing+FLX=LIVE
+slim,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the company+N1NHum+N1VPart+synonym=employ fewer personnel+FLX=ADMIT
+slip,V+PV+FXC+Part=off+N0Hum+N1example=the shoes+N1NHum+N1VPart+synonym=remove clothing+FLX=ADMIT
+slip,V+PV+FXC+Part=on+N0Hum+N1example=the shoes+N1NHum+synonym=put on quickly+FLX=ADMIT
+slow,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the car+N1Hum+N1NHum+NoPart+N1VPart+synonym=decrease speedslow down+FLX=ASK
+slow,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the patient+N1Hum+N1VPart+synonym=make less active+FLX=ASK
+smash,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the window+N1NHum+NoPart+N1VPart+synonym=crush+FLX=ABOLISH
+smooth,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the shirt+N1NHum+synonym=make flat+FLX=ASK
+smooth,V+PV+FXC+Part=out+N0Hum+N1example=the wrinkle+N1NHum+N1VPart+synonym=make flat+FLX=ASK
+smooth,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the style+N1NHum+synonym=polish+FLX=ASK
+snip,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the branch+N1NHum+NoPart+N1VPart+synonym=break+FLX=ADMIT
+snow,V+PV+FXC+Part=in+N0NHum+N1example=the people+N1Hum+N1NHum+synonym=block because of snow+FLX=RAIN
+soap,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the car+N1Hum+N1NHum+synonym=cover with soap+FLX=ASK
+sort,V+PV+FXC+Part=out+N0Hum+N1example=the problem+N1NHum+synonym=find a solution for+FLX=ASK
+sort,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the data+N1NHum+NoPart+N1VPart+synonym=classify+FLX=ASK
+sponge,V+PV+FXC+Part=away+N0Hum+N1example=the stain+N1NHum+N1VPart+synonym=absorb/wipe away+FLX=LIVE
+sponge,V+PV+FXC+Part=down+N0Hum+N1example=the counter+N1Hum+N1NHum+synonym=remove water+FLX=LIVE
+spurt,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=water+N1NHum+NoPart+N1VPart+synonym=spurt+FLX=ASK
+squash,V+PV+FXC+Part=down+N0Hum+N1example=the ice cream+N1NHum+NoPart+N1VPart+synonym=pack down+FLX=ABOLISH
+squeak,V+PV+FXC+Part=through+N0Hum+N1example=the application+N1NHum+N1VPart+synonym=bearly approveMax squeaked the application through+FLX=ASK
+stake,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the property+N1NHum+synonym=mark the boundaries of+FLX=LIVE
+stall,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the clients+N1Hum+N1NHum+NoPart+synonym=hold off+FLX=ASK
+stammer,V+PV+FXC+Part=out+N0Hum+N1example=the apology+N1NHum+N1VPart+synonym=say haltingly+FLX=ASK
+stare,V+PV+FXC+Part=down+N0Hum+N1example=the opponent+N1Hum+synonym=make back down+FLX=LIVE
+stick,V+PV+FXC+Part=down+N0Hum+N1example=the stamps+N1NHum+N1VPart+synonym=fasten+FLX=ASK
+stick,V+PV+FXC+Part=down+N0Hum+N1example=the stamps+N1NHum+N1VPart+synonym=fasten+FLX=STICK
+stick,V+PV+FXC+Part=out+N0Hum+N1example=his tongue+N1NHum+N1VPart+synonym=make project outward+FLX=ASK
+stick,V+PV+FXC+Part=out+N0Hum+N1example=his tongue+N1NHum+N1VPart+synonym=make project outward+FLX=STICK
+stick,V+PV+FXC+Part=out+N0Hum+N1example=the job+N1NHum+synonym=put up with+FLX=ASK
+stick,V+PV+FXC+Part=out+N0Hum+N1example=the job+N1NHum+synonym=put up with+FLX=STICK
+straighten,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the situation+N1NHum+NoPart+N1VPart+synonym=bring back to order+FLX=ASK
+straighten,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=wire+N1Hum+N1NHum+NoPart+N1VPart+synonym=make straight+FLX=ASK
+stretch,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the sweater+N1Hum+N1NHum+NoPart+N1VPart+synonym=extend+FLX=ABOLISH
+strike,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the amendment+N1NHum+synonym=invalidate+FLX=STRIKE
+strike,V+PV+FXC+Part=out+N0Hum+N1example=the player+N1Hum+N1VPart+synonym=make get three strikes (baseball)+Nom=strike out+FLX=STRIKE
+string,V+PV+FXC+Part=along+N0Hum+N1example=Max+N1Hum+synonym=deceive;They are stringing Max along+FLX=STICK
+swallow,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the pills+N1NHum+NoPart+synonym=ingest+FLX=ASK
+swear,V+PV+FXC+Part=in+N0Hum+N1example=jurors+N1Hum+synonym=administer oath to+FLX=SWEAR
+sweep,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the garage+N1NHum+NoPart+synonym=clean+FLX=FEEL
+switch,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the television+N1Hum+N1NHum+N1VPart+synonym=turn off+FLX=ABOLISH
+switch,V+PV+FXC+Part=on+N0Hum+N1example=the typewriter+N1NHum+synonym=turn on+FLX=ABOLISH
+take,V+PV+FXC+Part=apart+N0Hum+N1example=the computer+N1NHum+synonym=disassemble+FLX=TAKE
+take,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the criminal+N1Hum+N1NHum+NoPart+synonym=remove+FLX=TAKE
+take,V+PV+FXC+Part=back+N0Hum+N1example=the gift+N1Hum+N1NHum+NoPart+synonym=return+FLX=TAKE
+take,V+PV+FXC+Part=down+N0Hum+N1example=the minutes+N1NHum+NoPart+synonym=write down+FLX=TAKE
+take,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the poor child+N1Hum+N1NHum+synonym=give shelter to+FLX=TAKE
+take,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the victims+N1Hum+synonym=deceive+FLX=TAKE
+take,V+PV+FXC+Part=in+N0Hum+N1example=the information+N1NHum+synonym=process (visually)+FLX=TAKE
+take,V+PV+FXC+Part=in+N0Hum+N1example=the sights+N1NHum+synonym=absorb the view of+FLX=TAKE
+take,V+PV+FXC+Part=in+N0Hum+N1example=the suit coat+N1NHum+synonym=reduce size of+FLX=TAKE
+take,V+PV+FXC+Part=off+N0Hum+N1example=the hat+N1NHum+synonym=remove (article of clothing)+FLX=TAKE
+take,V+PV+FXC+Part=on+N0Hum+N1example=the project+N1Hum+N1NHum+synonym=agree to handle+FLX=TAKE
+take,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the country+N1Hum+N1NHum+synonym=assume responsibility for+FLX=TAKE
+take,V+PV+FXC+Part=out+N0Hum+N1example=Mary+N1Hum+NoPart+synonym=take to a socail function or on a date+FLX=TAKE
+take,V+PV+FXC+Part=out+N0Hum+N1example=Max+N1Hum+synonym=kill+FLX=TAKE
+take,V+PV+FXC+Part=out+N0Hum+N1example=the garbage+N1Hum+N1NHum+synonym=take outside+FLX=TAKE
+talk,V+PV+FXC+Part=down+N0Hum+N1example=the idea+N1Hum+N1NHum+synonym=reject+FLX=ASK
+talk,V+PV+FXC+Part=over+N0Hum+N1example=the issue+N1Hum+N1NHum+synonym=discuss+FLX=ASK
+talk,V+PV+FXC+Part=out+N0Hum+N1example=the situation+N1NHum+synonym=discuss+FLX=ASK
+tear,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the building+N1NHum+synonym=destroy+FLX=ASK
+tear,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the building+N1NHum+synonym=destroy+FLX=SWEAR
+tear,V+PV+FXC+Part=down+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=criticize+FLX=ASK
+tear,V+PV+FXC+Part=down+N0Hum+N1example=Max+N1Hum+N1NHum+synonym=criticize+FLX=SWEAR
+thaw,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=Max+N1Hum+N1NHum+N1VPart+synonym=make feel warmer+FLX=ASK
+thaw,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the meat+N1NHum+NoPart+N1VPart+synonym=thaw+FLX=ASK
+thin,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the crowd+N1NHum+N1VPart+synonym=make less dense+FLX=ADMIT
+think,V+PV+FXC+Part=over+N0Hum+N1example=the idea+N1NHum+synonym=ponder+FLX=THINK
+think,V+PV+FXC+Part=through+N0Hum+N1example=the situation+N1NHum+synonym=consider+FLX=THINK
+think,V+PV+FXC+Part=out+N0Hum+N1example=the situation+N1NHum+synonym=cogitate+FLX=THINK
+thrash,V+PV+FXC+Part=out+N0Hum+N1example=the situation+N1NHum+synonym=discuss fully+FLX=ABOLISH
+throw,V+PV+FXC+Part=around+N0Hum+N0NHum+N1example=the ball+N1NHum+NoPart+synonym=toss+FLX=BLOW
+throw,V+PV+FXC+Part=away+N0Hum+N1example=the newspaper+N1NHum+synonym=dispose+FLX=BLOW
+throw,V+PV+FXC+Part=down+N0Hum+N1example=the towel+N1NHum+synonym=slam+FLX=BLOW
+throw,V+PV+FXC+Part=off+N0Hum+N1example=the coat+N1NHum+synonym=cast off+FLX=BLOW
+throw,V+PV+FXC+Part=out+N0Hum+N1example=the newspaper+N1Hum+N1NHum+synonym=dispose+FLX=BLOW
+tie,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the curtains+N1NHum+synonym=fasten back+FLX=DIE
+tie,V+PV+FXC+Part=down+N0Hum+N1example=the table+N1NHum+synonym=fasten+FLX=DIE
+tie,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the artery+N1NHum+NoPart+synonym=close+FLX=DIE
+time,V+PV+FXC+Part=in+N0Hum+N0NHum+N1example=the employee+N1Hum+N1VPart+synonym=record arrival+FLX=LIVE
+time,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the employee+N1Hum+N1VPart+synonym=record departure+FLX=LIVE
+tip,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the table+N1NHum+NoPart+N1VPart+synonym=cause to fall+FLX=ADMIT
+tire,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the worker+N1Hum+N1NHum+NoPart+N1VPart+synonym=exhaust+FLX=LIVE
+tone,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the essay+N1NHum+synonym=make less shocking+FLX=LIVE
+topple,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the junk+N1NHum+N1VPart+synonym=cause to fall+FLX=LIVE
+toss,V+PV+FXC+Part=the lunch+N0Hum+N1example=together+N1NHum+synonym=make quickly+FLX=ABOLISH
+touch,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=cause to explode+FLX=ABOLISH
+tough,V+PV+FXC+Part=out+N0Hum+N1example=the ordeal+N1NHum+synonym=endure+FLX=ASK
+tow,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the car+N1Hum+N1NHum+NoPart+synonym=tow+FLX=ASK
+track,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the sniper+N1Hum+N1NHum+synonym=search for+FLX=ASK
+trigger,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=Max+N1Hum+N1NHum+synonym=set off+FLX=ASK
+trigger,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the explosives+N1NHum+NoPart+N1VPart+synonym=ignite+FLX=ASK
+trot,V+PV+FXC+Part=out+N0Hum+N1example=the new partner+N1Hum+N1NHum+synonym=show off/display+FLX=ADMIT
+try,V+PV+FXC+Part=out+N0Hum+N1example=the car+N1Hum+N1NHum+NoPart+synonym=try+FLX=APPLY
+turn,V+PV+FXC+Part=around+N0Hum+N0NHum+N1example=the situation+N1NHum+N1VPart+synonym=change(turn around)+FLX=ASK
+turn,V+PV+FXC+Part=back+N0Hum+N0NHum+N1example=the protestors+N1Hum+N1NHum+N1VPart+synonym=cause to go back+FLX=ASK
+turn,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the collar+N1NHum+synonym=fold down+FLX=ASK
+turn,V+PV+FXC+Part=down+N0Hum+N1example=the music+N1NHum+synonym=lower volume+FLX=ASK
+turn,V+PV+FXC+Part=down+N0Hum+N1example=the offer+N1Hum+N1NHum+synonym=reject+FLX=ASK
+turn,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the radio+N1Hum+N1NHum+N1VPart+synonym=stop+FLX=ASK
+turn,V+PV+FXC+Part=on+N0Hum+N0NHum+N1example=the radio+N1Hum+N1NHum+N1VPart+synonym=start+FLX=ASK
+turn,V+PV+FXC+Part=over+N0Hum+N0NHum+N1example=the envelope+N1Hum+N1NHum+N1VPart+synonym=make face down(turn over)+FLX=ASK
+turn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=many doctors+N1Hum+N1NHum+synonym=train/manufacture+FLX=ASK
+turn,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the lights+N1NHum+N1VPart+synonym=stop+FLX=ASK
+vote,V+PV+FXC+Part=down+N0Hum+N1example=the proposal+N1Hum+N1NHum+synonym=defeat in an election+FLX=LIVE
+wait,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the rainstorm+N1NHum+synonym=wait+FLX=ASK
+warn,V+PV+FXC+Part=off+N0Hum+N1example=everyone+N1Hum+synonym=advise to stay away+FLX=ASK
+wash,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the stains+N1NHum+N1VPart+synonym=clean+FLX=ABOLISH
+wash,V+PV+FXC+Part=away+N0NHum+N1example=the bridge+N1Hum+N1NHum+N1VPart+synonym=destroy+FLX=ABOLISH
+wash,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the sandwich+N1NHum+synonym=swallow+FLX=ABOLISH
+wash,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the clothes+N1Hum+N1NHum+NoPart+synonym=clean+FLX=ABOLISH
+wash,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the stain+N1NHum+NoPart+N1VPart+synonym=remove+FLX=ABOLISH
+wave,V+PV+FXC+Part=off+N0Hum+N1example=the incident+N1Hum+N1NHum+synonym=disregard+FLX=LIVE
+wear,V+PV+FXC+Part=away+N0Hum+N0NHum+N1example=the pavement+N1NHum+N1VPart+synonym=erode+FLX=SWEAR
+wear,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the agent+N1Hum+N1VPart+synonym=exhaust+FLX=SWEAR
+wear,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the soles+N1NHum+N1VPart+synonym=erode+FLX=SWEAR
+wear,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the clothes+N1Hum+N1NHum+N1VPart+synonym=wear+FLX=SWEAR
+wear,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the engine+N1Hum+N1NHum+NoPart+N1VPart+synonym=tire+FLX=SWEAR
+wind,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the operation+N1Hum+N1NHum+N1VPart+synonym=make go slower+FLX=ASK
+wind,V+PV+FXC+Part=down+N0Hum+N0NHum+N1example=the operation+N1Hum+N1NHum+N1VPart+synonym=make go slower+FLX=FIND
+wipe,V+PV+FXC+Part=down+N0Hum+N1example=the countertop+N1NHum+NoPart+synonym=clean+FLX=LIVE
+wipe,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the table+N1Hum+N1NHum+NoPart+synonym=wipe+FLX=LIVE
+wipe,V+PV+FXC+Part=out+N0Hum+N1Hum+N1example=the disease+N1NHum+N1VPart+synonym=eradicate+Nom=wipe out+FLX=LIVE
+work,V+PV+FXC+Part=off+N0Hum+N1example=lunch+N1NHum+synonym=do physical activity+FLX=ASK
+write,V+PV+FXC+Part=down+N0Hum+N1example=the address+N1NHum+NoPart+synonym=note+FLX=WRITE
+write,V+PV+FXC+Part=in+N0Hum+N1example=the candidate+N1Hum+N1NHum+synonym=write+FLX=WRITE
+write,V+PV+FXC+Part=off+N0Hum+N0NHum+N1example=the expense+N1Hum+N1NHum+N1VPart+synonym=rebatewrite off+FLX=WRITE
+write,V+PV+FXC+Part=out+N0Hum+N1example=the idea+N1NHum+NoPart+synonym=write down+FLX=WRITE
+
+add,V+PV+FXC+N0Hum+Part=up+FR=ajouter+N1example=the bill+N1NHum+NoPart+N1VPart+synonym=add+FLX=ASK
+ask,V+PV+FXC+N0Hum+Part=up+FR=demander à entrer+N1example=the ladies+N1Hum+synonym=ask to enter+FLX=ASK
+back,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=aider+N1example=the police+N1Hum+N1NHum+synonym=provide help for+Nom=N1 back-up+FLX=ASK
+back,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=démontrer+N1example=the ideas+N1NHum+synonym=prove N1 to be true+FLX=ASK
+back,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=sauvegarder+N1example=the information+N1NHum+synonym=make a copy of+Nom=back-up of N1+FLX=ASK
+back,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=soutenir+N1example=the teacher+N1Hum+NoPart+synonym=support (say that N1 is telling the truth)+FLX=ASK
+back,V+PV+FXC+N0Hum+Part=up+FR=conduire en marche arrière+N1example=the car+N1NHum+NoPart+N1VPart+synonym=drive in reverse+FLX=ASK
+bag,V+PV+FXC+N0Hum+Part=up+FR=empacter+N1example=the groceries+N1NHum+NoPart+synonym=put into a bag+FLX=ADMIT
+ball,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confondre+N1example=Max+N1Hum+N1NHum+synonym=confuse/bungle+FLX=ASK
+bandage,V+PV+FXC+N0Hum+Part=up+FR=bander+N1example=patient+N1Hum+N1NHum+NoPart+synonym=put a bandage on+FLX=LIVE
+bang,V+PV+FXC+N0Hum+Part=up+FR=blesser+N1example=his knee+N1Hum+N1NHum+synonym=damage seriously+FLX=ASK
+bank,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=amasser+N1example=the snow+N1NHum+synonym=make into a pile+FLX=ASK
+bash,V+PV+FXC+N0Hum+Part=up+FR=blesser+N1example=the homeless man+N1Hum+N1NHum+NoPart+synonym=hurt severely+FLX=ABOLISH
+bash,V+PV+FXC+N0Hum+Part=up+FR=détruire+N1example=oranges+N1NHum+synonym=damage+FLX=ABOLISH
+beam,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=téléporter+N1example=the aliens+N1Hum+N1NHum+N1VPart+synonym=transport by energy+FLX=ASK
+bear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=supporter+N1example=the weight+N1Hum+N1NHum+NoPart+synonym=support+FLX=ASK
+bear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=supporter+N1example=the weight+N1Hum+N1NHum+NoPart+synonym=support+FLX=BEAR
+beat,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=battre+N1example=the eggs+N1NHum+NoPart+synonym=beat+FLX=BEAT
+beat,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détruire+N1example=the door+N1NHum+synonym=damage+FLX=BEAT
+beef,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=renforcer+N1example=the proposal+N1NHum+synonym=strengthen+FLX=ASK
+bend,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=tordre+N1example=the credit card+N1NHum+NoPart+synonym=bend completely+FLX=BEND
+bind,V+PV+FXC+N0Hum+Part=up+FR=bander+N1example=the wound+N1Hum+N1NHum+NoPart+synonym=put bandage on+FLX=FIND
+block,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=obstruer+N1example=the sink+N1NHum+NoPart+N1VPart+synonym=obstruct+Nom=block up+FLX=ASK
+blow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=agrandir+N1example=the photo+N1NHum+synonym=enlarge+Nom=blowup of N1+FLX=BLOW
+blow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=exagérer+N1example=the scandal+N1NHum+N1VPart+synonym=exaggerate+Nom=blow up+FLX=BLOW
+blow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=exploser+N1example=the building+N1Hum+N1NHum+N1VPart+N1V+synonym=explode+FLX=BLOW
+blow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gonfler+N1example=the balloons+N1NHum+synonym=inflate+FLX=BLOW
+boil,V+PV+FXC+N0Hum+Part=up+FR=bouillir+N1example=some water+N1NHum+NoPart+N1V+synonym=boil+FLX=ASK
+bolster,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=donner espoir+N1example=Max+N1Hum+N1NHum+NoPart+synonym=give hope to+FLX=ASK
+bolster,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=soutenir+N1example=the theory+N1NHum+synonym=support+FLX=ASK
+boot,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=démarrer+N1example=the computer+N1NHum+NoPart+N1VPart+N1V+synonym=start+FLX=ASK
+botch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the situation+N1NHum+NoPart+synonym=bungle+FLX=ABOLISH
+bottle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embouteiller+N1example=the soda+N1NHum+NoPart+synonym=put in bottle+FLX=LIVE
+bottle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ralentir+N1example=the legislation+N1NHum+N1VPart+synonym=make progress difficult+FLX=LIVE
+bottle,V+PV+FXC+N0Hum+Part=up+FR=retenir+N1example=POSS-0 emotions+N1NHum+N1VPart+synonym=suppress/restrain+FLX=LIVE
+box,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=emboiter+N1example=the dishes+N1NHum+NoPart+synonym=pack into boxes+FLX=ABOLISH
+brace,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=soutenir+N1example=the beam+N1Hum+N1NHum+NoPart+synonym=support+FLX=LIVE
+braid,V+PV+FXC+N0Hum+Part=up+FR=tresser+N1example=s.o.'s hair+N1NHum+NoPart+synonym=braid+FLX=ASK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=briser+N1example=the couple+N1Hum+N1NHum+N1VPart+synonym=cause to end+Nom=break up+FLX=SPEAK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=casser+N1example=the sticks+N1NHum+NoPart+N1VPart+N1V+synonym=break into pieces+FLX=SPEAK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=disperser+N1example=the crowd+N1Hum+N1VPart+N1V+synonym=disperse+FLX=SPEAK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=interrompre+N1example=the audience+N1Hum+N1VPart+synonym=cause to laugh+FLX=SPEAK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=interrompre+N1example=the trip+N1NHum+synonym=interrupt & do smth in middle of+FLX=SPEAK
+break,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=perturber+N1example=the argument+N1NHum+N1VPart+synonym=end/disrupt+FLX=SPEAK
+brew,V+PV+FXC+N0Hum+Part=up+FR=concocter+N1example=a plot+N1NHum+NoPart+N1V+synonym=concoct+FLX=ASK
+brew,V+PV+FXC+N0Hum+Part=up+FR=faire+N1example=the tea+N1NHum+NoPart+N1VPart+N1V+synonym=make+FLX=ASK
+brick,V+PV+FXC+N0Hum+Part=up+FR=étouffer+N1example=the fireplace+N1NHum+synonym=close with bricks+FLX=ASK
+brighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=positiver+N1example=the day+N1NHum+NoPart+N1VPart+synonym=make happier+FLX=ASK
+brighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réconforter+N1example=Mary+N1Hum+N1VPart+N1V+synonym=make more cheerful+FLX=ASK
+bring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=apporter+N1example=the package+N1Hum+N1NHum+NoPart+synonym=bring/carry+FLX=BRING
+bring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mentionner+N1example=the issue+N1Hum+N1NHum+synonym=mention+FLX=BRING
+bring,V+PV+FXC+N0Hum+Part=up+FR=accuser+N1example=the criminal+N1Hum+synonym=charge with crime+OptPP=before N2+FLX=BRING
+bring,V+PV+FXC+N0Hum+Part=up+FR=élever+N1example=Max+N1Hum+synonym=raise/nourish/educate+Nom=N1's upbringing+OptPP=as N2+FLX=BRING
+bring,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=breakfast+N1NHum+synonym=vomit+FLX=BRING
+buck,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=encourager+N1example=the troops+N1Hum+N1VPart+synonym=encourage/make more cheerful+FLX=ASK
+buckle,V+PV+FXC+N0Hum+Part=up+FR=attacher+N1example=the sandals+N1Hum+N1NHum+synonym=attach seat belts or straps+FLX=LIVE
+buff,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=cirer+N1example=the shoes+N1NHum+NoPart+N1VPart+synonym=buff+FLX=ASK
+build,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the business+N1NHum+NoPart+N1VPart+synonym=improve+FLX=BUILD
+build,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=construire+N1example=the area+N1NHum+N1VPart+synonym=increase buildings in+Nom=built-up N1+FLX=BUILD
+build,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=entrainer+N1example=the athlete+N1Hum+N1VPart+synonym=nourish to make stronger+FLX=BUILD
+build,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=préparer+N1example=the audience+N1Hum+synonym=gradually prepare+OptPP=to N2+FLX=BUILD
+build,V+PV+FXC+N0Hum+Part=up+FR=éloger+N1example=the play+N1Hum+N1NHum+synonym=praise+Nom=build-up+FLX=BUILD
+bulk,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=grossir+N1example=the omelette+N1Hum+N1NHum+N1VPart+synonym=make bigger/heavier+FLX=ASK
+bump,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=gas prices+N1NHum+N1VPart+synonym=increase suddenly+FLX=ASK
+bunch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rapprocher+N1example=the flowers+N1Hum+N1NHum+N1VPart+synonym=move close together+FLX=ABOLISH
+bunch,V+PV+FXC+N0Hum+Part=up+FR=fermer+N1example=the sleeping bag+N1Hum+N1NHum+synonym=pack+FLX=ABOLISH
+bundle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=empacter+N1example=the old magazines+N1NHum+NoPart+synonym=bundle+FLX=LIVE
+bundle,V+PV+FXC+N0Hum+Part=up+FR=vétir+N1example=the child+N1Hum+NoPart+N1VPart+synonym=dress warmly+FLX=LIVE
+buoy,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=profits+N1NHum+synonym=increase+FLX=ASK
+buoy,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=encourager+N1example=Max+N1Hum+synonym=encourage+FLX=ASK
+burn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bruler+N1example=the barn+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=destroy by fire+FLX=LEARN
+burn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=dépenser+N1example=money+N1NHum+synonym=use too much+FLX=LEARN
+burn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=énerver+N1example=Max+N1Hum+NoPart+N1VPart+synonym=make angry+FLX=LEARN
+burn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=voyager à grande vitesse+N1example=the track+N1NHum+synonym=travel at high speed+FLX=LEARN
+burn,V+PV+FXC+N0Hum+Part=up+FR=consommer+N1example=calories+N1NHum+NoPart+synonym=consume+FLX=LEARN
+bust,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=amuser+N1example=the audience+N1Hum+N1VPart+synonym=make laugh+FLX=ASK
+bust,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=casser+N1example=the machine+N1NHum+NoPart+synonym=break+FLX=ASK
+butcher,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the solo+N1NHum+NoPart+synonym=bungle+FLX=ASK
+butter,V+PV+FXC+N0Hum+Part=up+FR=flatter+N1example=the boss+N1Hum+synonym=flatter+FLX=ASK
+button,V+PV+FXC+N0Hum+Part=up+FR=boutonner+N1example=the blouse+N1NHum+NoPart+N1VPart+N1V+synonym=button+FLX=ASK
+buttress,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=soutenir+N1example=the argument+N1NHum+synonym=support+FLX=ABOLISH
+buy,V+PV+FXC+N0Hum+Part=up+FR=acheter en grosse quantité+N1example=the mushrooms+N1NHum+NoPart+synonym=buy large quantity/all of something+FLX=BUY
+cage,V+PV+FXC+N0Hum+Part=up+FR=mettre en cage+N1example=the animals+N1NHum+NoPart+synonym=put in a cage+FLX=LIVE
+call,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=évoquer+N1example=old memories+N1NHum+NoPart+synonym=evoke+FLX=ASK
+call,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=téléphoner+N1example=the friend+N1Hum+N1NHum+NoPart+synonym=telephone+FLX=ASK
+call,V+PV+FXC+N0Hum+Part=up+FR=réserver+N1example=the reservists+N1Hum+synonym=summon to active duty+Nom=the call-up of N1+FLX=ASK
+carve,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=diviser+N1example=Africa+N1NHum+synonym=divide+FLX=LIVE
+carve,V+PV+FXC+N0Hum+Part=up+FR=blesser+N1example=the gang members+N1Hum+synonym=wound with knife+FLX=LIVE
+carve,V+PV+FXC+N0Hum+Part=up+FR=découper+N1example=the meat+N1NHum+NoPart+synonym=carve/slice+FLX=LIVE
+catch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=donner rendez-vous+N1example=Max+N1Hum+N1VPart+synonym=bring up to date+OptPP=on/to N2+FLX=CATCH
+chain,V+PV+FXC+N0Hum+Part=up+FR=attacher+N1example=the dogs+N1Hum+N1NHum+NoPart+synonym=put on a chain+FLX=ASK
+chalk,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=avantager+N1example=another goal+N1NHum+synonym=increase score+FLX=ASK
+charge,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=charger+N1example=the battery+N1NHum+NoPart+N1VPart+N1V+synonym=give electric charge to+FLX=LIVE
+charge,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=chauffer+N1example=the audience+N1Hum+N1NHum+synonym=excite+FLX=LIVE
+charge,V+PV+FXC+N0Hum+Part=up+FR=charger+N1example=POSS-0 AmX card+N1NHum+synonym=use credit card(s) extensively+FLX=LIVE
+cheer,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=consoler+N1example=Mary+N1Hum+N1VPart+synonym=make more cheerful+FLX=ASK
+chew,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=froisser+N1example=the paper+N1NHum+synonym=damage+FLX=ASK
+chew,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mastiquer+N1example=the food+N1NHum+NoPart+synonym=chew+FLX=ASK
+choke,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boucher+N1example=the pipes+N1NHum+synonym=clog+FLX=LIVE
+choke,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=émouvoir+N1example=the audience+N1Hum+N1VPart+synonym=cause to feel sad+FLX=LIVE
+choose,V+PV+FXC+N0Hum+Part=up+FR=diviser+N1example=sides+N1NHum+NoPart+synonym=choose/divide into teams+Nom=*choose teams up+FLX=CHOOSE
+chop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couper+N1example=the vegetables+N1NHum+NoPart+synonym=chop+FLX=ADMIT
+chuck,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=dinner+N1NHum+synonym=vomit+FLX=ASK
+clean,V+PV+FXC+N0Hum+Part=up+FR=ranger+N1example=the room+N1Hum+N1NHum+NoPart+synonym=tidy+FLX=ASK
+clear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=expliquer+N1example=the mysterious murder+N1NHum+synonym=explain+FLX=ASK
+clear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=résoudre+N1example=the problem+N1NHum+N1VPart+synonym=solve a disagreement+FLX=ASK
+clog,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boucher+N1example=the toilet+N1NHum+NoPart+N1VPart+N1V+synonym=obstruct+FLX=ADMIT
+close,V+PV+FXC+N0Hum+Part=up+FR=fermer+N1example=the pocketbook+N1NHum+NoPart+synonym=close object+FLX=LIVE
+close,V+PV+FXC+N0Hum+Part=up+FR=fermer+N1example=the store+N1NHum+NoPart+N1VPart+N1V+synonym=close business+FLX=LIVE
+close,V+PV+FXC+N0Hum+Part=up+FR=joindre+N1example=the blood vessels+N1NHum+NoPart+synonym=join sides together+FLX=LIVE
+cloud,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embrumer+N1example=the issue+N1NHum+NoPart+synonym=make cloudy/unclear+FLX=ASK
+coil,V+PV+FXC+N0Hum+Part=up+FR=enrouler+N1example=the hose+N1NHum+NoPart+N1VPart+N1V+synonym=make into coil+FLX=ASK
+collect,V+PV+FXC+N0Hum+Part=up+FR=collecter+N1example=the papers+N1NHum+NoPart+synonym=collect+FLX=ASK
+conjure,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=appeler+N1example=the devil+N1NHum+NoPart+synonym=summon+FLX=LIVE
+conjure,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=évoquer+N1example=old memories+N1Hum+N1NHum+synonym=evoke+FLX=LIVE
+conjure,V+PV+FXC+N0Hum+Part=up+FR=bacler+N1example=dinner+N1NHum+synonym=produce quickly+FLX=LIVE
+conjure,V+PV+FXC+N0Hum+Part=up+FR=imaginer+N1example=an interesting name+N1NHum+synonym=imagine+FLX=LIVE
+connect,V+PV+FXC+N0Hum+Part=up+FR=connecter+N1example=the telephone+N1NHum+NoPart+synonym=connect+FLX=ASK
+cook,V+PV+FXC+N0Hum+Part=up+FR=fabriquer+N1example=an explanation+N1NHum+synonym=fabricate+FLX=ASK
+cook,V+PV+FXC+N0Hum+Part=up+FR=préparer+N1example=some food+N1NHum+NoPart+synonym=prepare+FLX=ASK
+coop,V+PV+FXC+N0Hum+Part=up+FR=confiner+N1example=the passengers+N1Hum+N1NHum+synonym=confine+FLX=ASK
+cork,V+PV+FXC+N0Hum+Part=up+FR=boucher+N1example=the bottle+N1NHum+NoPart+synonym=close with cork+FLX=ASK
+cough,V+PV+FXC+N0Hum+Part=up+FR=abandonner+N1example=the money+N1NHum+synonym=relinquish with reluctance+FLX=ASK
+cough,V+PV+FXC+N0Hum+Part=up+FR=confesser+N1example=the information+N1NHum+synonym=confess/disclose+FLX=ASK
+cough,V+PV+FXC+N0Hum+Part=up+FR=tousser+N1example=blood+N1NHum+N1VPart+synonym=produce in mouth by coughing+FLX=ASK
+count,V+PV+FXC+N0Hum+Part=up+FR=compter+N1example=the passengers+N1Hum+N1NHum+NoPart+synonym=count the number in a group+FLX=ASK
+cover,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=protèger+N1example=the vegetables+N1Hum+N1NHum+NoPart+synonym=protect/cover+FLX=ASK
+cover,V+PV+FXC+N0Hum+Part=up+FR=couvrir+N1example=the crime+N1NHum+synonym=conceal+Nom=cover-up (of N1)+FLX=ASK
+crack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire rire+N1example=the audience+N1Hum+N1VPart+synonym=make laugh+FLX=ASK
+crank,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=démarrer+N1example=the motor+N1NHum+NoPart+N1VPart+N1V+synonym=start+FLX=ASK
+crate,V+PV+FXC+N0Hum+Part=up+FR=mettre en caisse+N1example=the animals+N1NHum+NoPart+synonym=pack into crate+FLX=LIVE
+crumple,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=chiffonner+N1example=the shirt+N1Hum+N1NHum+NoPart+N1VPart+synonym=crush/fold+FLX=LIVE
+crush,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=écraser+N1example=the spices+N1NHum+NoPart+synonym=crush+FLX=ABOLISH
+cue,V+PV+FXC+N0Hum+Part=up+FR=selectionner+N1example=the record+N1NHum+NoPart+synonym=position in readiness+FLX=AGE
+curl,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=tourner+N1example=the pages+N1NHum+N1VPart+synonym=roll up+FLX=ASK
+cut,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=se moquer+N1example=Max+N1Hum+N1NHum+synonym=make fun of+FLX=CUT
+dam,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=protèger+N1example=the lake+N1NHum+N1VPart+synonym=make barrier for+FLX=ADMIT
+darken,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=noircir+N1example=the picture+N1NHum+NoPart+N1VPart+N1V+synonym=to make darker+FLX=ASK
+dent,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=cabosser+N1example=the car+N1NHum+NoPart+synonym=dent+FLX=ASK
+dig,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=creuser+N1example=the sidewalk+N1NHum+synonym=make holes in to remove or repair+FLX=DIG
+dig,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enterrer+N1example=the plants+N1Hum+N1NHum+synonym=remove/uproot+FLX=DIG
+dig,V+PV+FXC+N0Hum+Part=up+FR=localiser+N1example=the file+N1NHum+synonym=locate smth. lost+FLX=DIG
+dig,V+PV+FXC+N0Hum+Part=up+FR=reveler+N1example=rumors+N1NHum+synonym=find secret information+FLX=DIG
+dim,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=baisser+N1example=the lights+N1NHum+NoPart+N1V+synonym=make less dim+FLX=ADMIT
+dirty,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=salir+N1example=the shirt+N1NHum+NoPart+synonym=dirty+FLX=APPLY
+dish,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=servir+N1example=some entertainment+N1NHum+synonym=produce without much effort+FLX=ABOLISH
+dish,V+PV+FXC+N0Hum+Part=up+FR=laver+N1example=the food+N1NHum+synonym=serve onto plates+FLX=ABOLISH
+divide,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=partager+N1example=the money+N1NHum+NoPart+synonym=divide+OptPP=between/among N2+FLX=LIVE
+divvy,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=partager+N1example=the money+N1NHum+NoPart+synonym=divide+OptPP=between/among N2+FLX=APPLY
+do,V+PV+FXC+N0Hum+Part=up+FR=entourer+N1example=the parcel+N1NHum+synonym=wrap+FLX=DO
+do,V+PV+FXC+N0Hum+Part=up+FR=faire+N1example=POSS-0 shoelaces+N1NHum+NoPart+synonym=fasten+FLX=DO
+do,V+PV+FXC+N0Hum+Part=up+FR=refaire+N1example=the old house+N1NHum+synonym=repair+FLX=DO
+do,V+PV+FXC+N0Hum+Part=up+FR=relooker+N1example=the movie star+N1Hum+N1NHum+synonym=make attractive/remodel+FLX=DO
+doctor,V+PV+FXC+N0Hum+Part=up+FR=tricher+N1example=the document+N1NHum+NoPart+synonym=alter/falsify+FLX=ASK
+doll,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=pouponner+N1example=the girl+N1Hum+synonym=make attractive+FLX=ASK
+dose,V+PV+FXC+N0Hum+Part=up+FR=prescrire en masse+N1example=the patient+N1Hum+synonym=give large amount of medicine to+OptPP=with N2+FLX=LIVE
+drag,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embarrasser+N1example=Max+N1Hum+N1NHum+synonym=mention unpleasant or embarrassing event+FLX=ADMIT
+draw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=préparer+N1example=the plans+N1NHum+NoPart+synonym=compose/prepare+FLX=DRAW
+draw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rapprocher+N1example=the chair+N1NHum+synonym=bring closer+FLX=DRAW
+dream,V+PV+FXC+N0Hum+Part=up+FR=créer+N1example=the plan+N1NHum+synonym=invent/create+FLX=LEARN
+dredge,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=draguer+N1example=the body+N1NHum+synonym=bring up from body of water+FLX=LIVE
+dredge,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embarrasser+N1example=old stories+N1Hum+N1NHum+synonym=mention unpleasant or embarrassing event+FLX=LIVE
+dredge,V+PV+FXC+N0Hum+Part=up+FR=souvenir+N1example=bad memories+N1NHum+synonym=remember with difficulty+FLX=LIVE
+dredge,V+PV+FXC+N0Hum+Part=up+FR=trouver+N1example=a date+N1Hum+N1NHum+synonym=find (pejorative)+FLX=LIVE
+dress,V+PV+FXC+N0Hum+Part=up+FR=relooker+N1example=Max+N1Hum+N1VPart+N1V+synonym=put on costume or special clothes+OptPP=as/in N2+FLX=ABOLISH
+dress,V+PV+FXC+N0Hum+Part=up+FR=relooker+N1example=the movie star+N1Hum+N1VPart+synonym=dress well+FLX=ABOLISH
+drink,V+PV+FXC+N0Hum+Part=up+FR=boire+N1example=the soda+N1NHum+NoPart+synonym=drink/finish drinking/drink entire amount+FLX=DRINK
+drive,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=the prices+N1NHum+NoPart+synonym=increase+FLX=DRIVE
+drum,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=apporter+N1example=support+N1NHum+synonym=bring about through persistence+OptPP=for N2+FLX=ADMIT
+drum,V+PV+FXC+N0Hum+Part=up+FR=inventer+N1example=an alibi+N1NHum+synonym=invent+FLX=ADMIT
+dry,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=saigner+N1example=the sore+N1NHum+NoPart+N1VPart+synonym=lose liquid in+FLX=APPLY
+eat,V+PV+FXC+N0Hum+N0NHum+Part=up +FR=embeter+N1example=Max+N1Hum+NoPart+synonym=bother+FLX=EAT
+eat,V+PV+FXC+N0Hum+N0NHum+Part=up +FR=manger+N1example=the sandwich+N1NHum+NoPart+synonym=eat/finishing eating/eat entire amount+FLX=EAT
+eat,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=user+N1example=gasoline+N1NHum+synonym=use large quantity of+FLX=EAT
+eat,V+PV+FXC+N0Hum+Part=up+FR=apprécier+N1example=the publicity+N1NHum+synonym=enjoy greatly+FLX=EAT
+eat,V+PV+FXC+N0Hum+Part=up+FR=croire+N1example=the information+N1NHum+synonym=believe without question+FLX=EAT
+even,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=égaliser+N1example=the sides+N1NHum+NoPart+synonym=make situation more fair+FLX=ASK
+even,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=équilibrer+N1example=the papers+N1NHum+NoPart+synonym=make even+FLX=ASK
+eye,V+PV+FXC+N0Hum+Part=up+FR=surveiller+N1example=Mary+N1Hum+N1NHum+NoPart+synonym=look carefully at+FLX=AGE
+fasten,V+PV+FXC+N0Hum+Part=up+FR=attacher+N1example=POSS-0 seat belts+N1NHum+NoPart+synonym=fasten+FLX=ASK
+fatten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=grandir+N1example=the baby+N1Hum+N1NHum+NoPart+N1VPart+synonym=increase size+FLX=ASK
+feel,V+PV+FXC+N0Hum+Part=up+FR=craquer+N1example=the young lady+N1Hum+synonym=fondle in a sexual way+FLX=FEEL
+figure,V+PV+FXC+N0Hum+Part=up+FR=totaliser+N1example=the check+N1NHum+NoPart+synonym=add/total+FLX=LIVE
+fill,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire le plein+N1example=the tank+N1NHum+NoPart+synonym=fill with gasoline+Nom=a fill-up+OptPP=with N2+FLX=ASK
+fill,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=remplir+N1example=the pool+N1NHum+NoPart+N1VPart+N1V+synonym=fill completely+OptPP=with N2+FLX=ASK
+fill,V+PV+FXC+N0Hum+Part=up+FR=remplir+N1example=the nightclub+N1NHum+NoPart+N1VPart+synonym=become full+OptPP=with N2+FLX=ASK
+finish,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=finir+N1example=the food+N1NHum+NoPart+synonym=finish eating+FLX=ABOLISH
+finish,V+PV+FXC+N0Hum+Part=up+FR=completer+N1example=the job+N1Hum+N1NHum+NoPart+synonym=complete+FLX=ABOLISH
+fire,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=exciter+N1example=Max+N1Hum+synonym=excite+FLX=LIVE
+fire,V+PV+FXC+N0Hum+Part=up+FR=mettre le feu+N1example=the grill+N1NHum+N1VPart+synonym=ignite+FLX=LIVE
+firm,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=raffermir+N1example=the muscles+N1NHum+N1VPart+synonym=make firmer/less flabby+FLX=ASK
+firm,V+PV+FXC+N0Hum+Part=up+FR=définir+N1example=plans+N1NHum+N1VPart+synonym=make clearer/more definite+FLX=ASK
+fix,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rencarder+N1example=Max+N1Hum+synonym=provide a companion/date for+OptPP=with N2+FLX=ABOLISH
+fix,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réparer+N1example=the building+N1NHum+NoPart+synonym=repair/improve+FLX=ABOLISH
+fix,V+PV+FXC+N0Hum+Part=up+FR=préparer +N1example=a snack+N1NHum+synonym=prepare quickly with what's available+FLX=ABOLISH
+flame,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=emflammer+N1example=the fire+N1NHum+NoPart+N1VPart+N1V+synonym=flame+FLX=LIVE
+flip,V+PV+FXC+N0Hum+Part=up+FR=appuyer+N1example=the switch+N1NHum+NoPart+N1VPart+synonym=flip/move in upward position+FLX=ADMIT
+flub,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confondre+N1example=the situation+N1NHum+NoPart+synonym=confuse+FLX=ADMIT
+fluff,V+PV+FXC+N0Hum+Part=up+FR=remplumer+N1example=the pillows+N1NHum+NoPart+synonym=fluff/make fluffy+FLX=ASK
+fog,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embuer+N1example=the windows+N1NHum+NoPart+N1VPart+N1V+synonym=fog+FLX=ADMIT
+fold,V+PV+FXC+N0Hum+Part=up+FR=plier+N1example=the ironing board+N1NHum+NoPart+synonym=reduce size by folding+FLX=ASK
+fold,V+PV+FXC+N0Hum+Part=up+FR=plier+N1example=the laundry+N1NHum+NoPart+synonym=fold+FLX=ASK
+follow,V+PV+FXC+N0Hum+Part=up+FR=completer+N1example=the suggestions+N1NHum+NoPart+synonym=complete/follow through on+Nom=follow-up+OptPP=with N2+FLX=ASK
+force,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=atteindre+N1example=the prices+N1NHum+synonym=raise+FLX=LIVE
+form,V+PV+FXC+N0Hum+Part=up+FR=former+N1example=a committee+N1NHum+NoPart+synonym=organize/form+FLX=ASK
+foul,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=interferer+N1example=the situation+N1Hum+N1NHum+synonym=bungle/interfere with+Nom=foul-up+FLX=ASK
+foul,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=salir+N1example=the computer+N1NHum+N1VPart+synonym=make work improperly+Nom=N1 foul-up+FLX=ASK
+freeze,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bloquer+N1example=the machines+N1NHum+NoPart+N1VPart+N1V+synonym=make stop working+FLX=FREEZE
+freshen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=relooker+N1example=Mary+N1Hum+N1NHum+N1VPart+synonym=restore appearance+FLX=ASK
+frizz,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boucler+N1example=POSS-0 hair+N1NHum+NoPart+synonym=make into curls+FLX=ABOLISH
+fry,V+PV+FXC+N0Hum+Part=up+FR=frire+N1example=the eggs+N1NHum+NoPart+N1V+synonym=fry+FLX=APPLY
+fuck,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the situation+N1Hum+N1NHum+synonym=bungle/interfere with+Nom=fuck-up+FLX=ASK
+fuel,V+PV+FXC+N0Hum+Part=up+FR=faire le plein+N1example=the car+N1NHum+synonym=fill with gasoline+FLX=ADMIT
+gas,V+PV+FXC+N0Hum+Part=up+FR=faire le plein+N1example=the car+N1NHum+synonym=fill with gasoline+FLX=ADMIT
+gather,V+PV+FXC+N0Hum+Part=up+FR=appeler+N1example=courage+N1NHum+synonym=summon+FLX=ASK
+gather,V+PV+FXC+N0Hum+Part=up+FR=collecter+N1example=the toys+N1NHum+NoPart+synonym=gather/collect+FLX=ASK
+gather,V+PV+FXC+N0Hum+Part=up+FR=étreindre+N1example=the child+N1Hum+synonym=hug+FLX=ASK
+get,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=construire+N1example=the power plant+N1NHum+synonym=establish/build+FLX=GET
+get,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réveiller+N1example=Max+N1Hum+N1VPart+synonym=awaken+FLX=GET
+get,V+PV+FXC+N0Hum+Part=up+FR=organiser+N1example=a committee+N1NHum+synonym=organize/form+FLX=GET
+give,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=abandonner+N1example=the fight+N1Hum+N1NHum+synonym=abandon+FLX=GIVE
+give,V+PV+FXC+N0Hum+Part=up+FR=arrêter+N1example=alcohol+N1NHum+synonym=stop using/doing+FLX=GIVE
+gobble,V+PV+FXC+N0Hum+Part=up+FR=avaler+N1example=the cookies+N1NHum+NoPart+synonym=consume+FLX=LIVE
+gobble,V+PV+FXC+N0Hum+Part=up+FR=utiliser+N1example=the last tickets+N1NHum+synonym=grab+FLX=LIVE
+goof,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gaffer+N1example=the situation+N1NHum+synonym=bungle+FLX=ASK
+grease,V+PV+FXC+N0Hum+Part=up+FR=graisser+N1example=the ball bearings+N1NHum+NoPart+synonym=coat/lubricate with grease+FLX=LIVE
+grind,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=écraser+N1example=the meat+N1NHum+NoPart+synonym=process by turning crank+FLX=FIND
+grind,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=pulveriser+N1example=the leaves+N1NHum+NoPart+synonym=pulverize+FLX=FIND
+gum,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the situation+N1NHum+synonym=bungle/interfere with+FLX=ADMIT
+hack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couper+N1example=the logs+N1NHum+synonym=cut into pieces+FLX=ASK
+hack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=entailler+N1example=the door+N1NHum+synonym=damage+FLX=ASK
+hack,V+PV+FXC+N0Hum+Part=up+FR=tousser+N1example=blood+N1NHum+synonym=produce in mouth by coughing violently+FLX=ASK
+ham,V+PV+FXC+N0Hum+Part=up+FR=en faire trop+N1example=the play+N1NHum+synonym=perform with exaggeration+FLX=ADMIT
+hang,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=raccrocher+N1example=the phone+N1NHum+N1VPart+synonym=disconnect+Nom=hang up+FLX=HANG
+hang,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rendre+N1example=the project+N1Hum+N1NHum+synonym=delay+FLX=HANG
+hang,V+PV+FXC+N0Hum+Part=up+FR=arrêter+N1example=POSS-0 skates+N1NHum+synonym=stop doing job/sport+FLX=HANG
+hang,V+PV+FXC+N0Hum+Part=up+FR=pendre+N1example=the banner+N1NHum+NoPart+synonym=hang+FLX=HANG
+haul,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=transporter+N1example=the body+N1NHum+synonym=raise with force+FLX=ASK
+head,V+PV+FXC+N0Hum+Part=up+FR=présider+N1example=the committee+N1NHum+NoPart+synonym=be in charge of / lead+FLX=ASK
+heal,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=guérir+N1example=the wound+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=heal+FLX=ASK
+heap,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=entasser+N1example=the leaves+N1NHum+synonym=place into a pile+FLX=ASK
+heat,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=chauffer+N1example=dinner+N1NHum+NoPart+N1VPart+synonym=heat (food)+FLX=ASK
+heave,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=dinner+N1NHum+synonym=vomit+FLX=WEAVE
+help,V+PV+FXC+N0Hum+Part=up+FR=assister+N1example=the lady+N1Hum+synonym=assist in standing+FLX=ASK
+herd,V+PV+FXC+N0Hum+Part=up+FR=ratrouper+N1example=the cattle+N1Hum+N1NHum+NoPart+N1V+synonym=gather+Nom=The sheep herded for warmth+FLX=ASK
+hike,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=prices+N1NHum+N1VPart+synonym=increase+FLX=LIVE
+hike,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=racourcir+N1example=the skirt+N1NHum+synonym=raise+FLX=LIVE
+hitch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=attacher+N1example=the horses+N1NHum+NoPart+synonym=attach/connect+OptPP=to N2+FLX=ABOLISH
+hitch,V+PV+FXC+N0Hum+Part=up+FR=raccourcir+N1example=the jeans+N1NHum+synonym=raise+FLX=ABOLISH
+hold,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=attendre+N1example=the delivery+N1Hum+N1NHum+synonym=delay+Nom=a (N1) holdup+FLX=HOLD
+hold,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=prendre+N1example=the picture+N1Hum+N1NHum+NoPart+synonym=keep upright/support+FLX=HOLD
+hold,V+PV+FXC+N0Hum+Part=up+FR=citer+N1example=Max+N1Hum+N1NHum+synonym=use as a good example+OptPP=as N2+FLX=HOLD
+hold,V+PV+FXC+N0Hum+Part=up+FR=voler+N1example=the tourist+N1Hum+N1NHum+synonym=rob+Nom=a (N1) holdup+FLX=HOLD
+hook,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rencontrer+N1example=Anne+N1Hum+N1NHum+N1VPart+synonym=connect professionally+OptPP=with N2+FLX=ASK
+hook,V+PV+FXC+N0Hum+Part=up+FR=installer+N1example=the machine+N1NHum+synonym=install/attach+Nom=a hook-up+FLX=ASK
+hook,V+PV+FXC+N0Hum+Part=up+FR=rencontrer+N1example=Max+N1Hum+N1VPart+synonym=connect romantically+Nom=a hook-up+OptPP=with N2+FLX=ASK
+hunt,V+PV+FXC+N0Hum+Part=up+FR=chercher+N1example=Max+N1Hum+N1NHum+synonym=seek+FLX=ASK
+hurry,V+PV+FXC+N0Hum+Part=up+FR=hâter+N1example=the bill+N1Hum+N1NHum+synonym=prepare quickly+FLX=APPLY
+hush,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=calmer+N1example=the baby+N1Hum+NoPart+N1VPart+N1V+synonym=make quiet+FLX=ABOLISH
+hush,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=supprimer+N1example=the report+N1NHum+synonym=suppress+FLX=ABOLISH
+hype,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=motiver+N1example=the players+N1Hum+N1NHum+synonym=excite+FLX=LIVE
+hype,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=promouvoir+N1example=the book+N1Hum+N1NHum+NoPart+synonym=promote+FLX=LIVE
+ink,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mettre de l'encre+N1example=the printer+N1NHum+NoPart+synonym=coat with ink+FLX=ASK
+jack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=the prices+N1NHum+NoPart+N1VPart+synonym=increase+FLX=ASK
+jack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=élever+N1example=the car+N1Hum+N1NHum+synonym=raise+FLX=ASK
+jam,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bloquer+N1example=the exits+N1NHum+NoPart+N1VPart+synonym=block+FLX=ADMIT
+jam,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bourrer+N1example=the machine+N1NHum+NoPart+N1VPart+synonym=make stop working properly+FLX=ADMIT
+jazz,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ressuciter+N1example=the music+N1NHum+synonym=make livelier+FLX=ABOLISH
+jerk,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=remonter+N1example=the zipper+N1NHum+synonym=raise quickly+FLX=ASK
+juice,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enjouer+N1example=the party+N1NHum+synonym=make more exciting+FLX=LIVE
+jumble,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mélanger+N1example=the letters+N1NHum+NoPart+synonym=mix carelessly/in confused way+FLX=LIVE
+keep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=continuer+N1example=the work+N1NHum+synonym=continue+FLX=FEEL
+keep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=garder éveiller+N1example=the baby+N1Hum+synonym=keep awake+FLX=FEEL
+keep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=tenir+N1example=the chair+N1Hum+N1NHum+synonym=hold upright+FLX=FEEL
+keep,V+PV+FXC+N0Hum+Part=up+FR=continuer+N1example=the piano+N1NHum+synonym=continue to practice a skill+FLX=FEEL
+keep,V+PV+FXC+N0Hum+Part=up+FR=maintenir+N1example=the house+N1NHum+synonym=maintain+Nom=upkeep+FLX=FEEL
+kick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=the rent+N1NHum+synonym=increase+FLX=ASK
+kick,V+PV+FXC+N0Hum+Part=up+FR=agiter+N1example=a fuss+N1NHum+synonym=make trouble+FLX=ASK
+kick,V+PV+FXC+N0Hum+Part=up+FR=tirer+N1example=the ball+N1NHum+NoPart+synonym=kick upwards+FLX=ASK
+knock,V+PV+FXC+N0Hum+Part=up+FR=engrosser+N1example=Mary+N1Hum+synonym=make pregnant+FLX=ASK
+lace,V+PV+FXC+N0Hum+Part=up+FR=lacer+N1example=the shoes+N1NHum+NoPart+synonym=lace+FLX=LIVE
+lap,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boire+N1example=the milk+N1NHum+synonym=drink+FLX=ADMIT
+lap,V+PV+FXC+N0Hum+Part=up+FR=accepter+N1example=praise+N1NHum+synonym=accept/receive eagerly+FLX=ADMIT
+lay,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=placer+N1example=the cable+N1NHum+NoPart+synonym=place+FLX=LAY
+lay,V+PV+FXC+N0Hum+Part=up+FR=collecter+N1example=the firewood+N1NHum+synonym=collect and stock for future use+FLX=LAY
+leash,V+PV+FXC+N0Hum+Part=up+FR=mettre en laisse+N1example=the dog+N1NHum+NoPart+synonym=put on a leash+FLX=ABOLISH
+let,V+PV+FXC+N0Hum+Part=up+FR=autoriser+N1example=Max+N1Hum+synonym=allow to stand+FLX=CUT
+lick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boire+N1example=the milk+N1NHum+synonym=drink/eat+FLX=ASK
+lift,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the patient+N1Hum+N1NHum+NoPart+synonym=raise+FLX=ASK
+lift,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=his spirits+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=increase (emotionally)+FLX=ASK
+light,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enjoliver+N1example=Max+N1Hum+N1NHum+N1VPart+synonym=make more attractive or cheerful+FLX=LIGHT
+light,V+PV+FXC+N0Hum+Part=up+FR=allumer+N1example=the candles+N1NHum+NoPart+N1VPart+synonym=ignite+FLX=LIGHT
+lighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=alleger+N1example=the conversation+N1Hum+N1NHum+N1VPart+synonym=make less serious+FLX=ASK
+lighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=baisser+N1example=the load+N1NHum+NoPart+synonym=make less heavy+FLX=ASK
+lighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=éclairer+N1example=the room+N1NHum+NoPart+N1VPart+N1V+synonym=make lighter/brighter+FLX=ASK
+limber,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=s'échauffer+N1example=the athlete+N1Hum+N1NHum+NoPart+N1VPart+synonym=make limber+FLX=ASK
+line,V+PV+FXC+N0Hum+Part=up+FR=aligner+N1example=the illustration+N1NHum+N1VPart+synonym=make straight+OptPP=with/on N2+FLX=LIVE
+line,V+PV+FXC+N0Hum+Part=up+FR=aligner+N1example=the soldiers+N1Hum+N1NHum+N1VPart+synonym=form a line with+Nom=line up+FLX=LIVE
+line,V+PV+FXC+N0Hum+Part=up+FR=organiser+N1example=support+N1Hum+N1NHum+synonym=arrange to happen/organize+OptPP=for N2+FLX=LIVE
+link,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=connecter+N1example=the satellite dish+N1Hum+N1NHum+NoPart+synonym=connect+Nom=link-up+OptPP=to N2+FLX=ASK
+liven,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the party+N1NHum+N1VPart+synonym=make more exciting+FLX=ASK
+liven,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=amuser+N1example=Max+N1Hum+N1VPart+synonym=make more cheerful+FLX=ASK
+load,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=charger+N1example=the truck+N1NHum+NoPart+N1VPart+synonym=pack+FLX=ASK
+lock,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fermer+N1example=the car+N1NHum+NoPart+synonym=lock all doors & windows+FLX=ASK
+lock,V+PV+FXC+N0Hum+Part=up+FR=enfermer+N1example= Max+N1Hum+N1NHum+synonym=confine (in prison/mental institution)+Nom=lockup+FLX=ASK
+lock,V+PV+FXC+N0Hum+Part=up+FR=placer+N1example=the money+N1Hum+N1NHum+synonym=put in safe place+FLX=ASK
+look,V+PV+FXC+N0Hum+Part=up+FR=visiter+N1example=Max+N1Hum+synonym=visit+FLX=ASK
+loosen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détendre+N1example=the wire+N1NHum+NoPart+N1VPart+N1V+synonym=make less tight+FLX=ASK
+loosen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=relaxer+N1example=my shoulders+N1Hum+N1NHum+NoPart+N1VPart+synonym=relax+FLX=ASK
+louse,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the situation+N1Hum+N1NHum+synonym=bungle/interfere with+FLX=LIVE
+make,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=récompenser+N1example=the team+N1NHum+synonym=comprise+Nom=make-up of N1+OptPP=*no mvt./passive+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=faire+N1example=the bed+N1NHum+synonym=prepare+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=inventer+N1example=an alibi+N1NHum+synonym=deceitfully contrive+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=inventer+N1example=the fairy tale+N1NHum+synonym=invent+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=maquiller+N1example=the actress+N1Hum+synonym=apply cosmetics to+Nom=make-up on N1+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=porter+N1example=the shirts+N1NHum+synonym=sew+FLX=MAKE
+make,V+PV+FXC+N0Hum+Part=up+FR=rattraper+N1example=the exam+N1NHum+synonym=do/take later+Nom=a make-up+FLX=MAKE
+mar,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gâcher+N1example=the counter top+N1NHum+NoPart+synonym=damage+FLX=ADMIT
+mark,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=marquer+N1example=the textbook+N1Hum+N1NHum+synonym=make marks in/ write on+FLX=ASK
+mark,V+PV+FXC+N0Hum+Part=up+FR=augmenter+N1example=the product+N1NHum+synonym=raise the price of+Nom=mark-up on N1+FLX=ASK
+mash,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=écraser+N1example=the potatoes+N1NHum+NoPart+N1VPart+synonym=mash+FLX=ABOLISH
+match,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=doubler+N1example=the pieces+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=match/pair+Nom=match up+OptPP=with N2+FLX=ABOLISH
+match,V+PV+FXC+N0Hum+Part=up+FR=être assorti+N1example=Max and Mary+N1Hum+synonym=bring together+OptPP=with N2+FLX=ABOLISH
+measure,V+PV+FXC+N0Hum+Part=up+FR=juger+N1example=Max+N1Hum+synonym=examine carefully to judge+FLX=LIVE
+measure,V+PV+FXC+N0Hum+Part=up+FR=mesurer+N1example=the window+N1NHum+NoPart+synonym=measure carefully+FLX=LIVE
+mess,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=atrister+N1example=Max+N1Hum+synonym=cause mental or emotional problems for+FLX=ABOLISH
+mess,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=cafouiller+N1example=the situation+N1Hum+N1NHum+synonym=bungle/interfere with/spoil+FLX=ABOLISH
+mess,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=salir+N1example=the room+N1Hum+N1NHum+synonym=make dirty/sloppy+FLX=ABOLISH
+mist,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embuer+N1example=the windows+N1NHum+NoPart+N1VPart+N1V+synonym=mist+FLX=ASK
+mix,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confondre+N1example=the professor+N1Hum+synonym=confuse+Nom=a mix-up+FLX=ABOLISH
+mix,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mélanger+N1example=the letters+N1NHum+synonym=mix carelessly/in confused way+FLX=ABOLISH
+mix,V+PV+FXC+N0Hum+Part=up+FR=préparer+N1example=a drink+N1NHum+NoPart+synonym=mix/prepare+OptPP=for N2+FLX=ABOLISH
+mock,V+PV+FXC+N0Hum+Part=up+FR=modeliser+N1example=the design+N1NHum+synonym=make model of+Nom=a mock-up+FLX=ASK
+mop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=négocier+N1example=unemployment+N1NHum+synonym=deal with problem+FLX=ADMIT
+mop,V+PV+FXC+N0Hum+Part=up+FR=éponger+N1example=the gravy+N1NHum+synonym=finish food with help of bread+FLX=ADMIT
+mop,V+PV+FXC+N0Hum+Part=up+FR=éponger+N1example=the spill+N1NHum+NoPart+synonym=mop+FLX=ADMIT
+mop,V+PV+FXC+N0Hum+Part=up+FR=finir+N1example=the big project+N1NHum+synonym=finish last details of activity+FLX=ADMIT
+mop,V+PV+FXC+N0Hum+Part=up+FR=gagner+N1example=extra points+N1Hum+N1NHum+synonym=obtain successfully/win against+FLX=ADMIT
+mop,V+PV+FXC+N0Hum+Part=up+FR=liquider+N1example=the enemy+N1Hum+synonym=kill/imprison remaining soldiers+Nom=mopping up+FLX=ADMIT
+move,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=promouvoir+N1example=the third grader+N1Hum+N1VPart+synonym=promote+FLX=LIVE
+muck,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=interferer+N1example=the situation+N1NHum+synonym=bungle/interfere with+FLX=ASK
+muck,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=salir+N1example=the carpet+N1NHum+synonym=make dirty/sloppy+FLX=ASK
+muddy,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confondre+N1example=the situation+N1NHum+NoPart+synonym=confuse+FLX=APPLY
+muff,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confondre+N1example=the job+N1NHum+NoPart+synonym=confuse+FLX=ASK
+muffle,V+PV+FXC+N0Hum+Part=up+FR=s'habiller+N1example=the child+N1Hum+synonym=dress warmly+FLX=LIVE
+muss,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=décoiffer+N1example=my hair+N1NHum+NoPart+synonym=make messy+FLX=ABOLISH
+muster,V+PV+FXC+N0Hum+Part=up+FR=rassembler+N1example=some courage+N1Hum+N1NHum+NoPart+synonym=summon+FLX=ASK
+nail,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=coincer+N1example=the door+N1NHum+synonym=nail shut+FLX=ASK
+nail,V+PV+FXC+N0Hum+Part=up+FR=clouer+N1example=the picture+N1NHum+synonym=hang by nailing+FLX=ASK
+neaten,V+PV+FXC+N0Hum+Part=up+FR=arranger+N1example=the room+N1NHum+NoPart+synonym=make neat+FLX=ASK
+nick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=entailler+N1example=the piano+N1NHum+NoPart+synonym=damage+FLX=ASK
+notch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=marquer+N1example=two goals+N1NHum+NoPart+synonym=achieve+FLX=ABOLISH
+offer,V+PV+FXC+N0Hum+Part=up+FR=offrir+N1example=the sacrifice+N1Hum+N1NHum+NoPart+synonym=offer+OptPP=to/for N2+FLX=ASK
+oil,V+PV+FXC+N0Hum+Part=up+FR=lubrifier+N1example=the bodybuilder+N1Hum+N1NHum+synonym=lubricate+FLX=ASK
+open,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=commencer+N1example=the debate+N1NHum+NoPart+N1VPart+synonym=start+FLX=ASK
+open,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ouvrir+N1example=the store+N1NHum+NoPart+N1VPart+N1V+synonym=open+FLX=ASK
+open,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=s'offrir+N1example=the possibilities+N1NHum+NoPart+N1VPart+synonym=make available+FLX=ASK
+open,V+PV+FXC+N0Hum+Part=up+FR=ouvrir+N1example=the patient+N1Hum+N1NHum+synonym=do medical procedure on+FLX=ASK
+order,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ordonner+N1example=a power plant+N1NHum+NoPart+synonym=request/order+FLX=ASK
+order,V+PV+FXC+N0Hum+Part=up+FR=commander+N1example=breakfast+N1NHum+synonym=order food by room service in hotel+FLX=ASK
+pace,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=developper+N1example=the movie+N1NHum+synonym=develop at a quick tempo+FLX=LIVE
+pack,V+PV+FXC+N0Hum+Part=up+FR=empaqueter+N1example=the silverware+N1NHum+NoPart+synonym=place in boxes/containers+FLX=ASK
+package,V+PV+FXC+N0Hum+Part=up+FR=empaqueter+N1example=the antiques+N1NHum+synonym=put into package for shipping+FLX=LIVE
+paint,V+PV+FXC+N0Hum+Part=up+FR=peindre+N1example=the house+N1NHum+NoPart+synonym=paint+FLX=ASK
+pair,V+PV+FXC+N0Hum+Part=up+FR=se mettre ensemble+N1example=the children+N1Hum+N1VPart+synonym=match/pair+OptPP=with N2+FLX=ASK
+partner,V+PV+FXC+N0Hum+Part=up+FR=se mettre en équipe+N1example=Max and Mary+N1Hum+N1VPart+synonym=match/pair+OptPP=with N2+FLX=ASK
+pass,V+PV+FXC+N0Hum+Part=up+FR=laisser passer+N1example=the food+N1Hum+N1NHum+synonym=not select/forego+FLX=ABOLISH
+paste,V+PV+FXC+N0Hum+Part=up+FR=recoller+N1example=the old book+N1NHum+synonym=repair by pasting+FLX=LIVE
+patch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réparer+N1example=the jacket+N1NHum+NoPart+synonym=repair by adding material+FLX=ABOLISH
+patch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=résoudre+N1example=the relationship+N1NHum+synonym=resolve argument about+FLX=ABOLISH
+patch,V+PV+FXC+N0Hum+Part=up+FR=soigner+N1example=the arm+N1Hum+N1NHum+synonym=give medical treatment to+FLX=ABOLISH
+pay,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=payer+N1example=the bill+N1NHum+NoPart+synonym=settle entire cost+FLX=ASK
+pay,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=payer+N1example=the bill+N1NHum+NoPart+synonym=settle entire cost+FLX=LAY
+pen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=confiner+N1example=the pigs+N1Hum+N1NHum+synonym=confine+FLX=ADMIT
+pep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=exciter+N1example=the outfit+N1NHum+synonym=make more exciting+FLX=ADMIT
+pep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=revigorer+N1example=Max+N1Hum+N1VPart+synonym=invigorate+FLX=ADMIT
+perk,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=requinquer+N1example=Max+N1Hum+NoPart+N1VPart+synonym=make become lively+FLX=ASK
+phone,V+PV+FXC+N0Hum+Part=up+FR=téléphoner+N1example=the friend+N1Hum+N1NHum+NoPart+synonym=telephone+FLX=LIVE
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=appeler+N1example=the children+N1Hum+N1NHum+synonym=stop for (passenger or item)/call for+Nom=a pick-up+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gagner+N1example=the award+N1NHum+synonym=win/earn+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=noter+N1example=the error+N1NHum+synonym=notice+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=obtenir+N1example=the radio station+N1NHum+synonym=obtain signal+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rassembler+N1example=the pencil+N1Hum+N1NHum+synonym=collect/lift/gather+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=répondre+N1example=the phone+N1NHum+synonym=answer phone/get messages+FLX=ASK
+pick,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=revigorer+N1example=Max+N1Hum+synonym=invigorate+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=acheter+N1example=dinner+N1NHum+synonym=buy/acquire+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=acquérir+N1example=a new language+N1NHum+synonym=acquire/learn+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=attraper+N1example=a cold+N1NHum+synonym=get an infectious disease+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=continuer+N1example=the conversation+N1NHum+synonym=continue+OptPP=from N2+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=laver+N1example=the bedroom+N1NHum+synonym=clean+FLX=ASK
+pick,V+PV+FXC+N0Hum+Part=up+FR=ramasser+N1example=the young lady+N1Hum+synonym=make acquaintance with (sexual intentions)+Nom=a pick-up+FLX=ASK
+pile,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=empiler+N1example=the leaves+N1NHum+N1VPart+synonym=place in pile+FLX=LIVE
+pile,V+PV+FXC+N0Hum+Part=up+FR=augmenter+N1example=debts+N1NHum+N1VPart+synonym=increase/accumulate+FLX=LIVE
+pin,V+PV+FXC+N0Hum+Part=up+FR=accrocher+N1example=the photo+N1NHum+synonym=fasten with pins+FLX=ADMIT
+pin,V+PV+FXC+N0Hum+Part=up+FR=fixer+N1example=the cuffs+N1NHum+synonym=hold material in place with pins+FLX=ADMIT
+plaster,V+PV+FXC+N0Hum+Part=up+FR=plâtrer+N1example=the walls+N1NHum+NoPart+synonym=cover with plaster+FLX=ASK
+play,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire des siennes+N1example=the involvement+N1Hum+N1NHum+synonym=emphasize/heighten+FLX=ASK
+plow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=labourer+N1example=the fields+N1NHum+NoPart+synonym=plow+FLX=ASK
+plow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=labourer+N1example=the lawn+N1NHum+synonym=damage by walking or driving over+FLX=ASK
+plug,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=boucher+N1example=the sink+N1NHum+N1VPart+synonym=block leak or hole in+FLX=ADMIT
+plump,V+PV+FXC+N0Hum+Part=up+FR=secouer+N1example=the pillows+N1NHum+synonym=shake to make fuller+FLX=ASK
+point,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=pointer+N1example=the problem+N1NHum+synonym=stress/make more noticeable+FLX=ASK
+polish,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire briller+N1example=the silverware+N1NHum+NoPart+synonym=make shiny+FLX=ABOLISH
+polish,V+PV+FXC+N0Hum+Part=up+FR=améliorer+N1example=the speech+N1NHum+NoPart+synonym=improve by practicing+FLX=ABOLISH
+pot,V+PV+FXC+N0Hum+Part=up+FR=empoter+N1example=the orchids+N1NHum+synonym=place in pot+FLX=ADMIT
+power,V+PV+FXC+N0Hum+Part=up+FR=démarrer+N1example=the engine+N1NHum+N1VPart+synonym=start+FLX=ASK
+pretty,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=décorer+N1example=the front porch+N1Hum+N1NHum+synonym=make more attractive+FLX=APPLY
+print,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=imprimer+N1example=the exam+N1NHum+NoPart+synonym=print+FLX=ASK
+prop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=soutenir+N1example=the regime+N1NHum+synonym=support financially or militarily+FLX=ADMIT
+prop,V+PV+FXC+N0Hum+Part=up+FR=soutenir+N1example=the dictionary+N1NHum+synonym=support vertically+FLX=ADMIT
+pry,V+PV+FXC+N0Hum+Part=up+FR=élever+N1example=the side+N1NHum+synonym=raise+FLX=APPLY
+pucker,V+PV+FXC+N0Hum+Part=up+FR=froncer+N1example=POSS-0 lips+N1NHum+NoPart+N1VPart+N1V+synonym=pucker+FLX=ASK
+puff,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gonfler+N1example=the finger+N1NHum+N1VPart+synonym=make bigger/swell+FLX=ASK
+puke,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=breakfast+N1NHum+NoPart+N1VPart+synonym=vomit+FLX=LIVE
+puke,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=dinner+N1NHum+synonym=vomit+FLX=LIVE
+pull,V+PV+FXC+N0Hum+Part=up+FR=arrêter+N1example=the car+N1NHum+N1VPart+synonym=stop+FLX=ASK
+pull,V+PV+FXC+N0Hum+Part=up+FR=couper+N1example=the weeds+N1NHum+synonym=remove/uproot+FLX=ASK
+pull,V+PV+FXC+N0Hum+Part=up+FR=rapprocher+N1example=a chair+N1NHum+synonym=bring closer to table/speaker+FLX=ASK
+pull,V+PV+FXC+N0Hum+Part=up+FR=remonter+N1example=the trousers+N1NHum+synonym=raise+FLX=ASK
+pump,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire monter+N1example=the tire+N1NHum+NoPart+N1VPart+synonym=inflate with pump+FLX=ASK
+pump,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gonfler+N1example=the crowd+N1Hum+N1NHum+N1VPart+synonym=fill with excitement+FLX=ASK
+pump,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gonfler+N1example=the economy+N1NHum+N1VPart+synonym=increase/improve+FLX=ASK
+punch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=animer+N1example=the dialogue+N1NHum+synonym=make livelier+OptPP=with N2+FLX=ABOLISH
+punch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enregistrer+N1example=the total+N1NHum+N1VPart+synonym=register+FLX=ABOLISH
+punch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=poinçonner+N1example=the cards+N1NHum+synonym=punch holes into+FLX=ABOLISH
+push,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=the prices+N1NHum+synonym=increase/raise+FLX=ABOLISH
+put,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fournir+N1example=convincing proof+N1NHum+synonym=provide+FLX=CUT
+put,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mettre en vente+N1example=the house+N1NHum+synonym=offer for sale+FLX=CUT
+put,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=nominer+N1example=the candidate+N1Hum+synonym=nominate+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=accrocher+N1example=the sign+N1NHum+synonym=hang/post+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=construire+N1example=the fence+N1NHum+synonym=erect/build+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=engager+N1example=a fight+N1NHum+synonym=engage in+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=fournir+N1example=the money+N1NHum+synonym=provide money in advance+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=héberger+N1example=Max+N1Hum+synonym=give housing to+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=ouvrir+N1example=the umbrella+N1NHum+synonym=open+FLX=CUT
+put,V+PV+FXC+N0Hum+Part=up+FR=préserver+N1example=the fruit+N1NHum+synonym=conserve/preserve/freeze+FLX=CUT
+quicken,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accélerer+N1example=the pace+N1NHum+NoPart+synonym=accelerate+FLX=ASK
+rack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accumuler+N1example=many points+N1NHum+N1VPart+synonym=accumulate+FLX=ASK
+raise,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=élever+N1example=Max+N1Hum+N1NHum+NoPart+synonym=raise+FLX=LIVE
+rake,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fouiller+N1example=the yard+N1NHum+NoPart+synonym=rake+FLX=LIVE
+rake,V+PV+FXC+N0Hum+Part=up+FR=raviver+N1example=the gossip+N1NHum+synonym=revive (pejorative)+FLX=LIVE
+ratchet,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=inflation+N1NHum+N1VPart+synonym=increase by increments+FLX=ADMIT
+reckon,V+PV+FXC+N0Hum+Part=up+FR=compter+N1example=the cost+N1NHum+NoPart+synonym=compute+FLX=ASK
+rev,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the publicity+N1Hum+N1NHum+N1VPart+synonym=make more intense/exciting+FLX=ADMIT
+rev,V+PV+FXC+N0Hum+Part=up+FR=faire monter+N1example=the engine+N1NHum+NoPart+N1VPart+N1V+synonym=race+FLX=ADMIT
+ride,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=monter+N1example=the elevator+N1NHum+NoPart+synonym=ride+FLX=WRITE
+rig,V+PV+FXC+N0Hum+Part=up+FR=installer+N1example=the tent+N1NHum+synonym=install+FLX=ADMIT
+rile,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=irriter+N1example=Max+N1Hum+N1NHum+NoPart+synonym=upset/irritate+FLX=LIVE
+ring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accomplir+N1example=a victory+N1NHum+synonym=accomplish+FLX=ASK
+ring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accomplir+N1example=a victory+N1NHum+synonym=accomplish+FLX=DRINK
+ring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enregistrer+N1example=the purchase+N1NHum+synonym=record amount on cash register+FLX=ASK
+ring,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enregistrer+N1example=the purchase+N1NHum+synonym=record amount on cash register+FLX=DRINK
+ring,V+PV+FXC+N0Hum+Part=up+FR=dépenser+N1example=a bill+N1NHum+synonym=spend large amount of money+FLX=ASK
+ring,V+PV+FXC+N0Hum+Part=up+FR=dépenser+N1example=a bill+N1NHum+synonym=spend large amount of money+FLX=DRINK
+ring,V+PV+FXC+N0Hum+Part=up+FR=téléphoner+N1example=Max+N1Hum+N1NHum+synonym=telephone+FLX=ASK
+ring,V+PV+FXC+N0Hum+Part=up+FR=téléphoner+N1example=Max+N1Hum+N1NHum+synonym=telephone+FLX=DRINK
+rip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bouger+N1example=the carpet+N1NHum+synonym=remove+FLX=ADMIT
+rip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=déchirer+N1example=the agreement+N1NHum+NoPart+synonym=tear into many pieces+FLX=ADMIT
+rip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mutiler+N1example=the worker+N1Hum+N1NHum+synonym=mutilate+FLX=ADMIT
+roll,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rouler+N1example=the poster+N1NHum+NoPart+N1VPart+synonym=make into a coil or roll+FLX=ASK
+roll,V+PV+FXC+N0Hum+Part=up+FR=accumuler+N1example=a fortune+N1NHum+synonym=accumulate+FLX=ASK
+roll,V+PV+FXC+N0Hum+Part=up+FR=claquer+N1example=the window+N1NHum+synonym=close by winding+FLX=ASK
+roll,V+PV+FXC+N0Hum+Part=up+FR=raccourcir+N1example=the sleeves+N1NHum+synonym=shorten+FLX=ASK
+root,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=déraciner+N1example=the plants+N1NHum+synonym=remove/uproot+FLX=ASK
+rope,V+PV+FXC+N0Hum+Part=up+FR=attraper+N1example=the bad guys+N1Hum+N1NHum+synonym=bind+FLX=LIVE
+rough,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=lisser+N1example=the surface+N1NHum+NoPart+synonym=make rougher+FLX=ASK
+rough,V+PV+FXC+N0Hum+Part=up+FR=tabasser+N1example=the gangsters+N1Hum+synonym=attack with violence+FLX=ASK
+roughen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=lisser+N1example=the surface+N1NHum+NoPart+N1VPart+N1V+synonym=make rougher+FLX=ASK
+round,V+PV+FXC+N0Hum+Part=up+FR=arrondir+N1example=the bill+N1NHum+NoPart+synonym=increase to round number+FLX=ASK
+round,V+PV+FXC+N0Hum+Part=up+FR=rassembler+N1example=the sheep+N1Hum+N1NHum+synonym=gather/collect+FLX=ASK
+ruffle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=troubler+N1example=POSS-0 feathers+N1NHum+NoPart+synonym=make uneven+FLX=LIVE
+rumple,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=froisser+N1example=the shirt+N1Hum+N1NHum+NoPart+N1VPart+synonym=mess up+FLX=LIVE
+run,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accumuler+N1example=a deficit+N1NHum+synonym=lose/borrow money+FLX=RUN
+run,V+PV+FXC+N0Hum+Part=up+FR=dépenser+N1example=a bill+N1NHum+synonym=spend money+FLX=RUN
+run,V+PV+FXC+N0Hum+Part=up+FR=hisser+N1example=the flag+N1NHum+synonym=raise+FLX=RUN
+rustle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=improviser+N1example=some food+N1NHum+synonym=acquire/prepare+FLX=LIVE
+saddle,V+PV+FXC+N0Hum+Part=up+FR=seller+N1example=the horse+N1NHum+NoPart+synonym=put saddle on+FLX=LIVE
+save,V+PV+FXC+N0Hum+Part=up+FR=économiser+N1example=some money+N1NHum+NoPart+synonym=save (money)+OptPP=for N2+FLX=LIVE
+saw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=découper+N1example=the wood+N1NHum+NoPart+synonym=saw into pieces+FLX=SHOW
+scale,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=augmenter+N1example=production+N1NHum+synonym=increase/make larger+FLX=LIVE
+scare,V+PV+FXC+N0Hum+Part=up+FR=trouver+N1example=extra chairs+N1Hum+N1NHum+synonym=locate s.o. or smth. that is difficult to find+FLX=LIVE
+scoop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ramasser+N1example=the candy+N1Hum+N1NHum+synonym=gather quickly+FLX=ASK
+scout,V+PV+FXC+N0Hum+Part=up+FR=chercher+N1example=an outfit+N1Hum+N1NHum+synonym=search and find+FLX=ASK
+scrape,V+PV+FXC+N0Hum+Part=up+FR=parvenir+N1example=some money+N1NHum+synonym=obtain with difficulty+FLX=LIVE
+scratch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rayer+N1example=the piano+N1Hum+N1NHum+NoPart+synonym=damage by scratches+FLX=ABOLISH
+screw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=cafouiller+N1example=Max+N1Hum+synonym=cause mental or emotional problems for+FLX=ASK
+screw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=foutre en l'air+N1example=the project+N1Hum+N1NHum+NoPart+synonym=bungle/interfere with+FLX=ASK
+screw,V+PV+FXC+N0Hum+Part=up+FR=froisser+N1example=POSS-0 face+N1NHum+N1VPart+synonym=tighten muscles+FLX=ASK
+scrounge,V+PV+FXC+N0Hum+Part=up+FR=quémander+N1example=some money+N1Hum+N1NHum+synonym=obtain with difficulty+FLX=LIVE
+scrub,V+PV+FXC+N0Hum+Part=up+FR=se brosser+N1example=POSS-0 hands+N1NHum+NoPart+synonym=wash thoroughly+FLX=ADMIT
+scrunch,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=froisser+N1example=the paper+N1NHum+NoPart+synonym=crush/fold into small shape+FLX=ABOLISH
+scrunch,V+PV+FXC+N0Hum+Part=up+FR=hausser+N1example=POSS-0 shoulders+N1NHum+synonym=hunch+FLX=ABOLISH
+scrunch,V+PV+FXC+N0Hum+Part=up+FR=se crisper+N1example=POSS-0 face+N1NHum+N1VPart+synonym=tighten muscles+FLX=ABOLISH
+seal,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=sceller+N1example=the envelope+N1NHum+NoPart+synonym=close/seal+FLX=ASK
+serve,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couvrir+N1example=hurricane coverage+N1NHum+synonym=provide information/entertainment+FLX=LIVE
+serve,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=servir+N1example=dinner+N1NHum+NoPart+synonym=serve food+FLX=LIVE
+set,V+PV+FXC+N0Hum+Part=up+FR=arranger+N1example=the meeting+N1NHum+NoPart+synonym=arrange+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=associer+N1example=Max and Mary+N1Hum+synonym=bring together+OptPP=with N2+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=installer+N1example=the computer+N1NHum+synonym=install+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=mettre en place+N1example=the pieces+N1NHum+synonym=position+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=ouvrir+N1example=a new restaurant+N1Hum+N1NHum+synonym=start business/give start-up money to+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=remonter+N1example=the patient+N1Hum+N1NHum+synonym=put in upright position+FLX=CUT
+set,V+PV+FXC+N0Hum+Part=up+FR=tendre un piège+N1example=Max+N1Hum+synonym=trick s.o. into doing smth or appearing guilty+Nom=a set-up+FLX=CUT
+settle,V+PV+FXC+N0Hum+Part=up+FR=payer+N1example=the check+N1NHum+NoPart+synonym=pay+FLX=LIVE
+sew,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=completer+N1example=the deal+N1NHum+synonym=complete successfully+FLX=SHOW
+sew,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gagner+N1example=the election+N1NHum+synonym=win/control+FLX=SHOW
+sew,V+PV+FXC+N0Hum+Part=up+FR=coudre+N1example=the tear+N1NHum+synonym=mend+FLX=SHOW
+shake,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=choquer+N1example=Max+N1Hum+synonym=shock/upset+FLX=TAKE
+shake,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réorganiser+N1example=the company+N1NHum+synonym=make big changes to+Nom=a shake-up+FLX=TAKE
+shake,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=secouer+N1example=the bottle+N1NHum+NoPart+synonym=shake+FLX=TAKE
+shape,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=progresser+N1example=Max+N1Hum+N1VPart+synonym=cause to get into condition+FLX=LIVE
+sharpen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accentuer+N1example=the picture+N1NHum+NoPart+N1VPart+N1V+synonym=sharpen+FLX=ASK
+sharpen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=aiguiser+N1example=the knife+N1NHum+NoPart+N1VPart+synonym=sharpen+FLX=ASK
+sharpen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the presentation+N1Hum+N1NHum+synonym=improve+FLX=ASK
+shine,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire briller+N1example=the shoes+N1NHum+NoPart+N1VPart+N1V+synonym=shine+FLX=SHINE
+shoot,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fusiller+N1example=the village+N1Hum+N1NHum+synonym=damage by gunfire+FLX=SHOOT
+shoot,V+PV+FXC+N0Hum+Part=up+FR=injecter+N1example=heroin+N1NHum+NoPart+synonym=inject (drug)+FLX=SHOOT
+shore,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=consolider+N1example=the roof+N1NHum+synonym=support with prop+FLX=LIVE
+shore,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=étayer+N1example=production+N1NHum+synonym=support smth. that is weak+FLX=LIVE
+show,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire honte à +N1example=the dancer+N1Hum+N1NHum+synonym=surpass/embarrass+FLX=SHOW
+shred,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=déchiqueter+N1example=the papers+N1NHum+NoPart+synonym=shred+FLX=ADMIT
+shut,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enfermer+N1example=the animals+N1Hum+N1NHum+synonym=put in cage+FLX=CUT
+shut,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=faire taire+N1example=the student+N1Hum+N1VPart+synonym=make stop talking+FLX=CUT
+shut,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fermer+N1example=the store+N1NHum+NoPart+synonym=close+FLX=CUT
+sign,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=s'inscrire+N1example=the students+N1Hum+N1VPart+synonym=register/enlist+Nom=sign up+FLX=ASK
+silt,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=s'envaser+N1example=the reservoir+N1NHum+N1VPart+synonym=block with silt+FLX=ASK
+size,V+PV+FXC+N0Hum+Part=up+FR=estimer+N1example=the opposition+N1Hum+N1NHum+synonym=estimate/judge+FLX=LIVE
+slash,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couper+N1example=the curtains+N1Hum+N1NHum+NoPart+synonym=cut+FLX=ABOLISH
+slice,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couper en tranche+N1example=the lunch meat+N1NHum+NoPart+synonym=cut into slices+FLX=LIVE
+slip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=se planter+N1example=the actor+N1Hum+N1VPart+synonym=cause to make mistake+FLX=ADMIT
+slow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ralentir+N1example=the car+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=slow+Nom=slow up+FLX=ASK
+smash,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détruire+N1example=the car+N1NHum+NoPart+synonym=destroy+Nom=smash-up+FLX=ABOLISH
+smell,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=sentir mauvais+N1example=the kitchen+N1NHum+N1V+synonym=cause to smell+FLX=BEND
+smoke,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=enfumer+N1example=the room+N1NHum+synonym=cause to become smokey+FLX=LIVE
+snap,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=attraper+N1example=the job offer+N1Hum+N1NHum+synonym=acquire quickly+FLX=ADMIT
+snap,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rafler+N1example=the bargains+N1NHum+synonym=buy quickly+FLX=ADMIT
+snatch,V+PV+FXC+N0Hum+Part=up+FR=saisir+N1example=the bottle+N1NHum+NoPart+synonym=seize quickly+FLX=ABOLISH
+soak,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=absorber+N1example=the spill+N1NHum+synonym=absorb+FLX=ASK
+soak,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=utiliser+N1example=the funds+N1NHum+synonym=use large quantity of+FLX=ASK
+soak,V+PV+FXC+N0Hum+Part=up+FR=profiter+N1example=the atmosphere+N1NHum+synonym=enjoy+FLX=ASK
+soak,V+PV+FXC+N0Hum+Part=up+FR=rassembler+N1example=the gossip+N1NHum+synonym=gather large quantity of information+FLX=ASK
+soap,V+PV+FXC+N0Hum+Part=up+FR=savonner+N1example=POSS-0 face+N1Hum+N1NHum+synonym=cover with soap+FLX=ASK
+sober,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=dessoûler+N1example=the man+N1Hum+N1VPart+synonym=make sober+FLX=ASK
+soften,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=affaiblir+N1example=the enemy+N1Hum+N1NHum+synonym=weaken/make less harsh+FLX=ASK
+soften,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ramollir+N1example=the butter+N1NHum+NoPart+N1VPart+N1V+synonym=soften+FLX=ASK
+soften,V+PV+FXC+N0Hum+Part=up+FR=amadouer+N1example=the boss+N1Hum+synonym=flatter+FLX=ASK
+sop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=absorber+N1example=the water+N1NHum+synonym=absorb+FLX=ADMIT
+sop,V+PV+FXC+N0Hum+Part=up+FR=éponger+N1example=the gravy+N1NHum+synonym=finish food with help of bread+FLX=ADMIT
+soup,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gonfler+N1example=the sports car+N1NHum+synonym=make more powerful or interesting+FLX=ASK
+speed,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accèlerer+N1example=the process+N1Hum+N1NHum+N1VPart+synonym=make go faster+FLX=ASK
+speed,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accèlerer+N1example=the process+N1Hum+N1NHum+N1VPart+synonym=make go faster+FLX=BLEED
+spice,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=épicer+N1example=the food+N1NHum+synonym=make more spicy+FLX=LIVE
+spice,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=épicer+N1example=the novel+N1NHum+synonym=make interesting or sexy+FLX=LIVE
+spit,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=the food+N1NHum+synonym=vomit+FLX=SIT
+split,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=répartir+N1example=the money+N1NHum+NoPart+synonym=divide+OptPP=between/among N2+FLX=CUT
+split,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=séparer+N1example=the couple+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=separate+FLX=CUT
+sponge,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=éponger+N1example=the mess+N1NHum+synonym=remove with songe+FLX=LIVE
+spruce,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=nettoyer+N1example=the place+N1Hum+N1NHum+synonym=make more cheerful+FLX=LIVE
+squeeze,V+PV+FXC+N0Hum+Part=up+FR=presser+N1example=the passengers+N1Hum+N1NHum+NoPart+synonym=press together+FLX=LIVE
+stack,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=empiler+N1example=the papers+N1NHum+NoPart+N1VPart+synonym=put in a stack+FLX=ASK
+stand,V+PV+FXC+N0Hum+Part=up+FR=poser un lapin+N1example=Max+N1Hum+synonym=not keep appointment/date with (on purpose)+FLX=STAND
+start,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=commencer+N1example=the university+N1NHum+NoPart+N1VPart+N1V+synonym=begin to exist+Nom=start-up+FLX=ASK
+start,V+PV+FXC+N0Hum+Part=up+FR=démarrer+N1example=the car+N1NHum+NoPart+N1VPart+N1V+synonym=start (engine)+FLX=ASK
+steam,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=embuer+N1example=the windows+N1NHum+N1VPart+synonym=fog up+FLX=ASK
+step,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accélérer+N1example=the assembly line+N1NHum+N1VPart+synonym=make run faster+FLX=ADMIT
+stick,V+PV+FXC+N0Hum+Part=up+FR=voler+N1example=the bank+N1Hum+N1NHum+synonym=rob+Nom=stick-up+FLX=ASK
+stick,V+PV+FXC+N0Hum+Part=up+FR=voler+N1example=the bank+N1Hum+N1NHum+synonym=rob+Nom=stick-up+FLX=STICK
+stiffen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=raidir+N1example=the body+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=stiffen+FLX=ASK
+stink,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=sentir mauvais+N1example=the room+N1NHum+N1V+synonym=cause to stink+FLX=DRINK
+stir,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=fâcher+N1example=Max+N1Hum+synonym=make angry/excited+FLX=ADMIT
+stir,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=mélanger+N1example=the batter+N1NHum+NoPart+N1VPart+synonym=mix+FLX=ADMIT
+stir,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=troubler+N1example=the situation+N1NHum+N1VPart+synonym=make trouble+FLX=ADMIT
+stitch,V+PV+FXC+N0Hum+Part=up+FR=porter+N1example=the dress+N1NHum+NoPart+synonym=sew together+FLX=ABOLISH
+stoke,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=troubler+N1example=the situation+N1NHum+synonym=make trouble+FLX=LIVE
+stoke,V+PV+FXC+N0Hum+Part=up+FR=alimenter+N1example=the fire+N1NHum+NoPart+synonym=feed fire/stove/furnace+FLX=LIVE
+stop,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bloquer+N1example=the sink+N1NHum+N1VPart+synonym=block+FLX=ADMIT
+store,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=récupérer+N1example=water+N1NHum+NoPart+synonym=collect for future use+OptPP=for N2+FLX=LIVE
+store,V+PV+FXC+N0Hum+Part=up+FR=retenir+N1example=POSS-0 emotions+N1NHum+N1VPart+synonym=suppress/restrain+FLX=LIVE
+straighten,V+PV+FXC+N0Hum+Part=up+FR=ranger+N1example=the room+N1NHum+NoPart+synonym=make less messy+FLX=ASK
+strike,V+PV+FXC+N0Hum+Part=up+FR=commencer+N1example=a conversation+N1NHum+N1VPart+synonym=start/initiate+FLX=STRIKE
+string,V+PV+FXC+N0Hum+Part=up+FR=aligner+N1example=the lights+N1NHum+synonym=fasten smth. that forms line+FLX=STICK
+string,V+PV+FXC+N0Hum+Part=up+FR=pendre+N1example=the convict+N1Hum+synonym=lynch/kill by hanging+FLX=STICK
+stuff,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bloquer+N1example=the sink+N1NHum+synonym=block+FLX=ASK
+suck,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=aspirer+N1example=the leaves+N1NHum+NoPart+synonym=pick up+FLX=ASK
+suit,V+PV+FXC+N0Hum+Part=up+FR=préparer+N1example=the astronaut+N1Hum+N1VPart+synonym=prepare with special clothes+FLX=ASK
+sum,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=résumer+N1example=the lecture+N1NHum+synonym=make summary of+Nom=summing-up+FLX=ADMIT
+summon,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=appeler+N1example=the devil+N1NHum+NoPart+synonym=summon+FLX=ASK
+summon,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=rassembler+N1example=support+N1Hum+N1NHum+synonym=gather+FLX=ASK
+summon,V+PV+FXC+N0Hum+Part=up+FR=évoquer+N1example=a smile+N1NHum+synonym=evoke+FLX=ASK
+swallow,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=engloutir+N1example=the child+N1Hum+N1NHum+NoPart+synonym=swallow+FLX=ASK
+sweep,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=gagner+N1example=the prize+N1Hum+N1NHum+synonym=gather quickly+FLX=FEEL
+sweep,V+PV+FXC+N0Hum+Part=up+FR=balayer+N1example=the dirt+N1NHum+NoPart+synonym=clean+FLX=FEEL
+tack,V+PV+FXC+N0Hum+Part=up+FR=clouer+N1example=the notice+N1NHum+synonym=fasten with tacks+FLX=ASK
+take,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accepter+N1example=the offer+N1NHum+NoPart+synonym=accept+FLX=TAKE
+take,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=accepter+N1example=the pencil+N1NHum+synonym=collect/lift/gather+FLX=TAKE
+take,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bouger+N1example=the carpet+N1NHum+synonym=remove+FLX=TAKE
+take,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=occuper+N1example=one hour+N1NHum+synonym=occupy time/space/effort+FLX=TAKE
+take,V+PV+FXC+N0Hum+Part=up+FR=commencer+N1example=the piano+N1NHum+synonym=begin activity+FLX=TAKE
+take,V+PV+FXC+N0Hum+Part=up+FR=délibérer+N1example=the issue+N1NHum+synonym=deliberate/deal with+FLX=TAKE
+take,V+PV+FXC+N0Hum+Part=up+FR=raccourcir+N1example=the skirt+N1NHum+synonym=raise hem in+FLX=TAKE
+take,V+PV+FXC+N0Hum+Part=up+FR=résumer+N1example=the conversation+N1NHum+synonym=continue/resume+OptPP=from N2+FLX=TAKE
+talk,V+PV+FXC+N0Hum+Part=up+FR=promouvoir+N1example=the idea+N1Hum+N1NHum+synonym=promote+FLX=ASK
+tally,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ajouter+N1example=the results+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=add up+FLX=APPLY
+tank,V+PV+FXC+N0Hum+Part=up+FR=faire le plein+N1example=the car+N1NHum+synonym=fill with gasoline+FLX=ASK
+tape,V+PV+FXC+N0Hum+Part=up+FR=mettre du ruban+N1example=the box+N1Hum+N1NHum+NoPart+synonym=fasten with tape+FLX=LIVE
+tear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détruire+N1example=the rainforest+N1Hum+N1NHum+synonym=destroy+FLX=ASK
+tear,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détruire+N1example=the rainforest+N1Hum+N1NHum+synonym=destroy+FLX=SWEAR
+tear,V+PV+FXC+N0Hum+Part=up+FR=déchirer+N1example=the paper+N1NHum+NoPart+synonym=tear into small pieces+FLX=ASK
+tear,V+PV+FXC+N0Hum+Part=up+FR=déchirer+N1example=the paper+N1NHum+NoPart+synonym=tear into small pieces+FLX=SWEAR
+tee,V+PV+FXC+N0Hum+Part=up+FR=mettre sur le tee+N1example=the golf ball+N1NHum+synonym=place on tee+FLX=AGREE
+tense,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=crisper+N1example=Max+N1Hum+N1NHum+N1VPart+synonym=becomes rigid/anxious+FLX=LIVE
+tense,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=crisper+N1example=the muscles+N1Hum+N1NHum+N1VPart+N1V+synonym=make tense+FLX=LIVE
+think,V+PV+FXC+N0Hum+Part=up+FR=créer+N1example=the idea+N1NHum+synonym=invent/create+FLX=THINK
+throw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ériger+N1example=the building+N1NHum+synonym=erect quickly+FLX=BLOW
+throw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=produire+N1example=some new ideas+N1NHum+synonym=produce+FLX=BLOW
+throw,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=projecter+N1example=the slides+N1NHum+synonym=project+FLX=BLOW
+throw,V+PV+FXC+N0Hum+Part=up+FR=abandonner+N1example=the campaign+N1NHum+synonym=abandon+FLX=BLOW
+throw,V+PV+FXC+N0Hum+Part=up+FR=lancer+N1example=the ball+N1Hum+N1NHum+NoPart+synonym=throw upwards+FLX=BLOW
+throw,V+PV+FXC+N0Hum+Part=up+FR=lever+N1example=POSS-0 hands+N1NHum+synonym=raise upwards suddenly+FLX=BLOW
+throw,V+PV+FXC+N0Hum+Part=up+FR=rappeler+N1example=the past+N1NHum+synonym=refer repeatedly to+FLX=BLOW
+throw,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=dinner+N1NHum+synonym=vomit+FLX=BLOW
+tidy,V+PV+FXC+N0Hum+Part=up+FR=ranger+N1example=the room+N1NHum+NoPart+synonym=clean+FLX=APPLY
+tie,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=amarrer+N1example=the boat+N1NHum+synonym=moor+OptPP=to N2+FLX=DIE
+tie,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=bloquer+N1example=the traffic+N1NHum+synonym=block+FLX=DIE
+tie,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=finir+N1example=the arrangmeents+N1NHum+synonym=finish/complete+FLX=DIE
+tie,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=immobiliser+N1example=the savings+N1NHum+synonym=make money inaccessible+OptPP=in N2+FLX=DIE
+tie,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=occuper+N1example=the telephone+N1Hum+N1NHum+synonym=keep occupied+FLX=DIE
+tie,V+PV+FXC+N0Hum+Part=up+FR=attacher+N1example=the gangsters+N1Hum+N1NHum+synonym=bind+FLX=DIE
+tie,V+PV+FXC+N0Hum+Part=up+FR=nouer+N1example=POSS-0 shoelaces+N1NHum+NoPart+synonym=fasten+FLX=DIE
+tighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=renforcer+N1example=the muscles+N1Hum+N1NHum+N1VPart+N1V+synonym=make tense+FLX=ASK
+tighten,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=resserer+N1example=the wire+N1NHum+NoPart+N1VPart+N1V+synonym=tighten+FLX=ASK
+tip,V+PV+FXC+N0Hum+Part=up+FR=renverser+N1example=the airplane+N1NHum+N1VPart+synonym=move to sloping position+FLX=ADMIT
+tone,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=raffermir+N1example=the muscles+N1NHum+synonym=make firmer/less flabby+FLX=LIVE
+tool,V+PV+FXC+N0Hum+Part=up+FR=équiper+N1example=the assembly line+N1NHum+synonym=equip+FLX=ASK
+top,V+PV+FXC+N0Hum+Part=up+FR=remplir+N1example=the coffee+N1Hum+N1NHum+synonym=make N1's cup full/make full again+Nom=a top-up+FLX=ADMIT
+toss,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=couvrir+N1example=the blanket+N1Hum+N1NHum+synonym=throw upwards+FLX=ABOLISH
+toss,V+PV+FXC+N0Hum+Part=up+FR=lancer+N1example=the coin+N1NHum+NoPart+synonym=throw coin in air+Nom=a toss-up+FLX=ABOLISH
+total,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=totaliser+N1example=the check+N1NHum+NoPart+N1VPart+synonym=total/add+FLX=ADMIT
+touch,V+PV+FXC+N0Hum+Part=up+FR=améliorer+N1example=the paint job+N1NHum+synonym=improve+FLX=ABOLISH
+toughen,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=endurcir+N1example=the workers+N1Hum+N1NHum+NoPart+N1VPart+synonym=make stricker or stronger+FLX=ASK
+track,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=salir+N1example=the rug+N1NHum+synonym=make dirty+FLX=ASK
+trim,V+PV+FXC+N0Hum+Part=up+FR=soigner+N1example=the tree+N1NHum+NoPart+synonym=trim+FLX=ADMIT
+trip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=trébucher+N1example=the performer+N1Hum+N1NHum+NoPart+N1VPart+synonym=cause to fail/falter+FLX=ADMIT
+true,V+PV+FXC+N0Hum+Part=up+FR=aligner+N1example=the walls+N1NHum+synonym=align+FLX=AGE
+trump,V+PV+FXC+N0Hum+Part=up+FR=fabriquer+N1example=the charges+N1NHum+synonym=invent deceitfully+FLX=ASK
+truss,V+PV+FXC+N0Hum+Part=up+FR=ligoter+N1example=the turkey+N1Hum+N1NHum+synonym=bind limbs+FLX=ABOLISH
+tuck,V+PV+FXC+N0Hum+Part=up+FR=rapprocher+N1example=POSS-0 feet+N1NHum+synonym=move close to body+FLX=ASK
+tuck,V+PV+FXC+N0Hum+Part=up+FR=remonter+N1example=POSS-0 hair+N1NHum+synonym=position upwards+FLX=ASK
+tune,V+PV+FXC+N0Hum+Part=up+FR=ajuster+N1example=the brass section+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=adjust pitch+FLX=LIVE
+tune,V+PV+FXC+N0Hum+Part=up+FR=ajuster+N1example=the car+N1NHum+NoPart+synonym=adjust engine+Nom=tune-up+FLX=LIVE
+turn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=découvrir+N1example=the information+N1Hum+N1NHum+N1VPart+synonym=discover+FLX=ASK
+turn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=détordre+N1example=the collar+N1NHum+synonym=bend into upright position+FLX=ASK
+turn,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=monter+N1example=the volume+N1NHum+synonym=amplify+FLX=ASK
+type,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=taper+N1example=the newsletter+N1NHum+NoPart+synonym=type+FLX=LIVE
+use,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=finir+N1example=the milk+N1NHum+NoPart+synonym=consume all of+FLX=LIVE
+vacuum,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=aspirer+N1example=the room+N1NHum+NoPart+synonym=clean using vacuum+FLX=ASK
+vamp,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=améliorer+N1example=the story+N1NHum+synonym=make more interesting+FLX=ASK
+vamp,V+PV+FXC+N0Hum+Part=up+FR=improviser+N1example=the music+N1NHum+synonym=improvise+FLX=ASK
+vomit,V+PV+FXC+N0Hum+Part=up+FR=vomir+N1example=blood+N1NHum+NoPart+N1VPart+synonym=vomit+FLX=ASK
+wad,V+PV+FXC+N0Hum+Part=up+FR=morceler+N1example=the paper+N1NHum+NoPart+synonym=crush/fold into small shape+FLX=ADMIT
+wake,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réveiller+N1example=the baby+N1Hum+N1NHum+NoPart+N1VPart+N1V+synonym=awaken+FLX=WAKE
+waken,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réveiller+N1example=Max+N1Hum+NoPart+N1VPart+N1V+synonym=waken+FLX=ASK
+wall,V+PV+FXC+N0Hum+Part=up+FR=confiner+N1example=the victim+N1Hum+N1NHum+synonym=confine s.o. or smth. behind wall+FLX=ASK
+wall,V+PV+FXC+N0Hum+Part=up+FR=murer+N1example=the window+N1NHum+synonym=enclose+FLX=ASK
+warm,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=chauffer+N1example=the audience+N1Hum+N1NHum+N1VPart+synonym=prepare+Nom=warm up+FLX=ASK
+warm,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=réchauffer+N1example=the meal+N1NHum+NoPart+N1VPart+synonym=warm (food)+FLX=ASK
+warm,V+PV+FXC+N0Hum+Part=up+FR=chauffer+N1example=the engine+N1NHum+N1VPart+synonym=make ready to function properly+FLX=ASK
+wash,V+PV+FXC+N0Hum+Part=up+FR=laver+N1example=POSS-0 hands+N1Hum+N1NHum+NoPart+synonym=wash thoroughly+FLX=ABOLISH
+weigh,V+PV+FXC+N0Hum+Part=up+FR=comparer+N1example=the costs+N1NHum+synonym=compare carefully+FLX=ASK
+weigh,V+PV+FXC+N0Hum+Part=up+FR=estimer+N1example=the competition+N1Hum+N1NHum+synonym=estimate/judge+FLX=ASK
+whip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=battre+N1example=the eggs+N1NHum+NoPart+N1VPart+synonym=beat+FLX=ADMIT
+whip,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=susciter+N1example=support+N1Hum+N1NHum+synonym=arouse/excite+FLX=ADMIT
+whip,V+PV+FXC+N0Hum+Part=up+FR=préparer+N1example=the meal+N1NHum+synonym=make quickly+FLX=ADMIT
+whisk,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=battre+N1example=the eggs+N1NHum+NoPart+synonym=beat+FLX=ASK
+whistle,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=arranger+N1example=a crowd+N1Hum+N1NHum+synonym=arrange quickly+FLX=LIVE
+wind,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ennuyer+N1example=Max+N1Hum+synonym=annoy+FLX=ASK
+wind,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=ennuyer+N1example=Max+N1Hum+synonym=annoy+FLX=FIND
+wind,V+PV+FXC+N0Hum+Part=up+FR=remonter+N1example=the clock+N1NHum+NoPart+synonym=wind/turn handle+FLX=ASK
+wind,V+PV+FXC+N0Hum+Part=up+FR=remonter+N1example=the clock+N1NHum+NoPart+synonym=wind/turn handle+FLX=FIND
+wind,V+PV+FXC+N0Hum+Part=up+FR=terminer+N1example=the meeting+N1NHum+N1VPart+synonym=end+FLX=ASK
+wind,V+PV+FXC+N0Hum+Part=up+FR=terminer+N1example=the meeting+N1NHum+N1VPart+synonym=end+FLX=FIND
+wipe,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=essuyer+N1example=the spill+N1NHum+NoPart+N1VPart+synonym=wipe+FLX=LIVE
+wire,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=connecter+N1example=the equipment+N1Hum+N1NHum+synonym=connect+OptPP=to N2+FLX=LIVE
+work,V+PV+FXC+N0Hum+Part=up+FR=préparer+N1example=a proposal+N1NHum+synonym=prepare quickly+FLX=ASK
+wrap,V+PV+FXC+N0Hum+N0NHum+Part=up+FR=emballer+N1example=the package+N1NHum+NoPart+synonym=wrap+FLX=ADMIT
+wrap,V+PV+FXC+N0Hum+Part=up+FR=terminer+N1example=the session+N1NHum+NoPart+N1VPart+synonym=end+Nom=wrap up+FLX=ADMIT
+write,V+PV+FXC+N0Hum+Part=up+FR=composer+N1example=the ticket+N1Hum+N1NHum+NoPart+synonym=compose+FLX=WRITE
+write,V+PV+FXC+N0Hum+Part=up+FR=rédiger+N1example=the employee+N1Hum+N1NHum+synonym=make (negative) report about+Nom=write-up+FLX=WRITE
+yield,V+PV+FXC+N0Hum+Part=up+FR=déclarer forfait+N1example=the land+N1NHum+NoPart+synonym=be forced to abandon+FLX=ASK
+zip,V+PV+FXC+N0Hum+Part=up+FR=zipper+N1example=the jacket+N1NHum+NoPart+N1VPart+synonym=fasten using a zipper+FLX=ADMIT

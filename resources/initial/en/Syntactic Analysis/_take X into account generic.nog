@@ -1,0 +1,44 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 2
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME n
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+12
+"<E>/<$V" 22 67 1 10 
+"" 620 67 0 
+"<V>" 109 67 1 11 
+":NP" 324 20 1 8 
+"$V$PP/<XREF" 435 67 1 5 
+"<E>/>" 527 67 1 9 
+"<E>/\+XREF>" 216 67 1 7 
+"<E>" 275 67 2 3 8 
+"$(N1" 386 67 1 4 
+"$)" 577 67 1 1 
+"$(V" 58 67 1 2 
+"$)" 173 67 1 6 
+#
+NP
+2
+"<WF>" 119 84 2 0 1 
+"" 210 84 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

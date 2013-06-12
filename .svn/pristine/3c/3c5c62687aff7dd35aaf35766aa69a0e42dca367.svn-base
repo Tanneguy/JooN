@@ -1,0 +1,17 @@
+package Nooj;
+
+import java.awt.Dimension;
+
+public class WoxSize {
+	
+	private int height, width;
+	
+	public WoxSize(Dimension d) {
+		height = d.height;
+		width = d.width;
+	}
+	
+	public Dimension toDimension() {
+		return new Dimension(width, height);
+	}
+}

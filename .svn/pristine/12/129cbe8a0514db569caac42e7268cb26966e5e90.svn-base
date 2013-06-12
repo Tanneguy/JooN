@@ -1,0 +1,136 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.Font;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import net.nooj4nlp.gui.components.CustomCell;
+import net.nooj4nlp.gui.dialogs.PreferencesDialog;
+import net.nooj4nlp.gui.main.Launcher;
+
+public class CopyToPreferences
+{
+
+	private JComboBox cbDefLanguage;
+	private JCheckBox cbBackups;
+	private JTable lvDic;
+	private JTable lvMor;
+	private JTable lvSGrm;
+	private PreferencesDialog dialog;
+
+	public CopyToPreferences(JComboBox cbDefLanguage, JCheckBox cbBackups, JTable lvSGrm, PreferencesDialog dialog)
+	{
+		this.cbDefLanguage = cbDefLanguage;
+		this.cbBackups = cbBackups;
+		this.lvSGrm = lvSGrm;
+		this.dialog = dialog;
+	}
+
+	public void CopyToPref()
+	{
+		if (cbDefLanguage.getSelectedItem() != null)
+		{
+			Launcher.preferences.deflanguage = (String) cbDefLanguage.getSelectedItem();
+			CopyLvsToPref(Launcher.preferences.deflanguage);
+		}
+		Launcher.preferences.multiplebackups = cbBackups.isSelected();
+
+		Font TFont = dialog.getTFont();
+		if (TFont != null)
+			Launcher.preferences.TFont = new Font(TFont.getName(), TFont.getStyle(), TFont.getSize());
+		Font DFont = dialog.getDFont();
+		if (DFont != null)
+			Launcher.preferences.DFont = new Font(DFont.getName(), DFont.getStyle(), DFont.getSize());
+
+		Launcher.modifyAllFonts();
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void CopyLvsToPref(String lname)
+	{
+		// lexical analysis : dictionaries
+		ArrayList f = new ArrayList();
+		lvDic = dialog.getTableDictionary();
+		lvMor = dialog.getTableMorphology();
+		DefaultTableModel dicModel = (DefaultTableModel) lvDic.getModel();
+		for (Object item : dicModel.getDataVector())
+		{
+			Vector row = (Vector) item;
+			boolean selected = ((CustomCell) row.get(0)).checkBox.isSelected();
+			if (selected)
+			{
+				String fname = ((CustomCell) row.get(0)).label.getText();
+				String prio = (String) row.get(1);
+
+				if (prio.equalsIgnoreCase(""))
+					fname = "00" + fname;
+				else if (prio.startsWith("H"))
+					fname = "-" + prio.substring(1) + fname;
+				else if (prio.startsWith("L"))
+					fname = "0" + prio.substring(1) + fname;
+				else
+				{
+					JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "in lvdic: prio = " + prio
+							+ " for fname = " + fname, "MDS-DEBUG", JOptionPane.ERROR_MESSAGE);
+					continue;
+				}
+				f.add(fname);
+			}
+		}
+		// lexical analysis: morphology
+		DefaultTableModel morModel = (DefaultTableModel) lvMor.getModel();
+		for (Object item : morModel.getDataVector())
+		{
+			Vector row = (Vector) item;
+			boolean selected = ((CustomCell) row.get(0)).checkBox.isSelected();
+			if (selected)
+			{
+				String fname = ((CustomCell) row.get(0)).label.getText();
+				String prio = (String) row.get(1);
+				if (prio.equalsIgnoreCase(""))
+					fname = "00" + fname;
+				else if (prio.startsWith("H"))
+					fname = "-" + prio.substring(1) + fname;
+				else if (prio.startsWith("L"))
+					fname = "0" + prio.substring(1) + fname;
+				else
+				{
+					JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "in lvdic: prio = " + prio
+							+ " for fname = " + fname, "MDS-DEBUG", JOptionPane.ERROR_MESSAGE);
+					continue;
+				}
+				f.add(fname);
+			}
+		}
+
+		Launcher.preferences.ldic.put(lname, f);
+
+		// syntactic analysis: grammars
+		ArrayList f2 = new ArrayList();
+		DefaultTableModel grmModel = (DefaultTableModel) lvSGrm.getModel();
+		for (Object item : grmModel.getDataVector())
+		{
+			Vector row = (Vector) item;
+			String prio = (String) row.get(0);
+			if (!prio.equalsIgnoreCase(""))
+			{
+				String fname = (String) row.get(1);
+				if (prio.length() == 0 || prio.length() > 2)
+					prio = "00";
+				else if (prio.length() == 1)
+					prio = "0" + prio;
+
+				fname = prio + fname;
+				f2.add(fname);
+			}
+		}
+		Launcher.preferences.lsyn.put(lname, f2);
+	}
+
+}

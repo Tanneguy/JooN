@@ -1,0 +1,112 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+
+import net.nooj4nlp.engine.Paths;
+import net.nooj4nlp.gui.components.CustomCell;
+
+public class LexTableSelectionListener implements ListSelectionListener
+{
+
+	private JTable table;
+	private JButton bEdit;
+	private JButton bHigh;
+	private JButton bLow;
+	private JButton bDelete;
+	private JComboBox cbDefLanguage;
+	private JTextArea txtFileInfoLex;
+	private JLabel lblLexDoc;
+
+	public LexTableSelectionListener(JTable table, JButton bEdit, JButton bHigh, JButton bLow, JButton bDelete,
+			JComboBox cbDefLanguage, JTextArea txtFileInfoLex, JLabel lblLexDoc)
+	{
+		this.table = table;
+		this.bEdit = bEdit;
+		this.bHigh = bHigh;
+		this.bLow = bLow;
+		this.bDelete = bDelete;
+		this.cbDefLanguage = cbDefLanguage;
+		this.txtFileInfoLex = txtFileInfoLex;
+		this.lblLexDoc = lblLexDoc;
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e)
+	{
+		// TODO fire only once
+		if (!(table.getSelectedRowCount() > 0))
+		{
+			bEdit.setEnabled(false);
+			bHigh.setEnabled(false);
+			bLow.setEnabled(false);
+			bDelete.setEnabled(false);
+			return;
+		}
+
+		bEdit.setEnabled(true);
+		bHigh.setEnabled(true);
+		bLow.setEnabled(true);
+		bDelete.setEnabled(true);
+
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		Vector data = model.getDataVector();
+		int index = table.getSelectedRow();
+
+		if (!(index < data.size()))
+			return;
+		Vector cell = (Vector) data.get(index);
+		String fname = ((CustomCell) cell.get(0)).label.getText();
+
+		String lname = (String) cbDefLanguage.getSelectedItem();
+
+		String fullname = Paths.docDir + "\\" + lname + "\\Lexical Analysis\\" + fname;
+		String commentname = Paths.docDir + "\\" + lname + "\\Lexical Analysis\\"
+				+ fname.substring(0, fname.lastIndexOf(".")) + ".txt";
+		lblLexDoc.setText(fullname);
+
+		txtFileInfoLex.setText("");
+		File commentFile = new File(commentname);
+		if (commentFile.exists())
+		{
+			try
+			{
+				BufferedReader br = new BufferedReader(new FileReader(commentFile));
+				try
+				{
+					StringBuilder sb = new StringBuilder();
+					String line = br.readLine();
+
+					while (line != null)
+					{
+						sb.append(line);
+						sb.append("\n");
+						line = br.readLine();
+					}
+					String everything = sb.toString();
+					txtFileInfoLex.append(everything);
+				}
+				finally
+				{
+					br.close();
+				}
+			}
+			catch (Exception e1)
+			{
+
+			}
+		}
+	}
+
+}

@@ -1,0 +1,8 @@
+Proveriti da li sve funkcije na projektu koje vracaju String kao rezultat, u nekim slucajevima kada ne bi
+trebalo da vrate nikakav String, vracaju prazan String umesto null vrednosti.
+
+Dodati custom NooJ dugmice iz ColoredJButtonUI klase, svuda gde se isti pojavljuju!
+
+Ispitati da li je negde u projektu inicijalizovana lista gde ne sme da bude i obratno.
+
+Odraditi deo vezan za tabelu sa gramatikama u Preferences, i gde god se spominju...

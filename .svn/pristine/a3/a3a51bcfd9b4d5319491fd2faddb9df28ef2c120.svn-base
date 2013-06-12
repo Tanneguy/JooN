@@ -1,0 +1,47 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.engine.Paths;
+import net.nooj4nlp.gui.main.Launcher;
+
+public class SaveAsDefaultActionListener implements ActionListener
+{
+
+	private CopyToPreferences copyToPreferences;
+
+	public SaveAsDefaultActionListener(CopyToPreferences copyToPreferences)
+	{
+		this.copyToPreferences = copyToPreferences;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		copyToPreferences.CopyToPref();
+		if (!Launcher.projectMode)
+		{
+			try
+			{
+				Launcher.preferences.Save(Paths.docDir + "\\Preferences." + Constants.JNOJ_EXTENSION);
+			}
+			catch (IOException e1)
+			{
+				JOptionPane.showMessageDialog(Launcher.getDesktopPane(), e1.getMessage(),
+						Constants.ERROR_MESSAGE_TITLE_INPUT_OUTPUT_ERROR, JOptionPane.ERROR_MESSAGE);
+			}
+			// #if DEBUG
+			// DialogResult dr = MessageBox.Show(formMain, "Update also NooJ's Application Default?", "Save for NooJ",
+			// MessageBoxButtons.YesNo);
+			// if (dr == DialogResult.Yes)
+			// formMain.preferences.Save (Path.Combine (formMain.applicationDir,"Preferences.noj"));
+			// #endif
+		}
+	}
+
+}

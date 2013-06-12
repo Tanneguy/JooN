@@ -1,0 +1,48 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class AddGrmActionListener implements ActionListener{
+
+	private JList listSynResources;
+	private JTable lvSGrm;
+	
+	public AddGrmActionListener(JList listSynResources, JTable lvSGrm){
+		this.listSynResources = listSynResources;
+		this.lvSGrm = lvSGrm;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(listSynResources.getSelectedValue() == null) return;
+		
+		DefaultTableModel model = (DefaultTableModel) lvSGrm.getModel();
+		Vector data = model.getDataVector();
+
+		for(int id:listSynResources.getSelectedIndices()){
+			String fname = (String) listSynResources.getModel().getElementAt(id);
+			boolean alreadythere = false;				 
+			
+			for(Object row:data){
+				String cname = (String)((Vector)row).get(1);
+				if(cname.equalsIgnoreCase(fname)){
+					alreadythere = true;
+					break;
+				}
+			}
+			if(!alreadythere){
+				int priority = model.getRowCount() + 1;
+				model.addRow(new Object[]{String.valueOf(priority), fname});
+			}
+		}
+
+	}
+
+}

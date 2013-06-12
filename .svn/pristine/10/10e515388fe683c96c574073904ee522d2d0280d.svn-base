@@ -1,0 +1,18 @@
+package Nooj;
+
+import java.awt.Color;
+
+public class WoxColor {
+    private int a, r, g, b;
+    
+    public WoxColor(Color c) {
+    	a = c.getAlpha();
+    	r = c.getRed();
+    	g = c.getGreen();
+    	b = c.getBlue();
+    }
+    
+    public Color toColor() {
+    	return new Color(r, g, b, a);
+    }
+}

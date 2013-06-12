@@ -1,0 +1,48 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+21
+"<E>" 44 176 5 9 11 12 13 14 
+"" 955 176 0 
+"<N\+s>" 347 176 1 5 
+"<V\+PR\+3\+s>" 594 80 1 7 
+"$(N" 295 176 1 2 
+"$)" 444 176 1 15 
+"$(V" 553 80 1 3 
+"$)" 734 80 1 16 
+"<E>" 915 176 1 1 
+"the/the" 120 37 1 10 
+"<E>" 262 176 1 4 
+"this/these " 120 86 1 10 
+"that/those" 123 140 1 10 
+"no/no" 129 214 1 10 
+"a" 137 273 1 10 
+"<E>/$N_N\+p " 487 176 2 6 18 
+"<E>/$V_V\+PR\+p" 781 80 1 8 
+"<V\+PT\+s>" 601 274 1 19 
+"$(V" 560 274 1 17 
+"$)" 741 274 1 20 
+"<E>/$V_V\+PT\+p" 788 274 1 8 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

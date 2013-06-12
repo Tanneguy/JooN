@@ -1,0 +1,102 @@
+package net.nooj4nlp.controller.DictionaryDialog;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import net.nooj4nlp.engine.Language;
+
+public class EnrichActionListener implements ActionListener
+{
+
+	@SuppressWarnings("unused")
+	private DictionaryDialogController controller;
+
+	public EnrichActionListener(DictionaryDialogController controller)
+	{
+		super();
+		this.controller = controller;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		// TODO: this should be dynamic
+		@SuppressWarnings("unused")
+		Language lan = new Language("en");
+
+		// RefObject<Language> lanRef = new RefObject<Language>(lan);
+		// Engine engine = new Engine(lanRef, null, "C:\\Documents and Settings\\user\\My Documents\\NooJ", null, false,
+		// null, false, null);
+		// lan = lanRef.argvalue;
+		//
+		// String errmessage = null;
+		// ArrayList<String> l = new ArrayList<String>();
+		// l.add("-1_Contractions.nod");
+		// l.add("00_delacfn.nod");
+		// l.add("00_phrasal_verbs.nod");
+		// l.add("00_sdic.nod");
+		// l.add("02_Proper Names.nom");
+		// l.add("00_Roman Numerals.nom");
+		// l.add("01_V-able.nom");
+		// RefObject<String> errmessageRef = new RefObject<String>(errmessage);
+		// try {
+		// if (!engine.loadResources(l, null, true, errmessageRef))
+		// {
+		// errmessage = errmessageRef.argvalue;
+		// JOptionPane.showMessageDialog(Launcher.getDesktopPane(), errmessage,
+		// "NooJ: cannot load linguistic resources",
+		// JOptionPane.INFORMATION_MESSAGE);
+		// return;
+		// }
+		// } catch (HeadlessException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// } catch (ClassNotFoundException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// } catch (IOException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		//
+		// String buffer = DictionaryDialogController.getDictionaryContent(controller.getTxtDictionaryName().getText());
+		// if (buffer == null) return;
+		// String[] lines = null;
+		// String resultingdictionary = null;
+		//
+		// lines = buffer.split("\n");
+		// resultingdictionary = engine.enrichDictionary(lines);
+		//
+		// String tmp = controller.getTxtDictionaryName().getText();
+		// String fname =
+		// org.apache.commons.io.FilenameUtils.removeExtension(org.apache.commons.io.FilenameUtils.getName(tmp));
+		// String ext = org.apache.commons.io.FilenameUtils.getExtension(tmp);
+		// String dname = org.apache.commons.io.FilenameUtils.getFullPath(tmp);
+		//
+		// String fullname2 = dname + fname + "-en." + ext;
+		// try {
+		// BufferedWriter out = new BufferedWriter(new FileWriter(fullname2));
+		// out.write(resultingdictionary);
+		// out.close();
+		// }
+		// catch (Exception e1){
+		// e1.printStackTrace();
+		// }
+		// resultingdictionary = null;
+		//
+		// if(JOptionPane.showConfirmDialog(null, "Do you want to work with new created dictionary " + fullname2 + "?",
+		// "NooJ", JOptionPane.YES_NO_OPTION) == 0) {
+		// controller.getTxtDictionaryName().setText(fullname2);
+		// if (controller.loadLines(0, 500))
+		// controller.getPnlDisplayDictionary().setBorder(new TitledBorder(null, "Display " +
+		// org.apache.commons.io.FilenameUtils.getName(controller.getTxtDictionaryName().getText()),
+		// TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		// else
+		// controller.getPnlDisplayDictionary().setBorder(new TitledBorder(null, "Display beginning of " +
+		// org.apache.commons.io.FilenameUtils.getName(controller.getTxtDictionaryName().getText()),
+		// TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		// }
+
+	}
+
+}

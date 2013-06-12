@@ -1,0 +1,24 @@
+package Nooj;
+
+import net.nooj4nlp.engine.GramType;
+
+public class WoxGramType {
+	private int type;
+
+	public WoxGramType(GramType t) {
+		if (t == GramType.MORPHO)
+			type = 0;
+		if (t == GramType.FLX)
+			type = 1;
+		if (t == GramType.SYNTAX)
+			type = 2;
+	}
+	
+	public GramType toGramType() {
+		if (type == 0)
+			return GramType.MORPHO;
+		if (type == 1)
+			return GramType.FLX;
+		return GramType.SYNTAX;
+	}
+}

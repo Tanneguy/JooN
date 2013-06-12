@@ -1,0 +1,40 @@
+#OpenNooJ 1.0
+TYPE MORPHOLOGY
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME n
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+11
+"$(Pref" 69 146 1 2 
+"" 510 122 0 
+"<L>" 144 146 2 2 3 
+"$)" 240 146 1 4 
+"<E>/<$Pref=:V>" 289 146 1 6 
+"=> \"laughable\" is annotated as <laugh,A\+Able>" 533 48 0 
+"able/<$Pref,A\+Able>" 439 146 1 1 
+"laugh must be a Verb" 284 189 0 
+"laugh..." 145 47 1 9 
+"...able" 431 47 0 
+"Max Silberztein+This productive morphological grammar+recognizes all the word forms that end with \"able\",+then checks that their prefix is actually a verb <$Pref=:V>" 43 305 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#
+
+laughable

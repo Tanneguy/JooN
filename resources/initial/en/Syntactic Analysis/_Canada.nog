@@ -1,0 +1,34 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+7
+"<E>" 92 186 4 2 3 4 5 
+"" 463 231 0 
+"Canada" 201 56 1 1 
+"<canadian>" 194 109 1 1 
+"Nova Scotia+Prince Edward Island+British Columbia+New Brunswick+Ontario+Québec+Quebec" 170 236 1 1 
+"Moncton+Montréal+Pearson+Toronto+Vancouver+Winnipeg" 184 426 1 1 
+"this grammar could be used to extract+all articles that speak about something Canadian..." 380 79 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#

@@ -1,0 +1,31 @@
+# NooJ V2
+#
+# Syntactic grammar
+#
+# Input Language is: fr
+# Output Language is: fr
+#
+# Special Characters: '=' '<' '>' '\' '"' ':' '+' '/' '#' ';'
+#
+# Special Start Rule: Main
+#
+
+# Max Silberztein
+# Exemple de grammaire algébrique avec règles auxiliaires
+# et symboles lexicaux
+
+# Voici un ensemble de verbes :
+
+Verbes = <décéder> | <mourir> | <périr> ;
+
+# Ensemble de noms :
+
+Noms = <décès> | <mort> ;
+
+# Ensemble d'adjectifs :
+
+Adjectifs = <fatal> | <mortel> | <périssable> ;
+
+# Voici la règle principale :
+
+Main = :Verbes | :Noms | :Adjectifs ;

@@ -1,0 +1,139 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/**
+ * Helper class - used for keeping id of token and list of addresses (beginning and ending addresses) where the token
+ * can be found at.
+ * 
+ * @author Silberztein Max
+ */
+public class Indexkey implements Serializable
+{
+	private static final long serialVersionUID = -7635435434180069063L;
+
+	// FIXME: ORIGINAL LINE: internal uint tokenId; - tokenId needs to be long and not int type!
+	int tokenId; // each token has a token ID
+	public ArrayList addresses; // each token has a list of beginning and ending addresses
+
+	/**
+	 * Default constructor
+	 */
+	Indexkey() // for tokens
+	{
+		this.addresses = new ArrayList();
+	}
+
+	/**
+	 * Constructor based on id of a token, beginning and ending addresses
+	 * 
+	 * @param tokenId
+	 * @param begAddress
+	 * @param endAddress
+	 */
+	Indexkey(int tokenId, int begAddress, int endAddress) // for tokens
+	{
+		this.tokenId = tokenId;
+		this.addresses = new ArrayList();
+		this.addresses.add(begAddress);
+		this.addresses.add(endAddress);
+	}
+
+	/**
+	 * Constructor based on id of a token
+	 * 
+	 * @param tokenId
+	 */
+	Indexkey(int tokenId) // for tokens
+	{
+		this.tokenId = tokenId;
+		this.addresses = new ArrayList();
+	}
+
+	/**
+	 * Constructor based on beginning and ending addresses
+	 * 
+	 * @param begAddress
+	 * @param endAddress
+	 */
+	Indexkey(int begAddress, int endAddress) // for digrams
+	{
+		this.tokenId = 0;
+		this.addresses = new ArrayList();
+		this.addresses.add(begAddress);
+		this.addresses.add(endAddress);
+	}
+
+	/**
+	 * Creates a copy of current Indexkey object.
+	 * 
+	 * @return copy of current Index key object
+	 */
+	final Indexkey copy()
+	{
+		Indexkey copy = new Indexkey(this.tokenId);
+		for (int i = 0; i < this.addresses.size(); i++)
+		{
+			copy.addresses.add((Integer) this.addresses.get(i));
+		}
+		return copy;
+	}
+
+	/**
+	 * Adds another occurrence of token represented by this Indexkey.
+	 * 
+	 * @param begAddress
+	 *            - beginning address to be added to list of token's addresses
+	 * @param endAddress
+	 *            - ending address to be added to list of token's addresses
+	 */
+	final void addOccurrence(int begAddress, int endAddress)
+	{
+		this.addresses.add(begAddress);
+		this.addresses.add(endAddress);
+	}
+
+	/**
+	 * Adds another occurrence of token represented by this Indexkey, if it doesn't already exist in the list of
+	 * occurrences.
+	 * 
+	 * @param begAddress
+	 *            - beginning address to be added to list of token's addresses
+	 * @param endAddress
+	 *            - ending address to be added to list of token's addresses
+	 */
+	final void addOccurrenceNoDup(int begAddress, int endAddress)
+	{
+		boolean found = false;
+		for (int i = 0; i < this.addresses.size(); i += 2)
+		{
+			int b = (Integer) this.addresses.get(i);
+			int e = (Integer) this.addresses.get(i + 1);
+			if (b == begAddress && e == endAddress)
+			{
+				found = true;
+				break;
+			}
+		}
+
+		if (!found)
+		{
+			this.addresses.add(begAddress);
+			this.addresses.add(endAddress);
+		}
+	}
+}

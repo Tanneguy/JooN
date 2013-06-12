@@ -1,0 +1,88 @@
+package net.nooj4nlp.controller.preferencesdialog;
+
+import java.awt.Font;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+
+import net.nooj4nlp.engine.Language;
+import net.nooj4nlp.gui.main.Launcher;
+
+public class UpdateDialogListener {
+
+	private JComboBox cbDefLanguage;
+	private Font TFont;
+	private Font DFont;	
+	private JLabel fText;
+	private JLabel fDic;
+	
+	public UpdateDialogListener(JComboBox cbDefLanguage, Font TFont, Font DFont, JLabel fText, JLabel fDic){
+		this.cbDefLanguage = cbDefLanguage;
+		this.TFont = TFont;
+		this.DFont = DFont;
+		this.fDic = fDic;
+		this.fText = fText;
+	}
+	
+	public void updateFromFormMainPreferences(){
+		// // update all language lists
+		cbDefLanguage.removeAllItems();
+		if (Launcher.preferences.deflanguage == null)
+		{
+		// Debug.WriteLine ("Error: deflanguage == null");
+			return;
+	 	}
+	
+		if (Launcher.projectMode)
+		{
+			for(String lan:Launcher.preferences.languages)
+			{
+				cbDefLanguage.addItem(lan);
+			}
+			cbDefLanguage.setSelectedIndex(0);
+		}
+		else
+		{
+			for(String lan:Language.getAllLanguages())
+			{
+				cbDefLanguage.addItem(lan);
+			}
+			// set default language
+			int index = -1;			
+			for(int i = 0; i < cbDefLanguage.getItemCount(); i++)
+			{
+				if(Launcher.preferences.deflanguage.equalsIgnoreCase((String)cbDefLanguage.getItemAt(i)))
+				{
+					index = i;
+					break;
+				}
+			}			
+	 		if (index != -1)
+	 		{
+	 			cbDefLanguage.setSelectedIndex(index);
+	 		}
+	 	}
+
+	// // update misc
+	// this.cbBackups.Checked = formMain.preferences.multiplebackups;
+	//
+		//update Fonts		
+		Font f = Launcher.preferences.TFont;
+		this.TFont = new Font(f.getName(), f.getStyle(), f.getSize());
+		this.fText.setText(TFont.getName() + ", " + (int) TFont.getSize()); // input font
+		if (TFont.isBold())
+			this.fText.setText(fText.getText() + ", Bold");
+		if (TFont.isItalic())
+			this.fText.setText(fText.getText() + ", Italic");
+		f = Launcher.preferences.DFont;
+		this.DFont = new Font(f.getName(), f.getStyle(), f.getSize());
+		this.fDic.setText(DFont.getName() + ", " + (int) DFont.getSize()); // output font
+		if (DFont.isBold())
+			this.fDic.setText(fDic.getText() + ", Bold");
+		if (DFont.isItalic())
+			this.fDic.setText(fDic.getText() + ", Italic");
+		this.fText.setFont(TFont);
+		this.fDic.setFont(DFont);
+	}
+	
+}

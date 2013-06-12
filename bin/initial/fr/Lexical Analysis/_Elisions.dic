@@ -1,0 +1,54 @@
+# NooJ V3
+# Dictionary
+#
+# Input Language is: fr
+#
+# Alphabetical order is not required.
+#
+# Use inflectional & derivational paradigms' and properties' definition files (.nof or .def), e.g.:
+# Special Command: #use paradigms.nof
+#
+# Special Features: +NW (non-word) +FXC (frozen expression component) +UNAMB (unambiguous lexical entry)
+#                   +FLX= (inflectional paradigm) +DRV= (derivational paradigm)
+#
+# Special Characters: '\' '"' '+' ',' '#' ' '
+#
+## Max Silberztein
+## Ce dictionnaire prend en charge les formes élidés
+## Il contient aussi des entrées spéciales pour traiter les mots contractés
+
+aujourd'hui,ADV+DATE+UNAMB
+c',ce,PRO+PPV+UNAMB+3+m+s
+
+#########################################################
+# "d'" est soit :
+# -- une préposition, ex. "Luc vient d'Arras
+# -- un déterminant, ex. "Luc pense à d'habiles solutions"
+# -- une contraction PREP DET, ex. "Luc rêve d'espace"
+#########################################################
+
+d',de,PREP+UNAMB
+d',de,DET+UNAMB
+d',<de,de,PREP><des,un,DET+m+p>+UNAMB
+d',<de,de,PREP><des,un,DET+f+p>+UNAMB
+
+j',je,PRO+PPV+UNAMB+1+m+s
+jusqu',jusque,PREP+UNAMB
+l',le,DET+m+s+UNAMB
+l',le,DET+f+s+UNAMB
+l',le,PRO+PPV+3+m+s+UNAMB
+l',le,PRO+PPV+3+f+s+UNAMB
+lorsqu',lorsque,CONJS+UNAMB
+m',me,PRO+PPV+UNAMB+1+s
+n',ne,ADV+UNAMB
+presqu',presque,ADV+UNAMB
+puisqu',puisque,CONJS+UNAMB
+qu',que,PRO+UNAMB
+qu',que,CONJS+UNAMB
+quelqu',quelque,DET+UNAMB
+quoiqu',quoique,CONJS+UNAMB
+s',si,CONJS+UNAMB
+s',se,PRO+PPV+3+s+UNAMB
+s',se,PRO+PPV+3+p+UNAMB
+t',te,PRO+PPV+2+s+UNAMB
+t',tu,PRO+PPV+2+s+UNAMB

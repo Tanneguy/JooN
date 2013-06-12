@@ -1,0 +1,104 @@
+# NooJ V2
+# Inflectional/Derivational Description
+#
+# Language is: en
+#
+# Special Characters: '=' '<' '>' '\' '"' '+' '/' '#' ' '
+#
+# Generic Commands:
+# <B>: keyboard Backspace
+# <C>: change Case
+# <D>: Duplicate current char
+# <E>: Empty string
+# <L>: keyboard Left arrow
+# <N>: go to end of Next word form
+# <P>: go to end of Previous word form
+# <R>: keyboard Right arrow
+# <S>: delete/Suppress current char
+# Arguments for commands <B>, <L>, <N>, <P>, <R>, <S>:
+# xx number: repeat xx times
+# W: whole word
+# Examples
+# <R3>: go right 3 times
+# <LW>: go to beg. of word
+#
+# Language-Specific Commands:
+# (None)
+
+
+# Max Silberztein
+# These are paradigms used in the dictionary _Sample.dic
+
+#############################
+# Noun Inflectional Paradigms
+#############################
+
+TABLE = <E>/s | s/p ; # takes an 's' in plural
+
+CLOTH = <E>/s | es/p;
+
+MAN = <E>/m+s | <B2>en/p
+    | <LW>wo/f+s | <B2>en<LW>wo/f+p;
+
+TSAR = <E>/m+s | s/p
+     | ina/f+s | inas/f+p;
+
+##################################
+# Adjective Inflectional Paradigms
+##################################
+
+A = <E>/n ;
+
+AER = <E>/n | er/cp | est/sp ;
+
+###########################
+# Verb Inflection Paradigms
+###########################
+
+BE = <E>/INF | ing/G | en/PP
+   | <BW> (am/PR+s+1 | are/PR+s+2 | is/PR+s+3 | are/PR+p+1 | are/PR+p+2 | are/PR+p+3)
+   | <BW> (was/PT+s+1 | were/PT+s+2 | was/PT+s+3 | were/PT+p+1 | were/PT+p+2 | were/PT+p+3);
+
+DO = <E>/INF | ing/G | ne/PP
+   | <E>/PR+s+1 | <E>/PR+s+2 | es/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+   | <B> (id/PT+s+1 | id/PT+s+2 | id/PT+s+3 | id/PR+p+1 | id/PR+p+2 | id/PR+p+3);
+
+ASK = <E>/INF | ed/PP | ing/G
+    | <E>/PR+1+2+s | <E>/PR+1+2+3+p | s/PR+3+s
+    | ed/PT+1+2+3+s+p;
+
+HAVE = <E>/INF | <B>ing/G | <B2>d/PP
+     | <E>/PR+s+1 | <E>/PR+s+2 | <B2>s/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+     | <B2> (d/PT+s+1 | d/PT+s+2 | d/PT+s+3 | d/PR+p+1 | d/PR+p+2 | d/PR+p+3);
+
+EAT = <E>/INF | ing/G | en/PP
+    | <E>/PR+s+1 | <E>/PR+s+2 | s/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+    | <BW> (ate/PT+s+1 | ate/PT+s+2 | ate/PT+s+3 | ate/PR+p+1 | ate/PR+p+2 | ate/PR+p+3);
+
+HELP = <E>/INF | ing/G | ed/PP
+     | <E>/PR+s+1 | <E>/PR+s+2 | s/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+     | ed/PT+s+1 | ed/PT+s+2 | ed/PT+s+3 | ed/PR+p+1 | ed/PR+p+2 | ed/PR+p+3;
+
+SMILE = <E>/INF | <B>ing/G | d/PP
+      | <E>/PR+s+1 | <E>/PR+s+2 | s/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+      | d/PT+s+1 | d/PT+s+2 | d/PT+s+3 | d/PR+p+1 | d/PR+p+2 | d/PR+p+3;
+
+STEAL = <E>/INF | ing/G | <B3>olen/PP
+      | <E>/PR+s+1 | <E>/PR+s+2 | s/PR+s+3 | <E>/PR+p+1 | <E>/PR+p+2 | <E>/PR+p+3
+      | <B3> (ole/PT+s+1 | ole/PT+s+2 | ole/PT+s+3 | ole/PR+p+1 | ole/PR+p+2 | ole/PR+p+3);
+
+ABOLISH = <E>/INF | ing/G | ed/PP
+        | <E>/PR+1+2+s | <E>/PR+1+2+3+p | es/PR+3+s
+        | ed/PT+1+2+3+s+p;
+
+#############
+# Derivations
+#############
+
+ABLE = able/A ; # e.g. "eat" => "eatable"
+
+ER = er/N ; # e.g. "eat" => "eater"
+
+RE = <LW>re/V; # e.g. "mount" => "remount"
+
+DIS = <LW>dis/V; # e.g. "mount" => "dismount"

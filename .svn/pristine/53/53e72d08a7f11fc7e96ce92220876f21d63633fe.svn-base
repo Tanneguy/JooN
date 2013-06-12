@@ -1,0 +1,149 @@
+package net.nooj4nlp.gui.actions.grammar;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import net.nooj4nlp.controller.GrammarEditorShell.GrammarEditorShellController;
+import net.nooj4nlp.engine.GramType;
+import net.nooj4nlp.gui.shells.GrammarEditorShell;
+
+public class ImportGrammarActionListener implements ActionListener
+{
+
+	private GrammarEditorShell editor;
+	private GrammarEditorShellController controller;
+
+	public ImportGrammarActionListener(GrammarEditorShell shell)
+	{
+		editor = shell;
+		controller = editor.getController();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+//		if (controller.grammar.gramType == GramType.SYNTAX)
+//            openGrfDialog.Filter = "NooJ grammar (*.nog)|*.nog|INTEX Graphs (*.grf)|*.grf";
+//         else if (this.grammar.gramType == GramType.FLX)
+//            openGrfDialog.Filter = "NooJ grammar (*.nof)|*.nof|INTEX Graphs (*.grf)|*.grf";
+//         else if (this.grammar.gramType == GramType.MORPHO)
+//            openGrfDialog.Filter = "NooJ grammar (*.nom)|*.nom|INTEX Graphs (*.grf)|*.grf";
+//         else
+//            openGrfDialog.Filter = "Type Unknown|*.*";
+//         if (openGrfDialog.ShowDialog() != DialogResult.OK) return;
+//
+//         if (openGrfDialog.FilterIndex == 2)
+//         {
+//            // disable language selection and grammar type
+//            int index = formMain.dialogOpengrammar.lbILanguage.Items.IndexOf (this.grammar.ILanguage);
+//            if (index != -1) formMain.dialogOpengrammar.lbILanguage.SelectedIndex = index;
+//            formMain.dialogOpengrammar.lbILanguage.Enabled = false;
+//
+//            index = formMain.dialogOpengrammar.lbOLanguage.Items.IndexOf (this.grammar.OLanguage);
+//            if (index != -1) formMain.dialogOpengrammar.lbOLanguage.SelectedIndex = index;
+//            formMain.dialogOpengrammar.lbOLanguage.Enabled = false;
+//            if (this.grammar.gramType == GramType.FLX)
+//            {
+//               formMain.dialogOpengrammar.bFlex.Enabled = true;
+//               formMain.dialogOpengrammar.bMorpho.Enabled = false;
+//               formMain.dialogOpengrammar.bSyntax.Enabled = false;
+//            }
+//            else if (this.grammar.gramType == GramType.MORPHO)
+//            {
+//               formMain.dialogOpengrammar.bFlex.Enabled = false;
+//               formMain.dialogOpengrammar.bMorpho.Enabled = true;
+//               formMain.dialogOpengrammar.bSyntax.Enabled = false;
+//            }
+//            else // syntax
+//            {
+//               formMain.dialogOpengrammar.bFlex.Enabled = false;
+//               formMain.dialogOpengrammar.bMorpho.Enabled = false;
+//               formMain.dialogOpengrammar.bSyntax.Enabled = true;
+//            }
+//
+//            DialogResult d = formMain.dialogOpengrammar.ShowDialog(); // import morpho graph: select languages
+//            if (d == DialogResult.Cancel) return;
+//            int encodingcode = formMain.dialogOpengrammar.EncodingCode;
+//
+//            // reenable language selection and grammar type
+//            formMain.dialogOpengrammar.lbILanguage.Enabled = true;
+//            formMain.dialogOpengrammar.lbOLanguage.Enabled = true;
+//            formMain.dialogOpengrammar.bFlex.Enabled = true;
+//            formMain.dialogOpengrammar.bMorpho.Enabled = true;
+//            formMain.dialogOpengrammar.bSyntax.Enabled = true;
+//
+//            if (this.grammar.gramType == GramType.FLX)
+//            {
+//               MessageBox.Show ("Will convert all C/D/L/R operators (eg: replace all Ls with <B>, delete :s)","Intex => NooJ Conversion");
+//            }
+//            else if (this.grammar.gramType == GramType.MORPHO)
+//            {
+//               MessageBox.Show ("Will replace all dots with commas (attention: conversions .=>= and .=>. must be done manually)","Intex => NooJ Conversion");
+//            }
+//            else // grm.GramType == GramType.SYNTAX
+//            {
+//               MessageBox.Show ("Will convert symbols <MOT>, <MIN>, <MAJ>, <PRE>, and all dots to commas","Intex => NooJ Conversion");
+//            }
+//
+//            foreach (String fullname in openGrfDialog.FileNames)
+//            {
+//               // look if the graph is already there
+//               String fname = Path.GetFileNameWithoutExtension (fullname);
+//               bool found=false;
+//               do
+//               {
+//                  found=false;
+//                  for (int ig=0;ig<this.grammar.Graphs.Count;ig++)
+//                  {
+//                     Graph g = (Graph) this.grammar.Graphs[ig];
+//                     if (g.Name == fname)
+//                     {
+//                        found = true;
+//                        break;
+//                     }
+//                  }
+//                  if (found)
+//                     fname = fname + "'";
+//               } while (found);
+//
+//               if (!AddIntexGraph (fullname,fname,encodingcode,this.grammar.gramType))
+//               {
+//                  MessageBox.Show ("Cannot import graph " + fullname,"NooJ: Intex graph => NooJ conversion failure");
+//                  // return;
+//               }
+//               else this.Modify("import intex graph",true,false);
+//            }
+//         }
+//         else
+//         {
+//            for(String fullname:openGrfDialog.FileNames)
+//            {
+//               // look if the graph is already there
+//               String fname = Path.GetFileNameWithoutExtension (fullname);
+//               bool found=false;
+//               do
+//               {
+//                  found=false;
+//                  for (int ig=0;ig<this.grammar.Graphs.Count;ig++)
+//                  {
+//                     Graph g = (Graph) this.grammar.Graphs[ig];
+//                     if (g.Name == fname)
+//                     {
+//                        found = true;
+//                        break;
+//                     }
+//                  }
+//                  if (found)
+//                     fname = fname + "'";
+//               } while (found);
+//
+//               controller.addNoojgrammar(fullname,fname,controller.grammar.gramType);
+//               controller.modify("import nooj grammar",true,false);
+//            }
+//         }
+        
+        controller.updateFormHeader();
+		controller.editor.invalidate();
+		controller.editor.repaint();
+	}
+}

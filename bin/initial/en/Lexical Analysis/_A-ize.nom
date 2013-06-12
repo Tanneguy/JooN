@@ -1,0 +1,70 @@
+#OpenNooJ 1.0
+TYPE MORPHOLOGY
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME n
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+42
+"<E>" 20 305 1 2 
+"" 646 275 0 
+"$(Pref" 53 305 1 3 
+"<L>" 102 305 2 4 3 
+"$)" 175 305 2 16 17 
+"<E>" 287 178 4 12 35 37 40 
+"<E>/<$Pref,V\+RenderA\+UNAMB>" 564 305 1 1 
+"american..." 121 25 1 26 
+"french..." 113 629 1 27 
+"=> <american,V\+RenderA\+G>" 606 25 0 
+"=> <french,V\+RenderA\+PR\+3\+s>" 601 629 0 
+"<E>/<INFO\+PR>" 376 146 1 39 
+"ing/<INFO\+G>" 369 58 1 13 
+"<E>" 482 180 1 6 
+"<E>/<INFO\+PP>" 383 228 1 36 
+"<E>/<INFO\+PT>" 383 287 1 36 
+"if" 251 438 1 20 
+"<E>" 211 187 2 18 19 
+"iz" 244 132 1 5 
+"is" 250 232 1 5 
+"<E>" 306 438 4 21 22 31 33 
+"ies/<INFO\+PR\+3\+s>" 373 384 1 23 
+"ying/<INFO\+G>" 374 336 1 23 
+"<E>" 488 438 1 6 
+"<E>/<INFO\+PP>" 398 519 1 32 
+"<E>/<INFO\+PT>" 400 574 1 32 
+"izing" 364 25 0 
+"ifies" 405 629 0 
+"Use special tag <INFO> to add information+at the end of the resulting tag" 617 178 0 
+"<E>/<INFO\+INF>" 387 435 1 34 
+"<E>/<INFO\+PR>" 389 478 1 34 
+"ied" 344 551 2 24 25 
+"<E>" 449 560 1 23 
+"y" 344 462 2 29 30 
+"<E>" 431 451 1 23 
+"ed" 332 264 2 14 15 
+"<E>" 429 265 1 13 
+"e" 333 180 2 11 38 
+"<E>/<INFO\+INF>" 375 195 1 39 
+"<E>" 420 182 1 13 
+"es/<INFO\+PR\+3\+s>" 372 106 1 13 
+"Max Silberztein+This naive grammar has no lexical constraint:+it just matches word forms and produces a corresponding result" 594 716 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#
+frenchifying 

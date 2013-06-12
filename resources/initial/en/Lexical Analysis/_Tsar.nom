@@ -1,0 +1,42 @@
+#OpenNooJ 1.0
+TYPE MORPHOLOGY
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+14
+"c+t/t" 138 185 1 2 
+"" 823 190 0 
+"s+z/s" 204 185 1 3 
+"ar/ar,N\+Hum" 259 185 1 10 
+"s/\+p" 615 223 1 13 
+"<E>/\+s" 617 140 1 13 
+"Max Silberztein+The 16 forms: csar, czar, tsar, tzar, csarine, czarine, tsarine, tzarine,+csars, czars, tsars, tzars, csarines, czarines, tsarines, tzarines+are \"lemmatised\" as tsar" 21 68 0 
+"It is best to give a higher priority+to this grammar than to the general dictionary,+so that the 16 forms will be properly analyzed" 48 360 0 
+"\+Hum : Human Noun+\+m : masculine+\+s : singular+\+p : plural" 491 314 0 
+"<E>" 537 185 2 4 5 
+"<E>" 361 185 2 11 12 
+"ina/\+f" 433 223 1 9 
+"<E>/\+m" 435 140 1 9 
+"<E>/\+UNAMB" 691 190 1 1 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#
+tzarina

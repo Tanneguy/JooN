@@ -1,0 +1,407 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+import javax.swing.JOptionPane;
+
+import net.nooj4nlp.engine.helper.ParameterCheck;
+import net.nooj4nlp.gui.main.Launcher;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+
+/**
+ * This class provides static utility methods for files and directories manipulation.
+ * 
+ * @author Silberztein Max
+ */
+public class Utilities
+{
+	public static final String BACKUP_FOLDER_NAME = "Backup";
+	public static final String PREFERENCES_NOJ_FILE_NAME = "Preferences." + Constants.JNOJ_EXTENSION;
+	public static final String PROJECTS_FOLDER_NAME = "Projects";
+	public static final String SYNTACTIC_ANALYSIS_FOLDER_NAME = "Syntactic Analysis";
+	public static final String LEXICAL_ANALYSIS_FOLDER_NAME = "Lexical Analysis";
+
+	/**
+	 * Copies a directory to a new location.
+	 * <p>
+	 * This method copies the source directory and all its contents to the specified target directory. Sub-directories
+	 * are copied recursively using same method.
+	 * </p>
+	 * 
+	 * @param sourceDirPath
+	 *            source directory path
+	 * @param targetDirPath
+	 *            target directory path
+	 * @param onlyUnderlinedFiles
+	 *            if <code>true</code> update only files with name starting with "_"
+	 * 
+	 * @throws IOException
+	 *             if source directory is invalid
+	 * @throws IOException
+	 *             if source or destination file is invalid
+	 * @throws IOException
+	 *             if an IO error occurs during copying
+	 */
+	public static void xcopy(String sourceDirPath, String targetDirPath, boolean onlyUnderlinedFiles)
+			throws IOException
+	{
+		ParameterCheck.mandatoryString("sourceDirPath", sourceDirPath);
+		ParameterCheck.mandatoryString("targetDirPath", targetDirPath);
+
+		if (sourceDirPath.equals(targetDirPath))
+		{
+			return;
+		}
+
+		File sourceDir = new File(sourceDirPath);
+		if (!sourceDir.isDirectory())
+		{
+			throw new IOException("SourceDir on path '" + sourceDirPath + "' exists but is not a directory");
+		}
+
+		File targetDir = new File(targetDirPath);
+		if (!targetDir.isDirectory())
+		{
+			targetDir.mkdir();
+		}
+
+		// delete all "_" files in target directory
+		if (onlyUnderlinedFiles)
+		{
+			for (File file : targetDir.listFiles())
+			{
+				if (file.isFile())
+				{
+					String fileName = file.getName();
+					if (fileName.length() > 1 && fileName.charAt(0) == '_')
+					{
+						file.delete();
+					}
+				}
+			}
+		}
+
+		// copy files and directories into targetDir
+		for (File sourceFile : sourceDir.listFiles())
+		{
+			String sourceName = sourceFile.getName();
+			File targetFile = new File(targetDir, sourceName);
+
+			if (sourceFile.isFile())
+			{
+				// if targetFile exists
+				if (targetFile.isFile())
+				{
+					// if onlyUnderlinedFiles == false -> update file
+					// if onlyUnderlinedFiles == true -> update only files starting with "_"
+					if (!onlyUnderlinedFiles || (sourceName.length() > 1 && sourceName.charAt(0) == '_'))
+					{
+						// method will overwrite existing file
+						FileUtils.copyFile(sourceFile, targetFile);
+					}
+				}
+				else
+				{
+					FileUtils.copyFile(sourceFile, targetFile);
+				}
+			}
+			// recursive call for sub-directories
+			else if (sourceFile.isDirectory())
+			{
+				xcopy(sourceFile.getPath(), targetFile.getPath(), onlyUnderlinedFiles);
+			}
+		}
+	}
+
+	/**
+	 * Creates NooJ required directories.
+	 */
+	public static void initAllDiskResources() throws IOException
+	{
+		try {
+			// within .jar
+			if (Launcher.class.getResource("Launcher.class").toString().startsWith("jar")) {
+				ZipFile z = new ZipFile(Launcher.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath());
+				Enumeration entries = z.entries();
+				while (entries.hasMoreElements()) {
+					ZipEntry entry = (ZipEntry)entries.nextElement();
+					if (entry.getName().startsWith("initial/") && !entry.getName().equals("initial/"))
+					{
+						String entryName = entry.getName().substring(entry.getName().indexOf('/') + 1);
+						//hack
+						if (entryName.contains("Projects(java)")) {
+							entryName = entryName.replace("Projects(java)", "Projects");
+						}
+						File f = new File(FilenameUtils.concat(Paths.docDir, entryName));
+						if (entry.isDirectory()) {
+							f.mkdir();
+						}
+						else if (!f.exists()) {
+							copyFromJar(entry.getName(), f);
+						}
+					}
+				}
+			}
+			// form eclipse
+			else {
+				String appDirPath = FilenameUtils.concat(FilenameUtils.concat(Paths.applicationDir, "resources"), "initial");
+				String docDirPath = Paths.docDir;
+		
+				File appDir = new File(appDirPath);
+		
+				if (!appDir.isDirectory())
+				{
+					throw new IOException("AppDir on path '" + appDirPath + "' exists but is not a directory");
+				}
+		
+				File docDir = new File(docDirPath);
+		
+				if (!docDir.isDirectory())
+				{
+					throw new IOException("DocDir on path '" + docDirPath + "' exists but is not a directory");
+				}
+		
+				for (File langDir : appDir.listFiles())
+				{
+					if (!langDir.isDirectory())
+					{
+						continue;
+					}
+		
+					String langDirName = langDir.getName();
+		
+					// directory representing special NooJ directory (_App, _Misc): do not xcopy
+					// directory not representing a language: do not xcopy
+					if (langDirName.charAt(0) == '_' || !Language.isALanguage(langDirName))
+					{
+						continue;
+					}
+		
+					// check that appDir\\sourceDirName contains all required sub-directories
+					File lexicalAnalysis = new File(langDir, LEXICAL_ANALYSIS_FOLDER_NAME);
+					if (!lexicalAnalysis.isDirectory())
+					{
+						lexicalAnalysis.mkdir();
+					}
+					File syntacticAnalysis = new File(langDir, SYNTACTIC_ANALYSIS_FOLDER_NAME);
+					if (!syntacticAnalysis.isDirectory())
+					{
+						syntacticAnalysis.mkdir();
+					}
+					File projects = new File(langDir, PROJECTS_FOLDER_NAME + "(java)");
+					if (!projects.isDirectory())
+					{
+						projects.mkdir();
+					}
+		
+					// ensure that docDir\\langDirName exists
+					File docLangDir = new File(docDir, langDirName);
+					if (!docLangDir.isDirectory())
+					{
+						docLangDir.mkdir();
+					}
+		
+					// check that docDir\\langDirName contains all required sub-directories
+					File docLexicalAnalysis = new File(docLangDir, LEXICAL_ANALYSIS_FOLDER_NAME);
+					if (!docLexicalAnalysis.isDirectory())
+					{
+						docLexicalAnalysis.mkdir();
+					}
+					File docSyntacticAnalysis = new File(docLangDir, SYNTACTIC_ANALYSIS_FOLDER_NAME);
+					if (!docSyntacticAnalysis.isDirectory())
+					{
+						docSyntacticAnalysis.mkdir();
+					}
+					File docProjects = new File(docLangDir, PROJECTS_FOLDER_NAME);
+					if (!docProjects.isDirectory())
+					{
+						docProjects.mkdir();
+					}
+		
+					Utilities.xcopy(lexicalAnalysis.getPath(), docLexicalAnalysis.getPath(), true);
+					Utilities.xcopy(syntacticAnalysis.getPath(), docSyntacticAnalysis.getPath(), true);
+					Utilities.xcopy(projects.getPath(), docProjects.getPath(), true);
+				}
+		
+				// copy preferences
+				File appPreferenceFile = new File(appDir, PREFERENCES_NOJ_FILE_NAME);
+				File docPreferenceFile = new File(docDir, PREFERENCES_NOJ_FILE_NAME);
+		
+				if (!docPreferenceFile.isFile())
+				{
+					FileUtils.copyFile(appPreferenceFile, docPreferenceFile);
+				}		
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static boolean copyFromJar(String sResource, File fDest) {
+		if (sResource == null || fDest == null) return false;
+		InputStream sIn = null;
+		OutputStream sOut = null;
+		File sFile = null;
+		try {
+			//fDest.getParentFile().mkdirs();
+			sFile = new File(sResource);
+		}
+		catch(Exception e) {}
+		try {
+			int nLen = 0;
+			sIn = Launcher.class.getClassLoader().getResourceAsStream(sResource);
+			if (sIn == null)
+				throw new IOException("Error copying from jar"  + 
+					"(" + sResource + " to " + fDest.getPath() + ")");
+			sOut = new FileOutputStream(fDest);
+			byte[] bBuffer = new byte[1024];
+			while ((nLen = sIn.read(bBuffer)) > 0)
+				sOut.write(bBuffer, 0, nLen);
+			sOut.flush();
+		}
+		catch(IOException ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			try {
+				if (sIn != null)
+					sIn.close();
+				if (sOut != null)
+					sOut.close();
+			}
+			catch (IOException eError) {
+				eError.printStackTrace();
+			}
+		}
+		return fDest.exists();
+	}
+
+	/**
+	 * Saves previous version of the file.
+	 * 
+	 * <pre>
+	 * "fileName.txt" --&gt; "fileName_002.txt"
+	 * "fileName.txt" --&gt; "fileName_backup.txt"
+	 * </pre>
+	 * 
+	 * @param filePath
+	 *            source file path
+	 * @param multipleBackups
+	 *            if <code>true</code>, saves file appending 3-digit version number to the file name, otherwise only
+	 *            <code>"_backup"</code> string appended
+	 * @throws IOException
+	 *             if source file is invalid
+	 * @throws IOException
+	 *             if an IO error occurs during copying
+	 */
+	public static void savePreviousVersion(String filePath, boolean multipleBackups) throws IOException
+	{
+		File file = new File(filePath);
+		if (file.isFile())
+		{
+			String backupFilePath = getPreviousFilePath(filePath, multipleBackups);
+			File backupFile = new File(backupFilePath);
+
+			if (backupFile.isFile())
+			{
+				backupFile.delete();
+			}
+
+			FileUtils.copyFile(file, backupFile);
+		}
+	}
+
+	/**
+	 * Generates new file path for the version of the file to be saved.
+	 * 
+	 * @param filePath
+	 *            source file path
+	 * @param multipleBackups
+	 *            if <code>true</code> appends next, 3-digit version number to the file name, otherwise only
+	 *            <code>"_backup"</code> string appended
+	 * @return previous version file path
+	 */
+	private static String getPreviousFilePath(String filePath, boolean multipleBackups)
+	{
+		File file = new File(filePath);
+		File backupDir = new File(file.getParent(), BACKUP_FOLDER_NAME);
+		if (!backupDir.isDirectory())
+		{
+			backupDir.mkdir();
+		}
+
+		String fileNameWithoutExtension = FilenameUtils.removeExtension(file.getName());
+		String fileExtension = FilenameUtils.getExtension(filePath);
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(fileNameWithoutExtension);
+
+		if (multipleBackups)
+		{
+			int maxnb = 0;
+
+			for (String f : backupDir.list(new WildcardFileFilter(fileNameWithoutExtension + "_???." + fileExtension)))
+			{
+				int nb = 0;
+				int index = f.lastIndexOf('_');
+				if (index != -1)
+				{
+					String snb = f.substring(index + 1, index + 4);
+					try
+					{
+						nb = Integer.parseInt(snb);
+					}
+					catch (java.lang.Exception e)
+					{
+						nb = 0;
+					}
+				}
+				if (nb > maxnb)
+				{
+					maxnb = nb;
+				}
+			}
+			maxnb++;
+			if (maxnb == 1000)
+			{
+				maxnb = 1;
+			}
+
+			sb.append("_");
+			sb.append(String.format("%03d", maxnb));
+		}
+		else
+		{
+			sb.append("_backup");
+		}
+		sb.append(".");
+		sb.append(fileExtension);
+		File newFile = new File(backupDir, sb.toString());
+
+		return newFile.getPath();
+	}
+}

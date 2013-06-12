@@ -1,0 +1,1020 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.GeneralPath;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import net.nooj4nlp.controller.TextEditorShell.JMftPanel;
+import net.nooj4nlp.engine.helper.PenAttributes;
+
+/**
+ * 
+ * Class represents graph for one text unit (TU)
+ * 
+ */
+public class TuGraph
+{
+	public ArrayList<Double> stPositions; // each state corresponds to a (int) stPosition[istate] in the text unit
+	public ArrayList<ArrayList<TransCell>> transitions; // each state has a (ArrayList) of (TransCell) outgoing
+														// transitions
+
+	// GUI part of this class.
+	private int gHeight = 0; // height of the graph
+	private int gWidth = 0; // width of the graph
+	public int xCoord; // x-coordinate of the current position
+	private int yCoord; // x-coordinate of the current position
+	private int[] stateNumber;
+	private int[] colNumber;
+	private int[] x;
+	private int[] yc;
+	private int lastX;
+	private HashMap<String, PenAttributes<Color, Float>> pen = new HashMap<String, PenAttributes<Color, Float>>();
+	private Font font, font_col;
+	private Color brush, brush_col, brush_sel;
+	public boolean needToBeComputed;
+
+	public int currentFrameX;
+
+	public double selectedAnnotation_relBegAddress;
+	public int selectedAnnotation_tokenId;
+
+	// Shift for column numbers
+	private int shift = 10;
+
+	public TuGraph()
+	{
+		stPositions = new ArrayList<Double>();
+		transitions = new ArrayList<ArrayList<TransCell>>();
+
+		// Initializing pens and brushes
+
+		// To write labels
+		pen.put("pen", new PenAttributes<Color, Float>(Color.BLACK, 1));
+		brush = Color.BLACK;
+
+		// To write selected labels
+		pen.put("pen_sel", new PenAttributes<Color, Float>(Color.RED, 5));
+		brush_sel = Color.RED;
+
+		// To write column position
+		pen.put("pen_col", new PenAttributes<Color, Float>(Color.GRAY, 2));
+		brush_col = Color.BLUE;
+	}
+
+	public void addTransition(double strtPos, int tokenId, double destPos)
+	{
+		int isrc, idst;
+
+		// Computes isrc: index of the state that corresponds to strtpos
+		if (stPositions.indexOf(strtPos) == -1)
+		{
+			stPositions.add(strtPos);
+			isrc = stPositions.lastIndexOf(strtPos);
+
+			transitions.add(new ArrayList<TransCell>());
+		}
+		else
+			isrc = stPositions.indexOf(strtPos);
+
+		// Computes idst: index of the state that corresponds to destpos
+		if (stPositions.indexOf(destPos) == -1)
+		{
+			stPositions.add(destPos);
+			idst = stPositions.lastIndexOf(destPos);
+
+			transitions.add(new ArrayList<TransCell>());
+		}
+		else
+			idst = stPositions.indexOf(destPos);
+
+		// Adds a transition to states[isrc] that goes to idst via tokenId
+		ArrayList<TransCell> trans = transitions.get(isrc);
+		TransCell tr = new TransCell(tokenId, idst);
+
+		boolean found = false;
+
+		for (TransCell ctr : trans)
+		{
+			if (tr.tokenId == ctr.tokenId && tr.dest == ctr.dest)
+			{
+				found = true;
+				break;
+			}
+		}
+
+		if (!found)
+			trans.add(tr);
+	}
+
+	public class TransCell
+	{
+		private int tokenId;
+		private int dest;
+
+		private TransCell(int tokenid, int dst)
+		{
+			tokenId = tokenid;
+			dest = dst;
+		}
+	}
+
+	// mftBackPanel is removed from arguments - not used in the function at all.
+	public void computeXYcoord(JPanel mftPanel, double selectAllAnnotationsAtPosition, int y)
+	{
+		// Default coordinates
+		xCoord = 0;
+
+		if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			xCoord = mftPanel.getWidth() - 1;
+		yCoord = 10 + ((y + 20) / 40) * 40;
+
+		if (stateNumber == null)
+			return;
+
+		for (int iCol = 0; iCol < stateNumber.length; iCol++)
+		{
+			int iState = stateNumber[iCol];
+			int statePos = (int) (100 * stPositions.get(iState));
+
+			// Draw column
+			int x0;
+
+			// Starting column (arrow starts there)
+			if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			{
+				x0 = lastX - x[iCol];
+			}
+			else
+			{
+				x0 = x[iCol];
+			}
+
+			double sp = statePos / 100.0;
+			if (sp == selectAllAnnotationsAtPosition)
+			{
+				if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+				{
+					xCoord = x0 - (this.currentFrameX - mftPanel.getWidth());
+				}
+				else
+				{
+					xCoord = x0 - this.currentFrameX;
+				}
+
+				if (xCoord < 0)
+					xCoord = 0;
+
+				return;
+			}
+		}
+	}
+
+	public void computeCurrentFrameX(double selectAllAnnotationsAtPosition, JPanel mftPanel)
+	{
+		currentFrameX = 0;
+		if (stateNumber == null)
+			return;
+
+		for (int iCol = 0; iCol < stateNumber.length; iCol++)
+		{
+			int iState = stateNumber[iCol];
+			int statePos = (int) (100 * stPositions.get(iState));
+			// ArrayList trans = (ArrayList)(transitions[istate]);
+
+			// draw column
+			int x0;
+
+			// starting column (arrow starts there)
+			if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			{
+				x0 = lastX - x[iCol];
+			}
+			else
+			{
+				x0 = x[iCol];
+			}
+			double sp = statePos / 100.0;
+
+			if (sp == selectAllAnnotationsAtPosition)
+			{
+				if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+				{
+					currentFrameX = ((x0 - 1) / mftPanel.getWidth() + 1) * mftPanel.getWidth();
+				}
+				else
+				{
+					currentFrameX = (x0 / mftPanel.getWidth()) * mftPanel.getWidth();
+				}
+			}
+		}
+		return;
+	}
+
+	public void computeDrawing(ArrayList<Object> annotations, JMftPanel mftPanel, Graphics2D g)
+	{
+		// To write labels
+		font = mftPanel.getFont();
+
+		// To write column position
+		font_col = new Font(mftPanel.getFont().getName(), Font.PLAIN, 8);
+
+		// Compute each column's corresponding MFT state number
+		int nbOfStates = stPositions.size();
+		if (nbOfStates == 0)
+		{
+			stateNumber = null;
+			return;
+		}
+
+		stateNumber = new int[nbOfStates];
+		for (int i = 0; i < nbOfStates; i++)
+			stateNumber[i] = i;
+
+		for (int iCol = 0; iCol < nbOfStates; iCol++)
+		{
+			int si = stateNumber[iCol];
+			int posi = (int) (100 * stPositions.get(si));
+
+			for (int jCol = iCol + 1; jCol < nbOfStates; jCol++)
+			{
+				int sj = stateNumber[jCol];
+				int posj = (int) (100 * stPositions.get(sj));
+				if (posi > posj)
+				{
+					int coltmp = stateNumber[iCol];
+					stateNumber[iCol] = stateNumber[jCol];
+					stateNumber[jCol] = coltmp;
+					si = stateNumber[iCol];
+					posi = (int) (100 * stPositions.get(si));
+				}
+			}
+		}
+
+		// Compute each MFS state's column number
+		colNumber = new int[nbOfStates];
+		for (int iCol = 0; iCol < nbOfStates; iCol++)
+			colNumber[stateNumber[iCol]] = iCol;
+
+		// Compute each column's x-coordinate (from column 0 to nbOfStates-1)
+		x = new int[nbOfStates];
+		for (int icol = 0; icol < nbOfStates; icol++)
+			x[icol] = icol * 20;
+
+		// Shift all columns to the right until everything fits
+		boolean modified = true;
+		while (modified)
+		{
+			modified = false;
+
+			for (int iCol = 0; iCol < nbOfStates; iCol++)
+			{
+				int iState = stateNumber[iCol];
+				ArrayList<TransCell> trans = transitions.get(iState);
+				for (int iTrans = 0; iTrans < trans.size(); iTrans++)
+				{
+					TransCell t = trans.get(iTrans);
+					int tkId = t.tokenId;
+					String lbl0;
+
+					if (tkId < 0 || tkId >= annotations.size())
+					{
+						// Debug.WriteLine("Annotation labeled " + tkId + " is out of [0-" + annotations.Count +
+						// "] range.");
+						lbl0 = "ANNOTATION,ERROR";
+					}
+					else
+						lbl0 = (String) annotations.get(tkId);
+
+					if (lbl0 == null)
+						continue;
+
+					String lbl;
+					String entry = "", lemma = "", category = "";
+					String[] features = null;
+
+					RefObject<String> refEntry = new RefObject<String>(entry);
+					RefObject<String> refLemma = new RefObject<String>(lemma);
+					RefObject<String> refCategory = new RefObject<String>(category);
+					RefObject<String[]> refFeatures = new RefObject<String[]>(features);
+
+					if (!Dic.parseDELAFFeatureArray(lbl0, refEntry, refLemma, refCategory, refFeatures))
+						continue;
+
+					entry = refEntry.argvalue;
+					lemma = refLemma.argvalue;
+					category = refCategory.argvalue;
+					features = refFeatures.argvalue;
+
+					if (category.equals("NW") || (features != null && Dic.lookFor("FXC", features) != null))
+						continue;
+
+					if (lemma.equals("SYNTAX"))
+					{
+						lbl = category + Dic.getRidOfSpecialFeatures(features); // get rid of UNAMB FLX, DRV COLOR, XREF
+					}
+					else
+					{
+						String newFeatures = Dic.getRidOfSpecialFeaturesPlus(features); // get rid of UNAMB FLX, DRV,
+																						// COLOR
+						lbl = lemma + "," + category + newFeatures;
+					}
+
+					int width = measureText(g, lbl, font);
+
+					// Look for jstate (the state that corresponds to dest)
+					int jState = t.dest;
+					int jCol = colNumber[jState];
+					if (jCol == iCol)
+					{
+						// Debug.WriteLine("problem with transition #" + iTrans + " label = " + lbl0);
+						continue;
+					}
+
+					if (width > (x[jCol] - x[iCol]))
+					{
+						// Shift all x's of columns that were right of jcol
+						int oldRightMargin = x[jCol];
+						int newRightMargin = x[iCol] + width + 1;
+						for (int k = 0; k < nbOfStates; k++)
+						{
+							if (x[k] >= oldRightMargin)
+							{
+								x[k] = newRightMargin + (x[k] - oldRightMargin);
+								modified = true;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		lastX = x[stateNumber.length - 1];
+
+		// Sort transitions of each state from longest to shortest
+		for (int iState = 0; iState < nbOfStates; iState++)
+		{
+			ArrayList<TransCell> trans = transitions.get(iState);
+
+			for (int i = 0; i < trans.size(); i++)
+			{
+				for (int j = i + 1; j < trans.size(); j++)
+				{
+					int desI = (int) (100 * stPositions.get(trans.get(i).dest));
+					String labI = (String) annotations.get(trans.get(i).tokenId);
+					int desJ = (int) (100 * stPositions.get(trans.get(j).dest));
+					int tokId = trans.get(j).tokenId;
+					String labJ;
+
+					if (tokId < 0 || tokId >= annotations.size())
+						labJ = "annotation,INVALIDRANGE";
+					else
+						labJ = (String) annotations.get(tokId);
+
+					if ((labI != null && labI.indexOf("XREF=") != -1) || (labJ != null && labJ.indexOf("XREF=") != -1))
+					{
+						if (labI != null && labI.indexOf("XREF=") != -1)
+							continue;
+						else
+						{
+							TransCell tmp = trans.get(i);
+							trans.set(i, trans.get(j));
+							trans.set(j, tmp);
+						}
+					}
+					else if (desI < desJ)
+					{
+						TransCell tmp = trans.get(i);
+						trans.set(i, trans.get(j));
+						trans.set(j, tmp);
+					}
+				}
+			}
+		}
+
+		// Compute the y coordinate of the first transition of each column
+		yc = new int[nbOfStates];
+
+		for (int iCol = 0; iCol < nbOfStates; iCol++)
+		{
+			int iState = stateNumber[iCol];
+			ArrayList<TransCell> trans = (transitions.get(iState));
+			if (yc[iCol] == 0)
+				yc[iCol] = 50;
+
+			for (int iTrans = 0; iTrans < trans.size(); iTrans++)
+			{
+				int curry; // y coordinate of the transition
+				TransCell t = trans.get(iTrans);
+				curry = yc[iCol] + 40 * iTrans;
+
+				// Now block all the following first arrows from icol+1 to t.dest
+				for (int jcol = iCol + 1; jcol < nbOfStates; jcol++)
+				{
+					int jState = stateNumber[jcol];
+					// ArrayList trans2 = (ArrayList)(transitions[jstate]);
+					if ((int) (100 * stPositions.get(t.dest)) > (int) (100 * stPositions.get(jState)))
+					{
+						if (yc[jcol] < curry + 40)
+							yc[jcol] = curry + 40;
+					}
+				}
+			}
+		}
+		gWidth = x[nbOfStates - 1];
+
+		// Compute the height of the mftpanel & adjust mftpanelbackgound auto-scroll
+		gHeight = 0;
+		for (int icol = 0; icol < nbOfStates; icol++)
+		{
+			int iState = stateNumber[icol];
+			ArrayList<TransCell> trans = (transitions.get(iState));
+			if (gHeight < yc[icol] + 40 * trans.size())
+				gHeight = yc[icol] + 40 * trans.size();
+		}
+
+		// // Because of a bug in Mono (MacOSX)
+		// if (gWidth > 15000)
+		// gWidth = 15000;
+
+		mftPanel.setSize(gWidth, gHeight);
+		// scaledown = 1.0F;
+		// if (mftpanel.Size.Width != gWidth)
+		// {
+		// // text unit is too long to be displayed at this size: scale the x coord
+		// scaledown = 1.0F * gWidth / mftpanel.Size.Width;
+		// int previousfontsize = (int) font.Size;
+		// font = new Font(font.FontFamily, (int) (font.Size / scaledown));
+		// scaledown = previousfontsize / font.Size;
+		// mftpanel.Size = new Size ((int) (1.0 * gWidth / scaledown), gHeight);
+		// }
+
+		needToBeComputed = false;
+	}
+
+	public boolean getSelectedAnnotation(int xClick, int yClick, JPanel mftPanel,
+			RefObject<Double> selectAllAnnotationsAtPosition)
+	{
+		if (stateNumber == null) // no annotation
+		{
+			selectAllAnnotationsAtPosition.argvalue = 0.0;
+			return false;
+		}
+
+		int largestX = -1;
+		if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			largestX = mftPanel.getWidth() + 1;
+		int iCol0 = -1;
+
+		for (int iCol = 0; iCol < stateNumber.length; iCol++)
+		{
+			// int istate = stateNumber[icol];
+			// int statePos = (int)(100 * (double)stPositions[istate]);
+			// ArrayList trans = (ArrayList)(transitions[istate]);
+
+			// Starting column (arrow starts there)
+			int colX;
+			if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			{
+				colX = lastX - x[iCol];
+
+				if (colX > currentFrameX)
+					continue;
+
+				if (colX < currentFrameX - mftPanel.getWidth())
+					break;
+
+				int x0 = colX - (currentFrameX - mftPanel.getWidth());// (int)(colx / scaledown);
+
+				if (x0 > xClick)
+				{
+					if (x0 < largestX)
+					{
+						largestX = x0;
+						iCol0 = iCol;
+					}
+				}
+			}
+			else
+			{
+				colX = x[iCol];
+				if (colX < currentFrameX)
+					continue;
+				if (colX > currentFrameX + mftPanel.getWidth())
+					break;
+				int x0 = colX - currentFrameX; // (int)(colx / scaledown);
+				if (x0 < xClick)
+				{
+					if (x0 > largestX)
+					{
+						largestX = x0;
+						iCol0 = iCol;
+					}
+				}
+			}
+		}
+
+		if (iCol0 == -1)
+		{
+			selectAllAnnotationsAtPosition.argvalue = 0.0;
+			return false;
+		}
+
+		int istate0 = stateNumber[iCol0];
+		selectAllAnnotationsAtPosition.argvalue = (double) stPositions.get(istate0);
+		return true;
+	}
+
+	// mftBackPanel is removed from arguments - not used in the function at all.
+	public void draw(ArrayList<Object> annotations, double selectAllAnnotationsAtPosition, JMftPanel mftPanel,
+			Graphics2D g)
+	{
+		// Component needed for repainting the whole graphics.
+		JScrollPane parent = mftPanel.getParentScrollPane();
+
+		// Repaints graphics.
+		g.setColor(parent.getBackground());
+		g.fillRect(0, 0, parent.getWidth(), parent.getHeight());
+
+		computeCurrentFrameX(selectAllAnnotationsAtPosition, mftPanel);
+		selectedAnnotation_relBegAddress = -1.0;
+		selectedAnnotation_tokenId = -1;
+
+		if (stateNumber == null)
+			return;
+
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, mftPanel.getWidth(), gHeight);
+
+		g.setColor(pen.get("pen_col").color);
+		g.setStroke(new BasicStroke(pen.get("pen_col").stroke));
+		g.drawRect(0, 0, mftPanel.getWidth(), gHeight); // g.DrawRectangle(pen_col, 0, 0, gWidth / scaledown, gHeight);
+
+		String colNb;
+		ArrayList<Object> allXRefs = new ArrayList<Object>();
+
+		for (int iCol = 0; iCol < stateNumber.length; iCol++)
+		{
+			int iState = stateNumber[iCol];
+			int statePos = (int) (100 * ((stPositions.get(iState)) + 0.005));
+			ArrayList<TransCell> trans = transitions.get(iState);
+
+			// Draw column
+			int x0;
+
+			// Starting column (arrow starts there)
+			if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+			{
+				x0 = lastX - x[iCol];
+				if (x0 < 0)
+					break;
+				if (x0 > currentFrameX)
+					continue;
+				x0 = x0 - (currentFrameX - mftPanel.getWidth());
+			}
+			else
+			{
+				x0 = x[iCol];
+				if (x0 > currentFrameX + mftPanel.getWidth())
+					break;
+				if (x0 < currentFrameX)
+					continue;
+				x0 = x0 - currentFrameX;
+			}
+
+			double sp = statePos / 100.0;
+			colNb = Integer.toString((int) sp);
+
+			if (sp == selectAllAnnotationsAtPosition)
+			{
+				selectedAnnotation_relBegAddress = sp;
+				g.setColor(pen.get("pen_sel").color);
+				g.setStroke(new BasicStroke(pen.get("pen_sel").stroke));
+				g.drawLine(x0, 0, x0, mftPanel.getHeight()); // g.DrawLine(pen_sel, x0 / scaledown, 0, x0 / scaledown,
+																// mftpanel.Height);
+				if (trans.size() > 0)
+				{
+					g.setColor(brush_sel);
+					g.setFont(font_col);
+					g.drawString(colNb, x0, 0 + shift);
+					// if (trans.Count > 0)
+					// g.DrawString(colNb, font_col, brush_sel, x0 / scaledown, 0);
+				}
+			}
+			else
+			{
+				g.setColor(pen.get("pen_col").color);
+				g.setStroke(new BasicStroke(pen.get("pen_col").stroke));
+				g.drawLine(x0, 0, x0, mftPanel.getHeight()); // g.DrawLine(pen_col, x0 / scaledown, 0, x0 /
+																// scaledown, mftpanel.Height);
+				if (trans.size() > 0)
+				{
+					g.setColor(brush_col);
+					g.setFont(font_col);
+					g.drawString(colNb, x0, 0 + shift);
+					// if (trans.Count > 0)
+					// g.DrawString(colNb, font_col, brush_col, x0 / scaledown, 0);
+				}
+			}
+
+			// Draw transitions
+			for (int it = 0; it < trans.size(); it++)
+			{
+				TransCell t = trans.get(it);
+				int tokenId = t.tokenId;
+
+				// Ending column (arrow stops here)
+				int x1;
+				if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+				{
+					x1 = lastX - x[colNumber[t.dest]];
+					if (x1 < 0)
+						break;
+					x1 = x1 - (currentFrameX - mftPanel.getWidth());
+				}
+				else
+				{
+					x1 = x[colNumber[t.dest]];
+					if (x1 > currentFrameX + mftPanel.getWidth())
+						break;
+					x1 = x1 - currentFrameX;
+				}
+
+				int yt, y;
+
+				y = yc[iCol] + 40 * it; // Arrow position
+				yt = y - 20; // Text position
+
+				String label0;
+
+				if (tokenId < 0 || tokenId >= annotations.size())
+				{
+					// Debug.WriteLine("Annotation labeled " + tokenId + " is out of [0-" + annotations.Count +
+					// "] range.");
+					label0 = "annotations,INVALIDRANGE";
+				}
+				else
+					label0 = (String) annotations.get(tokenId);
+
+				if (label0 == null)
+					continue;
+
+				Color color;
+
+				String entry = "", lemma = "", category = "";
+				String[] features = null;
+
+				RefObject<String> refEntry = new RefObject<String>(entry);
+				RefObject<String> refLemma = new RefObject<String>(lemma);
+				RefObject<String> refCategory = new RefObject<String>(category);
+				RefObject<String[]> refFeatures = new RefObject<String[]>(features);
+
+				if (!Dic.parseDELAFFeatureArray(label0, refEntry, refLemma, refCategory, refFeatures))
+					continue;
+
+				entry = refEntry.argvalue;
+				lemma = refLemma.argvalue;
+				category = refCategory.argvalue;
+				features = refFeatures.argvalue;
+
+				if (category.equals("NW") || (features != null && Dic.lookFor("FXC", features) != null))
+					continue;
+
+				String label;
+				if (lemma.equals("SYNTAX"))
+				{
+					String xref = Dic.lookFor("XREF", features);
+
+					if (category.equals("XREF"))
+					{
+						String cat2 = "", info2 = "";
+
+						RefObject<String> refInfo2 = new RefObject<String>(info2);
+
+						if (!Dic.parseDELAF(label0, refEntry, refLemma, refInfo2))
+							continue;
+
+						info2 = refInfo2.argvalue;
+
+						cat2 = Dic.lookForAtBeg("XREF", info2);
+
+						allXRefs.add(cat2);
+						allXRefs.add(x0);
+						allXRefs.add(y);
+						allXRefs.add(x1);
+
+						color = Color.BLACK;
+
+						if (category.equals("XREF"))
+							label = "...";
+						else
+							label = category + Dic.getRidOfSpecialFeaturesPlus(features);// get rid of UNAMB FLX, DRV
+																							// COLOR XREF
+					}
+					else if (xref != null)
+					{
+						allXRefs.add(xref);
+						allXRefs.add(x0);
+						allXRefs.add(y);
+						allXRefs.add(x1);
+
+						color = Color.BLACK;
+
+						if (category.equals("XREF"))
+							label = "...";
+						else
+							label = category + Dic.getRidOfSpecialFeaturesPlus(features);// get rid of UNAMB FLX, DRV
+																							// XREF
+					}
+					else
+					{
+						color = Color.GREEN;
+						label = category + Dic.getRidOfSpecialFeaturesPlus(features);// get rid of UNAMB FLX, DRV
+					}
+				}
+				else
+				{
+					String xref = Dic.lookFor("XREF", features);
+
+					if (category.equals("XREF") || xref != null)
+					{
+						allXRefs.add(xref);
+						allXRefs.add(x0);
+						allXRefs.add(y);
+						allXRefs.add(x1);
+
+						color = Color.BLACK;
+					}
+					else
+						color = Color.BLACK;
+
+					String newFeatures = Dic.getRidOfSpecialFeaturesPlus(features); // get rid of UNAMB FLX, DRV COLOR
+																					// XREF
+
+					if (category.equals("XREF"))
+						label = "...";
+					else
+						label = Dic.protectComma(lemma) + "," + category + newFeatures;
+				}
+
+				if (color == Color.BLACK)
+				{
+					Color tPen;
+					BasicStroke tStroke;
+					Color tBrush;
+
+					// Draw arrow
+					if (y == yCoord && sp == selectAllAnnotationsAtPosition)
+					{
+						selectedAnnotation_tokenId = tokenId;
+						tPen = pen.get("pen_sel").color;
+						tStroke = new BasicStroke(pen.get("pen_sel").stroke);
+						tBrush = brush_sel;
+					}
+					else
+					{
+						tPen = pen.get("pen").color;
+						tStroke = new BasicStroke(pen.get("pen").stroke);
+						tBrush = brush;
+					}
+
+					g.setColor(tPen);
+					g.setStroke(tStroke);
+					g.drawLine(x0, y, x1, y);// g.DrawLine(tpen, x0 / scaledown, y, x1 / scaledown, y);
+
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+					{
+						g.drawLine(x1 + 10, y - 4, x1, y);// g.DrawLine(tpen, (x1 + 10) / scaledown, y - 4, x1 /
+															// scaledown, y);
+						g.drawLine(x1 + 10, y + 4, x1, y);// g.DrawLine(tpen, (x1 + 10) / scaledown, y + 4, x1 /
+						// scaledown, y);
+					}
+					else
+					{
+						g.drawLine(x1 - 10, y - 4, x1, y);
+						g.drawLine(x1 - 10, y + 4, x1, y);
+					}
+
+					// Draw line
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+					{
+						g.setColor(tBrush);
+						g.setFont(font);
+						g.drawString(label, x1, yt);
+					}
+					else
+					{
+						g.setColor(tBrush);
+						g.setFont(font);
+						g.drawString(label, x0, yt);
+					}
+				}
+				else
+				{
+					Color tPen;
+					BasicStroke tStroke;
+					Color tBrush;
+
+					// Draw arrow
+					if (y == yCoord && sp == selectAllAnnotationsAtPosition)
+					{
+						selectedAnnotation_tokenId = tokenId;
+						tPen = pen.get("pen_sel").color;
+						tStroke = new BasicStroke(pen.get("pen_sel").stroke);
+						tBrush = brush_sel;
+					}
+					else
+					{
+						tPen = color;
+						tStroke = new BasicStroke(2.0F);
+						tBrush = color;
+					}
+
+					g.setColor(tPen);
+					g.setStroke(tStroke);
+					g.drawLine(x0, y, x1, y);
+
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+					{
+						g.drawLine(x1 + 10, y - 4, x1, y);
+						g.drawLine(x1 + 10, y + 4, x1, y);
+					}
+					else
+					{
+						g.drawLine(x1 - 10, y - 4, x1, y);
+						g.drawLine(x1 - 10, y + 4, x1, y);
+					}
+
+					// Draw label
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+					{
+						g.setColor(tBrush);
+						g.setFont(font);
+						g.drawString(label, x1, yt);
+					}
+					else
+					{
+						g.setColor(tBrush);
+						g.setFont(font);
+						g.drawString(label, x0, yt);
+					}
+				}
+			}
+		}
+
+		// Connect all xrefs
+		if (allXRefs.size() > 0)
+		{
+			Color xPen = Color.BLACK;
+			BasicStroke xStroke = new BasicStroke(1.0F);
+
+			for (int ixref = 0; ixref < allXRefs.size(); ixref += 4)
+			{
+				String xrefi = (String) allXRefs.get(ixref);
+				// int xbegi = (int)allxrefs[ixref + 1];
+				int yi = (Integer) allXRefs.get(ixref + 2);
+				int xendi = (Integer) allXRefs.get(ixref + 3);
+
+				for (int jxref = ixref + 4; jxref < allXRefs.size(); jxref += 4)
+				{
+					String xrefj = (String) allXRefs.get(jxref);
+					int xbegj = (Integer) allXRefs.get(jxref + 1);
+					int yj = (Integer) allXRefs.get(jxref + 2);
+					// int xendj = (int)allxrefs[jxref + 3];
+
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.LEFT_TO_RIGHT && xbegj < xendi)
+						continue;
+					if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT && xbegj > xendi)
+						continue;
+
+					if (xrefi == xrefj)
+					{
+						Point pt1, pt2, pt3, pt4;
+						pt1 = new Point(((xendi)), yi);
+						pt4 = new Point((xbegj), yj);
+
+						if (mftPanel.getComponentOrientation() == ComponentOrientation.LEFT_TO_RIGHT)
+						{
+							if (xbegj - xendi > 70)
+							{
+								pt2 = new Point(((xendi + 35)), yi - 35);
+								pt3 = new Point(((xbegj - 35)), yj - 35);
+							}
+							else
+							{
+								pt2 = new Point(((xendi + 10)), yi - 20);
+								pt3 = new Point(((xbegj - 10)), yj - 20);
+							}
+
+							g.setStroke(xStroke);
+							g.setColor(xPen);
+							GeneralPath path = new GeneralPath();
+							path.moveTo(pt1.x, pt1.y);
+							path.curveTo(pt2.x, pt2.y, pt3.x, pt3.y, pt4.x, pt4.y);
+							// g.DrawBezier(xPen, pt1, pt2, pt3, pt4);
+						}
+						else
+						{
+							if (xendi - xbegj > 70)
+							{
+								pt2 = new Point(((xendi - 35)), yi - 35);
+								pt3 = new Point(((xbegj + 35)), yj - 35);
+							}
+							else
+							{
+								pt2 = new Point(((xendi - 10)), yi - 20);
+								pt3 = new Point(((xbegj + 10)), yj - 20);
+							}
+
+							g.setStroke(xStroke);
+							g.setColor(xPen);
+							GeneralPath path = new GeneralPath();
+							path.moveTo(pt4.x, pt4.y);
+							path.curveTo(pt3.x, pt3.y, pt2.x, pt2.y, pt1.x, pt1.y);
+							// g.DrawBezier(xPen, pt4, pt3, pt2, pt1);
+						}
+						break; // display only one arc for the first annotation that was encountered
+					}
+				}
+			}
+		}
+
+		// Draw last column
+		int lastcol = stateNumber.length - 1;
+		if (mftPanel.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT)
+		{
+			g.setStroke(new BasicStroke(pen.get("pen_col").stroke));
+			g.setColor(pen.get("pen_col").color);
+			g.drawLine(lastX - x[lastcol], 0, (lastX - x[lastcol]), mftPanel.getHeight());
+		}
+		else
+		{
+			g.setStroke(new BasicStroke(pen.get("pen_col").stroke));
+			g.setColor(pen.get("pen_col").color);
+			g.drawLine(x[lastcol], 0, x[lastcol], mftPanel.getHeight());
+		}
+
+		// Solves scrolling problem. :)
+		mftPanel.setPreferredSize(new Dimension(mftPanel.getWidth(), mftPanel.getHeight()));
+	}
+
+	/**
+	 * Helper function for calculating text width
+	 * 
+	 * @param g
+	 * @param text
+	 * @param f
+	 * @return
+	 */
+	private int measureText(Graphics2D g, String text, Font f)
+	{
+		Font previousFont = g.getFont();
+
+		// Calculating width for given font
+		g.setFont(f);
+		FontMetrics metrics = g.getFontMetrics();
+
+		// Returning previous font state
+		g.setFont(previousFont);
+
+		return metrics.stringWidth(text);
+	}
+
+	public boolean isNeedToBeComputed()
+	{
+		return needToBeComputed;
+	}
+
+	public void setNeedToBeComputed(boolean needToBeComputed)
+	{
+		this.needToBeComputed = needToBeComputed;
+	}
+
+	public void setTransitions(ArrayList<ArrayList<TransCell>> transitions)
+	{
+		this.transitions = transitions;
+	}
+}

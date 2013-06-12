@@ -1,0 +1,47 @@
+package Nooj;
+
+import java.util.ArrayList;
+
+import net.nooj4nlp.engine.Graph;
+
+public class WoxGraph
+{
+	private String name;
+	private WoxSize size;
+	private int fits;
+	private int[] arrHei, arrWid, arrPosX, arrPosY;
+	private String[] arrLabel;
+	private int[][] arrChild;
+	private ArrayList extraParams;
+
+	public WoxGraph(Graph g)
+	{
+		name = g.name;
+		size = new WoxSize(g.size);
+		fits = g.fits;
+		arrHei = g.getArrHei();
+		arrWid = g.getArrWid();
+		arrPosX = g.getArrPosX();
+		arrPosY = g.getArrPosY();
+		arrLabel = g.getArrLabel();
+		arrChild = g.getArrChild();
+		extraParams = g.getExtraParams();
+	}
+
+	public Graph toGraph()
+	{
+		Graph g = new Graph();
+		g.name = name;
+		g.size = size.toDimension();
+		g.fits = fits;
+		g.setArrHei(arrHei);
+		g.setArrWid(arrWid);
+		g.setArrPosX(arrPosX);
+		g.setArrPosY(arrPosY);
+		g.setArrLabel(arrLabel);
+		g.setArrChild(arrChild);
+		g.setExtraParams(extraParams);
+		return g;
+	}
+
+}

@@ -1,0 +1,696 @@
+package net.nooj4nlp.gui.dialogs.OpenCorpusDialog;
+
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Set;
+
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.border.BevelBorder;
+import javax.swing.event.MouseInputListener;
+import javax.swing.plaf.basic.BasicTableUI;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import net.miginfocom.swing.MigLayout;
+import net.nooj4nlp.controller.ConcordanceShell.ConcordanceOfTokensDigramsListener;
+import net.nooj4nlp.controller.ConcordanceShell.ConcordanceShellController;
+import net.nooj4nlp.controller.CorpusEditorShell.CloseInternalFrameListener;
+import net.nooj4nlp.controller.CorpusEditorShell.CorpusEditorShellController;
+import net.nooj4nlp.controller.CorpusEditorShell.TokensDigramsActionListener;
+import net.nooj4nlp.controller.TextEditorShell.TextEditorShellController;
+import net.nooj4nlp.engine.Constants;
+import net.nooj4nlp.engine.Indexkey;
+import net.nooj4nlp.engine.Language;
+import net.nooj4nlp.engine.Ntext;
+import net.nooj4nlp.engine.helper.BackgroundWorker;
+import net.nooj4nlp.gui.components.ColoredJButtonUI;
+import net.nooj4nlp.gui.main.Launcher;
+import net.nooj4nlp.gui.shells.DictionaryEditorShell;
+
+public class TokensDigramsDialog extends JInternalFrame implements PropertyChangeListener
+{
+	private static final long serialVersionUID = -4781752001731064151L;
+
+	private JTable tableTokensDigrams;
+	private JLabel label;
+	private JButton btnClear, btnSelectAll, btnFilter, btnExport, btnLocateR, btnLocateG, btnLocateP, btnLocateB;
+	private boolean isToken;
+	private boolean isACorpus;
+	private boolean reversedSortingActive = false;
+	private int nbToks;
+	private Ntext myText;
+	private Language lan;
+
+	private CorpusEditorShellController corpusController;
+	private TextEditorShellController textController;
+
+	public TokensDigramsDialog(CorpusEditorShellController corpusController, TextEditorShellController textController,
+			boolean isToken)
+	{
+		super();
+		this.textController = textController;
+		this.corpusController = corpusController;
+
+		if (corpusController != null && corpusController.getShell() != null)
+		{
+			this.isACorpus = true;
+			lan = corpusController.getCorpus().lan;
+		}
+		else
+		{
+			this.isACorpus = false;
+			myText = textController.getMyText();
+			lan = myText.Lan;
+		}
+
+		this.isToken = isToken;
+
+		String titleIndicator;
+		if (isToken)
+			titleIndicator = "Tokens";
+		else
+			titleIndicator = "Digrams";
+
+		if (this.isACorpus)
+			setTitle(titleIndicator + " in " + corpusController.getFullName());
+		else
+			setTitle(titleIndicator + " in " + textController.textName);
+
+		setBounds(130, 130, 450, 450);
+		setIconifiable(true);
+		setMaximizable(true);
+		setResizable(true);
+		setClosable(true);
+		getContentPane().setLayout(new MigLayout("", "[420px]", "[20!, grow][grow][35!, grow]"));
+
+		label = new JLabel("New label");
+		getContentPane().add(label, "cell 0 0,alignx left,aligny top, height ::40");
+
+		String label = "";
+		if (isToken)
+			label = "Tokens";
+		else
+			label = "Digrams";
+
+		DefaultTableModel tableModel = new DefaultTableModel(new Object[] { "Freq", label }, 0);
+		tableTokensDigrams = new JTable(tableModel)
+		{
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int row, int column)
+			{
+				return false;
+			}
+		};
+
+		tableTokensDigrams.setUI(new BasicTableUI()
+		{
+			// Create the mouse listener for the JTable.
+			protected MouseInputListener createMouseInputListener()
+			{
+				return new MouseInputHandler()
+				{
+					// Display frame on double-click
+					public void mouseClicked(MouseEvent e)
+					{
+						if (e.getClickCount() > 1)
+						{
+						}
+					}
+				};
+			}
+		});
+
+		JScrollPane scrollPane1 = new JScrollPane(tableTokensDigrams);
+		scrollPane1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		getContentPane().add(scrollPane1, "cell 0 1,grow");
+
+		btnClear = new JButton("Reset");
+		getContentPane().add(btnClear, "cell 0 2, split 8");
+		btnClear.setActionCommand("Clear");
+
+		btnSelectAll = new JButton("Select all");
+		getContentPane().add(btnSelectAll, "cell 0 2, align left");
+		btnSelectAll.setActionCommand("SelectAll");
+
+		btnFilter = new JButton("Filter");
+		getContentPane().add(btnFilter, "cell 0 2, align left");
+		btnFilter.setActionCommand("Filter");
+
+		btnExport = new JButton("Export");
+		getContentPane().add(btnExport, "cell 0 2, align left");
+		btnExport.setActionCommand("Export");
+
+		btnLocateR = new JButton("N");
+		btnLocateR
+				.setUI(new ColoredJButtonUI(Constants.NOOJ_RED_BUTTON_COLOR, Constants.NOOJ_PRESSED_RED_BUTTON_COLOR));
+		getContentPane().add(btnLocateR, "cell 0 2, align right, grow");
+
+		btnLocateG = new JButton("o");
+		btnLocateG.setUI(new ColoredJButtonUI(Constants.NOOJ_GREEN_BUTTON_COLOR,
+				Constants.NOOJ_PRESSED_GREEN_BUTTON_COLOR));
+		getContentPane().add(btnLocateG, "cell 0 2, align right, grow");
+
+		btnLocateP = new JButton("o");
+		btnLocateP.setUI(new ColoredJButtonUI(Constants.NOOJ_BLUE_BUTTON_COLOR,
+				Constants.NOOJ_PRESSED_BLUE_BUTTON_COLOR));
+		getContentPane().add(btnLocateP, "cell 0 2, align right, grow");
+
+		btnLocateB = new JButton("J");
+		btnLocateB.setUI(new ColoredJButtonUI(Constants.NOOJ_GRAY_BUTTON_COLOR,
+				Constants.NOOJ_PRESSED_GRAY_BUTTON_COLOR));
+		getContentPane().add(btnLocateB, "cell 0 2, align right, grow");
+
+		// Setting listeners
+		this.addInternalFrameListener(new CloseInternalFrameListener(corpusController, this));
+		TokensDigramsActionListener tdListener = new TokensDigramsActionListener(this, isToken);
+		btnClear.addActionListener(tdListener);
+		btnSelectAll.addActionListener(tdListener);
+		btnFilter.addActionListener(tdListener);
+		btnExport.addActionListener(tdListener);
+
+		btnLocateR.addActionListener(new ConcordanceOfTokensDigramsListener(corpusController, textController, this,
+				tableTokensDigrams, isToken));
+		btnLocateG.addActionListener(new ConcordanceOfTokensDigramsListener(corpusController, textController, this,
+				tableTokensDigrams, isToken));
+		btnLocateP.addActionListener(new ConcordanceOfTokensDigramsListener(corpusController, textController, this,
+				tableTokensDigrams, isToken));
+		btnLocateB.addActionListener(new ConcordanceOfTokensDigramsListener(corpusController, textController, this,
+				tableTokensDigrams, isToken));
+
+		// First column needs to be sorted as Integer. Others have default sorting.
+
+		tableTokensDigrams.setAutoCreateRowSorter(false);
+
+		TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tableTokensDigrams.getModel());
+		sorter.setSortable(0, false);
+		sorter.setSortable(1, false);
+		tableTokensDigrams.setRowSorter(sorter);
+
+		InversiveSortActionListener inversiveSort = new InversiveSortActionListener(this, reversedSortingActive, lan);
+		tableTokensDigrams.getTableHeader().addMouseListener(inversiveSort);
+
+		// before closing, clear outside controllers
+		addInternalFrameListener(new TokensDigramsOnCloseEvents(this, inversiveSort));
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt)
+	{
+		if ("progress" == evt.getPropertyName())
+		{
+			int progress = (Integer) evt.getNewValue();
+			Launcher.getStatusBar().getProgressBar().setIndeterminate(false);
+			Launcher.getStatusBar().getProgressBar().setValue(progress);
+		}
+	}
+
+	public boolean isReversedSortingActive()
+	{
+		return reversedSortingActive;
+	}
+
+	public void setReversedSortingActive(boolean reversedSortingActive)
+	{
+		this.reversedSortingActive = reversedSortingActive;
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public void fillInTheTokensDigramsTable(boolean isACorpus)
+	{
+		HashMap<String, Integer> tokensDigramsHashTable;
+		if (isACorpus && isToken)
+		{
+			tokensDigramsHashTable = corpusController.getCorpus().hTokens;
+			fillInCorpusDataHelpFunction(tokensDigramsHashTable, tableTokensDigrams, isToken);
+			nbToks = tokensDigramsHashTable.size();
+		}
+		else if (isACorpus && !isToken)
+		{
+			tokensDigramsHashTable = corpusController.getCorpus().hDigrams;
+			fillInCorpusDataHelpFunction(tokensDigramsHashTable, tableTokensDigrams, isToken);
+			nbToks = tokensDigramsHashTable.size();
+		}
+		else
+		{
+			if (isToken)
+			{
+				tokensDigramsHashTable = myText.hTokens;
+				fillInTextDataHelpFunction(tokensDigramsHashTable, tableTokensDigrams, isToken);
+				nbToks = tokensDigramsHashTable.size();
+			}
+			else
+			{
+				tokensDigramsHashTable = myText.hDigrams;
+				fillInTextDataHelpFunction(tokensDigramsHashTable, tableTokensDigrams, isToken);
+				nbToks = tokensDigramsHashTable.size();
+			}
+		}
+		if (isToken)
+			label.setText(nbToks + " different tokens.");
+		else
+			label.setText(tableTokensDigrams.getModel().getRowCount() + " reoccurring digrams / " + nbToks);
+		// this.lvTok.Columns[0].Width = (int) HeaderWidth.HeaderSize;
+		// this.lvTok.Columns[1].Width = (int) HeaderWidth.LongestItemSize;
+	}
+
+	public void fillInTheData()
+	{
+		if (isToken)
+		{
+			if (isACorpus)
+				this.label.setText("Tokens in corpus: " + corpusController.getFullName());
+			else
+				this.label.setText("Tokens in: " + textController.textName);
+
+			tokenization();
+		}
+		else
+		{
+			if (isACorpus)
+				this.label.setText("Reoc. Digrams in Corpus: " + corpusController.getFullName());
+			else
+				this.label.setText("Reoc. Digrams in Text: " + textController.textName);
+
+			digramization();
+		}
+	}
+
+	private void tokenization()
+	{
+		if (Launcher.backgroundWorking)
+		{
+			JOptionPane.showMessageDialog(Launcher.getDesktopPane(), Constants.ONE_PROCESS_RUNNING_MESSAGE,
+					Constants.ONE_PROCESS_ONLY_CAPTION, JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		Launcher.initialDate = new Date();
+
+		// if (fc.formTokens != null && fc.formTokens.Visible) fc.formTokens.Hide();
+		// if (fc.formDigrams != null && fc.formDigrams.Visible) fc.formDigrams.Hide();
+		// || if (ft.formTokens!= null && ft.formTokens.Visible) ft.formTokens.Hide();
+		if (this.isVisible())
+			this.hide();
+
+		// desactivate all formText/formCorpus operations
+		if (isACorpus)
+			corpusController.desactivateOps();
+		else
+			textController.desactivateOps();
+
+		Launcher.getStatusBar().getBtnCancel().setEnabled(true);
+		Launcher.getStatusBar().getBtnCancel().setForeground(Color.red);
+		Launcher.progressMessage = "Tokenization...";
+		Launcher.getStatusBar().getProgressLabel().setText("Tokenization...");
+
+		if (isACorpus)
+		{
+			// if (this.multithread)
+			// {
+			// // multi-thread
+			// backgroundWorking = true;
+			// this.backgroundWorker.RunWorkerAsync("corpus tokenization");
+			// this.timer1.Start();
+			// }
+			// else
+			{
+				// can only be mono-thread
+				corpusController.computeTokens();
+				fillInTheTokensDigramsTable(this.isACorpus);
+				corpusController.reactivateOps();
+				corpusController.updateTextPaneStats();
+				corpusController.updateResults();
+
+				this.show();
+
+				Date now = new Date();
+				long sec = (now.getTime() - Launcher.initialDate.getTime()) / 1000;
+				Launcher.getStatusBar().getProgressLabel().setText(Long.toString(sec) + " sec");
+				// this.progressLabel.Text = (sec < 5) ? "" : sec.ToString() + " sec";
+			}
+		}
+		else
+		{
+			if (Launcher.multithread)
+			{
+				// multi-thread
+				Launcher.backgroundWorking = true;
+
+				Launcher.backgroundWorker = new BackgroundWorker(BackgroundWorker.TEXT_TOKENIZATION, textController,
+						null, null);
+				Launcher.backgroundWorker.addPropertyChangeListener(this);
+				Launcher.backgroundWorker.execute();
+			}
+			else
+			{
+				textController.computeTokens();
+				fillInTheTokensDigramsTable(this.isACorpus);
+				textController.reactivateOps();
+				textController.updateTextPaneStats();
+				textController.rtbTextUpdate();
+				textController.modify();
+
+				this.show();
+
+				Date now = new Date();
+				long sec = (now.getTime() - Launcher.initialDate.getTime()) / 1000;
+				Launcher.getStatusBar().getProgressLabel().setText(Long.toString(sec) + " sec");
+				// this.progressLabel.Text = (sec < 5) ? "" : sec.ToString() + " sec";
+			}
+		}
+	}
+
+	private void digramization()
+	{
+		if (Launcher.backgroundWorking)
+		{
+			JOptionPane.showMessageDialog(Launcher.getDesktopPane(), Constants.ONE_PROCESS_RUNNING_MESSAGE,
+					Constants.ONE_PROCESS_ONLY_CAPTION, JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		Launcher.initialDate = new Date();
+
+		// if (fc.formDigrams != null && fc.formDigrams.Visible) fc.formDigrams.Hide();
+		// || if (ft.formDigrams != null && ft.formDigrams.Visible) ft.formDigrams.Hide();
+		if (this.isVisible())
+			this.hide();
+
+		// desactivate all formText operations
+		if (isACorpus)
+			corpusController.desactivateOps();
+		else
+			textController.desactivateOps();
+
+		Launcher.getStatusBar().getBtnCancel().setEnabled(true);
+		Launcher.getStatusBar().getBtnCancel().setForeground(Color.red);
+		Launcher.progressMessage = "Indexing Digrams...";
+		Launcher.getStatusBar().getProgressLabel().setText("Indexing Digrams...");
+
+		if (isACorpus)
+		{
+			// if (this.multithread)
+			// {
+			// // multi-thread
+			// backgroundWorking = true;
+			// this.backgroundWorker.RunWorkerAsync ("corpus digramization");
+			// this.timer1.Start();
+			// }
+			// else
+			{
+				// can only be mono-thread
+				corpusController.computeDigrams();
+				fillInTheTokensDigramsTable(isACorpus);
+				corpusController.reactivateOps();
+				corpusController.updateTextPaneStats();
+				corpusController.updateResults();
+
+				this.show();
+
+				Date now = new Date();
+				long sec = (now.getTime() - Launcher.initialDate.getTime()) / 1000;
+				Launcher.getStatusBar().getProgressLabel().setText(Long.toString(sec) + " sec");
+				// this.progressLabel.Text = (sec < 5) ? "" : sec.ToString() + " sec";
+			}
+		}
+		else
+		{
+			if (Launcher.multithread)
+			{
+				// multi-thread
+				Launcher.backgroundWorking = true;
+
+				Launcher.backgroundWorker = new BackgroundWorker(BackgroundWorker.TEXT_DIGRAMIZATION, textController,
+						null, null);
+				Launcher.backgroundWorker.addPropertyChangeListener(this);
+				Launcher.backgroundWorker.execute();
+			}
+			else
+			{
+				// mono-thread
+				textController.computeDigrams();
+				fillInTheTokensDigramsTable(isACorpus);
+				textController.reactivateOps();
+				textController.updateTextPaneStats();
+				textController.rtbTextUpdate();
+				textController.modify();
+
+				this.show();
+
+				Date now = new Date();
+				long sec = (now.getTime() - Launcher.initialDate.getTime()) / 1000;
+				Launcher.getStatusBar().getProgressLabel().setText(Long.toString(sec) + " sec");
+				// this.progressLabel.Text = (sec < 5) ? "" : sec.ToString() + " sec";
+			}
+		}
+	}
+
+	public void fillTheDictionary()
+	{
+		DictionaryEditorShell editor = new DictionaryEditorShell();
+
+		String lang = "";
+		if (isACorpus)
+			lang = corpusController.getCorpus().lan.isoName;
+		else
+			lang = textController.getMyText().LanguageName;
+		editor.getController().initLoad(lang);
+
+		String textLabel;
+		if (isToken)
+			textLabel = "TOKEN";
+		else
+			textLabel = "DIGRAM";
+
+		JTextPane textPane = editor.getTextPane();
+		StringBuilder builder = new StringBuilder(textPane.getText());
+		builder.append("\n");
+
+		DefaultTableModel model = (DefaultTableModel) tableTokensDigrams.getModel();
+		int rowCount = model.getRowCount();
+
+		for (int i = 0; i < rowCount; i++)
+		{
+			builder.append(model.getValueAt(i, 1));
+			builder.append("," + textLabel + "+Freq=");
+			builder.append(model.getValueAt(i, 0));
+			builder.append("\n");
+		}
+		textPane.setText(builder.toString());
+
+		Launcher.getDesktopPane().add(editor);
+		editor.setVisible(true);
+	}
+
+	public void fillInCorpusDataHelpFunction(HashMap<String, Integer> dataTable, JTable previewTable, boolean isToken)
+	{
+		DefaultTableModel tableModel = (DefaultTableModel) previewTable.getModel();
+		tableModel.getDataVector().removeAllElements();
+
+		Set<String> keys = dataTable.keySet();
+		Object[] keysArray = keys.toArray();
+		for (int i = 0; i < keysArray.length; i++)
+		{
+			String token = keysArray[i].toString();
+			Integer freq = dataTable.get(token);
+
+			tableModel = (DefaultTableModel) previewTable.getModel();
+			Object[] obj = new Object[2];
+			obj[0] = freq;
+			obj[1] = token.toString();
+			tableModel.addRow(obj);
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void fillInTextDataHelpFunction(HashMap dataTable, JTable previewTable, boolean isToken)
+	{
+		DefaultTableModel tableModel = (DefaultTableModel) previewTable.getModel();
+		tableModel.getDataVector().removeAllElements();
+
+		for (Object token : dataTable.keySet())
+		{
+			Indexkey indexkey = (Indexkey) dataTable.get(token.toString());
+			int freq = indexkey.addresses.size() / 2;
+			if (!isToken && freq < 2)
+				continue;
+
+			tableModel = (DefaultTableModel) previewTable.getModel();
+			Object[] obj = new Object[2];
+			obj[0] = freq;
+			obj[1] = token.toString();
+			tableModel.addRow(obj);
+		}
+	}
+
+	public void locateOneText(String fileName, Color c, ConcordanceShellController concordanceController)
+	{
+		String textBuffer = myText.buffer;
+		@SuppressWarnings("rawtypes")
+		HashMap theTokensDigrams;
+		JTable tokensDigramsTable;
+		if (isToken)
+		{
+			if (corpusController != null && corpusController.getShell() != null)
+				tokensDigramsTable = corpusController.getShell().getTokensDialog().tableTokensDigrams;
+			else
+				tokensDigramsTable = textController.getTextShell().getTokensDialog().tableTokensDigrams;
+
+			theTokensDigrams = myText.hTokens;
+		}
+
+		else
+		{
+			if (corpusController != null && corpusController.getShell() != null)
+				tokensDigramsTable = corpusController.getShell().getDigramsDialog().tableTokensDigrams;
+			else
+				tokensDigramsTable = textController.getTextShell().getDigramsDialog().tableTokensDigrams;
+
+			theTokensDigrams = myText.hDigrams;
+		}
+
+		int[] selectedDigrams = tokensDigramsTable.getSelectedRows();
+		int selectedDigramsLength = selectedDigrams.length;
+
+		for (int k = 0; k < selectedDigramsLength; k++)
+			selectedDigrams[k] = tokensDigramsTable.convertRowIndexToModel(selectedDigrams[k]);
+
+		DefaultTableModel tableModel = (DefaultTableModel) tokensDigramsTable.getModel();
+
+		if (selectedDigramsLength > 0)
+		{
+			for (int i = 0; i < selectedDigramsLength; i++)
+			{
+				String digram = tableModel.getValueAt(selectedDigrams[i], 1).toString();
+
+				if (!theTokensDigrams.containsKey(digram))
+					continue;
+
+				Indexkey key = (Indexkey) theTokensDigrams.get(digram);
+
+				for (int j = 0; j < key.addresses.size(); j += 2)
+				{
+					int absoluteBeginAddress = (Integer) key.addresses.get(j);
+					int absoluteEndAddress = (Integer) key.addresses.get(j + 1);
+					if (absoluteEndAddress == absoluteBeginAddress) // a virtual token
+					{
+						if (Language.isLetter(textBuffer.charAt(absoluteBeginAddress)))
+						{
+							for (absoluteEndAddress = absoluteBeginAddress; absoluteEndAddress < textBuffer.length()
+									&& Language.isLetter(textBuffer.charAt(absoluteEndAddress)); absoluteEndAddress++)
+								;
+						}
+
+						else
+							absoluteEndAddress++;
+					}
+
+					concordanceController.AddData(myText, fileName, c, -1, absoluteBeginAddress, absoluteEndAddress,
+							null, false, "Selected Tokens");
+				}
+			}
+		}
+		else
+		{
+			if (allAnotationsNegativeConfirmation())
+				return;
+			for (int i = 0; i < tokensDigramsTable.getRowCount(); i++)
+			{
+				String digram = tableModel.getValueAt(i, 1).toString();
+				if (!theTokensDigrams.containsKey(digram))
+					continue;
+				Indexkey key = (Indexkey) theTokensDigrams.get(digram);
+				for (int j = 0; j < key.addresses.size(); j += 2)
+				{
+					int absoluteBeginAddress = (Integer) key.addresses.get(j);
+					int absoluteEndAddress = (Integer) key.addresses.get(j + 1);
+					if (absoluteEndAddress == absoluteBeginAddress) // a virtual token
+					{
+						if (Language.isLetter(textBuffer.charAt(absoluteBeginAddress)))
+						{
+							for (absoluteEndAddress = absoluteBeginAddress; absoluteEndAddress < textBuffer.length()
+									&& Language.isLetter(textBuffer.charAt(absoluteEndAddress)); absoluteEndAddress++)
+								;
+						}
+						else
+							absoluteEndAddress++;
+					}
+					concordanceController.AddData(myText, fileName, c, -1, absoluteBeginAddress, absoluteEndAddress,
+							null, false, "Selected Tokens");
+				}
+			}
+		}
+	}
+
+	private static boolean allAnotationsNegativeConfirmation()
+	{
+		// this string should be localized (as well as every other info displayed to the user)
+		String messageBoxText = "You did not choose specific tokens from the list. "
+				+ "This operation may take a long time to complete. \n\n" + "Are you sure you want to proceed? ";
+
+		int answer = JOptionPane.showConfirmDialog(Launcher.getDesktopPane(), messageBoxText, "Confirm dialog",
+				JOptionPane.YES_NO_OPTION);
+
+		if (answer == JOptionPane.YES_OPTION)
+			return false;
+		else
+			return true;
+	}
+
+	public boolean isACorpus()
+	{
+		return isACorpus;
+	}
+
+	public void setACorpus(boolean isACorpus)
+	{
+		this.isACorpus = isACorpus;
+	}
+
+	public JTable getTableTokensDigrams()
+	{
+		return tableTokensDigrams;
+	}
+
+	public void setTableTokensDigrams(JTable tableTokensDigrams)
+	{
+		this.tableTokensDigrams = tableTokensDigrams;
+	}
+
+	public CorpusEditorShellController getController()
+	{
+		return corpusController;
+	}
+
+	public void setMyText(Ntext myText)
+	{
+		this.myText = myText;
+	}
+
+	public Ntext getMyText()
+	{
+		return myText;
+	}
+
+	public TextEditorShellController getTextController()
+	{
+		return textController;
+	}
+
+	public boolean isToken()
+	{
+		return isToken;
+	}
+}

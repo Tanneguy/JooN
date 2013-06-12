@@ -1,0 +1,391 @@
+/*
+ * This file is part of Nooj. Copyright (C) 2012 Silberztein Max
+ * 
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with this program. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+package net.nooj4nlp.engine;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
+import net.nooj4nlp.engine.helper.ParameterCheck;
+
+import org.apache.commons.io.FilenameUtils;
+
+/**
+ * 
+ * TODO: Change imports for <code>Font</code> and <code>Color</code> classes.
+ * 
+ * Class that controls Preferences of Nooj program
+ * 
+ * @author Silberztein Max
+ * 
+ */
+public class Preferences implements Serializable
+{
+
+	private static final String SYNTACTIC_ANALYSIS = "Syntactic Analysis";
+
+	private static final String LEXICAL_ANALYSIS = "Lexical Analysis";
+
+	private static final long serialVersionUID = -5227627363139361867L;
+
+	public String author;
+	public String institution;
+	public static boolean multiplebackups;
+
+	public String deflanguage; // default input language (no preferences for
+	// output and comment languages)
+	public ArrayList<String> languages; // languages that are implemented in App
+										// & Doc
+	public HashMap<String, ArrayList<String>> ldic; // lexical resources for
+														// each language
+	public HashMap<String, ArrayList<String>> lsyn; // syntactic resources for
+														// each language
+
+	transient public Font TFont, DFont, IFont, OFont, CFont;
+	public String TFontName; // default text font
+	public float TFontSize;
+	public int TFontStyle;
+	public String DFontName; // default dictionary font
+	public float DFontSize;
+	public int DFontStyle;
+	public String IFontName; // default graph input font
+	public float IFontSize;
+	public int IFontStyle;
+	public String OFontName; // default graph output font
+	public float OFontSize;
+	public int OFontStyle;
+	public String CFontName; // default graph comment font
+	public float CFontSize;
+	public int CFontStyle;
+
+	public Color AColor, BColor, CColor, FColor, SColor, VColor;
+	public boolean DispFrame, DispDate, DispFile, DispDir, DispAuthor, DispInstitution, DispState;
+
+	public String openTextDir; // initial directory for open & save texts
+	public String openDicDir; // initial directory for open & save dictionaries
+	public String openGrammarDir; // initial directory for open & save grammars
+	public String openProjDir; // initial directory for open & save projects
+
+	/**
+	 * Constructs new Preferences object based on project directory
+	 * 
+	 * @param projectDirectoryPath
+	 * @throws IOException
+	 */
+	public Preferences(String projectDirectoryPath) throws IOException
+	{
+		ParameterCheck.mandatoryString("projectDirectoryPath", projectDirectoryPath);
+
+		// compute list of languages in project's directory
+		this.languages = new ArrayList<String>();
+		File projectDirectory = new File(projectDirectoryPath);
+		if (!projectDirectory.isDirectory())
+		{
+			throw new IOException("Project directory on path '" + projectDirectory
+					+ "' doesn't exist or it exists but is not a directory");
+		}
+		for (File files : projectDirectory.listFiles())
+		{
+			if (!files.isDirectory())
+			{
+				continue;
+			}
+			String directoryName = files.getName();
+			this.languages.add(directoryName);
+		}
+		// default languagename
+		if (this.languages.size() > 0)
+		{
+			this.deflanguage = languages.get(0);
+		}
+		else
+		{
+			this.deflanguage = null;
+		}
+
+		// load lexical resources from project directory
+		ldic = new HashMap<String, ArrayList<String>>();
+		for (String language : languages)
+		{
+			ArrayList<String> lexicalResources = new ArrayList<String>();
+			File lexicalAnalysisDirectory = new File(new File(projectDirectoryPath, language), LEXICAL_ANALYSIS);
+			if (lexicalAnalysisDirectory.isDirectory())
+			{
+				for (String resource : lexicalAnalysisDirectory.list())
+				{
+					String ext = FilenameUtils.getExtension(resource);
+					if (ext.equals(Constants.JNOD_EXTENSION) || ext.equals("nom")
+							|| ext.equals(Constants.JNOG_EXTENSION))
+					{
+						lexicalResources.add(resource);
+					}
+				}
+			}
+			else
+			{
+				// compatibility with old projects
+				lexicalAnalysisDirectory = new File(projectDirectoryPath, language);
+				if (lexicalAnalysisDirectory.isDirectory())
+				{
+					for (String resource : lexicalAnalysisDirectory.list())
+					{
+						String ext = FilenameUtils.getExtension(resource);
+						if (ext.equals(Constants.JNOD_EXTENSION) || ext.equals("nom"))
+						{
+							lexicalResources.add(resource);
+						}
+					}
+				}
+
+			}
+			ldic.put(language, lexicalResources);
+		}
+
+		// load syntactic resources
+		lsyn = new HashMap<String, ArrayList<String>>();
+		for (String language : languages)
+		{
+			ArrayList<String> syntaticResources = new ArrayList<String>();
+			File syntaticAnalysisDirectory = new File(new File(projectDirectoryPath, language), SYNTACTIC_ANALYSIS);
+			if (syntaticAnalysisDirectory.isDirectory())
+			{
+				for (String resource : syntaticAnalysisDirectory.list())
+				{
+					String ext = FilenameUtils.getExtension(resource);
+					if (ext.equals(Constants.JNOG_EXTENSION))
+					{
+						syntaticResources.add(resource);
+					}
+				}
+			}
+			else
+			{
+				// compatibility with old projects
+				syntaticAnalysisDirectory = new File(projectDirectoryPath, language);
+				if (syntaticAnalysisDirectory.isDirectory())
+				{
+					for (String resource : syntaticAnalysisDirectory.list())
+					{
+						String ext = FilenameUtils.getExtension(resource);
+						if (ext.equals(Constants.JNOG_EXTENSION))
+						{
+							syntaticResources.add(resource);
+						}
+					}
+				}
+
+			}
+			lsyn.put(language, syntaticResources);
+		}
+
+		// various
+		author = null;
+		institution = null;
+		TFont = new Font("Times New Roman", Font.PLAIN, 12);
+		DFont = new Font("Courier New", Font.PLAIN, 11);
+
+		// Graph presentation
+		IFont = new Font("Times New Roman", Font.PLAIN, 12);
+		OFont = new Font("Courier New", Font.BOLD, 12);
+		CFont = new Font("Times New Roman", Font.PLAIN, 12);
+		AColor = Color.YELLOW;
+		BColor = Color.WHITE;
+		CColor = Color.GREEN;
+		FColor = Color.BLACK;
+		SColor = Color.BLUE;
+		VColor = Color.RED;
+		DispFrame = DispDate = DispFile = DispDir = DispAuthor = DispInstitution = true;
+		DispState = false;
+	}
+
+	/**
+	 * Constructs new Preferences object
+	 */
+	public Preferences()
+	{
+		// languagename & resources
+		languages = new ArrayList<String>(Arrays.asList(Language.getAllLanguages()));
+		ldic = new HashMap<String, ArrayList<String>>();
+		lsyn = new HashMap<String, ArrayList<String>>();
+
+		if (languages.size() > 0)
+		{
+			deflanguage = (String) languages.get(0);
+		}
+		else
+		{
+			System.out.println("NooJ: no language is available");
+			deflanguage = null;
+		}
+
+		author = null;
+		institution = null;
+		TFont = new Font("Times New Roman", Font.PLAIN, 12);
+		DFont = new Font("Courier New", Font.PLAIN, 11);
+
+		// Graph presentation
+		IFont = new Font("Times New Roman", Font.PLAIN, 12);
+		OFont = new Font("Courier New", Font.BOLD, 12);
+		CFont = new Font("Times New Roman", Font.PLAIN, 12);
+		AColor = Color.YELLOW;
+		BColor = Color.WHITE;
+		CColor = Color.GREEN;
+		FColor = Color.BLACK;
+		SColor = Color.BLUE;
+		VColor = Color.RED;
+		DispFrame = DispDate = DispFile = DispDir = DispAuthor = DispInstitution = true;
+		DispState = false;
+	}
+
+	/**
+	 * 
+	 * Method deserializes previously saved Preferences object from given file and returns instance or null if error
+	 * occur
+	 * 
+	 * @param fileNamePath
+	 * @return
+	 */
+	public static Preferences Load(String fileNamePath)
+	{
+		ParameterCheck.mandatoryString("fileNamePath", fileNamePath);
+		Preferences preferences = null;
+		FileInputStream fileInputStream = null;
+		ObjectInputStream serializer = null;
+		if ((new File(fileNamePath)).isFile())
+		{
+			try
+			{
+				fileInputStream = new FileInputStream(fileNamePath);
+				serializer = new ObjectInputStream(fileInputStream);
+				preferences = (Preferences) serializer.readObject();
+				fileInputStream.close();
+
+				preferences.TFont = new Font(preferences.TFontName, preferences.TFontStyle, (int) preferences.TFontSize);
+				preferences.DFont = new Font(preferences.DFontName, preferences.DFontStyle, (int) preferences.DFontSize);
+				preferences.IFont = new Font(preferences.IFontName, preferences.IFontStyle, (int) preferences.IFontSize);
+				preferences.OFont = new Font(preferences.OFontName, preferences.OFontStyle, (int) preferences.OFontSize);
+				preferences.CFont = new Font(preferences.CFontName, preferences.CFontStyle, (int) preferences.CFontSize);
+			}
+			catch (Exception e)
+			{
+				System.out.println("NooJ: cannot load preferences from " + fileNamePath + "\n" + e.getMessage());
+			}
+			finally
+			{
+				if (fileInputStream != null)
+				{
+					try
+					{
+						fileInputStream.close();
+					}
+					catch (IOException e)
+					{
+						System.out.println("Error while closing " + fileNamePath);
+					}
+				}
+				if (serializer != null)
+				{
+					try
+					{
+						serializer.close();
+					}
+					catch (IOException e)
+					{
+						System.out.println("Error while closing " + fileNamePath);
+					}
+				}
+			}
+
+		}
+		return preferences;
+	}
+
+	/**
+	 * 
+	 * 
+	 * Method saves current object's state to given file.
+	 * 
+	 * @param fileNamePath
+	 * @throws IOException
+	 */
+	public final void Save(String fileNamePath) throws IOException
+	{
+		ParameterCheck.mandatoryString("fileNamePath", fileNamePath);
+		// Fonts
+		TFontName = TFont.getName();
+		TFontSize = TFont.getSize();
+		TFontStyle = IFont.getStyle();
+		DFontName = DFont.getName();
+		DFontSize = DFont.getSize();
+		DFontStyle = IFont.getStyle();
+
+		IFontName = IFont.getName();
+		IFontSize = IFont.getSize();
+		IFontStyle = IFont.getStyle();
+		OFontName = OFont.getName();
+		OFontSize = OFont.getSize();
+		OFontStyle = OFont.getStyle();
+		CFontName = CFont.getName();
+		CFontSize = CFont.getSize();
+		CFontStyle = CFont.getStyle();
+
+		FileOutputStream fileStream = null;
+		ObjectOutputStream serializer = null;
+		try
+		{
+			fileStream = new FileOutputStream(fileNamePath);
+			serializer = new ObjectOutputStream(fileStream);
+			serializer.writeObject(this);
+			serializer.flush();
+		}
+		catch (RuntimeException e)
+		{
+			System.out.println("NooJ: cannot save preferences in " + fileNamePath + "\n" + e.getMessage());
+		}
+		finally
+		{
+			if (fileStream != null)
+			{
+				try
+				{
+					fileStream.close();
+				}
+				catch (IOException e)
+				{
+					System.out.println("Error while closing " + fileNamePath);
+				}
+			}
+			if (serializer != null)
+			{
+				try
+				{
+					serializer.close();
+				}
+				catch (IOException e)
+				{
+					System.out.println("Error while closing " + fileNamePath);
+				}
+			}
+		}
+	}
+}

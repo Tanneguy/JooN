@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Text Encoding displays how characters are encoded in the computer</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:Calibri;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal>Text Encoding displays how characters are encoded in the
+computer.</p>
+
+<p class=MsoNormal>Computers store and process “bits”, i.e. single bits of
+information that have only two values: 0 or 1. It is easy to represent any
+numerical value with sequences of bits: just convert from our decimal system
+(base 10) into the computer’s binary system (base 2).</p>
+
+<p class=MsoNormal>In the decimal system, each digit position corresponds to a
+power of 10. So for instance, “132” (decimal) corresponds to 1 x 10 x 10 + 3 x
+10 + 2 x 1. In the binary system, it is the same, except that each digit
+position corresponds to a power of 2. For instance, “101” (binary) corresponds
+to 1 x 2 x 2 + 0 x 2 + 1, i.e. “5” (decimal).</p>
+
+<p class=MsoNormal>The hexadecimal system is often used by computer programmers
+because it is easily translated to/from the binary system, while being as
+compact to use as the decimal system.</p>
+
+<p class=MsoNormal>Each text encoding system associates any character with a
+single, unambiguous numerical value.</p>
+
+<p class=MsoNormal>Unicode is now the de facto standard encoding system.</p>
+
+<p class=MsoNormal>There are several ways of representing a given numerical
+value inside the computer:</p>
+
+<p class=MsoNormal>-- one could choose to put the higher weight digits of a
+number to the left (ex. “123” represents one hundred and twenty three), or to
+the right (ex. “123” represents three hundred and twenty one). The first
+notation is called a “Big Endian” notation, whereas the second is called a “Low
+Endian” notation. Some computer chips use Big Endian notation; other chips use
+Low Endian notation.</p>
+
+<p class=MsoNormal>-- one could choose to write all numerical values with a
+fixed number of digits, adding as many “0” as necessary so that codes always
+have the same length. For instance, in a 6-digit notation, the value “97” would
+be represented as “000097”, having the same length as the value “123456”.</p>
+
+<p class=MsoNormal>The advantage of fixed-length notations is that every single
+text character is represented by the same number of bits, which facilitates
+reading and writing texts in computer files. But the disadvantage of fixed-length
+notations is that in practice there are lots and lots of zeroes to read and
+write, which makes files much larger than they need to be. For instance, the
+UNICODE code for letter “a” is 97 (binary value is: 01100001); writing the code
+in a 32-bit notation (i.e. 00000000000000000000000001100001) would just multiply
+by 4 the size required to store the text in a computer file.</p>
+
+<p class=MsoNormal>Check out the different variants of UNICODE at the end of
+the list of text encodings: UTF-32 uses 32 bits for each character, whereas
+UTF8 (used by NooJ) uses only 8 bits to represent an “a” as well as other latin
+characters, whereas it uses more bits (up to 32 bits) to represent other
+characters, such as Chinese characters.</p>
+
+</div>
+
+</body>
+
+</html>

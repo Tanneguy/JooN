@@ -1,0 +1,86 @@
+package net.nooj4nlp.gui.actions.shells.control;
+
+import javax.swing.JMenuBar;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
+
+import net.nooj4nlp.controller.DictionaryEditorShell.DictionaryEditorShellController;
+import net.nooj4nlp.gui.main.Launcher;
+
+/**
+ * 
+ * InternalFrameListener that adds a DICTIONARY menu to the menu bar each time a dictionary editor is activated, and
+ * removes it whenever the editor loses focus
+ * 
+ */
+public class DictionaryCommandInternalFrameListener implements InternalFrameListener
+{
+
+	private JMenuBar menuBar;
+
+	private DictionaryEditorShellController controller;
+
+	public DictionaryCommandInternalFrameListener(DictionaryEditorShellController conroller)
+	{
+		this.controller = conroller;
+	}
+
+	@Override
+	public void internalFrameActivated(InternalFrameEvent e)
+	{
+		// mntmCut = Launcher.getTextCommands().get("Cut");
+		// mntmCopy = Launcher.getTextCommands().get("Copy");
+		// mntmPaste = Launcher.getTextCommands().get("Paste");
+		// mntmSelectAll = Launcher.getTextCommands().get("Select All");
+		//
+		// // Add cut/copy/paste functionality to the current component
+		// mntmCut.addActionListener(new CutActionListener(text));
+		// mntmCopy.addActionListener(new CopyActionListener(text));
+		// mntmPaste.addActionListener(new PasteActionListener(text));
+		// mntmSelectAll.addActionListener(new SelectAllActionListener(text));
+
+		menuBar = Launcher.getMenuBar();
+		controller.getShell().getMnDictionary().setVisible(true);
+		menuBar.add(controller.getShell().getMnDictionary());
+	}
+
+	@Override
+	public void internalFrameClosed(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameClosing(InternalFrameEvent e)
+	{
+		controller.close();
+	}
+
+	@Override
+	public void internalFrameDeactivated(InternalFrameEvent e)
+	{
+		// Clear previous component action listeners
+		// mntmCut.removeActionListener(mntmCut.getActionListeners()[0]);
+		// mntmCopy.removeActionListener(mntmCopy.getActionListeners()[0]);
+		// mntmPaste.removeActionListener(mntmPaste.getActionListeners()[0]);
+		// mntmSelectAll.removeActionListener(mntmSelectAll.getActionListeners()[0]);
+
+		controller.getShell().getMnDictionary().setVisible(false);
+		menuBar.repaint();
+	}
+
+	@Override
+	public void internalFrameDeiconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameIconified(InternalFrameEvent e)
+	{
+	}
+
+	@Override
+	public void internalFrameOpened(InternalFrameEvent e)
+	{
+	}
+
+}

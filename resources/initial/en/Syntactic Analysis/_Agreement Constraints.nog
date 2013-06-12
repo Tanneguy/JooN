@@ -1,0 +1,43 @@
+#OpenNooJ 1.0
+TYPE SYNTAX
+ILANGUAGE en
+OLANGUAGE en
+NUMBEROFGRAPHS 1
+SIZE 1047 763
+SCALE 100
+IFONT Times New Roman:R:12
+OFONT Courier New:B:12
+CFONT Times New Roman:R:12
+AUXICOLOR 65535
+BACKCOLOR 16777215
+COMMCOLOR 32768
+FORECOLOR 0
+SELECOLOR 16711680
+VARCOLOR 255
+DISPFRAME y
+DISPDATE y
+DISPFILENAME y
+DISPDIRNAME y
+#
+#
+Main
+13
+"<E>/<NP" 45 104 1 2 
+"" 704 104 0 
+"$(Det" 88 104 1 4 
+"<N\+p>/<$Det=:DET\+p>" 449 135 1 10 
+"a+this+that+these" 146 104 1 5 
+"$)" 222 104 1 7 
+"<N\+s>/<$Det=:DET\+s>" 451 55 1 10 
+"<E>" 256 104 2 8 9 
+"<A>" 305 57 2 9 8 
+"<E>" 389 104 2 6 3 
+"<E>" 625 104 1 11 
+"<E>/>" 667 104 1 1 
+"Agreement between the determiner and the noun+are enforced by the constraints.+See examples (GRAMMAR > Show Contract)." 57 289 0 
+# NooJ
+# Enter examples, *counter-examples and #comments
+#
+
+a table
+*a tables

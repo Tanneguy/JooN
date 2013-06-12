@@ -1,0 +1,110 @@
+package net.nooj4nlp.gui.dialogs;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JDesktopPane;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
+
+import net.nooj4nlp.controller.PerlRegexDialog.ClearActionListener;
+import net.nooj4nlp.controller.PerlRegexDialog.LocateActionListener;
+
+/**
+ * 
+ * Perl regular expression lab dialog
+ *
+ */
+@SuppressWarnings("serial")
+public class PerlRegexDialog extends JInternalFrame {
+
+	/**
+	 * Creates the frame.
+	 */
+	public PerlRegexDialog(JDesktopPane desktopPane) {
+		setTitle("Perl Lab");
+		setClosable(true);
+		setIconifiable(true);
+		getContentPane().setFont(new Font("Tahoma", Font.BOLD, 18));
+		setBounds(400, 100, 438, 512);
+		getContentPane().setLayout(null);
+		
+		JPanel pnlPattern = new JPanel();
+		pnlPattern.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Pattern is:", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		pnlPattern.setBounds(10, 11, 407, 113);
+		getContentPane().add(pnlPattern);
+		pnlPattern.setLayout(null);
+		
+		ButtonGroup grpPattern = new ButtonGroup();
+		
+		JRadioButton rdbtnString = new JRadioButton("a string of characters:");
+		rdbtnString.setBounds(10, 19, 138, 23);
+		pnlPattern.add(rdbtnString);
+		
+		JRadioButton rdbtnPerl = new JRadioButton("a PERL-style regular expression:");
+		rdbtnPerl.setBounds(10, 45, 187, 23);
+		pnlPattern.add(rdbtnPerl);
+		
+		grpPattern.add(rdbtnPerl);
+		grpPattern.add(rdbtnString);
+		
+		JComboBox comboPattern = new JComboBox();
+		comboPattern.setEditable(true);
+		comboPattern.setBounds(31, 75, 366, 24);
+		pnlPattern.add(comboPattern);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, "Look for Pattern in Text:", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(10, 135, 402, 311);
+		getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBorder(BorderFactory.createLoweredBevelBorder());
+		
+		JScrollPane scrollPane = new JScrollPane(textPane);
+		scrollPane.setBounds(10, 23, 382, 277);
+		panel_1.add(scrollPane);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.setBounds(152, 452, 57, 23);
+		btnClear.addActionListener(new ClearActionListener(textPane));
+		getContentPane().add(btnClear);
+		
+		JButton btnN = new JButton("N");
+		btnN.setName("btnN");
+		btnN.setBackground(Color.RED);
+		btnN.setBounds(219, 452, 46, 23);
+		btnN.addActionListener(new LocateActionListener(textPane, btnN, rdbtnPerl, rdbtnString, comboPattern, desktopPane));
+		getContentPane().add(btnN);
+		
+		JButton btnO = new JButton("O");
+		btnO.setName("btnO");
+		btnO.setBackground(Color.GREEN);
+		btnO.setBounds(268, 452, 46, 23);
+		btnO.addActionListener(new LocateActionListener(textPane, btnO, rdbtnPerl, rdbtnString, comboPattern, desktopPane));
+		getContentPane().add(btnO);
+		
+		JButton btnO_1 = new JButton("O");
+		btnO_1.setName("btnO_1");
+		btnO_1.setBackground(Color.MAGENTA);
+		btnO_1.setBounds(317, 452, 46, 23);
+		btnO_1.addActionListener(new LocateActionListener(textPane, btnO_1, rdbtnPerl, rdbtnString, comboPattern, desktopPane));
+		getContentPane().add(btnO_1);
+		
+		JButton btnJ = new JButton("J");
+		btnJ.setName("btnJ");
+		btnJ.setBackground(Color.BLUE);
+		btnJ.setBounds(366, 452, 46, 23);
+		btnJ.addActionListener(new LocateActionListener(textPane, btnJ, rdbtnPerl, rdbtnString, comboPattern, desktopPane));
+		getContentPane().add(btnJ);
+	}
+}
