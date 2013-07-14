@@ -4,8 +4,10 @@ import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
@@ -92,7 +94,9 @@ public class EnrichActionListener implements ActionListener
 
 		try
 		{
-			BufferedWriter out = new BufferedWriter(new FileWriter(fullname2));
+			
+			
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(	new FileOutputStream(fullname2), "UTF8"));
 			out.write(resultingdictionary);
 			out.close();
 		}

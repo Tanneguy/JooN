@@ -3,7 +3,9 @@ package net.nooj4nlp.controller.DictionaryDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -83,7 +85,7 @@ public class SortActionListener implements ActionListener
 		String fullname2 = dname + fname + "-s." + ext;
 		try
 		{
-			BufferedWriter out = new BufferedWriter(new FileWriter(fullname2));
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fullname2), "UTF8"));
 			out.write(resultingdictionary);
 			out.close();
 		}

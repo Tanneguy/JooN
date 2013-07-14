@@ -13,6 +13,7 @@
  */
 package net.nooj4nlp.engine;
 
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,7 +27,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Stack;
 
+import javax.swing.JOptionPane;
+
 import net.nooj4nlp.engine.helper.ParameterCheck;
+import net.nooj4nlp.gui.main.Launcher;
 
 /**
  * Used for storing dictionary in a finite state transducer
@@ -1358,9 +1362,19 @@ public class FSDic implements Serializable
 		ParameterCheck.mandatory("dics", dics);
 		// transfer each canonical state's buf to dics.bufferl
 		int address = this.computeNeededSize(dics.alphabetlog, dics.infolog, dics.buflog);
-		UnsignedByte[] buf = new UnsignedByte[address];
-		for (int i = 0; i < address; i++)
-			buf[i] = new UnsignedByte();
+	    
+		
+		 UnsignedByte[]buf = new UnsignedByte[address];		
+	 
+		 	try
+		 	{
+		       for (int i = 0; i < address; i++)
+		
+				  buf[i] = new UnsignedByte();
+				
+			 
+		
+		
 		int iad = 0;
 		for (int istate = 0; istate < this.states.size(); istate++)
 		{
@@ -1385,6 +1399,14 @@ public class FSDic implements Serializable
 		this.stateaddress = null;
 
 		return buf;
+			}
+		catch (OutOfMemoryError E) {
+	    	JOptionPane.showMessageDialog(Launcher.getDesktopPane(),
+					"Compilation Stopped.. Insufficient Memory!!!", "NooJ",
+					JOptionPane.ERROR_MESSAGE);
+	    	
+	    	return null;
+	    	}
 	}
 
 	/**
@@ -1409,6 +1431,7 @@ public class FSDic implements Serializable
 
 		try
 		{
+			
 			FileInputStream fs = new FileInputStream(fullname);
 			ObjectInputStream serializer = new ObjectInputStream(fs);
 			dic = (FSDic) serializer.readObject();
@@ -1540,7 +1563,8 @@ public class FSDic implements Serializable
 	 * @throws IOException
 	 */
 	final void save(String fname) throws IOException
-	{
+	{		
+
 		ParameterCheck.mandatoryString("fname", fname);
 		// store everything in Params
 		Params = new HashMap<String, Object>(17);
@@ -1565,13 +1589,17 @@ public class FSDic implements Serializable
 		Params.put("BuffercL", this.buffercl);
 		Params.put("Buflog", this.buflog);
 		Params.put("version", 2.00F);
-
+		
 		FileOutputStream fs = new FileOutputStream(fname);
 		ObjectOutputStream serializer = new ObjectOutputStream(fs);
+		
 		serializer.writeObject(this);
 
 		if (serializer != null)
 			serializer.close();
+		
+			
+		
 	}
 
 	transient String Comments = null;

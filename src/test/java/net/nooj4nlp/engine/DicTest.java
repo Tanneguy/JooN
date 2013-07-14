@@ -210,10 +210,6 @@ public class DicTest
 
 		Assert.assertTrue(Dic.getRule(line, ibuf, category, property, features, errMessage) != -1);
 		Assert.assertNull(errMessage.argvalue);
-		// for (int i = 0; i < features.argvalue.length; i++)
-		// System.out.println(i + ". " + features.argvalue[i]);
-		// System.out.println(category.argvalue + " " + property.argvalue);
-
 		Dic d = new Dic();
 		d.LogFileName = PATH_TO_RESOURCES + "log.txt";
 

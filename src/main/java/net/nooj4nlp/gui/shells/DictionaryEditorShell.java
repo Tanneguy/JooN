@@ -65,7 +65,7 @@ public class DictionaryEditorShell extends JInternalFrame
 	private JMenuItem mntmView;
 	private JMenuItem mntmEnrich;
 	private JMenuItem mntmExport;
-	private JMenuItem mntmCompile;
+	//private JMenuItem mntmCompile;
 
 	private JMenu mnDictionary;
 
@@ -116,7 +116,7 @@ public class DictionaryEditorShell extends JInternalFrame
 		mntmView.addActionListener(new ViewActionListener(controller));
 		mntmEnrich.addActionListener(new EnrichActionListener());
 		mntmExport.addActionListener(new ExportActionListener(controller));
-		mntmCompile.addActionListener(new CompileActionListener(controller));
+		//mntmCompile.addActionListener(new CompileActionListener(controller));
 		table.getTableHeader().addMouseListener(new ColumnHeaderMouseListener(controller));
 
 		setSorters();
@@ -227,8 +227,8 @@ public class DictionaryEditorShell extends JInternalFrame
 		pop.add(mntmExport);
 		mntmExport.setEnabled(false);
 
-		mntmCompile = new JMenuItem("Compile Dictionary");
-		pop.add(mntmCompile);
+		//mntmCompile = new JMenuItem("Compile Dictionary");
+		//pop.add(mntmCompile);
 
 		return pop;
 	}
@@ -288,9 +288,9 @@ public class DictionaryEditorShell extends JInternalFrame
 		mntmExport.setEnabled(false);
 		mntmExport.addActionListener(new ExportActionListener(controller));
 
-		JMenuItem mntmCompile = new JMenuItem("Compile Dictionary");
-		mnDictionary.add(mntmCompile);
-		mntmCompile.addActionListener(new CompileActionListener(controller));
+		//JMenuItem mntmCompile = new JMenuItem("Compile Dictionary");
+		//mnDictionary.add(mntmCompile);
+		//mntmCompile.addActionListener(new CompileActionListener(controller));
 
 		return mnDictionary;
 	}

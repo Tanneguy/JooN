@@ -97,7 +97,7 @@ public class Launcher
 	
 	public static JMenu mnEdit;
 	
-	//public boolean visible=false; 
+	
 	private static JFrame frame;
 	private static JMenuBar menuBar;
 	private static JDesktopPane desktopPane;
@@ -168,6 +168,7 @@ public class Launcher
 	 */
 	public static void main(String[] args)
 	{
+		
 		Arguments = args;
 		try
 		{

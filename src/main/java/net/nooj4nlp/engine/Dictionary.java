@@ -197,6 +197,8 @@ public class Dictionary
 								sr.close();
 							if (sw != null)
 								sw.close();
+							    
+							   
 
 							JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Problem in grammar " + flxname
 									+ ":\n" + errmessage, "NooJ: Cannot handle grammar",
@@ -213,6 +215,7 @@ public class Dictionary
 								"NooJ", JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
 						sw.close();
+						
 						continue;
 					}
 					if (cgrammar.gramType != GramType.FLX)
@@ -254,6 +257,7 @@ public class Dictionary
 					sr.close();
 					// StreamWriter should be closed?
 					sw.close();
+					
 					return false;
 				}
 				else
@@ -264,6 +268,7 @@ public class Dictionary
 					sr.close();
 					// StreamWriter should be closed?
 					sw.close();
+					
 					return false;
 				}
 			}
@@ -276,6 +281,7 @@ public class Dictionary
 					JOptionPane.INFORMATION_MESSAGE);
 			sr.close();
 			sw.close();
+			
 			return false;
 		}
 
@@ -286,6 +292,7 @@ public class Dictionary
 			{
 				sr.close();
 				sw.close();
+			
 				return false;
 			}
 			Launcher.progressMessage = "2/2 Processing Inflection...";
@@ -322,6 +329,7 @@ public class Dictionary
 				{
 					sr.close();
 					sw.close();
+					
 					return false;
 				}
 				int nprogress = (int) (itu * 100.0F / nbOfEntries);
@@ -360,6 +368,7 @@ public class Dictionary
 									JOptionPane.INFORMATION_MESSAGE);
 							sr.close();
 							sw.close();
+							
 							return false;
 						}
 						continue;
@@ -392,6 +401,7 @@ public class Dictionary
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
 						sw.close();
+						
 						return false;
 					}
 					continue;
@@ -404,6 +414,7 @@ public class Dictionary
 					{
 						sr.close();
 						sw.close();
+					
 						JOptionPane.showMessageDialog(Launcher.getDesktopPane(),
 								"Too many errors while trying to compress dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
@@ -421,6 +432,7 @@ public class Dictionary
 				{
 					sr.close();
 					sw.close();
+					
 					JOptionPane.showMessageDialog(Launcher.getDesktopPane(),
 							"Too many errors while trying to compress dictionary", "NooJ: cannot compile",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -592,6 +604,7 @@ public class Dictionary
 	
 		sr.close();
 		sw.close();
+	
 
 		if (nbofinflectedforms > 0)
 			JOptionPane.showMessageDialog(
@@ -737,7 +750,7 @@ public class Dictionary
 					JOptionPane.showMessageDialog(Launcher.getDesktopPane(), "Cannot find file " + flxname,
 							"NooJ: file does not exist", JOptionPane.INFORMATION_MESSAGE);
 					sr.close();
-					return false;
+					return false; 
 				}
 				Grammar cgrammar = null;
 				if ((ext.equals(".def")) || (ext.equals(".DEF")))
@@ -751,6 +764,7 @@ public class Dictionary
 							"In NooJ V4, there is no more support for the obsolete command \"#use properties.def\"",
 							"NooJ V4", JOptionPane.INFORMATION_MESSAGE);
 					sr.close();
+					
 					return false;
 															
 				}
@@ -863,6 +877,7 @@ public class Dictionary
 							+ "\" has an incorrect extension", "NooJ: cannot handle extension " + ext,
 							JOptionPane.INFORMATION_MESSAGE);
 					sr.close();
+					
 					return false;
 				}
 			}
@@ -891,6 +906,7 @@ public class Dictionary
 				else
 				{
 					dics.paradigms.put(paradname, grammar.grams.get(paradname));
+					
 				}
 			}
 		}
@@ -922,9 +938,13 @@ public class Dictionary
 		HashMap<String, Integer> hDicInfos = new HashMap<String, Integer>();
 		ArrayList<String> aDicInfos = new ArrayList<String>();
 		aDicInfos.add("NA"); // so that infonb always > 0
-
+        int err=0;
 		for (String line = sr.readLine(); line != null; line = sr.readLine())
 		{
+			
+			
+			
+			
 			if (line.equals(""))
 				continue;
 			if (line.charAt(0) == '#')
@@ -940,6 +960,7 @@ public class Dictionary
 				if (Launcher.backgroundWorker.isCancellationPending())
 				{
 					sr.close();
+					
 					return false;
 				}
 				int nprogress = (int) (itu * 100.0F / nbOfEntries);
@@ -977,6 +998,7 @@ public class Dictionary
 									"Too many errors (100) while trying to compile dictionary", "NooJ: cannot compile",
 									JOptionPane.INFORMATION_MESSAGE);
 							sr.close();
+							
 							return false;
 						}
 						continue;
@@ -1008,6 +1030,7 @@ public class Dictionary
 								"Too many errors (100) while trying to compile dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
+						
 						return false;
 					}
 					continue;
@@ -1026,6 +1049,7 @@ public class Dictionary
 							"Too many errors (100) while trying to compile dictionary", "NooJ: cannot compile",
 							JOptionPane.INFORMATION_MESSAGE);
 					sr.close();
+					
 					return false;
 				}
 				continue;
@@ -1079,6 +1103,7 @@ public class Dictionary
 								"Too many errors while trying to compile dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
+						
 						return false;
 					}
 					continue;
@@ -1096,6 +1121,7 @@ public class Dictionary
 								"Too many errors while trying to compile dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
+						
 						return false;
 					}
 					nbofinflectedforms++;
@@ -1112,6 +1138,7 @@ public class Dictionary
 								"Too many errors while trying to compile dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
+						
 						return false;
 					}
 					nbofinflectedforms++;
@@ -1156,6 +1183,7 @@ public class Dictionary
 								"Too many errors while trying to compile dictionary", "NooJ: cannot compile",
 								JOptionPane.INFORMATION_MESSAGE);
 						sr.close();
+						
 						return false;
 					}
 					nbofinflectedforms++;
@@ -1188,15 +1216,16 @@ public class Dictionary
 
 					if (grammar == null || grammar.grams == null || !grammar.grams.containsKey(expname))
 					{
-						errMessage.append("* Cannot find derivational rule \"" + expname
-								+ "\" for lexical information:\n" + info);
+						if(err<50)
+						{errMessage.append("* Cannot find derivational rule \"" + expname
+								+ "\" for lexical information:\n" + info);err++;}
 						continue;
 					}
 					Gram grm = grammar.grams.get(expname);
-					if (grm == null)
-					{
-						errMessage.append("* Cannot load derivational rule \"" + expname
-								+ "\" for lexical information:\n" + info);
+				if (grm == null)
+					{if(err<50)
+						{errMessage.append("* Cannot load derivational rule \"" + expname
+								+ "\" for lexical information:\n" + info);err++;}
 						continue;
 					}
 
@@ -1208,7 +1237,8 @@ public class Dictionary
 					outputs = outputsRef.argvalue;
 					if (forms == null || forms.length == 0)
 					{
-						errMessage.append("* Cannot use derivational rule \"" + expname + "\"\n");
+						if (err<50)
+							{errMessage.append("* Cannot use derivational rule \"" + expname + "\"\n");err++;}
 						continue;
 					}
 
@@ -1241,16 +1271,17 @@ public class Dictionary
 						else
 						{
 							if (grammar == null || grammar.grams == null || !grammar.grams.containsKey(flxname))
-							{
-								errMessage.append("* Cannot find inflectional rule \"" + expname
-										+ "\" for lexical entry:\n" + line);
+							{if(err<50)
+								{errMessage.append("* Cannot find inflectional rule \"" + expname
+										+ "\" for lexical entry:\n" + line);err++;}
 								continue;
 							}
 							Gram grm2 = grammar.grams.get(flxname);
 							if (grm2 == null)
 							{
-								errMessage.append("* Cannot find inflectional rule \"" + expname
-										+ "\" for lexical entry:\n" + line);
+								if(err<50)
+								{errMessage.append("* Cannot find inflectional rule \"" + expname
+									+ "\" for lexical entry:\n" + line);err++;}
 								continue;
 							}
 							String[] dforms = null, doutputs = null;
@@ -1261,7 +1292,8 @@ public class Dictionary
 							doutputs = doutputsRef.argvalue;
 							if (dforms == null || dforms.length == 0)
 							{
-								errMessage.append("* Cannot use rule \"" + flxname + "\"");
+								if(err<50)
+								{errMessage.append("* Cannot use rule \"" + flxname + "\"");err++;}
 								continue;
 							}
 							for (int i2res = 0; i2res < dforms.length; i2res++)
@@ -1283,11 +1315,18 @@ public class Dictionary
 								}
 								nbofinflectedforms++;
 							}
+							
+							
 						}
+						
 					}
+					
 				}
+				
 			}
+		
 		}
+		
 		sr.close();
 		Dic.writeLog(" > " + itu + " entries, " + nbofinflectedforms + " forms, (" + dics.states.size() + "/"
 				+ dicsLemma.states.size() + ", " + dicc.states.size() + "/" + diccLemma.states.size() + ") states, "
@@ -1350,10 +1389,14 @@ public class Dictionary
 
 		FSDic.computeAllLogs(dics, dicc, dicsLemma, diccLemma);
 		dics.buffer = dics.toBinary(dics);
+		if (dics.buffer==null)
+			return false;
 		dics.bufferc = dicc.toBinary(dics);
 		dics.bufferl = dicsLemma.toBinary(dics);
 		dics.buffercl = diccLemma.toBinary(dics);
-		dics.toBinaryAlphabetInfobitstable();
+	    dics.toBinaryAlphabetInfobitstable();
+		
+
 
 		// save the result in Lexical Analysis instead of in the current directory
 		String dnamelex = FilenameUtils.concat(Paths.docDir, FilenameUtils.concat(lan.isoName, "Lexical Analysis"));

@@ -4,10 +4,13 @@ package net.nooj4nlp.engine;
 public class UnsignedByte implements java.io.Serializable
 {
 	private byte b;
+	
 
 	public UnsignedByte()
 	{
-		super();
+				
+	super();
+		
 	}
 
 	public static final int MAX_VALUE = 255;

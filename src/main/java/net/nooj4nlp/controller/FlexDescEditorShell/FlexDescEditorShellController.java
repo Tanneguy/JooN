@@ -6,9 +6,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
@@ -318,7 +320,7 @@ public class FlexDescEditorShellController
 		BufferedWriter writer = null;
 		try
 		{
-			writer = new BufferedWriter(new FileWriter(fullname));
+			writer=new BufferedWriter(new OutputStreamWriter(	new FileOutputStream(fullname), "UTF8"));
 			writer.write(textPane.getText());
 		}
 		catch (IOException e)

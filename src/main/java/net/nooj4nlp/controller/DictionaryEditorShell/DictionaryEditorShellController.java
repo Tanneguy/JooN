@@ -1237,7 +1237,7 @@ public class DictionaryEditorShellController
 		BufferedWriter sw = null;
 		try
 		{
-			sw = new BufferedWriter(new FileWriter(fullname));
+			sw = new BufferedWriter(new OutputStreamWriter(	new FileOutputStream(fullname), "UTF8"));
 			sw.write(table.getColumnName(0));
 			for (int i = 1; i < table.getColumnCount(); i++)
 			{
